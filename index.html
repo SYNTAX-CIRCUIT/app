@@ -366,11 +366,11 @@
         </section>
 
         <!-- Contact Us Section -->
-       <section id="contact">
+     <section id="contact">
     <div class="container">
         <h2 class="section-title">Contact Us</h2>
         <p>Have any questions? Feel free to reach out!</p>
-        <form id="contactForm">
+        <form action="https://formspree.io/f/xgeqndjd" method="POST">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <input type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -387,40 +387,6 @@
         </form>
     </div>
 </section>
-
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent default form submission
-
-        const form = e.target;
-        const formData = new FormData(form);
-
-        // Convert FormData to JSON
-        const jsonData = {};
-        formData.forEach((value, key) => jsonData[key] = value);
-
-        fetch('https://formspree.io/f/xgeqndjd', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(jsonData)
-        })
-        .then(response => {
-            if (response.ok) {
-                document.getElementById('formMessage').textContent = "Thank you! Your message has been sent.";
-                form.reset(); // Clear the form after successful submission
-            } else {
-                document.getElementById('formMessage').textContent = "Oops! There was a problem submitting your form.";
-            }
-        })
-        .catch(error => {
-            document.getElementById('formMessage').textContent = "There was an error submitting the form. Please try again later.";
-            console.error("Form submission error:", error);
-        });
-    });
-</script>
 
 
         <!-- Footer -->
