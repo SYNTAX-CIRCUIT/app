@@ -5,67 +5,291 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* Custom styles for the Contact Us page */
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff99cc, #66ccff);
+            margin: 0;
+            padding: 0;
         }
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+
         .contact-section {
-            padding: 40px 0;
+            padding: 80px 0;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
-        footer {
-            background-color: #f8f9fa;
+
+        .section-title {
             text-align: center;
-            padding: 20px 0;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
+
+        .form-label i {
+            margin-right: 10px;
         }
+
+        /* Form Styling */
+        .contact-section form {
+            background: linear-gradient(135deg, #ffcc66, #66ff66);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            border-color: #ff6600;
+            box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+        }
+
+        .form-check-input:checked {
+            background-color: #ff6600;
+            border-color: #ff6600;
+        }
+
+        .form-check-label {
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #ff6600;
+            border-color: #ff6600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e65c00;
+            border-color: #e65c00;
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+        }
+
+        /* Hover Effects */
+        .form-control:hover {
+            border-color: #e65c00;
+            box-shadow: 0 0 10px rgba(230, 92, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        /* Message Display */
+        .alert {
+            display: none;
+            font-size: 1rem;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .alert-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .alert-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 50px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .form-label i {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Social Icons Section */
+        .social-icons a {
+            margin: 0 15px;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+            color: #ff6600;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .social-icons .fa-facebook { color: #3b5998; }
+        .social-icons .fa-instagram { color: #e4405f; }
+        .social-icons .fa-whatsapp { color: #25d366; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Student Services</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Final Year Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Contact Us Section with Google Form -->
-    <section class="contact-section">
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-section">
         <div class="container">
-            <h2>Contact Us</h2>
-            <p class="lead text-center">We'd love to hear from you! Please fill out the form below to get in touch.</p>
- 
-            <!-- Google Form Embed -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdmjjGzxvMSadzzdDM_2-Px2DTOhLeOULC2LjeLigiqt7GULg/viewform?embedded=true" width="640" height="1186" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="text-center">We'd love to hear from you. Reach out with any questions or requests!</p>
+
+            <form id="contactForm" class="p-4 bg-light shadow rounded">
+                <div class="row">
+                    <!-- Name Field -->
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">
+                            <i class="fas fa-user"></i> Your Name
+                        </label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+
+                    <!-- WhatsApp Number Field -->
+                    <div class="col-md-6 mb-3">
+                        <label for="whatsapp" class="form-label">
+                            <i class="fas fa-phone"></i> WhatsApp Number
+                        </label>
+                        <input type="tel" id="whatsapp" name="whatsapp" class="form-control" placeholder="Enter your WhatsApp number" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Email Field -->
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i> Your Email
+                        </label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+
+                    <!-- Purpose Radio Buttons -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-clipboard-list"></i> Purpose
+                        </label>
+                        <div class="form-check">
+                            <input type="radio" name="purpose" value="courses" class="form-check-input" id="courses" required>
+                            <label class="form-check-label" for="courses">Courses</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="purpose" value="tuitions" class="form-check-input" id="tuitions">
+                            <label class="form-check-label" for="tuitions">Tuitions</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="purpose" value="final_year_projects" class="form-check-input" id="final_year_projects">
+                            <label class="form-check-label" for="final_year_projects">Final Year Projects</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="purpose" value="other" class="form-check-input" id="other">
+                            <label class="form-check-label" for="other">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reason Text Area (Displayed for 'Other') -->
+                <div class="mb-3" id="otherReasonContainer" style="display: none;">
+                    <label for="reason" class="form-label">
+                        <i class="fas fa-comment-dots"></i> Specify Your Reason
+                    </label>
+                    <textarea id="reason" name="reason" class="form-control" rows="3" placeholder="Please specify your reason"></textarea>
+                </div>
+
+                <!-- Message Field -->
+                <div class="mb-3">
+                    <label for="message" class="form-label">
+                        <i class="fas fa-comments"></i> Your Message
+                    </label>
+                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </div>
+            </form>
+
+            <!-- Message Display -->
+            <div id="formResponse" class="mt-3 text-center alert" role="alert"></div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Student Services. All Rights Reserved.</p>
-    </footer>
+    <!-- Social Media Icons -->
+    <div class="text-center social-icons mt-5">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/11234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
 
+    <!-- JavaScript for AJAX Submission and Dynamic Reason Field -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Show/hide the reason field
+            document.querySelectorAll('input[name="purpose"]').forEach((radio) => {
+                radio.addEventListener('change', function () {
+                    const reasonContainer = document.getElementById('otherReasonContainer');
+                    reasonContainer.style.display = this.value === 'other' ? 'block' : 'none';
+                });
+            });
+
+            // Handle form submission via AJAX
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+
+                // Gather form data
+                const formData = new FormData(contactForm);
+
+                // AJAX Request
+                fetch('https://formspree.io/f/xgeqndjd', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    const responseMessage = document.getElementById('formResponse');
+                    if (response.ok) {
+                        responseMessage.style.display = 'block';
+                        responseMessage.className = 'alert alert-success';
+                        responseMessage.textContent = 'Your message has been sent successfully!';
+                        contactForm.reset(); // Reset the form
+                    } else {
+                        responseMessage.style.display = 'block';
+                        responseMessage.className = 'alert alert-danger';
+                        responseMessage.textContent = 'There was an error sending your message. Please try again.';
+                    }
+                })
+                .catch(error => {
+                    const responseMessage = document.getElementById('formResponse');
+                    responseMessage.style.display = 'block';
+                    responseMessage.className = 'alert alert-danger';
+                    responseMessage.textContent = 'An unexpected error occurred. Please try again later.';
+                });
+            });
+        });
+    </script>
+
+    <!-- Bootstrap and Font Awesome -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
