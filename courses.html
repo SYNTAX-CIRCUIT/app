@@ -5,83 +5,250 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* Custom styles for the courses page */
         body {
             font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
         }
         h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: #343a40;
         }
         .card {
             margin-bottom: 20px;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .course-card {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            transition: background 0.3s ease;
+        }
+        .course-card:hover {
+            background: linear-gradient(135deg, #e00ea1 0%, #6a11cb 100%);
+        }
+        .course-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
         footer {
-            background-color: #f8f9fa;
+            background-color: #343a40;
+            color: white;
             text-align: center;
             padding: 20px 0;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Student Services</a>
+            <a class="navbar-brand" href="index.html">Syntax Circuit</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
                     <li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
                     <li class="nav-item"><a class="nav-link" href="projects.html">Final Year Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Courses Section -->
+
     <section class="py-5">
         <div class="container">
             <h2>Our Courses</h2>
             <div class="row">
-                <!-- Course 1 -->
+                <!-- Courses -->
                 <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/course1.jpg" class="card-img-top" alt="Course Image">
+                    <div class="card course-card text-center">
                         <div class="card-body">
-                            <h5 class="card-title">BSc Computer Science</h5>
-                            <p class="card-text">Learn the foundations of computer science with expert instructors.</p>
-                            <a href="#" class="btn btn-primary">Enroll Now</a>
+                            <div class="course-icon"><i class="fab fa-python"></i></div>
+                            <h5>Python Programming</h5>
+                            <p>Learn Python from basics to advanced levels.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Course 2 -->
                 <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/course2.jpg" class="card-img-top" alt="Course Image">
+                    <div class="card course-card text-center">
                         <div class="card-body">
-                            <h5 class="card-title">MSc Computer Science</h5>
-                            <p class="card-text">Advanced studies in computer science for in-depth knowledge.</p>
-                            <a href="#" class="btn btn-primary">Enroll Now</a>
+                            <div class="course-icon"><i class="fab fa-js"></i></div>
+                            <h5>JavaScript Development</h5>
+                            <p>Master JavaScript for modern web development.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Course 3 -->
                 <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/course3.jpg" class="card-img-top" alt="Course Image">
+                    <div class="card course-card text-center">
                         <div class="card-body">
-                            <h5 class="card-title">BTech Computer Science</h5>
-                            <p class="card-text">Hands-on learning for engineering students in computer science.</p>
-                            <a href="#" class="btn btn-primary">Enroll Now</a>
+                            <div class="course-icon"><i class="fab fa-html5"></i></div>
+                            <h5>HTML & CSS</h5>
+                            <p>Build stunning websites with HTML and CSS.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fas fa-database"></i></div>
+                            <h5>SQL Databases</h5>
+                            <p>Learn how to design and query databases effectively.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fab fa-java"></i></div>
+                            <h5>Java Full Stack</h5>
+                            <p>Develop full-stack applications using Java.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fab fa-react"></i></div>
+                            <h5>React JS</h5>
+                            <p>Build interactive UIs with React.js.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fas fa-robot"></i></div>
+                            <h5>Artificial Intelligence</h5>
+                            <p>Understand AI concepts and techniques.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fas fa-brain"></i></div>
+                            <h5>Data Science</h5>
+                            <p>Analyze and visualize data with modern tools.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fab fa-aws"></i></div>
+                            <h5>AWS Cloud Computing</h5>
+                            <p>Master AWS cloud services and solutions.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fas fa-lock"></i></div>
+                            <h5>Cybersecurity</h5>
+                            <p>Learn how to secure systems and networks.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fab fa-linux"></i></div>
+                            <h5>Linux Administration</h5>
+                            <p>Manage Linux systems like a pro.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fab fa-git"></i></div>
+                            <h5>Version Control with Git</h5>
+                            <p>Master Git for collaborative development.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fas fa-cloud"></i></div>
+                            <h5>Google Cloud</h5>
+                            <p>Learn Google Cloud Platform services.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <h5>Mobile App Development</h5>
+                            <p>Create Android and iOS applications.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fab fa-node-js"></i></div>
+                            <h5>Node.js Backend</h5>
+                            <p>Build server-side applications with Node.js.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fab fa-docker"></i></div>
+                            <h5>Docker Essentials</h5>
+                            <p>Learn containerization with Docker.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fas fa-pen-nib"></i></div>
+                            <h5>Content Writing</h5>
+                            <p>Improve your professional writing skills.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-card text-center">
+                        <div class="card-body">
+                            <div class="course-icon"><i class="fas fa-chart-line"></i></div>
+                            <h5>SEO & Digital Marketing</h5>
+                            <p>Master marketing strategies for the digital world.</p>
+                            <a href="#" class="btn btn-light mt-3">Enroll</a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +259,6 @@
     <footer>
         <p>&copy; 2024 Student Services. All Rights Reserved.</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
