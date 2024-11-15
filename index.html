@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering Students in Computer Science - Syntax Circuit</title>
+    <meta name="description" content="Syntax Circuit offers high-quality courses, personalized tutoring, and final-year project guidance for computer science students.">
+    <meta name="keywords" content="Computer Science, Online Courses, Tutoring, Final Year Projects, Syntax Circuit, Programming, Data Science, Web Development">
+    <meta name="author" content="Syntax Circuit">
+    <link rel="icon" href="logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <style>
+        /* Custom styles */
+        :root {
+            --primary-color: #ff4d94; /* Pink */
+            --secondary-color: #0056b3; /* Blue */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+            margin: 0;
+        }
+
+        header {
+            background: url('https://img.favpng.com/15/16/7/electronic-engineering-electronics-electrical-engineering-electronic-circuit-png-favpng-sKqMQQnuzXLVLwFb74fHr20BL.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: background-color 1s ease;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        header h1, header p, header a {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        header h1 {
+            animation-delay: 0.5s;
+        }
+
+        header p {
+            animation-delay: 1s;
+        }
+
+        header a {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Other section styles */
+        .navbar {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .download-card,
+        .notes-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .download-card:hover,
+        .notes-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #ff6699;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Sections to apply color transitions */
+        section {
+            padding: 60px 0;
+            transition: background-color 1s ease;
+        }
+
+        /* Custom background colors */
+        #courses {
+            background-color: #0fddbb; /* Pink */
+        }
+
+        #tuitions {
+            background-color: #00bfff; /* Blue */
+        }
+
+        #projects {
+            background-color: #32cd32; /* Green */
+        }
+
+        #contact {
+            background-color: #ff6347; /* Red */
+        }
+
+        /* More button styling */
+        .btn-more {
+            margin-top: 20px;
+        }
+
+        /* About Us Section */
+        #about {
+            padding: 3rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #0056b3;
+            margin-bottom: 1.5rem;
+        }
+
+        #about p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ff4d94;
+            transition: transform 0.3s ease;
+        }
+
+        .team-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .card {
+            border: none;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h5 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body data-aos="fade-in">
+    <main>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Syntax Circuit</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tuitions">Tuitions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Final Year Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header>
+            <div class="container">
+                <h1>Empowering Students in Computer Science</h1>
+                <p class="lead">Join our online courses, expert tuitions, and innovative project guidance!</p>
+                <a href="#courses" class="btn btn-light hero-btn">Explore Courses</a>
+            </div>
+        </header>
+
+        <!-- Courses Section -->
+        <section id="courses" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title text-center">Courses</h2>
+                <p class="text-center">Explore our comprehensive range of online courses designed for Computer Science students.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card text-center shadow download-card p-4">
+                            <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                            <h5>Java Full Stack</h5>
+                            <p>Master front-end and back-end development with the Java stack and hands-on projects.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center shadow download-card p-4">
+                            <i class="fas fa-laptop-code fa-3x text-success mb-3"></i>
+                            <h5>Python Full Stack</h5>
+                            <p>Develop scalable web apps using Python frameworks like Django and Flask.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center shadow download-card p-4">
+                            <i class="fas fa-database fa-3x text-danger mb-3"></i>
+                            <h5>Data Science</h5>
+                            <p>Learn data analysis, machine learning, and statistical techniques for real-world data.</p>
+                        </div>
+                    </div>
+                    <div><br></div>
+                    
+                    <div class="col-md-12 text-center">
+                        <a href="#" class="btn btn-secondary btn-more">See More Courses</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tuitions Section -->
+        <section id="tuitions" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title text-center">Tuitions</h2>
+                <p class="text-center">Personalized one-on-one tuition for students who need additional support in Computer Science topics.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card text-center shadow notes-card p-4">
+                            <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                            <h5>Subject Expert Tutoring</h5>
+                            <p>Receive expert guidance in programming, algorithms, and more from experienced tutors.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center shadow notes-card p-4">
+                            <i class="fas fa-laptop-code fa-3x text-success mb-3"></i>
+                            <h5>Project Guidance</h5>
+                            <p>Get step-by-step assistance for building and completing your final-year project.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center shadow notes-card p-4">
+                            <i class="fas fa-code fa-3x text-danger mb-3"></i>
+                            <h5>Programming Assistance</h5>
+                            <p>Master different programming languages and frameworks for your academic success.</p>
+                        </div>
+                    </div>
+                    <div><br></div>
+
+                    <div class="col-md-12 text-center">
+                        <a href="#" class="btn btn-secondary btn-more">See More Tuitions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title text-center">Final Year Projects</h2>
+                <p class="text-center">Explore project ideas or receive guidance to complete your final-year projects successfully.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card text-center shadow notes-card p-4">
+                            <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                            <h5>Web Development Projects</h5>
+                            <p>Create stunning websites using front-end and back-end technologies.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center shadow notes-card p-4">
+                            <i class="fas fa-database fa-3x text-success mb-3"></i>
+                            <h5>Data Science Projects</h5>
+                            <p>Apply machine learning and data analysis techniques to real-world datasets.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center shadow notes-card p-4">
+                            <i class="fas fa-robot fa-3x text-danger mb-3"></i>
+                            <h5>AI & ML Projects</h5>
+                            <p>Build AI and ML models using popular frameworks and tools.</p>
+                        </div>
+                    </div>
+                    <div><br></div>
+
+                    <div class="col-md-12 text-center">
+                        <a href="#" class="btn btn-secondary btn-more">See More Projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title text-center">About Us</h2>
+                <p class="text-center">Syntax Circuit was founded with a mission to support Computer Science students in reaching their potential through comprehensive courses, expert tuitions, and hands-on project assistance.</p>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Team member" class="team-photo mb-3">
+                        <h5>John Doe</h5>
+                        <p>Lead Instructor</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Team member" class="team-photo mb-3">
+                        <h5>Jane Doe</h5>
+                        <p>Project Guide</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="https://randomuser.me/api/portraits/men/30.jpg" alt="Team member" class="team-photo mb-3">
+                        <h5>Mark Smith</h5>
+                        <p>Subject Expert</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title text-center">Contact Us</h2>
+                <form action="#" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Syntax Circuit. All Rights Reserved.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="text-secondary me-2"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.twitter.com" target="_blank" class="text-secondary me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="text-secondary me-2"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="text-secondary"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- AOS Library for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,  // Adjust animation duration for smoother effect
+            once: true       // Ensures animations happen only once as you scroll
+        });
+    </script>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
