@@ -10,6 +10,137 @@
 
     
     <style>
+        font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff99cc, #66ccff);
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .form-label i {
+            margin-right: 10px;
+        }
+
+        /* Form Styling */
+        .contact-section form {
+            background: linear-gradient(135deg, #ffcc66, #66ff66);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            border-color: #ff6600;
+            box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+        }
+
+        .form-check-input:checked {
+            background-color: #ff6600;
+            border-color: #ff6600;
+        }
+
+        .form-check-label {
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #ff6600;
+            border-color: #ff6600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e65c00;
+            border-color: #e65c00;
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+        }
+
+        /* Hover Effects */
+        .form-control:hover {
+            border-color: #e65c00;
+            box-shadow: 0 0 10px rgba(230, 92, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        /* Message Display */
+        .alert {
+            display: none;
+            font-size: 1rem;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .alert-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .alert-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 50px 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .form-label i {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Social Icons Section */
+        .social-icons a {
+            margin: 0 15px;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+            color: #ff6600;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .social-icons .fa-facebook { color: #3b5998; }
+        .social-icons .fa-instagram { color: #e4405f; }
+        .social-icons .fa-whatsapp { color: #25d366; }
         /* Global Styles */
         body {
             font-family: 'Arial', sans-serif;
@@ -146,6 +277,38 @@
     </style>
 </head>
 <body>
+        <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Syntax Circuit</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="courses.html">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tuitions.html">Tuitions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Final Year Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
     <!-- Contact Us Section -->
     <section id="contact" class="contact-section">
