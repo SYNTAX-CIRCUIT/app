@@ -33,6 +33,12 @@
             padding-bottom: 5px;
         }
 
+        .promo-message {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
         footer {
             background-color: #34495e;
             color: white;
@@ -49,7 +55,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 <body>
@@ -70,10 +75,10 @@
           <a class="nav-link" href="courses.html">Courses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tutions.html">tutions</a>
+          <a class="nav-link" href="tutions.html">Tutions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="projects.html">projects</a>
+          <a class="nav-link" href="projects.html">Projects</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="about.html">About</a>
@@ -95,7 +100,9 @@
 <!-- Main Content Section -->
 <div class="container">
     <h2 class="section-title">Fee Structure for All Courses</h2>
-
+    <div class="promo-message">
+        Enroll before December 1st and get <span style="color: green;">₹2000 off</span> your course fee!
+    </div>
     <table class="table table-bordered">
         <thead class="table-dark">
             <tr>
@@ -122,7 +129,10 @@
             </tr>
             <tr>
                 <td>Java Full Stack Development</td>
-                <td>₹17999</td>
+                <td>
+                    <span style="color: green; font-weight: bold;">₹12999</span>
+                    <span style="color: red; text-decoration: line-through; margin-left: 5px;">₹14999</span> 
+                </td>
                 <td>90 Days</td>
             </tr>
             <tr>
@@ -142,7 +152,10 @@
             </tr>
             <tr>
                 <td>Python Full Stack Development</td>
-                <td>₹17999</td>
+                <td>
+                    <span style="color: green; font-weight: bold;">₹12999</span>
+                    <span style="color: red; text-decoration: line-through; margin-left: 5px;">₹14999</span> 
+                </td>
                 <td>90 Days</td>
             </tr>
         </tbody>
