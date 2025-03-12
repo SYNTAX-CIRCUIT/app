@@ -234,7 +234,8 @@
                 </div>
             </div>
         </nav>
-
+<!-- scrolling -->
+ 
         <!-- Hero Section -->
         <header>
             <div class="container">
@@ -243,7 +244,76 @@
                 <a href="#courses" class="btn btn-light hero-btn">Explore Courses</a>
             </div>
         </header>
-
+<!-- scroll-->
+ <!-- News Ticker -->
+<div class="news-ticker">
+    <div class="news-item" id="news-text">Syntax Circuit: Learn Java, Python, and Web Development online!</div>
+  </div>
+  
+  <!-- CSS for News Ticker -->
+  <style>
+    /* News Ticker Container */
+    .news-ticker {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #222;
+      color: white;
+      position: relative;
+      border-bottom: 4px solid #ff5722;
+      overflow: hidden;
+    }
+  
+    /* News Item */
+    .news-item {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      transition: opacity 0.5s ease-in-out;
+    }
+  
+    /* Show animation */
+    .show {
+      opacity: 1;
+    }
+  </style>
+  
+  <!-- JavaScript for News Updates -->
+  <script>
+    const newsItems = [
+      "🚀 Tech: AI beats human programmers in coding competition.",
+      "📉 Market: Bitcoin drops 5% after new regulations.",
+      "🌨️ Weather Alert: Heavy rain expected in coastal regions.",
+      "⚽ Sports: Local team wins national championship!",
+      "🟢 Live Update: Stay tuned for Syntax Circuit updates."
+    ];
+  
+    let currentIndex = 0;
+    const newsText = document.getElementById("news-text");
+  
+    // Function to update news text
+    function updateNews() {
+      newsText.classList.remove("show"); // Fade out
+  
+      setTimeout(() => {
+        newsText.textContent = newsItems[currentIndex]; // Change text
+        newsText.classList.add("show"); // Fade in
+        currentIndex = (currentIndex + 1) % newsItems.length; // Cycle through news items
+      }, 500); // Small delay for smooth transition
+    }
+  
+    // Initial news update
+    updateNews();
+  
+    // Change news every 5 seconds
+    setInterval(updateNews, 5000);
+  </script>
+  
         <!-- Courses Section -->
         <section id="courses" data-aos="fade-up">
             <div class="container">
