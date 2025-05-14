@@ -26,17 +26,18 @@
         }
 
         header {
-            background: url('https://raw.githubusercontent.com/SYNTAX-CIRCUIT/app/refs/heads/main/bgimg.png') no-repeat center center/cover;
-            height: 100vh;
-            color: white;
-            display: cover;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            transition: background-color 1s ease;
+           background: url('https://raw.githubusercontent.com/SYNTAX-CIRCUIT/app/refs/heads/main/bgimg.png') no-repeat center center / cover;
+height: 100vh;
+color: white;
+display: flex; /* Corrected from 'cover' to 'flex' */
+justify-content: center;
+align-items: center;
+text-align: center;
+position: relative;
+z-index: 1;
+overflow: hidden;
+transition: background-color 1s ease;
+
         }
 
         header::after {
