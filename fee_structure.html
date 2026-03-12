@@ -1,175 +1,265 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Fee Structure - Syntax Circuit</title>
-    
-    <!-- Link to Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        /* Custom Styles */
-        body {
-            background-color: #f4f4f9;
-        }
 
-        .container {
-            margin-top: 40px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .table {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+<title>Course Fee Structure - Syntax Circuit</title>
 
-        .section-title {
-            font-size: 1.8em;
-            color: #34495e;
-            text-transform: uppercase;
-            margin-top: 20px;
-            border-bottom: 2px solid #2ecc71;
-            padding-bottom: 5px;
-        }
+<link rel="icon" href="syntaxLogo.jpg">
 
-        .promo-message {
-            text-align: center;
-            margin-top: 10px;
-            font-weight: bold;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        footer {
-            background-color: #34495e;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
+<style>
 
-        footer a {
-            color: #2ecc71;
-            text-decoration: none;
-        }
+:root{
+--primary:#ff4d94;
+--secondary:#0056b3;
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+body{
+font-family:Arial, sans-serif;
+background:#f8f9fa;
+}
+
+/* Navbar */
+
+.navbar{
+box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Header */
+
+header{
+background:linear-gradient(135deg,#0056b3,#0fddbb);
+color:white;
+text-align:center;
+padding:40px 0;
+}
+
+/* Section title */
+
+.section-title{
+font-size:2rem;
+color:var(--secondary);
+margin-top:30px;
+margin-bottom:25px;
+font-weight:bold;
+text-align:center;
+}
+
+/* Table */
+
+.table{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 6px 20px rgba(0,0,0,0.1);
+}
+
+.table thead{
+background:var(--secondary);
+color:white;
+}
+
+/* Footer */
+
+footer{
+background:#f8f9fa;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+footer a{
+color:var(--primary);
+text-decoration:none;
+}
+
+footer a:hover{
+text-decoration:underline;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<!-- Navigation Header (Navbar) -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Syntax Circuit</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="courses.html">Courses</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="tutions.html">Tutions</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="projects.html">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+
+<div class="container">
+
+<a class="navbar-brand" href="index.html">
+<img src="syntaxLogo.jpg" height="30"> Syntax Circuit
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+<li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
+<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+</ul>
+
+</div>
+</div>
 </nav>
 
-<!-- Header Section -->
-<header class="bg-dark text-white text-center py-4">
-    <h1>Syntax Circuit</h1>
-    <p>Learn. Code. Grow.</p>
+<!-- Header -->
+
+<header>
+
+<h1>Syntax Circuit</h1>
+<p>Learn. Code. Grow.</p>
+
 </header>
 
-<!-- Main Content Section -->
+<!-- Fee Table -->
+
 <div class="container">
-    <h2 class="section-title">Fee Structure for All Courses</h2>
-    <div class="promo-message">
-        
-    </div> 
-    <table class="table table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th>Course Name</th>
-                <th>Course Fee</th>
-                <th>Duration</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>C Programming</td>
-                <td>₹2999</td>
-                <td>30 Days</td>
-            </tr>
-            <tr>
-                <td>C++ Programming</td>
-                <td>₹2999</td>
-                <td>30 Days</td>
-            </tr>
-            <tr>
-                <td>Core Java Programming</td>
-                <td>₹2999</td>
-                <td>45 Days</td>
-            </tr>
-            <tr>
-                <td>Java Full Stack Development</td>
-                <td>
-                    <span style="color: green; font-weight: bold;">₹5999</span>
-                    <span style="color: red; text-decoration: line-through; margin-left: 5px;">₹8999</span> 
-                </td>
-                <td>90 Days</td>
-            </tr>
-            <tr>
-                <td>SQL Database</td>
-                <td>₹2499</td>
-                <td>30 Days</td>
-            </tr>
-            <tr>
-                <td>Web Technologies</td>
-                <td>₹1999</td>
-                <td>30 Days</td>
-            </tr>
-            <tr>
-                <td>Python Core Programming</td>
-                <td>₹2999</td>
-                <td>45 Days</td>
-            </tr>
-            <tr>
-                <td>Python Full Stack Development</td>
-                <td>
-                    <span style="color: green; font-weight: bold;">₹5999</span>
-                    <span style="color: red; text-decoration: line-through; margin-left: 5px;">₹6999</span> 
-                </td>
-                <td>90 Days</td>
-            </tr>
-        </tbody>
-    </table>
+
+<h2 class="section-title">Fee Structure for All Courses</h2>
+
+<table class="table table-bordered text-center">
+
+<thead>
+
+<tr>
+<th>Course Name</th>
+<th>Course Fee</th>
+<th>Duration</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>C Programming</td>
+<td>₹2999</td>
+<td>30 Days</td>
+</tr>
+
+<tr>
+<td>C++ Programming</td>
+<td>₹2999</td>
+<td>30 Days</td>
+</tr>
+
+<tr>
+<td>Core Java Programming</td>
+<td>₹2999</td>
+<td>45 Days</td>
+</tr>
+
+<tr>
+<td>Java Full Stack Development</td>
+<td>
+<span style="color:green;font-weight:bold;">₹5999</span>
+<span style="color:red;text-decoration:line-through;margin-left:5px;">₹8999</span>
+</td>
+<td>90 Days</td>
+</tr>
+
+<tr>
+<td>SQL Database</td>
+<td>₹2499</td>
+<td>30 Days</td>
+</tr>
+
+<tr>
+<td>Web Technologies</td>
+<td>₹1999</td>
+<td>30 Days</td>
+</tr>
+
+<tr>
+<td>Python Core Programming</td>
+<td>₹2999</td>
+<td>45 Days</td>
+</tr>
+
+<tr>
+<td>Python Full Stack Development</td>
+<td>
+<span style="color:green;font-weight:bold;">₹5999</span>
+<span style="color:red;text-decoration:line-through;margin-left:5px;">₹6999</span>
+</td>
+<td>90 Days</td>
+</tr>
+
+</tbody>
+
+</table>
+
 </div>
 
-<!-- Footer Section -->
+<!-- Footer -->
+
 <footer>
-    <p>&copy; 2024 Syntax Circuit | All Rights Reserved</p>
-    <p>For more information, contact us at <a href="mailto:info@syntaxcircuit.com">info@syntaxcircuit.com</a></p>
+
+<p>© 2026 Syntax Circuit | All Rights Reserved</p>
+
+<p>
+For more information contact us at  
+<a href="mailto:info@syntaxcircuit.in">info@syntaxcircuit.in</a>
+</p>
+
 </footer>
 
-<!-- Link to Bootstrap JS (Optional for Bootstrap functionality) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
