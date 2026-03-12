@@ -1,469 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
-    <style>
-        font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff99cc, #66ccff);
-            margin: 0;
-            padding: 0;
-        }
+<title>Contact Us | Syntax Circuit</title>
 
-        .contact-section {
-            padding: 80px 0;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
+<link rel="icon" href="syntaxLogo.jpg">
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #333;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        .form-label i {
-            margin-right: 10px;
-        }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-        /* Form Styling */
-        .contact-section form {
-            background: linear-gradient(135deg, #ffcc66, #66ff66);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+<style>
 
-        .form-control {
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-        }
+:root{
+--primary:#ff4d94;
+--secondary:#0056b3;
+}
 
-        .form-control:focus {
-            border-color: #ff6600;
-            box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-        }
+body{
+font-family:Arial;
+background:#f8f9fa;
+}
 
-        .form-check-input:checked {
-            background-color: #ff6600;
-            border-color: #ff6600;
-        }
+/* Navbar */
 
-        .form-check-label {
-            font-weight: 500;
-        }
+.navbar{
+box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
 
-        .btn-primary {
-            background-color: #ff6600;
-            border-color: #ff6600;
-            transition: all 0.3s ease;
-        }
+/* Contact section */
 
-        .btn-primary:hover {
-            background-color: #e65c00;
-            border-color: #e65c00;
-        }
+.contact-section{
+padding:70px 0;
+}
 
-        .btn-lg {
-            padding: 12px 24px;
-            font-size: 1.2rem;
-            border-radius: 30px;
-        }
+.section-title{
+text-align:center;
+font-size:2.5rem;
+color:var(--secondary);
+font-weight:bold;
+margin-bottom:40px;
+}
 
-        /* Hover Effects */
-        .form-control:hover {
-            border-color: #e65c00;
-            box-shadow: 0 0 10px rgba(230, 92, 0, 0.3);
-        }
+/* Form */
 
-        .btn-primary:hover {
-            transform: scale(1.05);
-        }
+.contact-card{
+background:white;
+border-radius:10px;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
 
-        /* Message Display */
-        .alert {
-            display: none;
-            font-size: 1rem;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
+.form-control{
+border-radius:8px;
+}
 
-        .alert-success {
-            background-color: #28a745;
-            color: white;
-        }
+.form-control:focus{
+border-color:var(--primary);
+box-shadow:0 0 8px rgba(255,77,148,0.5);
+}
 
-        .alert-danger {
-            background-color: #dc3545;
-            color: white;
-        }
+.btn-primary{
+background:var(--primary);
+border:none;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .contact-section {
-                padding: 50px 15px;
-            }
+.btn-primary:hover{
+background:#ff6699;
+}
 
-            .section-title {
-                font-size: 2rem;
-            }
+/* Map */
 
-            .form-label i {
-                font-size: 1.2rem;
-            }
-        }
+.map-container{
+margin-top:50px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
 
-        /* Social Icons Section */
-        .social-icons a {
-            margin: 0 15px;
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-            color: #ff6600;
-        }
+/* Success popup */
 
-        .social-icons a:hover {
-            transform: scale(1.2);
-        }
+.success-popup{
+position:fixed;
+top:20px;
+right:20px;
+background:#28a745;
+color:white;
+padding:15px 25px;
+border-radius:6px;
+display:none;
+z-index:9999;
+}
 
-        .social-icons .fa-facebook { color: #3b5998; }
-        .social-icons .fa-instagram { color: #e4405f; }
-        .social-icons .fa-whatsapp { color: #25d366; }
-        /* Global Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff99cc, #66ccff);
-            margin: 0;
-            padding: 0;
-        }
+/* Floating WhatsApp */
 
-        .contact-section {
-            padding: 80px 0;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25d366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+z-index:9999;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #333;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+.whatsapp-float:hover{
+transform:scale(1.1);
+color:white;
+}
 
-        .form-label i {
-            margin-right: 10px;
-        }
+/* Footer */
 
-        /* Form Styling */
-        .contact-section form {
-            background: linear-gradient(135deg, #ffcc66, #66ff66);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+background:#f8f9fa;
+}
 
-        .form-control {
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-        }
+</style>
 
-        .form-control:focus {
-            border-color: #ff6600;
-            box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-        }
-
-        .form-check-input:checked {
-            background-color: #ff6600;
-            border-color: #ff6600;
-        }
-
-        .form-check-label {
-            font-weight: 500;
-        }
-
-        .btn-primary {
-            background-color: #ff6600;
-            border-color: #ff6600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #e65c00;
-            border-color: #e65c00;
-        }
-
-        .btn-lg {
-            padding: 12px 24px;
-            font-size: 1.2rem;
-            border-radius: 30px;
-        }
-
-        /* Hover Effects */
-        .form-control:hover {
-            border-color: #e65c00;
-            box-shadow: 0 0 10px rgba(230, 92, 0, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-        }
-
-        /* Message Display */
-        .alert {
-            display: none;
-            font-size: 1rem;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .alert-success {
-            background-color: #28a745;
-            color: white;
-        }
-
-        .alert-danger {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .contact-section {
-                padding: 50px 15px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .form-label i {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* Social Icons Section */
-        .social-icons a {
-            margin: 0 15px;
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-            color: #ff6600;
-        }
-
-        .social-icons a:hover {
-            transform: scale(1.2);
-        }
-
-        .social-icons .fa-facebook { color: #3b5998; }
-        .social-icons .fa-instagram { color: #e4405f; }
-        .social-icons .fa-whatsapp { color: #25d366; }
-    </style>
 </head>
+
 <body>
-        <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Syntax Circuit</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="courses.html">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tuitions.html">Tuitions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Final Year Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
+<!-- Navbar -->
 
-    <!-- Contact Us Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="text-center">We'd love to hear from you. Reach out with any questions or requests!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 
-            <form id="contactForm" method="POST" action="https://formspree.io/f/mdkozqka" class="p-4 bg-light shadow rounded">
-                <div class="row">
-                    <!-- Name Field -->
-                    <div class="col-md-6 mb-3">
-                        <label for="name" class="form-label">
-                            <i class="fas fa-user"></i> Your Name
-                        </label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
-                    </div>
+<div class="container">
 
-                    <!-- WhatsApp Number Field -->
-                    <div class="col-md-6 mb-3">
-                        <label for="whatsapp" class="form-label">
-                            <i class="fas fa-phone"></i> WhatsApp Number
-                        </label>
-                        <input type="tel" id="whatsapp" name="whatsapp" class="form-control" placeholder="Enter your WhatsApp number" required>
-                    </div>
-                </div>
+<a class="navbar-brand" href="index.html">
+<img src="syntaxLogo.jpg" height="30"> Syntax Circuit
+</a>
 
-                <div class="row">
-                    <!-- Email Field -->
-                    <div class="col-md-6 mb-3">
-                        <label for="email" class="form-label">
-                            <i class="fas fa-envelope"></i> Your Email
-                        </label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
-                    </div>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-                    <!-- Purpose Radio Buttons -->
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">
-                            <i class="fas fa-clipboard-list"></i> Purpose
-                        </label>
-                        <div class="form-check">
-                            <input type="radio" name="purpose" value="courses" class="form-check-input" id="courses" required>
-                            <label class="form-check-label" for="courses">Courses</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="purpose" value="tuitions" class="form-check-input" id="tuitions">
-                            <label class="form-check-label" for="tuitions">Tuitions</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="purpose" value="final_year_projects" class="form-check-input" id="final_year_projects">
-                            <label class="form-check-label" for="final_year_projects">Final Year Projects</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="purpose" value="other" class="form-check-input" id="other">
-                            <label class="form-check-label" for="other">Other</label>
-                        </div>
-                    </div>
-                </div>
+<div class="collapse navbar-collapse" id="navbarNav">
 
-                <!-- Reason Text Area (Displayed for 'Other') -->
-                <div class="mb-3" id="otherReasonContainer" style="display: none;">
-                    <label for="reason" class="form-label">
-                        <i class="fas fa-comment-dots"></i> Specify Your Reason
-                    </label>
-                    <textarea id="reason" name="reason" class="form-control" rows="3" placeholder="Please specify your reason"></textarea>
-                </div>
+<ul class="navbar-nav ms-auto">
 
-                <!-- Message Field -->
-                <div class="mb-3">
-                    <label for="message" class="form-label">
-                        <i class="fas fa-comments"></i> Your Message
-                    </label>
-                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
-                </div>
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+<li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
+<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
 
-                <!-- Submit Button -->
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-lg">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </div>
-            </form>
+</ul>
 
-            <!-- Message Display -->
-            <div id="formResponse" class="alert text-center mt-3" style="display: none;"></div>
+</div>
+</div>
 
-            <!-- Contact Details Section -->
-            <div class="text-center mt-5">
-                <h3>Contact Us Directly</h3>
-                <p>Phone: <a href="tel:+1234567890" class="text-decoration-none"><i class="fas fa-phone"></i> +1 (234) 567-890</a></p>
-                <p>Email: <a href="mailto:example@example.com" class="text-decoration-none"><i class="fas fa-envelope"></i> example@example.com</a></p>
-            </div>
+</nav>
 
-            <!-- Social Media Links -->
-            <div class="social-icons mt-3 d-flex justify-content-center">
-                <a href="https://www.facebook.com" target="_blank" class="fab fa-facebook fa-2x mx-3" style="color: #3b5998;"></a>
-                <a href="https://www.instagram.com" target="_blank" class="fab fa-instagram fa-2x mx-3" style="color: #e4405f;"></a>
-                <a href="https://wa.me/1234567890" target="_blank" class="fab fa-whatsapp fa-2x mx-3" style="color: #25d366;"></a>
-            </div>
-        </div>
-    </section>
+<!-- Success popup -->
 
-    <!-- JavaScript for AJAX and Form Handling -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Show/hide the reason field
-            document.querySelectorAll('input[name="purpose"]').forEach((radio) => {
-                radio.addEventListener('change', function () {
-                    const reasonContainer = document.getElementById('otherReasonContainer');
-                    reasonContainer.style.display = this.value === 'other' ? 'block' : 'none';
-                });
-            });
+<div id="successPopup" class="success-popup">
+✔ Message Sent Successfully!
+</div>
 
-            // Handle form submission via AJAX (optional)
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault(); // Prevent default form submission
+<!-- Contact Section -->
 
-                // Gather form data
-                const formData = new FormData(contactForm);
+<section class="contact-section">
 
-                // AJAX Request
-                fetch('https://formspree.io/f/xgeqndjd', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    const responseMessage = document.getElementById('formResponse');
-                    if (response.ok) {
-                        responseMessage.style.display = 'block';
-                        responseMessage.className = 'alert alert-success';
-                        responseMessage.textContent = 'Your message has been sent successfully!';
-                        contactForm.reset(); // Reset the form
-                    } else {
-                        responseMessage.style.display = 'block';
-                        responseMessage.className = 'alert alert-danger';
-                        responseMessage.textContent = 'There was an error sending your message. Please try again.';
-                    }
-                })
-                .catch(error => {
-                    const responseMessage = document.getElementById('formResponse');
-                    responseMessage.style.display = 'block';
-                    responseMessage.className = 'alert alert-danger';
-                    responseMessage.textContent = 'An unexpected error occurred. Please try again later.';
-                });
-            });
-        });
-    </script>
+<div class="container">
 
-    <!-- Bootstrap and Font Awesome -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<h2 class="section-title">Contact Us</h2>
 
+<div class="row justify-content-center">
+
+<div class="col-lg-8">
+
+<div class="contact-card">
+
+<form id="contactForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<label>Name</label>
+<input type="text" id="name" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>WhatsApp Number</label>
+<input type="tel" id="phone" class="form-control" required>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<label>Email</label>
+<input type="email" id="email" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Purpose</label>
+
+<select id="purpose" class="form-control">
+
+<option>Courses</option>
+<option>Tuitions</option>
+<option>Final Year Projects</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="mb-3">
+
+<label>Message</label>
+
+<textarea id="message" class="form-control" rows="4"></textarea>
+
+</div>
+
+<button class="btn btn-primary w-100">
+
+<i class="fas fa-paper-plane"></i> Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Google Maps -->
+
+<div class="map-container">
+
+<iframe 
+width="100%" 
+height="400" 
+frameborder="0"
+src="https://maps.google.com/maps?q=hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Floating WhatsApp -->
+
+<a href="https://wa.me/916302204738" class="whatsapp-float" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Footer -->
+
+<footer>
+
+<p>© 2026 Syntax Circuit</p>
+
+<p>Email: <a href="mailto:info@syntaxcircuit.in">info@syntaxcircuit.in</a></p>
+
+</footer>
+
+<script>
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let email=document.getElementById("email").value;
+let purpose=document.getElementById("purpose").value;
+let message=document.getElementById("message").value;
+
+let lead={
+name:name,
+phone:phone,
+email:email,
+purpose:purpose,
+message:message,
+date:new Date().toLocaleString()
+};
+
+/* Store lead */
+
+let leads=JSON.parse(localStorage.getItem("syntaxLeads")) || [];
+leads.push(lead);
+localStorage.setItem("syntaxLeads",JSON.stringify(leads));
+
+/* Email */
+
+let body =
+"Name: "+name+"%0D%0A"+
+"Phone: "+phone+"%0D%0A"+
+"Email: "+email+"%0D%0A"+
+"Purpose: "+purpose+"%0D%0A%0D%0A"+
+"Message: "+message;
+
+window.location.href=
+"mailto:info@syntaxcircuit.in?subject=Website Lead&body="+body;
+
+/* Popup */
+
+let popup=document.getElementById("successPopup");
+popup.style.display="block";
+
+setTimeout(()=>{
+popup.style.display="none";
+},3000);
+
+this.reset();
+
+});
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
