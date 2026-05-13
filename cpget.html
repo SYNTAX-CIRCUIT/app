@@ -1,1 +1,2294 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPGET 2026 — 45-Day Crash Course | Syntax Circuit</title>
+<meta name="description" content="Crack CPGET 2026 with Syntax Circuit's intensive 45-day online coaching. Live classes, WhatsApp community, expert faculty, and full syllabus coverage.">
+<link rel="icon" href="syntaxLogo.jpg">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #050A14;
+  --paper: #F5F3EE;
+  --cyan: #00FFD1;
+  --magenta: #FF2D78;
+  --gold: #FFD166;
+  --blue: #0057FF;
+  --mid: #8892A4;
+  --card-bg: #ffffff;
+  --nav-h: 72px;
+  --orange: #FF6B35;
+  --purple: #7C3AED;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* NOISE */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025; pointer-events: none; z-index: 1000;
+}
+
+/* CURSOR */
+.cursor { width:12px;height:12px;border-radius:50%;background:var(--cyan);position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:transform 0.15s ease; }
+.cursor-ring { width:40px;height:40px;border:1.5px solid var(--magenta);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform 0.35s cubic-bezier(.25,.46,.45,.94); }
+
+/* NAVBAR */
+.navbar { height:var(--nav-h);background:rgba(245,243,238,0.85);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.06);z-index:900;padding:0; }
+.navbar-brand { font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-0.5px;color:var(--ink)!important;display:flex;align-items:center;gap:10px; }
+.brand-logo { width:34px;height:34px;border-radius:8px;object-fit:cover; }
+.brand-dot { display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-left:2px;position:relative;top:-2px; }
+.nav-link { font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;color:var(--ink)!important;padding:6px 14px!important;border-radius:30px;transition:background 0.2s,color 0.2s;letter-spacing:0.01em; }
+.nav-link:hover { background:var(--ink);color:var(--cyan)!important; }
+.nav-cta { background:var(--ink)!important;color:var(--cyan)!important;font-weight:600;border-radius:30px;padding:6px 20px!important; }
+.nav-cta:hover { background:var(--magenta)!important;color:#fff!important; }
+
+/* ─── HERO ─── */
+.cpget-hero {
+  background: var(--ink);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+}
+.hero-grid {
+  position:absolute;inset:0;
+  background-image: linear-gradient(rgba(255,107,53,0.06) 1px,transparent 1px), linear-gradient(90deg,rgba(255,107,53,0.06) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gridPan 20s linear infinite;
+}
+@keyframes gridPan { to { background-position:60px 60px; } }
+
+.hero-blob { position:absolute;border-radius:50%;filter:blur(90px);opacity:0.3;animation:blobFloat 8s ease-in-out infinite alternate; }
+.hb1 { width:500px;height:500px;background:#FF6B35;top:-100px;right:-80px; }
+.hb2 { width:380px;height:380px;background:var(--magenta);bottom:-80px;left:5%;animation-delay:-4s; }
+.hb3 { width:300px;height:300px;background:var(--gold);top:40%;left:35%;opacity:0.15;animation-delay:-2s; }
+@keyframes blobFloat { from{transform:translate(0,0) scale(1);} to{transform:translate(20px,30px) scale(1.08);} }
+
+.hero-inner { position:relative;z-index:2;color:#fff; }
+
+.hero-badge {
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,107,53,0.15);
+  border:1px solid rgba(255,107,53,0.35);
+  border-radius:30px;
+  padding:6px 18px;
+  font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:28px;backdrop-filter:blur(8px);
+  animation:fadeUp 0.8s ease both;
+}
+.fire-icon { animation:fireFlicker 1.5s ease infinite alternate; }
+@keyframes fireFlicker { from{transform:scale(1) rotate(-3deg);} to{transform:scale(1.15) rotate(3deg);} }
+
+.countdown-bar {
+  display:inline-flex;align-items:center;gap:16px;
+  background:rgba(255,209,102,0.1);border:1px solid rgba(255,209,102,0.25);
+  border-radius:14px;padding:10px 22px;margin-bottom:30px;
+  animation:fadeUp 0.85s 0.05s ease both;
+}
+.cd-item { display:flex;flex-direction:column;align-items:center; }
+.cd-num { font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--gold);line-height:1; }
+.cd-label { font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px; }
+.cd-sep { font-size:1.4rem;color:rgba(255,255,255,0.2);font-weight:300; }
+
+.hero-title {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.6rem,6vw,5.2rem);
+  font-weight:800;line-height:1.05;letter-spacing:-0.03em;
+  margin-bottom:22px;
+  animation:fadeUp 0.9s 0.1s ease both;
+}
+.hero-title .accent-orange { color:var(--orange); }
+.hero-title .accent-cyan { color:var(--cyan); }
+.hero-title .stroke { -webkit-text-stroke:2px rgba(255,255,255,0.35);color:transparent; }
+
+.hero-sub { font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.6);max-width:520px;line-height:1.75;margin-bottom:38px;animation:fadeUp 1s 0.2s ease both; }
+
+.hero-actions { display:flex;align-items:center;gap:14px;flex-wrap:wrap;animation:fadeUp 1s 0.3s ease both; }
+.btn-orange {
+  background:var(--orange);color:#fff;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
+  border:none;border-radius:50px;padding:15px 36px;
+  text-decoration:none;display:inline-flex;align-items:center;gap:10px;
+  transition:transform 0.25s,box-shadow 0.25s;
+}
+.btn-orange:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,107,53,0.4);color:#fff; }
+.btn-outline-light-custom {
+  background:transparent;color:#fff;font-weight:500;font-size:0.9rem;
+  border:1.5px solid rgba(255,255,255,0.25);border-radius:50px;padding:14px 28px;
+  text-decoration:none;transition:border-color 0.2s,background 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-outline-light-custom:hover { border-color:var(--cyan);background:rgba(0,255,209,0.1);color:#fff; }
+
+.hero-quick-stats {
+  display:flex;gap:36px;margin-top:50px;flex-wrap:wrap;
+  animation:fadeUp 1s 0.4s ease both;
+}
+.qs-item { display:flex;flex-direction:column; }
+.qs-num { font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:#fff;line-height:1; }
+.qs-label { font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:4px;letter-spacing:0.05em;text-transform:uppercase; }
+.qs-div { width:1px;background:rgba(255,255,255,0.1);align-self:stretch; }
+
+/* HERO CARD */
+.hero-info-card {
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:24px;padding:36px 30px;backdrop-filter:blur(20px);
+  box-shadow:0 30px 80px rgba(0,0,0,0.4);
+  animation:fadeUp 0.9s 0.2s ease both;
+}
+.info-row {
+  display:flex;align-items:center;gap:14px;padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.info-row:last-child { border-bottom:none;padding-bottom:0; }
+.info-row:first-child { padding-top:0; }
+.info-icon {
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.info-label { font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:2px; }
+.info-val { font-size:0.92rem;font-weight:500;color:#fff; }
+
+.enroll-btn-card {
+  width:100%;margin-top:24px;
+  background:linear-gradient(135deg,var(--orange),var(--magenta));
+  color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:14px;padding:16px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:transform 0.25s,box-shadow 0.25s;text-decoration:none;
+}
+.enroll-btn-card:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,107,53,0.35);color:#fff; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+
+/* ─── TICKER ─── */
+.ticker-wrap { background:var(--orange);padding:12px 0;overflow:hidden; }
+.ticker-track { display:flex;animation:ticker 22s linear infinite;white-space:nowrap; }
+.ticker-item { display:inline-flex;align-items:center;gap:10px;color:#fff;font-size:0.85rem;font-weight:600;padding:0 50px; }
+.ticker-sep { color:rgba(255,255,255,0.5); }
+@keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+/* ─── SECTIONS ─── */
+section { padding:90px 0; }
+.section-eyebrow { display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:12px; }
+.section-title { font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;color:var(--ink);line-height:1.1;margin-bottom:16px; }
+.section-sub { font-size:1rem;color:var(--mid);max-width:520px;line-height:1.7; }
+
+.reveal { opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease; }
+.reveal.visible { opacity:1;transform:translateY(0); }
+
+/* ─── HIGHLIGHTS ─── */
+#highlights { background:#FFF8F0; }
+.highlight-card {
+  background:#fff;border-radius:22px;padding:36px 28px;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:transform 0.35s cubic-bezier(.22,.68,0,1.2),box-shadow 0.35s;
+  position:relative;overflow:hidden;height:100%;
+}
+.highlight-card::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--h-color,var(--orange));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;
+}
+.highlight-card:hover::before { transform:scaleX(1); }
+.highlight-card:hover { transform:translateY(-10px);box-shadow:0 24px 60px rgba(0,0,0,0.1); }
+.h-icon { width:62px;height:62px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px; }
+.highlight-card h5 { font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:8px; }
+.highlight-card p { font-size:0.88rem;color:var(--mid);line-height:1.65; }
+
+/* ─── FACULTY ─── */
+#faculty { background:var(--paper); }
+.faculty-card {
+  background:#fff;border-radius:24px;padding:36px 28px;text-align:center;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:transform 0.3s,box-shadow 0.3s;
+  height:100%;
+}
+.faculty-card:hover { transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.1); }
+.faculty-photo-wrap { position:relative;display:inline-block;margin-bottom:20px; }
+.faculty-photo { width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 0 0 3px var(--orange); }
+.faculty-badge {
+  position:absolute;bottom:0;right:0;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--orange);display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;border:2px solid #fff;color:#fff;
+}
+.faculty-card h5 { font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:4px; }
+.faculty-role { font-size:0.8rem;color:var(--orange);font-weight:600;margin-bottom:10px; }
+.faculty-card p { font-size:0.85rem;color:var(--mid);line-height:1.65; }
+.faculty-subjects { display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px; }
+.subj-pill {
+  font-size:0.7rem;font-weight:600;letter-spacing:0.05em;
+  padding:4px 12px;border-radius:30px;
+  background:#FFF0E8;color:var(--orange);border:1px solid rgba(255,107,53,0.2);
+}
+
+/* ─── TIMETABLE ─── */
+#timetable { background:#F0F4FF; }
+.tt-card {
+  background:#fff;border-radius:22px;overflow:hidden;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 10px 40px rgba(0,0,0,0.06);
+}
+.tt-header {
+  background:var(--ink);padding:22px 28px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.tt-header h4 { font-family:'Syne',sans-serif;font-weight:700;color:#fff;font-size:1.1rem;margin:0; }
+.tt-download {
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--cyan);color:var(--ink);
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;
+  border:none;border-radius:30px;padding:8px 20px;text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.tt-download:hover { transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,255,209,0.3);color:var(--ink); }
+
+.tt-table { width:100%;border-collapse:collapse; }
+.tt-table th {
+  background:#F8FAFF;padding:12px 18px;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--mid);border-bottom:1px solid rgba(0,0,0,0.06);text-align:left;
+}
+.tt-table td { padding:14px 18px;font-size:0.88rem;border-bottom:1px solid rgba(0,0,0,0.04);vertical-align:middle; }
+.tt-table tr:last-child td { border-bottom:none; }
+.tt-table tr:hover td { background:#FAFBFF; }
+.day-badge {
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;
+  padding:4px 12px;border-radius:20px;display:inline-block;
+  background:#EFF3FF;color:var(--blue);
+}
+.sub-chip {
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 14px;border-radius:20px;font-size:0.8rem;font-weight:500;
+  background:#FFF0E8;color:var(--orange);
+}
+.time-slot { font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;color:var(--ink); }
+.faculty-ref { font-size:0.78rem;color:var(--mid);display:flex;align-items:center;gap:4px; }
+
+/* ─── COMMUNITY ─── */
+#community { background:var(--ink);position:relative;overflow:hidden; }
+#community::before {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(255,107,53,0.15) 0%,transparent 70%),
+             radial-gradient(ellipse 40% 50% at 10% 80%,rgba(255,45,120,0.1) 0%,transparent 60%);
+  pointer-events:none;
+}
+#community .section-title { color:#fff; }
+#community .section-eyebrow { color:var(--cyan); }
+#community .section-sub { color:rgba(255,255,255,0.4); }
+
+.comm-card {
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:24px;padding:36px 30px;
+  backdrop-filter:blur(12px);height:100%;
+  transition:transform 0.3s,border-color 0.3s;
+  position:relative;overflow:hidden;
+}
+.comm-card:hover { transform:translateY(-8px);border-color:rgba(255,255,255,0.2); }
+.comm-card::after {
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--c-color,rgba(0,255,209,0.05)) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.4s;pointer-events:none;
+}
+.comm-card:hover::after { opacity:1; }
+.comm-icon { width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:22px;border:1px solid rgba(255,255,255,0.1); }
+.comm-card h4 { font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:10px; }
+.comm-card p { font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:24px; }
+.comm-features { list-style:none;margin-bottom:28px; }
+.comm-features li { display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.6);margin-bottom:10px; }
+.comm-features li::before { content:'✓';color:var(--c-color,var(--cyan));font-weight:700;font-size:0.9rem; }
+.comm-btn {
+  display:inline-flex;align-items:center;gap:10px;width:100%;justify-content:center;
+  padding:14px 24px;border-radius:14px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;
+  text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;border:none;cursor:pointer;
+}
+.comm-btn:hover { transform:translateY(-3px); }
+.btn-wa { background:#25D366;color:#fff; }
+.btn-wa:hover { box-shadow:0 12px 30px rgba(37,211,102,0.4);color:#fff; }
+.btn-tg { background:#229ED9;color:#fff; }
+.btn-tg:hover { box-shadow:0 12px 30px rgba(34,158,217,0.4);color:#fff; }
+.members-badge {
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.08);border-radius:30px;
+  padding:6px 14px;font-size:0.75rem;color:rgba(255,255,255,0.5);margin-bottom:20px;
+}
+.online-dot { width:7px;height:7px;border-radius:50%;background:#25D366;animation:pulse 2s infinite; }
+@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,0.5);} 70%{box-shadow:0 0 0 8px rgba(37,211,102,0);} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0);} }
+
+/* ─── SYLLABUS ─── */
+#syllabus { background:var(--paper); }
+.syl-accordion { display:flex;flex-direction:column;gap:10px; }
+.syl-item {
+  background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);
+  overflow:hidden;transition:box-shadow 0.3s;
+}
+.syl-item:hover { box-shadow:0 8px 30px rgba(0,0,0,0.08); }
+.syl-head {
+  display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;
+  user-select:none;transition:background 0.2s;
+}
+.syl-head:hover { background:#FAFAF8; }
+.syl-week {
+  font-family:'Syne',sans-serif;font-weight:800;font-size:0.75rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--orange);color:#fff;
+  padding:4px 12px;border-radius:20px;white-space:nowrap;flex-shrink:0;
+}
+.syl-head h6 { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);margin:0;flex:1; }
+.syl-arrow { color:var(--orange);transition:transform 0.3s;margin-left:auto;flex-shrink:0; }
+.syl-body { display:none;padding:0 24px 22px 24px; }
+.syl-body.open { display:block; }
+.syl-topics { display:flex;flex-wrap:wrap;gap:8px;margin-top:4px; }
+.topic-chip {
+  font-size:0.78rem;font-weight:500;padding:5px 14px;border-radius:20px;
+  background:#F0F4FF;color:var(--blue);border:1px solid rgba(0,87,255,0.12);
+}
+
+/* ─── PRICING ─── */
+#pricing { background:#F0F4FF; }
+.price-card {
+  background:#fff;border-radius:28px;padding:44px 36px;
+  border:2px solid rgba(0,0,0,0.06);
+  position:relative;overflow:hidden;
+  transition:transform 0.35s,box-shadow 0.35s;
+  height:100%;
+}
+.price-card:hover { transform:translateY(-10px);box-shadow:0 30px 70px rgba(0,0,0,0.12); }
+.price-card.featured {
+  background:var(--ink);border-color:var(--orange);
+  transform:scale(1.02);
+}
+.price-card.featured:hover { transform:scale(1.02) translateY(-10px); }
+.price-badge {
+  position:absolute;top:22px;right:22px;
+  background:var(--orange);color:#fff;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.72rem;
+  letter-spacing:0.06em;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;
+}
+.price-icon { font-size:2rem;margin-bottom:18px;display:block; }
+.price-name { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px; }
+.price-card.featured .price-name { color:rgba(255,255,255,0.5); }
+.price-amount { font-family:'Syne',sans-serif;font-weight:800;font-size:3rem;line-height:1;color:var(--ink);margin-bottom:6px; }
+.price-card.featured .price-amount { color:#fff; }
+.price-period { font-size:0.85rem;color:var(--mid);margin-bottom:28px; }
+.price-card.featured .price-period { color:rgba(255,255,255,0.4); }
+.price-features { list-style:none;margin-bottom:32px; }
+.price-features li { display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--ink);padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.05); }
+.price-features li:last-child { border-bottom:none; }
+.price-card.featured .price-features li { color:rgba(255,255,255,0.75);border-bottom-color:rgba(255,255,255,0.06); }
+.pf-check { color:var(--orange);font-size:0.85rem;flex-shrink:0; }
+.btn-enroll {
+  width:100%;padding:15px;border-radius:50px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
+  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;
+}
+.btn-enroll-outline { background:transparent;color:var(--ink);border:2px solid rgba(0,0,0,0.15); }
+.btn-enroll-outline:hover { border-color:var(--orange);color:var(--orange); }
+.btn-enroll-filled { background:linear-gradient(135deg,var(--orange),var(--magenta));color:#fff; }
+.btn-enroll-filled:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,107,53,0.4);color:#fff; }
+
+/* ─── FAQ ─── */
+#faq { background:var(--paper); }
+.faq-item { background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);margin-bottom:10px;overflow:hidden;transition:box-shadow 0.3s; }
+.faq-item:hover { box-shadow:0 8px 30px rgba(0,0,0,0.07); }
+.faq-q { display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:0.98rem;color:var(--ink); }
+.faq-icon { color:var(--orange);flex-shrink:0;transition:transform 0.3s; }
+.faq-a { display:none;padding:0 26px 22px;font-size:0.9rem;color:var(--mid);line-height:1.75; }
+.faq-a.open { display:block; }
+
+/* ─── CTA STRIP ─── */
+.cta-strip {
+  background:linear-gradient(135deg,var(--orange) 0%,var(--magenta) 100%);
+  padding:80px 0;position:relative;overflow:hidden;
+}
+.cta-strip::before {
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.cta-strip h2 { font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-0.03em; }
+.cta-strip p { color:rgba(255,255,255,0.7);font-size:1rem; }
+.btn-cta-white { background:#fff;color:var(--orange);font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;border:none;border-radius:50px;padding:16px 40px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform 0.25s,box-shadow 0.25s; }
+.btn-cta-white:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.2);color:var(--orange); }
+
+/* ─── FOOTER ─── */
+footer { background:var(--ink);color:rgba(255,255,255,0.5);padding:60px 0 36px;position:relative;overflow:hidden; }
+footer::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,107,53,0.4),transparent); }
+.footer-brand { font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:10px; }
+.footer-desc { font-size:0.85rem;max-width:260px;line-height:1.7; }
+.footer-title { font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:18px; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:10px; }
+.footer-links a { color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.88rem;transition:color 0.2s;display:inline-flex;align-items:center;gap:6px; }
+.footer-links a:hover { color:var(--cyan); }
+.footer-links a::before { content:'—';opacity:0.3;font-size:0.7rem; }
+.footer-divider { border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0 24px; }
+.footer-bottom { display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;flex-wrap:wrap;gap:12px; }
+.footer-socials { display:flex;gap:8px; }
+.fs-btn { width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;transition:background 0.2s,color 0.2s; }
+.fs-btn:hover { background:var(--orange);color:#fff; }
+
+/* WHATSAPP */
+.whatsapp-float { position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;z-index:800;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.3s,box-shadow 0.3s; }
+.whatsapp-float:hover { transform:scale(1.1);box-shadow:0 14px 40px rgba(37,211,102,0.5);color:#fff; }
+.whatsapp-float::before { content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,0.3);animation:ripple 2s ease infinite; }
+@keyframes ripple { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.4);opacity:0;} }
+
+/* RESPONSIVE */
+@media(max-width:991px) { .hero-info-card { margin-top:50px; } }
+@media(max-width:768px) { .hero-title{font-size:2.4rem;} .hero-quick-stats{gap:20px;} .price-card.featured{transform:scale(1);} }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="syntaxLogo.jpg" class="brand-logo" alt="Syntax Circuit">
+      Syntax Circuit<span class="brand-dot"></span>
+    </a>
+    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Final Year Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="cpget.html">CPGET2026</a></li>
+        <li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="verify.html">Verify</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="cpget-hero">
+  <div class="hero-grid"></div>
+  <div class="hb1 hero-blob"></div>
+  <div class="hb2 hero-blob"></div>
+  <div class="hb3 hero-blob"></div>
+
+  <div class="container py-5">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <div class="hero-inner">
+          <div class="hero-badge">
+            <span class="fire-icon">🔥</span> CPGET 2026 — Batch Now Open
+          </div>
+
+          <!-- COUNTDOWN -->
+          <div class="countdown-bar">
+            <div class="cd-item">
+              <span class="cd-num" id="cd-days">00</span>
+              <span class="cd-label">Days</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-item">
+              <span class="cd-num" id="cd-hours">00</span>
+              <span class="cd-label">Hours</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-item">
+              <span class="cd-num" id="cd-mins">00</span>
+              <span class="cd-label">Mins</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-item">
+              <span class="cd-num" id="cd-secs">00</span>
+              <span class="cd-label">Secs</span>
+            </div>
+            <span style="font-size:0.75rem;color:rgba(255,255,255,0.35);margin-left:10px;">to Exam</span>
+          </div>
+
+          <h1 class="hero-title">
+            Crack <span class="accent-orange">CPGET</span><br>
+            in <span class="accent-cyan">45 Days</span><br>
+            <span class="stroke">Online Coaching</span>
+          </h1>
+          <p class="hero-sub">
+            Intensive crash course designed specifically for OU CPGET 2026. Live sessions, daily practice, expert faculty — everything you need to secure your MCA seat.
+          </p>
+          <div class="hero-actions">
+            <a href="#pricing" class="btn-orange">
+              <i class="fa-solid fa-bolt"></i> Enrol Now
+            </a>
+            <a href="#timetable" class="btn-outline-light-custom">
+              <i class="fa-solid fa-calendar-days"></i> View Timetable
+            </a>
+          </div>
+          <div class="hero-quick-stats">
+            <div class="qs-item">
+              <span class="qs-num">45</span>
+              <span class="qs-label">Days</span>
+            </div>
+            <div class="qs-div"></div>
+            <div class="qs-item">
+              <span class="qs-num">200+</span>
+              <span class="qs-label">Students</span>
+            </div>
+            <div class="qs-div"></div>
+            <div class="qs-item">
+              <span class="qs-num">6</span>
+              <span class="qs-label">Expert Faculty</span>
+            </div>
+            <div class="qs-div"></div>
+            <div class="qs-item">
+              <span class="qs-num">100%</span>
+              <span class="qs-label">Online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="hero-info-card">
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(255,107,53,0.15);color:var(--orange);"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <div class="info-label">Batch Starts</div>
+              <div class="info-val">June 2, 2026 (Monday)</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(0,255,209,0.1);color:var(--cyan);"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="info-label">Class Timings</div>
+              <div class="info-val">7:00 AM – 9:00 AM &nbsp;|&nbsp; 8:00 PM – 10:00 PM</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(255,209,102,0.15);color:var(--gold);"><i class="fa-solid fa-video"></i></div>
+            <div>
+              <div class="info-label">Platform</div>
+              <div class="info-val">Live via Google Meet / Zoom</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(37,211,102,0.12);color:#25D366;"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <div class="info-label">Support</div>
+              <div class="info-val">24 × 7 WhatsApp & Telegram Community</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(255,45,120,0.12);color:var(--magenta);"><i class="fa-solid fa-file-lines"></i></div>
+            <div>
+              <div class="info-label">Materials</div>
+              <div class="info-val">Notes · Mock Tests · PYQs · Topic PDFs</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(124,58,237,0.12);color:var(--purple);"><i class="fa-solid fa-trophy"></i></div>
+            <div>
+              <div class="info-label">Exam Date</div>
+              <div class="info-val">July 7, 2026 (Tentative)</div>
+            </div>
+          </div>
+          <a href="#pricing" class="enroll-btn-card">
+            <i class="fa-solid fa-bolt"></i> Register Now — Limited Seats
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Live Online Classes</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Daily Practice Tests</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> WhatsApp Community</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Telegram Group</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> PYQ Discussion</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Subject Notes PDF</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Mock Exams</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Doubt Clearing Sessions</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Live Online Classes</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Daily Practice Tests</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> WhatsApp Community</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Telegram Group</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> PYQ Discussion</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Subject Notes PDF</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Mock Exams</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Doubt Clearing Sessions</span>
+  </div>
+</div>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Why choose us</span>
+      <h2 class="section-title">Everything You Need<br>to Clear CPGET</h2>
+      <p class="section-sub mx-auto">A complete ecosystem — from live classes to community support — built around one goal: your MCA admission.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:#FF6B35;">
+          <div class="h-icon" style="background:#FFF0E8;color:var(--orange);"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h5>Live Interactive Classes</h5>
+          <p>Daily 2-hour live sessions with instant Q&A. Every class is recorded so you never miss a topic.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:#0057FF;">
+          <div class="h-icon" style="background:#EFF3FF;color:var(--blue);"><i class="fa-solid fa-brain"></i></div>
+          <h5>PYQ Analysis & Mocks</h5>
+          <p>Chapter-wise previous year questions + 10 full-length mock tests modelled on actual CPGET pattern.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:#25D366;">
+          <div class="h-icon" style="background:#E8FFF5;color:#25D366;"><i class="fab fa-whatsapp"></i></div>
+          <h5>WhatsApp Community</h5>
+          <p>Join 500+ students in our active group — share doubts, get daily MCQs, and stay motivated together.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:#229ED9;">
+          <div class="h-icon" style="background:#E8F6FF;color:#229ED9;"><i class="fab fa-telegram"></i></div>
+          <h5>Telegram Study Channel</h5>
+          <p>Get notes, PDFs, shortcuts, and daily revision questions pushed directly to your Telegram every morning.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:#FF2D78;">
+          <div class="h-icon" style="background:#FFF0F5;color:var(--magenta);"><i class="fa-solid fa-file-pdf"></i></div>
+          <h5>Comprehensive Notes</h5>
+          <p>Subject-wise concise PDFs covering every CPGET topic — designed for quick revision in the last few days.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:#7C3AED;">
+          <div class="h-icon" style="background:#F3EEFF;color:var(--purple);"><i class="fa-solid fa-chart-bar"></i></div>
+          <h5>Performance Tracking</h5>
+          <p>Weekly assessment reports and personalised feedback so you know exactly where to improve.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY -->
+<!-- FACULTY SECTION -->
+<section id="faculty">
+  <div class="container">
+
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-7 reveal">
+        <span class="section-eyebrow">Learn from the best</span>
+
+        <h2 class="section-title">
+          SET / NET Qualified<br>
+          Expert Faculty
+        </h2>
+
+        <p class="section-sub">
+          Learn from experienced faculty members, CPGET rankers, SET/NET qualified mentors,
+          and M.Sc graduates from top universities including Osmania University.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- FACULTY 1 -->
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="faculty-card">
+
+          <div class="faculty-photo-wrap">
+            <img src="mypic.png"
+                 class="faculty-photo"
+                 alt="Akhil Jampala"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Akhil+Jampala&background=FF6B35&color=fff&size=110'">
+
+            <div class="faculty-badge">
+              <i class="fa-solid fa-trophy fa-xs"></i>
+            </div>
+          </div>
+
+          <h5>Akhil Jampala</h5>
+
+          <div class="faculty-role">
+            Lead Faculty • CPGET Mentor
+          </div>
+
+          <p>
+            M.Sc Computer Science(Osmania University) | SET Qualified | CPGET Topper.
+            Specialist in C Programming, Data Structures,Java,web technologies and CPGET preparation strategies.
+          </p>
+
+          <div class="faculty-subjects">
+            <span class="subj-pill">C Programming</span>
+            <span class="subj-pill">DSA</span>
+            <span class="subj-pill">Java</span>
+            <span class="subj-pill">Web Technologies</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FACULTY 2 -->
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="faculty-card">
+
+          <div class="faculty-photo-wrap">
+            <img src="Suresh-pic.jpg"
+                 class="faculty-photo"
+                 alt="Suresh Myathari"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Suresh+Myathari&background=0057FF&color=fff&size=110'">
+
+            <div class="faculty-badge" style="background:var(--blue);">
+              <i class="fa-solid fa-graduation-cap fa-xs"></i>
+            </div>
+          </div>
+
+          <h5>Suresh Myathari</h5>
+
+          <div class="faculty-role">
+            Computer Science Mentor & Trainer
+          </div>
+
+          <p>
+            M.Sc Computer Science(Osmania University) |  CPGET Topper.
+            Expert faculty for Java,DSA and problem-solving techniques.
+          </p>
+
+          <div class="faculty-subjects">
+            <span class="subj-pill">Java</span>
+            <span class="subj-pill">DSA</span>
+            <span class="subj-pill">OOP Concepts</span>
+            <span class="subj-pill">Web Technologies</span>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FACULTY 3 -->
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="faculty-card">
+
+          <div class="faculty-photo-wrap">
+            <img src="https://ui-avatars.com/api/?name=Harsha&background=7C3AED&color=fff&size=110"
+                 class="faculty-photo"
+                 alt="Harsha">
+
+            <div class="faculty-badge" style="background:var(--purple);">
+              <i class="fa-solid fa-award fa-xs"></i>
+            </div>
+          </div>
+
+          <h5> Harsha</h5>
+
+          <div class="faculty-role">
+            C++ & DBMS Faculty
+          </div>
+
+          <p>
+            M.Sc CS | SET Qualified | Former CPGET Topper.
+            Specialized in C++, Object-Oriented Programming, and coding fundamentals.
+          </p>
+
+          <div class="faculty-subjects">
+            <span class="subj-pill">C++</span>
+            <span class="subj-pill">DBMS</span>
+            <span class="subj-pill">Programming Logic</span>
+            <span class="subj-pill">OOP</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FACULTY 4
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="faculty-card">
+
+          <div class="faculty-photo-wrap">
+            <img src="https://ui-avatars.com/api/?name=Ravi+Kumar&background=0057FF&color=fff&size=110"
+                 class="faculty-photo"
+                 alt="Ravi Kumar">
+
+            <div class="faculty-badge" style="background:#0057FF;">
+              <i class="fa-solid fa-code fa-xs"></i>
+            </div>
+          </div>
+
+          <h5>Ravi Kumar</h5>
+
+          <div class="faculty-role">
+            Data Structures Expert
+          </div>
+
+          <p>
+            M.Sc Computer Science(Osmania University) |  CPGET Topper.
+            Experienced mentor in Data Structures, algorithms, and CPGET model papers.
+          </p>
+
+          <div class="faculty-subjects">
+            <span class="subj-pill">Data Structures</span>
+            <span class="subj-pill">Algorithms</span>
+            <span class="subj-pill">Mock Tests</span>
+          </div>
+
+        </div>
+      </div>-->
+
+      <!-- FACULTY 5 -->
+      <!-- <div class="col-md-4 col-sm-6 reveal">
+        <div class="faculty-card">
+
+          <div class="faculty-photo-wrap">
+            <img src="https://ui-avatars.com/api/?name=Sneha+Rao&background=FF2D78&color=fff&size=110"
+                 class="faculty-photo"
+                 alt="Sneha Rao">
+
+            <div class="faculty-badge" style="background:var(--magenta);">
+              <i class="fa-solid fa-globe fa-xs"></i>
+            </div>
+          </div>
+
+          <h5>Sneha Rao</h5>
+
+          <div class="faculty-role">
+            Web Technologies Faculty
+          </div>
+
+          <p>
+            M.Sc CS (OU Campus) | SET Qualified.
+            Specialist in HTML, CSS, JavaScript, PHP, and modern web technologies.
+          </p>
+
+          <div class="faculty-subjects">
+            <span class="subj-pill">HTML & CSS</span>
+            <span class="subj-pill">JavaScript</span>
+            <span class="subj-pill">PHP</span>
+          </div>
+
+        </div>
+      </div> -->
+
+      <!-- FACULTY 6 -->
+      <!-- <div class="col-md-4 col-sm-6 reveal">
+        <div class="faculty-card">
+
+          <div class="faculty-photo-wrap">
+            <img src="https://ui-avatars.com/api/?name=Anil+Kumar&background=FF6B35&color=fff&size=110"
+                 class="faculty-photo"
+                 alt="Anil Kumar">
+
+            <div class="faculty-badge" style="background:#FF6B35;">
+              <i class="fa-solid fa-medal fa-xs"></i>
+            </div>
+          </div>
+
+          <h5>Anil Kumar</h5>
+
+          <div class="faculty-role">
+            CPGET Test Series Mentor
+          </div>
+
+          <p>
+            M.Sc CS | NET Qualified | State Rank Mentor.
+            Handles PYQs, mock test analysis, shortcuts, and exam strategies.
+          </p>
+
+          <div class="faculty-subjects">
+            <span class="subj-pill">Mock Tests</span>
+            <span class="subj-pill">PYQs</span>
+            <span class="subj-pill">Exam Strategy</span>
+          </div>
+
+        </div>
+      </div> --> 
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- UPDATED SYLLABUS SECTION -->
+<section id="syllabus">
+  <div class="container">
+
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-7 reveal">
+
+        <span class="section-eyebrow">Full Coverage</span>
+
+        <h2 class="section-title">
+          CPGET 2026<br>
+          Syllabus Covered
+        </h2>
+
+        <p class="section-sub">
+          Complete syllabus coverage designed according to the latest CPGET Computer Science pattern.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-lg-8 reveal">
+
+        <div class="syl-accordion" id="syllabus-acc">
+
+          <!-- C -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week">Module 1</span>
+              <h6>C Programming</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">Basics of C</span>
+                <span class="topic-chip">Pointers</span>
+                <span class="topic-chip">Functions</span>
+                <span class="topic-chip">Arrays</span>
+                <span class="topic-chip">Strings</span>
+                <span class="topic-chip">Structures</span>
+                <span class="topic-chip">File Handling</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CPP -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:var(--blue);">Module 2</span>
+              <h6>C++ Programming</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">Classes & Objects</span>
+                <span class="topic-chip">Inheritance</span>
+                <span class="topic-chip">Polymorphism</span>
+                <span class="topic-chip">Abstraction</span>
+                <span class="topic-chip">Templates</span>
+                <span class="topic-chip">Exception Handling</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DSA -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:#25D366;">Module 3</span>
+              <h6>Data Structures</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">Stacks</span>
+                <span class="topic-chip">Queues</span>
+                <span class="topic-chip">Linked Lists</span>
+                <span class="topic-chip">Trees</span>
+                <span class="topic-chip">Graphs</span>
+                <span class="topic-chip">Searching</span>
+                <span class="topic-chip">Sorting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DBMS -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:#229ED9;">Module 4</span>
+              <h6>Database Management Systems</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">ER Model</span>
+                <span class="topic-chip">SQL</span>
+                <span class="topic-chip">Normalization</span>
+                <span class="topic-chip">Transactions</span>
+                <span class="topic-chip">Joins</span>
+                <span class="topic-chip">Keys & Constraints</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- JAVA -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:#B07A00;">Module 5</span>
+              <h6>Java Programming</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">Java Basics</span>
+                <span class="topic-chip">OOP Concepts</span>
+                <span class="topic-chip">Interfaces</span>
+                <span class="topic-chip">Packages</span>
+                <span class="topic-chip">Multithreading</span>
+                <span class="topic-chip">Collections</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WEB -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:var(--magenta);">Module 6</span>
+              <h6>Web Technologies</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">HTML5</span>
+                <span class="topic-chip">CSS3</span>
+                <span class="topic-chip">JavaScript</span>
+                <span class="topic-chip">Bootstrap</span>
+                <span class="topic-chip">PHP Basics</span>
+                <span class="topic-chip">Responsive Design</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- TIMETABLE -->
+<!-- TIMETABLE -->
+<section id="timetable">
+  <div class="container">
+
+    <div class="row align-items-end mb-5">
+
+      <div class="col-lg-7 reveal">
+        <span class="section-eyebrow">Weekly Schedule</span>
+
+        <h2 class="section-title">
+          45-Day Class<br>Timetable
+        </h2>
+
+        <p class="section-sub">
+          Structured daily sessions covering every topic systematically.
+          Morning and evening batches available for flexible learning.
+        </p>
+      </div>
+
+      <div class="col-lg-5 text-lg-end reveal">
+        <a href="#" class="tt-download" onclick="downloadTimetable()">
+          <i class="fa-solid fa-download"></i>
+          Download Full PDF
+        </a>
+      </div>
+
+    </div>
+
+    <!-- PHASE INFO -->
+    <div class="row g-3 mb-4 reveal">
+
+      <!-- Phase 1 -->
+      <div class="col-md-4">
+        <div style="
+          background:#fff;
+          border-radius:16px;
+          padding:22px 24px;
+          border:1px solid rgba(0,0,0,0.06);
+        ">
+
+          <div style="
+            font-family:'Syne',sans-serif;
+            font-weight:800;
+            font-size:0.75rem;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            color:var(--orange);
+            margin-bottom:8px;
+          ">
+            Phase 1 · Week 1–2
+          </div>
+
+          <div style="
+            font-weight:600;
+            color:var(--ink);
+            margin-bottom:4px;
+          ">
+            Programming Foundations
+          </div>
+
+          <div style="
+            font-size:0.82rem;
+            color:var(--mid);
+          ">
+            C Programming, Problem Solving, Programming Logic
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="col-md-4">
+        <div style="
+          background:#fff;
+          border-radius:16px;
+          padding:22px 24px;
+          border:1px solid rgba(0,0,0,0.06);
+        ">
+
+          <div style="
+            font-family:'Syne',sans-serif;
+            font-weight:800;
+            font-size:0.75rem;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            color:var(--blue);
+            margin-bottom:8px;
+          ">
+            Phase 2 · Week 3–5
+          </div>
+
+          <div style="
+            font-weight:600;
+            color:var(--ink);
+            margin-bottom:4px;
+          ">
+            Core Computer Science
+          </div>
+
+          <div style="
+            font-size:0.82rem;
+            color:var(--mid);
+          ">
+            Data Structures, C++, Java Programming, DBMS
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="col-md-4">
+        <div style="
+          background:#fff;
+          border-radius:16px;
+          padding:22px 24px;
+          border:1px solid rgba(0,0,0,0.06);
+        ">
+
+          <div style="
+            font-family:'Syne',sans-serif;
+            font-weight:800;
+            font-size:0.75rem;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            color:var(--magenta);
+            margin-bottom:8px;
+          ">
+            Phase 3 · Week 6+
+          </div>
+
+          <div style="
+            font-weight:600;
+            color:var(--ink);
+            margin-bottom:4px;
+          ">
+            Revision & Mock Tests
+          </div>
+
+          <div style="
+            font-size:0.82rem;
+            color:var(--mid);
+          ">
+            Web Technologies, PYQs, Mock Tests, Revision & Exam Strategy
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TIMETABLE CARD -->
+    <div class="tt-card reveal">
+
+      <!-- HEADER -->
+      <div class="tt-header">
+
+        <h4>
+          <i class="fa-solid fa-calendar-week me-2"></i>
+          Typical Weekly Schedule
+        </h4>
+
+        <div style="display:flex;gap:16px;align-items:center;">
+
+          <span style="
+            font-size:0.78rem;
+            color:rgba(255,255,255,0.4);
+          ">
+            <i class="fa-solid fa-sun me-1" style="color:var(--gold);"></i>
+            Morning: 9–11 AM
+          </span>
+
+          <span style="
+            font-size:0.78rem;
+            color:rgba(255,255,255,0.4);
+          ">
+            <i class="fa-solid fa-moon me-1" style="color:var(--cyan);"></i>
+            Evening: 4–6 PM
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- TABLE -->
+      <div style="overflow-x:auto;">
+
+        <table class="tt-table">
+
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Time Slot</th>
+              <th>Subject / Topic</th>
+              <th>Faculty</th>
+              <th>Batch</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <!-- MONDAY -->
+            <tr>
+              <td><span class="day-badge">Monday</span></td>
+
+              <td><span class="time-slot">9:00 – 11:00 AM</span></td>
+
+              <td>
+                <span class="sub-chip">
+                  <i class="fa-solid fa-code fa-xs"></i>
+                  C Programming
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Akhil Jampala
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--blue);font-weight:600;">
+                  Morning
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Monday</span></td>
+
+              <td><span class="time-slot">4:00 – 6:00 PM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#EFF3FF;color:var(--blue);">
+                  <i class="fa-brands fa-java fa-xs"></i>
+                  Java Programming
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Suresh Myathari
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--magenta);font-weight:600;">
+                  Evening
+                </span>
+              </td>
+            </tr>
+
+            <!-- TUESDAY -->
+            <tr>
+              <td><span class="day-badge">Tuesday</span></td>
+
+              <td><span class="time-slot">9:00 – 11:00 AM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#FFF0F5;color:var(--magenta);">
+                  <i class="fa-solid fa-sitemap fa-xs"></i>
+                  Data Structures
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Akhil Jampala
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--blue);font-weight:600;">
+                  Morning
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Tuesday</span></td>
+
+              <td><span class="time-slot">4:00 – 6:00 PM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#F3EEFF;color:var(--purple);">
+                  <i class="fa-solid fa-laptop-code fa-xs"></i>
+                  C++ Programming
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Harsha
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--magenta);font-weight:600;">
+                  Evening
+                </span>
+              </td>
+            </tr>
+
+            <!-- WEDNESDAY -->
+            <tr>
+              <td><span class="day-badge">Wednesday</span></td>
+
+              <td><span class="time-slot">9:00 – 11:00 AM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#E8FFF5;color:#00A36E;">
+                  <i class="fa-solid fa-database fa-xs"></i>
+                  DBMS
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Harsha
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--blue);font-weight:600;">
+                  Morning
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Wednesday</span></td>
+
+              <td><span class="time-slot">4:00 – 6:00 PM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#FFF0E8;color:var(--orange);">
+                  <i class="fa-solid fa-globe fa-xs"></i>
+                  Web Technologies
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Akhil Jampala
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--magenta);font-weight:600;">
+                  Evening
+                </span>
+              </td>
+            </tr>
+
+            <!-- THURSDAY -->
+            <tr>
+              <td><span class="day-badge">Thursday</span></td>
+
+              <td><span class="time-slot">7:00 – 9:00 AM</span></td>
+
+              <td>
+                <span class="sub-chip">
+                  <i class="fa-solid fa-code fa-xs"></i>
+                  C Programming Practice
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Akhil Jampala
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--blue);font-weight:600;">
+                  Morning
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Thursday</span></td>
+
+              <td><span class="time-slot">4:00 – 6:00 PM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#EFF3FF;color:var(--blue);">
+                  <i class="fa-brands fa-java fa-xs"></i>
+                  Advanced Java
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Suresh Myathari
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--magenta);font-weight:600;">
+                  Evening
+                </span>
+              </td>
+            </tr>
+
+            <!-- FRIDAY -->
+            <tr>
+              <td><span class="day-badge">Friday</span></td>
+
+              <td><span class="time-slot">7:00 – 9:00 AM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#FFF0F5;color:var(--magenta);">
+                  <i class="fa-solid fa-sitemap fa-xs"></i>
+                  Advanced DSA
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Suresh Myathari
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--blue);font-weight:600;">
+                  Morning
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="day-badge">Friday</span></td>
+
+              <td><span class="time-slot">4:00 – 6:00 PM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#F3EEFF;color:var(--purple);">
+                  <i class="fa-solid fa-laptop-code fa-xs"></i>
+                  OOP using C++
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Harsha
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:var(--magenta);font-weight:600;">
+                  Evening
+                </span>
+              </td>
+            </tr>
+
+            <!-- SATURDAY -->
+            <tr>
+              <td>
+                <span class="day-badge" style="background:#E8FFF5;color:#00A36E;">
+                  Saturday
+                </span>
+              </td>
+
+              <td><span class="time-slot">9:00 – 11:00 AM</span></td>
+
+              <td>
+                <span class="sub-chip" style="background:#FFF0E8;color:var(--orange);">
+                  <i class="fa-solid fa-globe fa-xs"></i>
+                  HTML, CSS & JavaScript
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-user-tie fa-xs"></i>
+                  Akhil Jampala
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:#00A36E;font-weight:600;">
+                  Morning
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="day-badge" style="background:#E8FFF5;color:#00A36E;">
+                  Saturday
+                </span>
+              </td>
+
+              <td><span class="time-slot">4:00 – 6:00 PM</span></td>
+
+              <td>
+                <span class="sub-chip">
+                  <i class="fa-solid fa-file-pen fa-xs"></i>
+                  Weekly Mock Test
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-users fa-xs"></i>
+                  All Faculty
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:#00A36E;font-weight:600;">
+                  Evening
+                </span>
+              </td>
+            </tr>
+
+            <!-- SUNDAY -->
+            <tr>
+              <td>
+                <span class="day-badge" style="background:#FFF0F5;color:var(--magenta);">
+                  Sunday
+                </span>
+              </td>
+
+              <td><span class="time-slot">9:00 – 11:00 AM</span></td>
+
+              <td>
+                <span class="sub-chip">
+                  <i class="fa-solid fa-book fa-xs"></i>
+                  PYQ Discussion & Revision
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-users fa-xs"></i>
+                  All Faculty
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:#00A36E;font-weight:600;">
+                  Morning
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <span class="day-badge" style="background:#FFF0F5;color:var(--magenta);">
+                  Sunday
+                </span>
+              </td>
+
+              <td><span class="time-slot">4:00 – 6:00 PM</span></td>
+
+              <td>
+                <span class="sub-chip">
+                  <i class="fa-solid fa-comments fa-xs"></i>
+                  Doubt Clearing Session
+                </span>
+              </td>
+
+              <td>
+                <span class="faculty-ref">
+                  <i class="fa-solid fa-users fa-xs"></i>
+                  All Faculty
+                </span>
+              </td>
+
+              <td>
+                <span style="font-size:0.78rem;color:#00A36E;font-weight:600;">
+                  Evening
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="container position-relative" style="z-index:2;">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Stay Connected</span>
+      <h2 class="section-title">Join Our Learning<br>Communities</h2>
+      <p class="section-sub mx-auto">Learn together, grow together. Our communities keep you active, motivated, and always up to date.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-5 reveal">
+        <div class="comm-card" style="--c-color:#25D366;">
+          <div class="members-badge">
+            <span class="online-dot"></span> 500+ members active
+          </div>
+          <div class="comm-icon" style="background:rgba(37,211,102,0.1);color:#25D366;font-size:2.5rem;">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h4>WhatsApp Community</h4>
+          <p>The fastest way to stay connected with your batch, faculty, and fellow aspirants.</p>
+          <ul class="comm-features">
+            <li>Daily MCQ practice sets</li>
+            <li>Instant doubt resolution from faculty</li>
+            <li>Exam alerts & important updates</li>
+            <li>Peer discussion & motivation</li>
+            <li>Live class links & recordings</li>
+          </ul>
+          <a href="https://chat.whatsapp.com/CRulmRPhkliC4lZLdMIbEt" target="_blank" class="comm-btn btn-wa">
+            <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-5 reveal">
+        <div class="comm-card" style="--c-color:#229ED9;">
+          <div class="members-badge" style="color:rgba(255,255,255,0.4);">
+            <span style="width:7px;height:7px;border-radius:50%;background:#229ED9;display:inline-block;"></span> 300+ subscribers
+          </div>
+          <div class="comm-icon" style="background:rgba(34,158,217,0.12);color:#229ED9;font-size:2.5rem;">
+            <i class="fab fa-telegram"></i>
+          </div>
+          <h4>Telegram Channel</h4>
+          <p>Your daily digest of notes, shortcuts, and important content — delivered right to your phone.</p>
+          <ul class="comm-features">
+            <li>Morning revision notes every day</li>
+            <li>Topic-wise PDFs & formula sheets</li>
+            <li>Previous year question papers</li>
+            <li>Exam tips & tricks</li>
+            <li>Weekly performance analysis</li>
+          </ul>
+          <a href="https://t.me/+0Y42u8pehRE1ZmI1" target="_blank" class="comm-btn btn-tg">
+            <i class="fab fa-telegram"></i> Join Telegram Channel
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SYLLABUS -->
+<section id="syllabus">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-7 reveal">
+        <span class="section-eyebrow">Full Coverage</span>
+        <h2 class="section-title">CPGET 2026<br>Syllabus Covered</h2>
+        <p class="section-sub">
+          Complete preparation for CPGET 2026 Computer Science entrance examination.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- LEFT -->
+      <div class="col-lg-8 reveal">
+        <div class="syl-accordion" id="syllabus-acc">
+
+          <!-- WEEK 1 -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week">Week 1</span>
+              <h6>C Programming</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">Basics of C</span>
+                <span class="topic-chip">Data Types</span>
+                <span class="topic-chip">Operators</span>
+                <span class="topic-chip">Control Statements</span>
+                <span class="topic-chip">Functions</span>
+                <span class="topic-chip">Recursion</span>
+                <span class="topic-chip">Pointers</span>
+                <span class="topic-chip">Arrays & Strings</span>
+                <span class="topic-chip">Structures & Unions</span>
+                <span class="topic-chip">File Handling</span>
+                <span class="topic-chip">Dynamic Memory Allocation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WEEK 2 -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:var(--blue);">Week 2</span>
+              <h6>C++ Programming</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">Classes & Objects</span>
+                <span class="topic-chip">Constructors</span>
+                <span class="topic-chip">Destructor</span>
+                <span class="topic-chip">Inheritance</span>
+                <span class="topic-chip">Polymorphism</span>
+                <span class="topic-chip">Encapsulation</span>
+                <span class="topic-chip">Abstraction</span>
+                <span class="topic-chip">Operator Overloading</span>
+                <span class="topic-chip">Templates</span>
+                <span class="topic-chip">Exception Handling</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WEEK 3 -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:#25D366;">Week 3</span>
+              <h6>Data Structures</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">Arrays</span>
+                <span class="topic-chip">Linked Lists</span>
+                <span class="topic-chip">Stacks</span>
+                <span class="topic-chip">Queues</span>
+                <span class="topic-chip">Trees</span>
+                <span class="topic-chip">Binary Trees</span>
+                <span class="topic-chip">Graphs</span>
+                <span class="topic-chip">Searching</span>
+                <span class="topic-chip">Sorting</span>
+                <span class="topic-chip">Hashing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WEEK 4 -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:#229ED9;">Week 4</span>
+              <h6>Database Management Systems (DBMS)</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">ER Diagrams</span>
+                <span class="topic-chip">Relational Algebra</span>
+                <span class="topic-chip">SQL Queries</span>
+                <span class="topic-chip">Normalization</span>
+                <span class="topic-chip">Transactions</span>
+                <span class="topic-chip">ACID Properties</span>
+                <span class="topic-chip">Keys & Constraints</span>
+                <span class="topic-chip">Joins</span>
+                <span class="topic-chip">Indexing</span>
+                <span class="topic-chip">Concurrency Control</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WEEK 5 -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:#B07A00;">Week 5</span>
+              <h6>Java Programming</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">Java Basics</span>
+                <span class="topic-chip">Classes & Objects</span>
+                <span class="topic-chip">Inheritance</span>
+                <span class="topic-chip">Polymorphism</span>
+                <span class="topic-chip">Interfaces</span>
+                <span class="topic-chip">Packages</span>
+                <span class="topic-chip">Exception Handling</span>
+                <span class="topic-chip">Multithreading</span>
+                <span class="topic-chip">Collections Framework</span>
+                <span class="topic-chip">JDBC Basics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WEEK 6 -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:var(--magenta);">Week 6</span>
+              <h6>Web Technologies</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">HTML5</span>
+                <span class="topic-chip">CSS3</span>
+                <span class="topic-chip">JavaScript</span>
+                <span class="topic-chip">Bootstrap</span>
+                <span class="topic-chip">DOM Manipulation</span>
+                <span class="topic-chip">Forms & Validation</span>
+                <span class="topic-chip">Responsive Design</span>
+                <span class="topic-chip">PHP Basics</span>
+                <span class="topic-chip">Client-Server Architecture</span>
+                <span class="topic-chip">HTTP Basics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WEEK 7 -->
+          <div class="syl-item">
+            <div class="syl-head" onclick="toggleSyl(this)">
+              <span class="syl-week" style="background:#ff6b35;">Week 7+</span>
+              <h6>Revision, Mock Tests & Exam Strategy</h6>
+              <i class="fa-solid fa-chevron-down syl-arrow"></i>
+            </div>
+
+            <div class="syl-body">
+              <div class="syl-topics">
+                <span class="topic-chip">10 Full Mock Tests</span>
+                <span class="topic-chip">Previous Papers</span>
+                <span class="topic-chip">Important Questions</span>
+                <span class="topic-chip">Speed & Accuracy</span>
+                <span class="topic-chip">Weak Area Analysis</span>
+                <span class="topic-chip">Exam Strategy</span>
+                <span class="topic-chip">Quick Revision</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="col-lg-4 reveal">
+
+        <div style="
+          background:var(--ink);
+          border-radius:22px;
+          padding:32px;
+          color:#fff;
+          position:sticky;
+          top:90px;
+        ">
+
+          <h5 style="
+            font-family:'Syne',sans-serif;
+            font-weight:800;
+            font-size:1.1rem;
+            margin-bottom:20px;
+          ">
+            Exam Pattern 
+            <span style="color:var(--orange);">CPGET 2026</span>
+          </h5>
+
+          <div style="display:flex;flex-direction:column;gap:14px;">
+
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Exam Duration</span>
+              <span style="font-size:0.85rem;font-weight:600;">90 Minutes</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Total Questions</span>
+              <span style="font-size:0.85rem;font-weight:600;">100 MCQs</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Total Marks</span>
+              <span style="font-size:0.85rem;font-weight:600;">100 Marks</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Negative Marking</span>
+              <span style="font-size:0.85rem;font-weight:600;color:#25D366;">No</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07);">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Mode</span>
+              <span style="font-size:0.85rem;font-weight:600;">Online CBT</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Conducting Body</span>
+              <span style="font-size:0.85rem;font-weight:600;">Kakathiya University</span>
+            </div>
+
+          </div>
+
+          <div style="
+            margin-top:24px;
+            background:rgba(255,107,53,0.1);
+            border:1px solid rgba(255,107,53,0.2);
+            border-radius:12px;
+            padding:16px;
+            font-size:0.82rem;
+            color:rgba(255,255,255,0.6);
+            line-height:1.65;
+          ">
+
+            <i class="fa-solid fa-circle-info" style="color:var(--orange);margin-right:6px;"></i>
+
+            Subjects:
+            C Programming,
+            C++,
+            Data Structures,
+            DBMS,
+            Java,
+            Web Technologies
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Simple Pricing</span>
+      <h2 class="section-title">Choose Your<br>Study Plan</h2>
+      <p class="section-sub mx-auto">Affordable plans built for every student. No hidden charges.</p>
+    </div>
+    <div class="row g-4 justify-content-center align-items-stretch">
+
+      <div class="col-md-4 reveal">
+        <div class="price-card">
+          <span class="price-icon">📖</span>
+          <div class="price-name">Basic</div>
+          <div class="price-amount">₹2499</div>
+          <div class="price-period">for 45 Days</div>
+          <ul class="price-features">
+            <li><i class="fa-solid fa-check pf-check"></i> Live Classes (Recordings)</li>
+            <li><i class="fa-solid fa-check pf-check"></i> WhatsApp Community</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Telegram Channel</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Subject Notes PDF</li>
+            <li><i class="fa-solid fa-check pf-check"></i> 3 Mock Tests</li>
+            <li style="opacity:0.3;"><i class="fa-solid fa-xmark" style="color:#ccc;"></i> Personal Mentoring</li>
+            <li style="opacity:0.3;"><i class="fa-solid fa-xmark" style="color:#ccc;"></i> Doubt Clearing Calls</li>
+          </ul>
+          <a href="https://wa.me/916302204738?text=Hi%20I%20want%20to%20enrol%20for%20CPGET%202026%20Basic%20Plan" target="_blank" class="btn-enroll btn-enroll-outline">
+            <i class="fab fa-whatsapp"></i> Enrol via WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="price-card featured">
+          <span class="price-badge">Most Popular</span>
+          <span class="price-icon">🚀</span>
+          <div class="price-name">Pro</div>
+          <div class="price-amount" style="color:var(--orange);">₹4,999</div>
+          <div class="price-period">for 45 Days</div>
+          <ul class="price-features">
+            <li><i class="fa-solid fa-check pf-check"></i> Live Classes + Recordings</li>
+            <li><i class="fa-solid fa-check pf-check"></i> WhatsApp Community</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Telegram Channel</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Complete Notes & PDFs</li>
+            <li><i class="fa-solid fa-check pf-check"></i> 10 Full Mock Tests</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Personal Mentoring</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Weekly Doubt Clearing</li>
+          </ul>
+          <a href="https://wa.me/916302204738?text=Hi%20I%20want%20to%20enrol%20for%20CPGET%202026%20Pro%20Plan" target="_blank" class="btn-enroll btn-enroll-filled">
+            <i class="fa-solid fa-bolt"></i> Enrol Now
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="price-card">
+          <span class="price-icon">👥</span>
+          <div class="price-name">Group (5+ Students)</div>
+          <div class="price-amount">₹3,499</div>
+          <div class="price-period">per student · 45 Days</div>
+          <ul class="price-features">
+            <li><i class="fa-solid fa-check pf-check"></i> Everything in Pro</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Group Discount 25%</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Dedicated Group Chat</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Group Doubt Sessions</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Peer Study Partner</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Group Progress Report</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Certificate of Completion</li>
+          </ul>
+          <a href="https://wa.me/916302204738?text=Hi%20we%20are%20a%20group%20of%20students%20interested%20in%20CPGET%202026%20coaching" target="_blank" class="btn-enroll btn-enroll-outline">
+            <i class="fab fa-whatsapp"></i> Contact for Group
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-4 reveal">
+      <p style="font-size:0.85rem;color:var(--mid);">
+        <i class="fa-solid fa-shield-halved" style="color:var(--orange);"></i>&nbsp;
+        Secure payment via UPI / Bank Transfer. Contact us on WhatsApp for any queries.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="container text-center position-relative" style="z-index:2;">
+    <p class="section-eyebrow" style="color:rgba(255,255,255,0.6);">Don't wait — seats are limited</p>
+    <h2 class="mb-3">Your CPGET Success<br>Journey Starts Today.</h2>
+    <p class="mb-5">Join 200+ students already enrolled for the 45-day online crash course.</p>
+    <a href="https://wa.me/916302204738?text=Hi%20I%20want%20to%20enrol%20for%20CPGET%202026%20coaching" target="_blank" class="btn-cta-white">
+      <i class="fab fa-whatsapp"></i> Enrol on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Got Questions?</span>
+      <h2 class="section-title">Frequently Asked<br>Questions</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Is prior coding knowledge required to join?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">Not at all! Our course starts from absolute basics. Whether you're from BCA, B.Sc or B.Tech — we cover everything from the ground up, assuming zero prior knowledge.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What if I miss a live class?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">Every live class is recorded and shared in the WhatsApp group and Telegram channel within 2 hours of the session. You can watch at your own pace — nothing is lost.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Which platform will the classes be held on?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">Classes are conducted live on Google Meet / Zoom. The meeting link is shared 15 minutes before every session via WhatsApp and Telegram. No additional software installation required.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            How do I pay the fees?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">Payments are accepted via GPay, PhonePe, Paytm, or Bank Transfer. Once you message us on WhatsApp, we'll share the payment details and confirm your seat immediately after payment.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Will I get notes and study material?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">Yes! All enrolled students get subject-wise PDF notes, formula sheets, previous year question papers, and topic-wise practice sets — all shared digitally via the Telegram channel.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Is there a refund policy?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-a">We offer a 3-day satisfaction guarantee. If you're not satisfied after attending the first 3 days of classes, we will process a full refund — no questions asked.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <img src="syntaxLogo.jpg" width="30" style="border-radius:7px;" alt="">
+          Syntax Circuit
+        </div>
+        <p class="footer-desc">Empowering CS students through industry-focused learning, expert mentorship, and real-world projects. CPGET 2026 coaching available now.</p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <p class="footer-title">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="#highlights">Highlights</a></li>
+          <li><a href="#faculty">Faculty</a></li>
+          <li><a href="#timetable">Timetable</a></li>
+          <li><a href="#syllabus">Syllabus</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <p class="footer-title">Explore</p>
+        <ul class="footer-links">
+          <li><a href="#community">Community</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <p class="footer-title">Contact Us</p>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);line-height:1.7;margin-bottom:18px;">Have questions about the CPGET coaching? Reach us directly.</p>
+        <a href="https://wa.me/916302204738" target="_blank" class="btn-orange" style="font-size:0.85rem;padding:12px 24px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-radius:50px;">
+          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>© 2026 Syntax Circuit. All Rights Reserved. | CPGET 2026 Coaching</span>
+      <div class="footer-socials">
+        <a href="#" class="fs-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="fs-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="fs-btn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/916302204738?text=Hi%20I%20want%20to%20know%20more%20about%20CPGET%202026%20coaching" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mouseX=0,mouseY=0,ringX=0,ringY=0;
+document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY;cursor.style.transform=`translate(${mouseX-6}px,${mouseY-6}px)`;});
+(function animateRing(){ringX+=(mouseX-ringX)*0.12;ringY+=(mouseY-ringY)*0.12;ring.style.transform=`translate(${ringX-20}px,${ringY-20}px)`;requestAnimationFrame(animateRing);})();
+
+// ─── COUNTDOWN ───
+function updateCountdown(){
+  const examDate = new Date('2026-07-07T09:00:00');
+  const now = new Date();
+  const diff = examDate - now;
+  if(diff<=0){document.querySelectorAll('.cd-num').forEach(el=>el.textContent='00');return;}
+  const days=Math.floor(diff/86400000);
+  const hours=Math.floor((diff%86400000)/3600000);
+  const mins=Math.floor((diff%3600000)/60000);
+  const secs=Math.floor((diff%60000)/1000);
+  document.getElementById('cd-days').textContent=String(days).padStart(2,'0');
+  document.getElementById('cd-hours').textContent=String(hours).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(mins).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(secs).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// ─── SCROLL REVEAL ───
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);}});},{threshold:0.1});
+reveals.forEach(el=>observer.observe(el));
+
+// ─── SYLLABUS ACCORDION ───
+function toggleSyl(head){
+  const body=head.nextElementSibling;
+  const arrow=head.querySelector('.syl-arrow');
+  const isOpen=body.classList.contains('open');
+  document.querySelectorAll('.syl-body.open').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.syl-arrow').forEach(a=>a.style.transform='');
+  if(!isOpen){body.classList.add('open');arrow.style.transform='rotate(180deg)';}
+}
+
+// ─── FAQ ───
+function toggleFaq(q){
+  const a=q.nextElementSibling;
+  const icon=q.querySelector('.faq-icon');
+  const isOpen=a.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(el=>el.style.transform='');
+  if(!isOpen){a.classList.add('open');icon.style.transform='rotate(180deg)';}
+}
+
+// ─── TIMETABLE DOWNLOAD ───
+function downloadTimetable(){
+  const content=`CPGET 2026 — 45-Day Timetable\nSyntax Circuit\n\nMORNING BATCH: 7:00 AM – 9:00 AM\nEVENING BATCH: 8:00 PM – 10:00 PM\n\nMonday    | Morning  | C Programming       | Akhil Jampala\nMonday    | Evening  | DBMS                | Sneha Rao\nTuesday   | Morning  | Data Structures     | Akhil Jampala\nTuesday   | Evening  | Computer Networks   | Ravi Kumar\nWednesday | Morning  | Mathematics         | Priya Reddy\nWednesday | Evening  | OOP / Java          | Suresh Myathari\nThursday  | Morning  | Operating Systems   | Ravi Kumar\nThursday  | Evening  | Software Engg       | Sneha Rao\nFriday    | Morning  | Analytical Reasoning| Priya Reddy\nFriday    | Evening  | PYQ Discussion      | All Faculty\nSaturday  | 9AM-12PM | Weekly Mock Test    | All Faculty\nSunday    | 6-8PM    | Doubt Clearing      | All Faculty\n\nContact: +91 63022 04738\nEmail: info@syntaxcircuit.in`;
+  const blob=new Blob([content],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CPGET-2026-Timetable-SyntaxCircuit.txt';a.click();
+}
+</script>
+</body>
+</html>
