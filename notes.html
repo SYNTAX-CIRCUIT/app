@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes & Resources — Syntax Circuit</title>
+<meta name="description" content="Download free notes, PDFs, previous year papers, and study materials for UGC NET CS, CPGET, B.Tech tuitions, and final year projects — all organized in one place.">
+<link rel="icon" href="syntaxLogo.jpg">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #050A14;
+  --paper: #F5F3EE;
+  --cyan: #00FFD1;
+  --magenta: #FF2D78;
+  --gold: #FFD166;
+  --blue: #0057FF;
+  --mid: #8892A4;
+  --orange: #FF6B35;
+  --purple: #7C3AED;
+  --teal: #0D9488;
+  --rose: #E11D48;
+  --nav-h: 72px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025; pointer-events: none; z-index: 1000;
+}
+
+.cursor { width:12px;height:12px;border-radius:50%;background:var(--cyan);position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:transform 0.15s ease; }
+.cursor-ring { width:40px;height:40px;border:1.5px solid var(--magenta);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform 0.35s cubic-bezier(.25,.46,.45,.94); }
+
+/* NAVBAR */
+.navbar { height:var(--nav-h);background:rgba(245,243,238,0.85);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.06);z-index:900;padding:0; }
+.navbar-brand { font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-0.5px;color:var(--ink)!important;display:flex;align-items:center;gap:10px; }
+.brand-logo { width:34px;height:34px;border-radius:8px;object-fit:cover; }
+.brand-dot { display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-left:2px;position:relative;top:-2px; }
+.nav-link { font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;color:var(--ink)!important;padding:6px 14px!important;border-radius:30px;transition:background 0.2s,color 0.2s;letter-spacing:0.01em; }
+.nav-link:hover { background:var(--ink);color:var(--cyan)!important; }
+.nav-cta { background:var(--ink)!important;color:var(--cyan)!important;font-weight:600;border-radius:30px;padding:6px 20px!important; }
+.nav-cta:hover { background:var(--magenta)!important;color:#fff!important; }
+
+/* ─── NOTES HERO ─── */
+.notes-hero {
+  background: var(--ink);
+  position: relative;
+  padding: 160px 0 100px;
+  overflow: hidden;
+}
+.notes-hero::before {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 60% at 70% 40%,rgba(0,255,209,0.08) 0%,transparent 70%),
+             radial-gradient(ellipse 40% 50% at 20% 80%,rgba(255,45,120,0.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero-grid {
+  position:absolute;inset:0;
+  background-image: linear-gradient(rgba(0,255,209,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(0,255,209,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gridPan 25s linear infinite;
+}
+@keyframes gridPan { to { background-position:60px 60px; } }
+
+.hero-blob { position:absolute;border-radius:50%;filter:blur(100px);opacity:0.2; }
+.hb1 { width:400px;height:400px;background:var(--cyan);top:-100px;right:10%;animation:blobFloat 8s ease-in-out infinite alternate; }
+.hb2 { width:300px;height:300px;background:var(--magenta);bottom:-50px;left:5%;animation:blobFloat 8s ease-in-out infinite alternate-reverse; }
+@keyframes blobFloat { from{transform:translate(0,0) scale(1);} to{transform:translate(20px,20px) scale(1.1);} }
+
+.notes-hero-content { position:relative;z-index:2;color:#fff; }
+.hero-badge {
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,255,209,0.1);border:1px solid rgba(0,255,209,0.3);
+  border-radius:30px;padding:6px 18px;
+  font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:24px;backdrop-filter:blur(8px);
+}
+.hero-title {
+  font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5vw,4.2rem);
+  font-weight:800;line-height:1.08;letter-spacing:-0.03em;
+  margin-bottom:18px;
+}
+.hero-title .accent-cyan { color:var(--cyan); }
+.hero-title .accent-gold { color:var(--gold); }
+.hero-sub { font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.5);max-width:560px;line-height:1.75;margin-bottom:40px; }
+
+/* Stats bar */
+.stats-bar {
+  display:flex;gap:0;flex-wrap:wrap;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;overflow:hidden;backdrop-filter:blur(10px);
+  max-width:700px;
+}
+.stat-item {
+  flex:1;min-width:140px;padding:22px 28px;
+  border-right:1px solid rgba(255,255,255,0.06);
+  text-align:center;
+}
+.stat-item:last-child { border-right:none; }
+.stat-num { font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff;line-height:1; }
+.stat-label { font-size:0.7rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-top:4px; }
+.stat-item:nth-child(1) .stat-num { color:var(--cyan); }
+.stat-item:nth-child(2) .stat-num { color:var(--gold); }
+.stat-item:nth-child(3) .stat-num { color:var(--magenta); }
+.stat-item:nth-child(4) .stat-num { color:var(--orange); }
+
+/* ─── SEARCH & FILTER ─── */
+.filter-section {
+  background:#fff;border-bottom:1px solid rgba(0,0,0,0.06);
+  padding:28px 0;position:sticky;top:var(--nav-h);z-index:100;
+  backdrop-filter:blur(16px);background:rgba(255,255,255,0.92);
+}
+.search-wrap {
+  position:relative;max-width:480px;
+}
+.search-wrap i {
+  position:absolute;left:18px;top:50%;transform:translateY(-50%);
+  color:var(--mid);font-size:0.95rem;
+}
+.search-input {
+  width:100%;padding:14px 18px 14px 48px;
+  border:2px solid rgba(0,0,0,0.08);border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-size:0.92rem;
+  background:var(--paper);color:var(--ink);
+  transition:border-color 0.3s,box-shadow 0.3s;
+  outline:none;
+}
+.search-input::placeholder { color:var(--mid); }
+.search-input:focus { border-color:var(--cyan);box-shadow:0 0 0 4px rgba(0,255,209,0.1); }
+
+.filter-tabs { display:flex;gap:8px;flex-wrap:wrap; }
+.ftab {
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.78rem;
+  padding:10px 20px;border-radius:50px;border:2px solid rgba(0,0,0,0.08);
+  background:transparent;color:var(--mid);cursor:pointer;
+  transition:all 0.3s;letter-spacing:0.02em;white-space:nowrap;
+}
+.ftab:hover { border-color:var(--cyan);color:var(--cyan); }
+.ftab.active { background:var(--ink);color:var(--cyan);border-color:var(--ink); }
+.ftab-count {
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:20px;height:20px;border-radius:10px;
+  background:rgba(0,0,0,0.08);font-size:0.68rem;
+  margin-left:6px;padding:0 6px;
+}
+.ftab.active .ftab-count { background:rgba(0,255,209,0.2);color:var(--cyan); }
+
+/* ─── RESOURCE SECTIONS ─── */
+.resource-section { padding:70px 0; }
+.resource-section:nth-child(even) { background:#FAFAF8; }
+.rs-header { margin-bottom:36px; }
+.rs-icon {
+  width:52px;height:52px;border-radius:16px;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:16px;
+}
+.rs-title { font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--ink);margin-bottom:6px;letter-spacing:-0.02em; }
+.rs-sub { font-size:0.9rem;color:var(--mid);max-width:500px; }
+.rs-drive-link {
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.82rem;font-weight:600;color:var(--blue);
+  text-decoration:none;margin-top:10px;transition:color 0.2s,gap 0.2s;
+}
+.rs-drive-link:hover { color:var(--ink);gap:12px; }
+
+/* ─── RESOURCE CARDS ─── */
+.res-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px; }
+.res-card {
+  background:#fff;border:1px solid rgba(0,0,0,0.06);
+  border-radius:18px;padding:24px;
+  transition:transform 0.3s cubic-bezier(.22,.68,0,1.2),box-shadow 0.3s,border-color 0.3s;
+  position:relative;overflow:hidden;
+}
+.res-card::before {
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:var(--rc-color,var(--cyan));
+  transform:scaleY(0);transform-origin:top;transition:transform 0.3s ease;
+}
+.res-card:hover::before { transform:scaleY(1); }
+.res-card:hover { transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.08);border-color:rgba(0,0,0,0.1); }
+
+.res-top { display:flex;align-items:flex-start;gap:14px;margin-bottom:14px; }
+.res-type-icon {
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.res-info { flex:1;min-width:0; }
+.res-name { font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--ink);line-height:1.35;margin-bottom:4px; }
+.res-desc { font-size:0.8rem;color:var(--mid);line-height:1.55; }
+
+.res-meta { display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,0.04); }
+.res-tag {
+  font-size:0.68rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;
+}
+.res-size { font-size:0.75rem;color:var(--mid);display:flex;align-items:center;gap:4px; }
+.res-pages { font-size:0.75rem;color:var(--mid);display:flex;align-items:center;gap:4px; }
+
+.res-download {
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;
+  padding:10px 20px;border-radius:12px;
+  text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;
+  margin-top:4px;
+}
+.res-download:hover { transform:translateY(-2px); }
+
+.btn-drive {
+  background:rgba(0,87,255,0.08);color:var(--blue);
+  border:1px solid rgba(0,87,255,0.15);
+}
+.btn-drive:hover { background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(0,87,255,0.25); }
+
+/* ─── FOLDER CARDS ─── */
+.folder-card {
+  background:#fff;border:1px solid rgba(0,0,0,0.06);
+  border-radius:20px;padding:28px 24px;
+  transition:transform 0.3s,box-shadow 0.3s;
+  display:flex;align-items:flex-start;gap:18px;
+  text-decoration:none;color:inherit;position:relative;overflow:hidden;
+}
+.folder-card::after {
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--fc-color,rgba(0,255,209,0.03)) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.3s;pointer-events:none;
+}
+.folder-card:hover::after { opacity:1; }
+.folder-card:hover { transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.08); }
+.folder-icon {
+  width:56px;height:56px;border-radius:16px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.folder-name { font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:4px; }
+.folder-desc { font-size:0.82rem;color:var(--mid);line-height:1.55;margin-bottom:12px; }
+.folder-meta { display:flex;gap:16px;flex-wrap:wrap; }
+.folder-stat { font-size:0.72rem;color:var(--mid);display:flex;align-items:center;gap:4px; }
+.folder-arrow { margin-left:auto;color:var(--mid);transition:transform 0.3s,color 0.3s;align-self:center;flex-shrink:0; }
+.folder-card:hover .folder-arrow { transform:translateX(4px);color:var(--blue); }
+
+/* ─── CTA DOWNLOAD ─── */
+.cta-download {
+  background:var(--ink);position:relative;overflow:hidden;padding:80px 0;
+}
+.cta-download::before {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 70% at 50% 50%,rgba(0,255,209,0.08) 0%,transparent 70%);
+}
+.cta-download h2 { font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-0.03em;position:relative; }
+.cta-download p { color:rgba(255,255,255,0.45);font-size:0.95rem;position:relative; }
+.btn-cta-glow {
+  background:linear-gradient(135deg,var(--cyan),var(--blue));color:var(--ink);
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
+  border:none;border-radius:50px;padding:16px 40px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:transform 0.25s,box-shadow 0.25s;position:relative;
+}
+.btn-cta-glow:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,255,209,0.35);color:var(--ink); }
+
+/* ─── FOOTER ─── */
+footer { background:var(--ink);color:rgba(255,255,255,0.5);padding:60px 0 36px;position:relative;overflow:hidden; }
+footer::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,209,0.4),transparent); }
+.footer-brand { font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:10px; }
+.footer-desc { font-size:0.85rem;max-width:260px;line-height:1.7; }
+.footer-title { font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:18px; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:10px; }
+.footer-links a { color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.88rem;transition:color 0.2s;display:inline-flex;align-items:center;gap:6px; }
+.footer-links a:hover { color:var(--cyan); }
+.footer-links a::before { content:'—';opacity:0.3;font-size:0.7rem; }
+.footer-divider { border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0 24px; }
+.footer-bottom { display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;flex-wrap:wrap;gap:12px; }
+.footer-socials { display:flex;gap:8px; }
+.fs-btn { width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;transition:background 0.2s,color 0.2s; }
+.fs-btn:hover { background:var(--cyan);color:var(--ink); }
+
+.whatsapp-float { position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;z-index:800;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.3s,box-shadow 0.3s; }
+.whatsapp-float:hover { transform:scale(1.1);box-shadow:0 14px 40px rgba(37,211,102,0.5);color:#fff; }
+.whatsapp-float::before { content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,0.3);animation:ripple 2s ease infinite; }
+@keyframes ripple { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.4);opacity:0;} }
+
+.scroll-top {
+  position:fixed;bottom:28px;left:28px;width:44px;height:44px;border-radius:12px;
+  background:var(--ink);color:var(--cyan);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;z-index:800;text-decoration:none;
+  opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s,background 0.2s;
+  border:1px solid rgba(0,255,209,0.2);
+}
+.scroll-top.show { opacity:1;transform:translateY(0); }
+.scroll-top:hover { background:var(--cyan);color:var(--ink); }
+
+/* No results */
+.no-results {
+  text-align:center;padding:60px 20px;display:none;
+}
+.no-results i { font-size:3rem;color:var(--mid);opacity:0.3;margin-bottom:16px;display:block; }
+.no-results h4 { font-family:'Syne',sans-serif;font-weight:700;color:var(--ink);margin-bottom:8px; }
+.no-results p { color:var(--mid);font-size:0.9rem; }
+
+/* Reveal */
+.reveal { opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease; }
+.reveal.visible { opacity:1;transform:translateY(0); }
+
+/* Responsive */
+@media(max-width:768px) {
+  .res-grid { grid-template-columns:1fr; }
+  .stats-bar { flex-direction:column; }
+  .stat-item { border-right:none;border-bottom:1px solid rgba(255,255,255,0.06); }
+  .stat-item:last-child { border-bottom:none; }
+  .resource-section { padding:50px 0; }
+  .hero-title { font-size:2.2rem; }
+}
+@media(max-width:576px) {
+  .filter-tabs { gap:6px; }
+  .ftab { padding:8px 14px;font-size:0.72rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .hero-grid { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="syntaxLogo.jpg" class="brand-logo" alt="Syntax Circuit">
+      Syntax Circuit<span class="brand-dot"></span>
+    </a>
+    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Final Year Projects</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="notes.html">Notes</a></li>
+        <li class="nav-item"><a class="nav-link nav-cta" href="ugcnet.html">UGC NET CS</a></li>
+        <li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="verify.html">Verify</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="notes-hero">
+  <div class="hero-grid"></div>
+  <div class="hb1 hero-blob"></div>
+  <div class="hb2 hero-blob"></div>
+  <div class="container">
+    <div class="notes-hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-folder-open"></i> Free Study Resources
+      </div>
+      <h1 class="hero-title">
+        Notes, PDFs &<br><span class="accent-cyan">Study Materials</span>
+      </h1>
+      <p class="hero-sub">
+        Every resource we use in our classes — organized by course and topic. All files hosted on Google Drive for instant, free download. No sign-up required.
+      </p>
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-num" data-count="120">0</div>
+          <div class="stat-label">Total Files</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="25">0</div>
+          <div class="stat-label">Folders</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="5">0</div>
+          <div class="stat-label">Courses</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="100">0</div>
+          <div class="stat-label">% Free</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER SECTION -->
+<div class="filter-section">
+  <div class="container">
+    <div class="row align-items-center g-3">
+      <div class="col-lg-4">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search notes, subjects, topics..." aria-label="Search resources">
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="filter-tabs" id="filterTabs" role="tablist">
+          <button class="ftab active" onclick="filterRes('all',this)" role="tab" aria-selected="true">
+            All <span class="ftab-count">120</span>
+          </button>
+          <button class="ftab" onclick="filterRes('ugcnet',this)" role="tab" aria-selected="false">
+            UGC NET CS <span class="ftab-count">45</span>
+          </button>
+          <button class="ftab" onclick="filterRes('cpget',this)" role="tab" aria-selected="false">
+            CPGET <span class="ftab-count">28</span>
+          </button>
+          <button class="ftab" onclick="filterRes('btech',this)" role="tab" aria-selected="false">
+            B.Tech Tuition <span class="ftab-count">24</span>
+          </button>
+          <button class="ftab" onclick="filterRes('projects',this)" role="tab" aria-selected="false">
+            Projects <span class="ftab-count">15</span>
+          </button>
+          <button class="ftab" onclick="filterRes('pyq',this)" role="tab" aria-selected="false">
+            PYQ Papers <span class="ftab-count">8</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- UGC NET CS RESOURCES -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="resource-section" id="sec-ugcnet" data-section="ugcnet">
+  <div class="container">
+    <div class="rs-header reveal">
+      <div class="rs-icon" style="background:rgba(0,255,209,0.1);color:var(--cyan);">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <h2 class="rs-title">UGC NET Computer Science</h2>
+      <p class="rs-sub">Paper I & Paper II — unit-wise notes, formula sheets, PYQ compilations, and mock test papers.</p>
+      <a href="https://drive.google.com/drive/folders/REPLACE_UGCNET_FOLDER" target="_blank" rel="noopener" class="rs-drive-link">
+        <i class="fa-brands fa-google-drive"></i> Open full Google Drive folder <i class="fa-solid fa-arrow-right fa-xs"></i>
+      </a>
+    </div>
+
+    <!-- Folders -->
+    <div class="row g-3 mb-4">
+      <div class="col-lg-4 col-md-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_PAPER1" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(0,255,209,0.04);">
+          <div class="folder-icon" style="background:rgba(0,255,209,0.1);color:var(--cyan);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">Paper I — General</div>
+            <div class="folder-desc">Teaching Aptitude, Research Methodology, Reasoning, Comprehension, Data Interpretation notes.</div>
+            <div class="folder-meta">
+              <span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 12 files</span>
+              <span class="folder-stat"><i class="fa-solid fa-hard-drive fa-xs"></i> 48 MB</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_PAPER2" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(255,107,53,0.04);">
+          <div class="folder-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">Paper II — All 10 Units</div>
+            <div class="folder-desc">Complete unit-wise notes covering the entire UGC NET CS Paper II syllabus.</div>
+            <div class="folder-meta">
+              <span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 30 files</span>
+              <span class="folder-stat"><i class="fa-solid fa-hard-drive fa-xs"></i> 180 MB</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_MOCKS" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(124,58,237,0.04);">
+          <div class="folder-icon" style="background:rgba(124,58,237,0.1);color:var(--purple);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">Mock Tests & Answer Keys</div>
+            <div class="folder-desc">Full-length mock test papers with detailed solution PDFs for self-evaluation.</div>
+            <div class="folder-meta">
+              <span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 15 files</span>
+              <span class="folder-stat"><i class="fa-solid fa-hard-drive fa-xs"></i> 95 MB</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Individual files -->
+    <div class="res-grid">
+      <div class="res-card reveal" data-cat="ugcnet" data-name="discrete mathematics notes ugc net">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(0,255,209,0.1);color:var(--cyan);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Discrete Mathematics — Unit 1 Complete Notes</div>
+            <div class="res-desc">Set theory, relations, functions, logic, groups, lattices, graph theory, combinatorics with solved examples.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(0,255,209,0.1);color:var(--teal);">Unit 1</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 12 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 68 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE1/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="computer arithmetic boolean algebra">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(0,87,255,0.1);color:var(--blue);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Computer Arithmetic & Boolean Algebra — Unit 2</div>
+            <div class="res-desc">Number systems, IEEE 754, K-maps, minimization techniques, combinational logic with PYQs.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(0,87,255,0.1);color:var(--blue);">Unit 2</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 8 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 42 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE2/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="programming c cpp java unit 3">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(37,211,102,0.1);color:#25D366;"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Programming (C, C++, Java) — Unit 3</div>
+            <div class="res-desc">OOP concepts, pointers, inheritance, polymorphism, templates, collections, exception handling with MCQs.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(37,211,102,0.1);color:#25D366;">Unit 3</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 15 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 85 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE3/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="data structures unit 4 sorting searching">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Data Structures — Unit 4</div>
+            <div class="res-desc">Arrays, stacks, queues, linked lists, trees, BST, AVL, B-trees, heaps, hashing, graphs, sorting algorithms.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,107,53,0.1);color:var(--orange);">Unit 4</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 18 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 96 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE4/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="dbms database management unit 5 sql normalization">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,45,120,0.1);color:var(--magenta);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">DBMS — Unit 5</div>
+            <div class="res-desc">ER model, relational algebra, SQL, normalization (1NF–5NF), transactions, concurrency control, NoSQL.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,45,120,0.1);color:var(--magenta);">Unit 5</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 14 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 78 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE5/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="theory of computation toc automata unit 6">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(124,58,237,0.1);color:var(--purple);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Theory of Computation — Unit 6</div>
+            <div class="res-desc">DFA, NFA, regex, CFG, PDA, Turing machines, Chomsky hierarchy, decidability, computability.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(124,58,237,0.1);color:var(--purple);">Unit 6</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 11 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 62 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE6/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="compiler design parsing unit 7">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,209,102,0.1);color:var(--gold);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Compiler Design — Unit 7</div>
+            <div class="res-desc">Lexical analysis, LL/LR parsing, syntax-directed translation, intermediate code, optimization, code generation.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,209,102,0.1);color:#B45309;">Unit 7</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 9 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 52 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE7/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="operating systems os unit 8 scheduling memory">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(13,148,136,0.1);color:var(--teal);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Operating Systems — Unit 8</div>
+            <div class="res-desc">Process management, CPU scheduling, deadlocks, memory management, paging, virtual memory, file systems, disk scheduling.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(13,148,136,0.1);color:var(--teal);">Unit 8</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 16 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 88 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE8/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="computer networks unit 9 tcp ip osi routing">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(225,29,72,0.1);color:var(--rose);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Computer Networks — Unit 9</div>
+            <div class="res-desc">OSI, TCP/IP, data link layer, IP addressing, routing protocols, TCP/UDP, application layer, network security.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(225,29,72,0.1);color:var(--rose);">Unit 9</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 14 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 76 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE9/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="ai web tech software engineering unit 10">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(180,83,9,0.1);color:#B45309;"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">AI, Web Tech & SE — Unit 10</div>
+            <div class="res-desc">AI search, FOL, ML basics, HTML/CSS/JS, PHP, XML, software process models, testing, UML, project management.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(180,83,9,0.1);color:#B45309;">Unit 10</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 13 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 72 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FILE10/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet" data-name="formula sheet quick revision ugc net">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,209,102,0.15);color:var(--gold);"><i class="fa-solid fa-bolt"></i></div>
+          <div class="res-info">
+            <div class="res-name">Quick Revision Formula Sheet — All Units</div>
+            <div class="res-desc">All important formulas, theorems, and key points from all 10 units on 12 pages. Perfect for last-week revision.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,209,102,0.15);color:#B45309;">Formula Sheet</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 3 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 12 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_FORMULA/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="ugcnet pyq" data-name="paper 1 teaching aptitude research methodology notes">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(0,255,209,0.1);color:var(--cyan);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Paper I — Teaching & Research Aptitude Notes</div>
+            <div class="res-desc">Covers all 10 topics of Paper I: teaching methods, research methods, reasoning, DI, communication, etc.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(0,255,209,0.1);color:var(--teal);">Paper I</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 10 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 55 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PAPER1/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- CPGET RESOURCES -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="resource-section" id="sec-cpget" data-section="cpget">
+  <div class="container">
+    <div class="rs-header reveal">
+      <div class="rs-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);">
+        <i class="fa-solid fa-calculator"></i>
+      </div>
+      <h2 class="rs-title">CPGET (MCA Entrance)</h2>
+      <p class="rs-sub">Subject-wise notes, model papers, and previous year question papers for OU CPGET MCA preparation.</p>
+      <a href="https://drive.google.com/drive/folders/REPLACE_CPGET_FOLDER" target="_blank" rel="noopener" class="rs-drive-link">
+        <i class="fa-brands fa-google-drive"></i> Open full Google Drive folder <i class="fa-solid fa-arrow-right fa-xs"></i>
+      </a>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-lg-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_CPGET_NOTES" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(255,107,53,0.04);">
+          <div class="folder-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">CPGET Subject-wise Notes</div>
+            <div class="folder-desc">C, C++, Java, Data Structures, DBMS, Web Technologies, Mathematics, Reasoning notes.</div>
+            <div class="folder-meta">
+              <span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 18 files</span>
+              <span class="folder-stat"><i class="fa-solid fa-hard-drive fa-xs"></i> 120 MB</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_CPGET_PYQ" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(255,45,120,0.04);">
+          <div class="folder-icon" style="background:rgba(255,45,120,0.1);color:var(--magenta);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">CPGET Previous Year Papers</div>
+            <div class="folder-desc">CPGET MCA question papers from 2018 to 2025 with answer keys.</div>
+            <div class="folder-meta">
+              <span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 8 files</span>
+              <span class="folder-stat"><i class="fa-solid fa-hard-drive fa-xs"></i> 35 MB</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="res-grid">
+      <div class="res-card reveal" data-cat="cpget" data-name="c programming notes cpget pointers arrays">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">C Programming — Complete Notes</div>
+            <div class="res-desc">Basics, pointers, functions, arrays, strings, structures, unions, file handling with CPGET-specific MCQs.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,107,53,0.1);color:var(--orange);">C Programming</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 10 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 58 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_CPGET_C/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="cpget" data-name="data structures notes cpget mca">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(0,87,255,0.1);color:var(--blue);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Data Structures — CPGET Focused</div>
+            <div class="res-desc">Stacks, queues, linked lists, trees, graphs, sorting, searching — with CPGET PYQ examples.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(0,87,255,0.1);color:var(--blue);">DSA</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 14 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 82 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_CPGET_DSA/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="cpget" data-name="java notes cpget oop collections">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(37,211,102,0.1);color:#25D366;"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Java Programming — CPGET Notes</div>
+            <div class="res-desc">OOP, interfaces, packages, multithreading, collections, exception handling with MCQ practice.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(37,211,102,0.1);color:#25D366;">Java</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 11 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 65 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_CPGET_JAVA/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="cpget" data-name="dbms notes cpget sql normalization">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(124,58,237,0.1);color:var(--purple);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">DBMS — CPGET Notes</div>
+            <div class="res-desc">ER model, SQL queries, normalization, transactions, keys, constraints — exam-focused.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(124,58,237,0.1);color:var(--purple);">DBMS</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 9 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 48 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_CPGET_DBMS/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="cpget" data-name="web technologies notes html css javascript php">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,45,120,0.1);color:var(--magenta);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Web Technologies — CPGET Notes</div>
+            <div class="res-desc">HTML, CSS, JavaScript, PHP basics, XML — covering all CPGET web tech topics.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,45,120,0.1);color:var(--magenta);">Web Tech</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 8 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 45 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_CPGET_WEB/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="cpget pyq" data-name="cpget model paper mock test mca 2025 2024">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,209,102,0.1);color:var(--gold);"><i class="fa-solid fa-file-lines"></i></div>
+          <div class="res-info">
+            <div class="res-name">CPGET MCA Model Paper (2026 Pattern)</div>
+            <div class="res-desc">Full-length model question paper designed on latest CPGET pattern with answer key.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,209,102,0.1);color:#B45309;">Model Paper</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 2 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 8 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_CPGET_MODEL/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- B.TECH TUITION RESOURCES -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="resource-section" id="sec-btech" data-section="btech">
+  <div class="container">
+    <div class="rs-header reveal">
+      <div class="rs-icon" style="background:rgba(0,87,255,0.1);color:var(--blue);">
+        <i class="fa-solid fa-laptop-code"></i>
+      </div>
+      <h2 class="rs-title">B.Tech Tuition Materials</h2>
+      <p class="rs-sub">Semester-wise notes and materials for CSE/IT students covering Osmania University and JNTU syllabus.</p>
+      <a href="https://drive.google.com/drive/folders/REPLACE_BTECH_FOLDER" target="_blank" rel="noopener" class="rs-drive-link">
+        <i class="fa-brands fa-google-drive"></i> Open full Google Drive folder <i class="fa-solid fa-arrow-right fa-xs"></i>
+      </a>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-lg-3 col-md-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_BTECH_1_1" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(0,87,255,0.04);">
+          <div class="folder-icon" style="background:rgba(0,87,255,0.1);color:var(--blue);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">1st Year — 1st Sem</div>
+            <div class="folder-desc">English, Maths, Physics, C Programming, Engineering Drawing.</div>
+            <div class="folder-meta"><span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 8 files</span></div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_BTECH_1_2" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(0,255,209,0.04);">
+          <div class="folder-icon" style="background:rgba(0,255,209,0.1);color:var(--cyan);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">1st Year — 2nd Sem</div>
+            <div class="folder-desc">Maths II, Chemistry, Data Structures, C++, Applied Physics.</div>
+            <div class="folder-meta"><span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 7 files</span></div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_BTECH_2_1" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(255,107,53,0.04);">
+          <div class="folder-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">2nd Year — 1st Sem</div>
+            <div class="folder-desc">Discrete Maths, DBMS, OOP through Java, Computer Organization, OS.</div>
+            <div class="folder-meta"><span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 6 files</span></div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-6 reveal">
+        <a href="https://drive.google.com/drive/folders/REPLACE_BTECH_2_2" target="_blank" rel="noopener" class="folder-card" style="--fc-color:rgba(124,58,237,0.04);">
+          <div class="folder-icon" style="background:rgba(124,58,237,0.1);color:var(--purple);"><i class="fa-solid fa-folder"></i></div>
+          <div style="flex:1;min-width:0;">
+            <div class="folder-name">2nd Year — 2nd Sem</div>
+            <div class="folder-desc">Computer Networks, TOC, Compiler Design, Software Engineering, Web Tech.</div>
+            <div class="folder-meta"><span class="folder-stat"><i class="fa-solid fa-file fa-xs"></i> 6 files</span></div>
+          </div>
+          <i class="fa-solid fa-arrow-right folder-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="res-grid">
+      <div class="res-card reveal" data-cat="btech" data-name="python programming notes btech ou jntu">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(0,87,255,0.1);color:var(--blue);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Python Programming — Complete Notes</div>
+            <div class="res-desc">Python basics, data types, loops, functions, OOP, file handling, NumPy, pandas basics with lab programs.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(0,87,255,0.1);color:var(--blue);">Python</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 9 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 52 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_BTECH_PYTHON/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="btech" data-name="computer organization architecture notes btech">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Computer Organization & Architecture</div>
+            <div class="res-desc">Number systems, ALU, control unit, memory hierarchy, pipelining, I/O organization, RISC/CISC.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,107,53,0.1);color:var(--orange);">COA</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 11 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 64 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_BTECH_COA/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="btech" data-name="mathematics notes discrete maths btech">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(124,58,237,0.1);color:var(--purple);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Discrete Mathematics — B.Tech Notes</div>
+            <div class="res-desc">Logic, sets, relations, algebraic structures, lattices, graph theory, recurrence relations with solved problems.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(124,58,237,0.1);color:var(--purple);">Maths</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 8 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 48 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_BTECH_MATHS/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- FINAL YEAR PROJECT RESOURCES -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="resource-section" id="sec-projects" data-section="projects">
+  <div class="container">
+    <div class="rs-header reveal">
+      <div class="rs-icon" style="background:rgba(255,45,120,0.1);color:var(--magenta);">
+        <i class="fa-solid fa-diagram-project"></i>
+      </div>
+      <h2 class="rs-title">Final Year Project Resources</h2>
+      <p class="rs-sub">Documentation templates, sample reports, PPT templates, source code references, and deployment guides.</p>
+      <a href="https://drive.google.com/drive/folders/REPLACE_PROJECTS_FOLDER" target="_blank" rel="noopener" class="rs-drive-link">
+        <i class="fa-brands fa-google-drive"></i> Open full Google Drive folder <i class="fa-solid fa-arrow-right fa-xs"></i>
+      </a>
+    </div>
+
+    <div class="res-grid">
+      <div class="res-card reveal" data-cat="projects" data-name="project report template documentation btech">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,45,120,0.1);color:var(--magenta);"><i class="fa-solid fa-file-word"></i></div>
+          <div class="res-info">
+            <div class="res-name">Project Report Template (OU/JNTU Format)</div>
+            <div class="res-desc">Ready-to-use Word template with proper formatting, table of contents, abstract, chapters, references style.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,45,120,0.1);color:var(--magenta);">Template</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 1.5 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 32 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PROJ_REPORT/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="projects" data-name="ppt presentation template project defense">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,209,102,0.1);color:var(--gold);"><i class="fa-solid fa-file-powerpoint"></i></div>
+          <div class="res-info">
+            <div class="res-name">Project Presentation PPT Template</div>
+            <div class="res-desc">Professional 20-slide template with sections for introduction, architecture, demo, results, conclusion.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,209,102,0.1);color:#B45309;">Template</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 4 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 20 slides</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PROJ_PPT/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="projects" data-name="srs software requirement specification template">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(0,87,255,0.1);color:var(--blue);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">SRS Document Template</div>
+            <div class="res-desc">Software Requirements Specification template with use case diagrams, DFD, and all required sections.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(0,87,255,0.1);color:var(--blue);">Template</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 800 KB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 15 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PROJ_SRS/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="projects" data-name="deployment guide aws vercel netlify github pages">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(37,211,102,0.1);color:#25D366;"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Project Deployment Guide</div>
+            <div class="res-desc">Step-by-step guide to deploy on Vercel, Netlify, GitHub Pages, and AWS with screenshots.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(37,211,102,0.1);color:#25D366;">Guide</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 5 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 22 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PROJ_DEPLOY/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="projects" data-name="literature survey template references format">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(124,58,237,0.1);color:var(--purple);"><i class="fa-solid fa-file-pdf"></i></div>
+          <div class="res-info">
+            <div class="res-name">Literature Survey Template</div>
+            <div class="res-desc">How to write literature survey chapter with IEEE reference format, sample entries, and comparison table.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(124,58,237,0.1);color:var(--purple);">Template</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 600 KB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 10 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PROJ_LITSURVEY/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="projects" data-name="sample source code references web app ml iot">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(13,148,136,0.1);color:var(--teal);"><i class="fa-solid fa-code"></i></div>
+          <div class="res-info">
+            <div class="res-name">Sample Project Source Code (Links)</div>
+            <div class="res-desc">Curated list of GitHub repositories for web apps, ML projects, IoT systems — organized by domain.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(13,148,136,0.1);color:var(--teal);">Reference</span>
+          <span class="res-size"><i class="fa-solid fa-link fa-xs"></i> Links PDF</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 8 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PROJ_CODE/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PYQ PAPERS SECTION -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="resource-section" id="sec-pyq" data-section="pyq">
+  <div class="container">
+    <div class="rs-header reveal">
+      <div class="rs-icon" style="background:rgba(255,209,102,0.1);color:var(--gold);">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+      </div>
+      <h2 class="rs-title">Previous Year Question Papers</h2>
+      <p class="rs-sub">All available past papers with answer keys — the most important resource for any exam preparation.</p>
+      <a href="https://drive.google.com/drive/folders/REPLACE_PYQ_FOLDER" target="_blank" rel="noopener" class="rs-drive-link">
+        <i class="fa-brands fa-google-drive"></i> Open full PYQ Google Drive folder <i class="fa-solid fa-arrow-right fa-xs"></i>
+      </a>
+    </div>
+
+    <div class="res-grid">
+      <div class="res-card reveal" data-cat="pyq ugcnet" data-name="ugc net cs june 2025 question paper answer key">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,209,102,0.1);color:var(--gold);"><i class="fa-solid fa-file-lines"></i></div>
+          <div class="res-info">
+            <div class="res-name">UGC NET CS — June 2025 (Paper I + II)</div>
+            <div class="res-desc">Complete question paper with unofficial answer key and topic-wise analysis.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,209,102,0.1);color:#B45309;">UGC NET</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 6 MB</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PYQ_NET_2025J/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="pyq ugcnet" data-name="ugc net cs december 2024 question paper">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,209,102,0.1);color:var(--gold);"><i class="fa-solid fa-file-lines"></i></div>
+          <div class="res-info">
+            <div class="res-name">UGC NET CS — December 2024 (Paper I + II)</div>
+            <div class="res-desc">Question paper with answer key and difficulty-level tagging for each question.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,209,102,0.1);color:#B45309;">UGC NET</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 5.5 MB</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PYQ_NET_2024D/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="pyq ugcnet" data-name="ugc net cs pyq compilation 2012 to 2024">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,209,102,0.15);color:var(--gold);"><i class="fa-solid fa-book"></i></div>
+          <div class="res-info">
+            <div class="res-name">UGC NET CS — PYQ Mega Compilation (2012–2024)</div>
+            <div class="res-desc">All previous year questions unit-wise compiled in one PDF — 2000+ questions organized topic-wise.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,209,102,0.15);color:#B45309;">Mega PDF</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 45 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 320 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PYQ_NET_MEGA/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="pyq cpget" data-name="cpget mca 2025 question paper answer key">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-solid fa-file-lines"></i></div>
+          <div class="res-info">
+            <div class="res-name">CPGET MCA — 2025 Question Paper + Key</div>
+            <div class="res-desc">Latest CPGET MCA entrance paper with detailed answer key.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,107,53,0.1);color:var(--orange);">CPGET</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 2 MB</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PYQ_CPGET_2025/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="pyq cpget" data-name="cpget mca previous year papers 2018 2024">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-solid fa-book"></i></div>
+          <div class="res-info">
+            <div class="res-name">CPGET MCA — PYQ Collection (2018–2024)</div>
+            <div class="res-desc">7 years of CPGET MCA papers compiled with answer keys in a single PDF.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(255,107,53,0.1);color:var(--orange);">Collection</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 18 MB</span>
+          <span class="res-pages"><i class="fa-solid fa-file fa-xs"></i> 85 pages</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PYQ_CPGET_ALL/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+
+      <div class="res-card reveal" data-cat="pyq btech" data-name="osmania university cse previous papers">
+        <div class="res-top">
+          <div class="res-type-icon" style="background:rgba(0,87,255,0.1);color:var(--blue);"><i class="fa-solid fa-file-lines"></i></div>
+          <div class="res-info">
+            <div class="res-name">OU CSE — Previous Semester Papers (2022–2025)</div>
+            <div class="res-desc">Collected previous semester question papers for major CSE subjects from Osmania University.</div>
+          </div>
+        </div>
+        <div class="res-meta">
+          <span class="res-tag" style="background:rgba(0,87,255,0.1);color:var(--blue);">OU CSE</span>
+          <span class="res-size"><i class="fa-solid fa-hard-drive fa-xs"></i> 25 MB</span>
+          <a href="https://drive.google.com/file/d/REPLACE_PYQ_OU/view" target="_blank" rel="noopener" class="res-download btn-drive" style="margin-left:auto;"><i class="fa-brands fa-google-drive"></i> Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NO RESULTS -->
+<div class="no-results" id="noResults">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <h4>No resources found</h4>
+  <p>Try a different search term or clear the filter to see all resources.</p>
+</div>
+
+<!-- CTA -->
+<section class="cta-download">
+  <div class="container text-center">
+    <div class="reveal">
+      <h2 class="mb-3">Need a Specific Resource?</h2>
+      <p class="mb-4" style="max-width:480px;margin:0 auto;">Can't find what you're looking for? Message us on WhatsApp and we'll upload it within 24 hours.</p>
+      <a href="https://wa.me/919999999999?text=Hi!%20I%20need%20notes%20for%20[subject%20name]%20from%20Syntax%20Circuit" target="_blank" rel="noopener" class="btn-cta-glow">
+        <i class="fab fa-whatsapp"></i> Request on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <img src="syntaxLogo.jpg" style="width:30px;height:30px;border-radius:6px;" alt="Syntax Circuit"> Syntax Circuit
+        </div>
+        <p class="footer-desc">India's growing platform for computer science education — from UGC NET coaching to university tuitions and project guidance.</p>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Courses</div>
+        <ul class="footer-links">
+          <li><a href="ugcnet.html">UGC NET CS</a></li>
+          <li><a href="cpget.html">CPGET</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+          <li><a href="tuitions.html">Tuitions</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Resources</div>
+        <ul class="footer-links">
+          <li><a href="notes.html">Notes & PDFs</a></li>
+          <li><a href="syllabus.html">Syllabus</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="verify.html">Verify</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Connect</div>
+        <div class="footer-socials mt-2">
+          <a href="#" class="fs-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="fs-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="fs-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="fs-btn" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>&copy; 2025 Syntax Circuit. All rights reserved.</span>
+      <span>Made with <i class="fa-solid fa-heart" style="color:var(--magenta);font-size:0.7rem;"></i> in Hyderabad</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/919999999999?text=Hi!%20I%20was%20browsing%20notes%20on%20your%20website" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- SCROLL TOP -->
+<a href="#" class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, cx = 0, cy = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.transform = `translate(${mx-6}px,${my-6}px)`; });
+(function loop(){ cx+=(mx-cx)*0.15; cy+=(my-cy)*0.15; ring.style.transform = `translate(${cx-20}px,${cy-20}px)`; requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button,.res-card,.folder-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.style.transform += ' scale(2.5)');
+  el.addEventListener('mouseleave', () => cursor.style.transform = `translate(${mx-6}px,${my-6}px)`);
+});
+
+// ─── COUNTER ANIMATION ───
+const counters = document.querySelectorAll('[data-count]');
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 60));
+      const timer = setInterval(() => {
+        current += step;
+        if(current >= target) { current = target; clearInterval(timer); }
+        el.textContent = current + (el.closest('.stat-item:nth-child(4)') ? '%' : '+');
+      }, 25);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObs.observe(c));
+
+// ─── REVEAL ───
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+reveals.forEach(el => revealObs.observe(el));
+
+// ─── FILTER TABS ───
+let activeFilter = 'all';
+function filterRes(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.ftab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+  applyFilters();
+}
+
+// ─── SEARCH ───
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', applyFilters);
+
+function applyFilters() {
+  const query = searchInput.value.toLowerCase().trim();
+  const allCards = document.querySelectorAll('.res-card');
+  const allSections = document.querySelectorAll('.resource-section');
+  const allFolders = document.querySelectorAll('.folder-card');
+  let totalVisible = 0;
+
+  // Handle sections visibility
+  allSections.forEach(sec => {
+    const sectionCat = sec.dataset.section;
+    const showSection = (activeFilter === 'all' || sectionCat === activeFilter || (activeFilter === 'pyq' && sec.querySelectorAll(`.res-card[data-cat*="pyq"]`).length > 0));
+    sec.style.display = showSection ? '' : 'none';
+
+    // Handle folders within section
+    sec.querySelectorAll('.folder-card').forEach(f => {
+      f.style.display = showSection ? '' : 'none';
+    });
+  });
+
+  // Handle individual cards
+  allCards.forEach(card => {
+    const cats = card.dataset.cat || '';
+    const name = card.dataset.name || '';
+    const matchesCat = activeFilter === 'all' || cats.includes(activeFilter);
+    const matchesSearch = !query || name.includes(query);
+    const show = matchesCat && matchesSearch;
+    card.style.display = show ? '' : 'none';
+    if(show) totalVisible++;
+  });
+
+  // No results
+  document.getElementById('noResults').style.display = totalVisible === 0 ? 'block' : 'none';
+}
+
+// ─── SCROLL TOP ───
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('show', window.scrollY > 600);
+});
+
+// Hide cursor on touch
+if('ontouchstart' in window){
+  cursor.style.display = 'none';
+  ring.style.display = 'none';
+}
+</script>
+</body>
+</html>
