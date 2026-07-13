@@ -1,332 +1,737 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Syntax Circuit - Syllabus</title>
-
+<title>Syllabus — Syntax Circuit</title>
+<meta name="description" content="Download syllabus PDFs for Advanced Java, C, C++, Core Java, Web Development, Python, and SQL — free from Syntax Circuit.">
 <link rel="icon" href="syntaxLogo.jpg">
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
---primary:#ff4d94;
---secondary:#0056b3;
+:root {
+  --ink: #050A14;
+  --paper: #F5F3EE;
+  --cyan: #00FFD1;
+  --magenta: #FF2D78;
+  --gold: #FFD166;
+  --blue: #0057FF;
+  --mid: #8892A4;
+  --orange: #FF6B35;
+  --purple: #7C3AED;
+  --teal: #0D9488;
+  --rose: #E11D48;
+  --nav-h: 72px;
 }
 
-body{
-font-family:Arial, sans-serif;
-background:#f8f9fa;
-overflow-x:hidden;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
 }
 
-/* Navbar */
-
-.navbar{
-box-shadow:0 4px 8px rgba(0,0,0,0.1);
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025; pointer-events: none; z-index: 1000;
 }
 
-/* Content */
+/* CURSOR */
+.cursor { width:12px;height:12px;border-radius:50%;background:var(--cyan);position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:transform 0.15s ease; }
+.cursor-ring { width:40px;height:40px;border:1.5px solid var(--magenta);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform 0.35s cubic-bezier(.25,.46,.45,.94); }
 
-.content{
-padding:30px 20px;
+/* NAVBAR */
+.navbar { height:var(--nav-h);background:rgba(245,243,238,0.85);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.06);z-index:900;padding:0; }
+.navbar-brand { font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-0.5px;color:var(--ink)!important;display:flex;align-items:center;gap:10px; }
+.brand-logo { width:34px;height:34px;border-radius:8px;object-fit:cover; }
+.brand-dot { display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-left:2px;position:relative;top:-2px; }
+.nav-link { font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;color:var(--ink)!important;padding:6px 14px!important;border-radius:30px;transition:background 0.2s,color 0.2s;letter-spacing:0.01em; }
+.nav-link:hover { background:var(--ink);color:var(--cyan)!important; }
+.nav-cta { background:var(--ink)!important;color:var(--cyan)!important;font-weight:600;border-radius:30px;padding:6px 20px!important; }
+.nav-cta:hover { background:var(--magenta)!important;color:#fff!important; }
+
+/* ─── HERO ─── */
+.syl-hero {
+  background: var(--ink);
+  position: relative;
+  padding: 160px 0 100px;
+  overflow: hidden;
+}
+.syl-hero::before {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 60% at 30% 50%,rgba(255,45,120,0.1) 0%,transparent 70%),
+             radial-gradient(ellipse 40% 50% at 80% 30%,rgba(0,255,209,0.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero-grid {
+  position:absolute;inset:0;
+  background-image: linear-gradient(rgba(255,45,120,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(255,45,120,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gridPan 25s linear infinite;
+}
+@keyframes gridPan { to { background-position:60px 60px; } }
+
+.hero-blob { position:absolute;border-radius:50%;filter:blur(100px);opacity:0.2; }
+.hb1 { width:400px;height:400px;background:var(--magenta);top:-80px;left:-50px;animation:blobFloat 8s ease-in-out infinite alternate; }
+.hb2 { width:350px;height:350px;background:var(--cyan);bottom:-60px;right:10%;animation:blobFloat 8s ease-in-out infinite alternate-reverse; }
+.hb3 { width:250px;height:250px;background:var(--gold);top:40%;right:30%;opacity:0.1;animation:blobFloat 10s ease-in-out infinite alternate; }
+@keyframes blobFloat { from{transform:translate(0,0) scale(1);} to{transform:translate(20px,20px) scale(1.1);} }
+
+.hero-content { position:relative;z-index:2;color:#fff; }
+.hero-badge {
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,45,120,0.12);border:1px solid rgba(255,45,120,0.3);
+  border-radius:30px;padding:6px 18px;
+  font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--magenta);margin-bottom:24px;backdrop-filter:blur(8px);
+}
+.hero-title {
+  font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5vw,4.2rem);
+  font-weight:800;line-height:1.08;letter-spacing:-0.03em;
+  margin-bottom:18px;
+}
+.hero-title .accent-magenta { color:var(--magenta); }
+.hero-title .accent-cyan { color:var(--cyan); }
+.hero-sub { font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.5);max-width:560px;line-height:1.75;margin-bottom:40px; }
+
+/* Subject pills row */
+.subject-pills { display:flex;gap:10px;flex-wrap:wrap;max-width:600px; }
+.spill {
+  font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;
+  padding:6px 16px;border-radius:30px;
+  border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.5);
+  transition:all 0.3s;
+}
+.spill:hover { border-color:var(--magenta);color:var(--magenta);background:rgba(255,45,120,0.08); }
+
+/* ─── SECTION COMMON ─── */
+section { padding:80px 0; }
+.section-eyebrow { display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--magenta);margin-bottom:12px; }
+.section-title { font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.03em;color:var(--ink);line-height:1.1;margin-bottom:16px; }
+.section-sub { font-size:0.95rem;color:var(--mid);max-width:520px;line-height:1.7; }
+
+.reveal { opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease; }
+.reveal.visible { opacity:1;transform:translateY(0); }
+.reveal-delay-1 { transition-delay:0.1s; }
+.reveal-delay-2 { transition-delay:0.2s; }
+.reveal-delay-3 { transition-delay:0.3s; }
+
+/* ─── SYLLABUS CARDS ─── */
+#syllabus-grid { background:var(--paper); }
+.syl-card {
+  background:#fff;border-radius:22px;padding:32px 28px;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:transform 0.35s cubic-bezier(.22,.68,0,1.2),box-shadow 0.35s;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;gap:22px;
+  text-decoration:none;color:inherit;
+}
+.syl-card::before {
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:var(--sc-color,var(--magenta));
+  transform:scaleY(0);transform-origin:top;transition:transform 0.35s ease;
+}
+.syl-card:hover::before { transform:scaleY(1); }
+.syl-card:hover { transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.1); }
+
+.syl-card-num {
+  font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;
+  color:rgba(0,0,0,0.06);line-height:1;flex-shrink:0;
+  min-width:40px;text-align:center;
+  transition:color 0.3s;
+}
+.syl-card:hover .syl-card-num { color:var(--sc-color,var(--magenta)); }
+
+.syl-card-icon {
+  width:56px;height:56px;border-radius:16px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+  transition:transform 0.3s;
+}
+.syl-card:hover .syl-card-icon { transform:scale(1.1) rotate(-3deg); }
+
+.syl-card-info { flex:1;min-width:0; }
+.syl-card-name { font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:4px; }
+.syl-card-desc { font-size:0.82rem;color:var(--mid);line-height:1.5; }
+
+.syl-card-dl {
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;
+  padding:10px 20px;border-radius:12px;flex-shrink:0;
+  text-decoration:none;transition:all 0.25s;white-space:nowrap;
+}
+.syl-card-dl:hover { transform:translateY(-2px); }
+.btn-dl-magenta { background:rgba(255,45,120,0.08);color:var(--magenta);border:1px solid rgba(255,45,120,0.15); }
+.btn-dl-magenta:hover { background:var(--magenta);color:#fff;box-shadow:0 8px 20px rgba(255,45,120,0.3); }
+
+/* ─── TABLE VIEW (secondary) ─── */
+#syllabus-table { background:#FAFAF8; }
+.table-wrap {
+  background:#fff;border-radius:24px;overflow:hidden;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 10px 40px rgba(0,0,0,0.05);
+}
+.table-header {
+  background:var(--ink);padding:24px 32px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.table-header h4 { font-family:'Syne',sans-serif;font-weight:700;color:#fff;font-size:1.1rem;margin:0; }
+.table-header-sub { font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:2px; }
+
+.sytable { width:100%;border-collapse:collapse; }
+.sytable th {
+  background:#F8FAFB;padding:14px 28px;
+  font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);
+  border-bottom:1px solid rgba(0,0,0,0.06);text-align:left;
+}
+.sytable td { padding:18px 28px;font-size:0.92rem;border-bottom:1px solid rgba(0,0,0,0.04);vertical-align:middle; }
+.sytable tr:last-child td { border-bottom:none; }
+.sytable tbody tr { transition:background 0.2s; }
+.sytable tbody tr:hover { background:#FFF0F5; }
+
+.sytable .subj-cell { display:flex;align-items:center;gap:14px; }
+.subj-icon-sm {
+  width:40px;height:40px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;
+}
+.subj-name { font-family:'Syne',sans-serif;font-weight:700;color:var(--ink); }
+.subj-num-sm { font-family:'Syne',sans-serif;font-weight:800;font-size:0.85rem;color:rgba(0,0,0,0.12);min-width:28px; }
+
+.btn-dl-table {
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;
+  padding:9px 18px;border-radius:10px;
+  background:rgba(255,45,120,0.08);color:var(--magenta);
+  border:1px solid rgba(255,45,120,0.15);
+  text-decoration:none;transition:all 0.25s;
+}
+.btn-dl-table:hover { background:var(--magenta);color:#fff;box-shadow:0 6px 16px rgba(255,45,120,0.25);transform:translateY(-2px); }
+
+/* ─── VIEW TOGGLE ─── */
+.view-toggle {
+  display:inline-flex;align-items:center;gap:4px;
+  background:rgba(255,255,255,0.1);border-radius:12px;padding:4px;
+}
+.vt-btn {
+  width:36px;height:36px;border-radius:10px;border:none;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;cursor:pointer;transition:all 0.2s;
+  background:transparent;color:rgba(255,255,255,0.4);
+}
+.vt-btn.active { background:var(--magenta);color:#fff; }
+.vt-btn:hover:not(.active) { color:rgba(255,255,255,0.7); }
+
+/* ─── CTA ─── */
+.cta-strip {
+  background:var(--ink);position:relative;overflow:hidden;padding:80px 0;
+}
+.cta-strip::before {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 70% at 50% 50%,rgba(255,45,120,0.1) 0%,transparent 70%);
+}
+.cta-strip h2 { font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff;letter-spacing:-0.03em;position:relative; }
+.cta-strip p { color:rgba(255,255,255,0.45);font-size:0.95rem;position:relative; }
+.btn-cta-glow {
+  background:linear-gradient(135deg,var(--magenta),var(--orange));color:#fff;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
+  border:none;border-radius:50px;padding:16px 40px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:transform 0.25s,box-shadow 0.25s;position:relative;
+}
+.btn-cta-glow:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,45,120,0.35);color:#fff; }
+
+/* ─── FOOTER ─── */
+footer { background:var(--ink);color:rgba(255,255,255,0.5);padding:60px 0 36px;position:relative;overflow:hidden; }
+footer::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,45,120,0.4),transparent); }
+.footer-brand { font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:10px; }
+.footer-desc { font-size:0.85rem;max-width:260px;line-height:1.7; }
+.footer-title { font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:18px; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:10px; }
+.footer-links a { color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.88rem;transition:color 0.2s;display:inline-flex;align-items:center;gap:6px; }
+.footer-links a:hover { color:var(--cyan); }
+.footer-links a::before { content:'—';opacity:0.3;font-size:0.7rem; }
+.footer-divider { border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0 24px; }
+.footer-bottom { display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;flex-wrap:wrap;gap:12px; }
+.footer-socials { display:flex;gap:8px; }
+.fs-btn { width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;transition:background 0.2s,color 0.2s; }
+.fs-btn:hover { background:var(--magenta);color:#fff; }
+
+.whatsapp-float { position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;z-index:800;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.3s,box-shadow 0.3s; }
+.whatsapp-float:hover { transform:scale(1.1);box-shadow:0 14px 40px rgba(37,211,102,0.5);color:#fff; }
+.whatsapp-float::before { content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,0.3);animation:ripple 2s ease infinite; }
+@keyframes ripple { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.4);opacity:0;} }
+
+.scroll-top {
+  position:fixed;bottom:28px;left:28px;width:44px;height:44px;border-radius:12px;
+  background:var(--ink);color:var(--cyan);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;z-index:800;text-decoration:none;
+  opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s,background 0.2s;
+  border:1px solid rgba(0,255,209,0.2);
+}
+.scroll-top.show { opacity:1;transform:translateY(0); }
+.scroll-top:hover { background:var(--cyan);color:var(--ink); }
+
+@media(max-width:768px) {
+  .syl-card { flex-direction:column;text-align:center;gap:16px; }
+  .syl-card-dl { width:100%;justify-content:center; }
+  .syl-card-num { display:none; }
+  .sytable th, .sytable td { padding:12px 16px;font-size:0.82rem; }
+  .subj-icon-sm { display:none; }
+  section { padding:60px 0; }
+}
+@media(max-width:576px) {
+  .hero-title { font-size:2.2rem; }
+  .subject-pills { gap:6px; }
+  .spill { font-size:0.65rem;padding:5px 10px; }
 }
 
-/* Headings */
-
-h2,h3{
-color:var(--secondary);
-font-weight:bold;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .hero-grid { animation: none; }
 }
-
-/* Table */
-
-.table-hover tbody tr:hover{
-background:#fff0f6;
-transition:0.3s;
-}
-
-/* Download links */
-
-a.download-link{
-color:var(--primary);
-font-weight:500;
-text-decoration:none;
-}
-
-a.download-link:hover{
-color:#ff6699;
-text-decoration:underline;
-}
-
-/* Animation */
-
-.fade-in{
-opacity:0;
-transform:translateY(20px);
-animation:fadeInUp 0.8s ease-in-out forwards;
-}
-
-@keyframes fadeInUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* Footer */
-
-footer{
-background:#f8f9fa;
-padding:25px 0;
-text-align:center;
-margin-top:40px;
-}
-
-footer a{
-color:var(--primary);
-text-decoration:none;
-}
-
-footer a:hover{
-text-decoration:underline;
-}
-
 </style>
-
 </head>
-
 <body>
 
-<!-- Navbar -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-
-<div class="container">
-
-<a class="navbar-brand" href="index.html">
-<img src="syntaxLogo.jpg" height="30"> Syntax Circuit
-</a>
-
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarNav">
-
-<ul class="navbar-nav ms-auto">
-
-<li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-
-<li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
-
-<li class="nav-item"><a class="nav-link" href="projects.html">Final Year Projects</a></li>
-
-<li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-
-<li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-
-<li class="nav-item dropdown">
-
-<a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">
-
-Downloads
-
-</a>
-
-<ul class="dropdown-menu">
-
-<li><a class="dropdown-item" href="syllabus.html">Syllabus</a></li>
-
-<li><a class="dropdown-item" href="notes.html">Notes</a></li>
-
-<li><a class="dropdown-item" href="fee_structure.html">Fee Structure</a></li>
-
-</ul>
-
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="syntaxLogo.jpg" class="brand-logo" alt="Syntax Circuit">
+      Syntax Circuit<span class="brand-dot"></span>
+    </a>
+    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Final Year Projects</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="notes.html">Notes</a></li>
+        <li class="nav-item"><a class="nav-link nav-cta active" href="syllabus.html" style="background:var(--magenta)!important;color:#fff!important;">Syllabus</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="verify.html">Verify</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<!-- Content -->
+<!-- HERO -->
+<section class="syl-hero">
+  <div class="hero-grid"></div>
+  <div class="hb1 hero-blob"></div>
+  <div class="hb2 hero-blob"></div>
+  <div class="hb3 hero-blob"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-list-check"></i> Free Downloads
+      </div>
+      <h1 class="hero-title">
+        Course <span class="accent-magenta">Syllabus</span><br>
+        <span class="accent-cyan">PDF Downloads</span>
+      </h1>
+      <p class="hero-sub">
+        Meticulously curated syllabus documents for every subject we teach. Download for free — no sign-up required. Use these to plan your preparation from day one.
+      </p>
+      <div class="subject-pills">
+        <span class="spill">Advanced Java</span>
+        <span class="spill">C Language</span>
+        <span class="spill">C++</span>
+        <span class="spill">Core Java</span>
+        <span class="spill">Web Development</span>
+        <span class="spill">Python</span>
+        <span class="spill">SQL</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="content container fade-in">
+<!-- CARD VIEW -->
+<section id="syllabus-grid">
+  <div class="container">
+    <div class="d-flex align-items-end justify-content-between mb-4 flex-wrap gap-3 reveal">
+      <div>
+        <span class="section-eyebrow">Card View</span>
+        <h2 class="section-title">Download Syllabus</h2>
+      </div>
+      <a href="#syllabus-table" class="d-inline-flex align-items-center gap-2 text-decoration-none" style="font-size:0.85rem;color:var(--mid);font-weight:500;transition:color 0.2s;" onmouseover="this.style.color='var(--magenta)'" onmouseout="this.style.color='var(--mid)'">
+        <i class="fa-solid fa-table"></i> Switch to table view
+      </a>
+    </div>
 
-<h2>Welcome to the Syntax Circuit Syllabus</h2>
+    <div class="row g-4">
+      <!-- 1. Advanced Java -->
+      <div class="col-lg-6 reveal">
+        <a href="https://drive.google.com/uc?export=download&id=1Zl3Zkc2twq3O-ZBdXGjwklkKmA90PnUk" class="syl-card" style="--sc-color:var(--magenta);" download>
+          <span class="syl-card-num">01</span>
+          <div class="syl-card-icon" style="background:rgba(255,45,120,0.1);color:var(--magenta);">
+            <i class="fa-brands fa-java"></i>
+          </div>
+          <div class="syl-card-info">
+            <div class="syl-card-name">Advanced Java</div>
+            <div class="syl-card-desc">JDBC, Servlets, JSP, JSTL, EJB, RMI, Web Services, Design Patterns</div>
+          </div>
+          <span class="syl-card-dl btn-dl-magenta"><i class="fa-solid fa-download"></i> PDF</span>
+        </a>
+      </div>
 
-<p>
+      <!-- 2. C Language -->
+      <div class="col-lg-6 reveal reveal-delay-1">
+        <a href="https://drive.google.com/uc?export=download&id=1ITlMR4TRPCR69VWODg6ruMzu0rWMHOjm" class="syl-card" style="--sc-color:var(--blue);" download>
+          <span class="syl-card-num">02</span>
+          <div class="syl-card-icon" style="background:rgba(0,87,255,0.1);color:var(--blue);">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div class="syl-card-info">
+            <div class="syl-card-name">C Language</div>
+            <div class="syl-card-desc">Fundamentals, pointers, arrays, strings, structures, file handling, memory management</div>
+          </div>
+          <span class="syl-card-dl btn-dl-magenta"><i class="fa-solid fa-download"></i> PDF</span>
+        </a>
+      </div>
 
-At Syntax Circuit, we strive to provide a meticulously curated syllabus for key programming and development domains.
+      <!-- 3. C++ -->
+      <div class="col-lg-6 reveal">
+        <a href="https://drive.google.com/uc?export=download&id=1YiG69xLugUxLbcC2PcbDTuB-QaRT2A0G" class="syl-card" style="--sc-color:var(--purple);" download>
+          <span class="syl-card-num">03</span>
+          <div class="syl-card-icon" style="background:rgba(124,58,237,0.1);color:var(--purple);">
+            <i class="fa-solid fa-terminal"></i>
+          </div>
+          <div class="syl-card-info">
+            <div class="syl-card-name">C++</div>
+            <div class="syl-card-desc">OOP concepts, inheritance, polymorphism, templates, STL, exception handling</div>
+          </div>
+          <span class="syl-card-dl btn-dl-magenta"><i class="fa-solid fa-download"></i> PDF</span>
+        </a>
+      </div>
 
-Whether you are a beginner or an advanced learner, our resources cover every aspect.
+      <!-- 4. Core Java -->
+      <div class="col-lg-6 reveal reveal-delay-1">
+        <a href="https://drive.google.com/uc?export=download&id=1NV_KNMMW47wpPipmr8eGjTgmFHJL51MJ" class="syl-card" style="--sc-color:var(--orange);" download>
+          <span class="syl-card-num">04</span>
+          <div class="syl-card-icon" style="background:rgba(255,107,53,0.1);color:var(--orange);">
+            <i class="fa-brands fa-java"></i>
+          </div>
+          <div class="syl-card-info">
+            <div class="syl-card-name">Core Java</div>
+            <div class="syl-card-desc">Basics, OOP, interfaces, packages, collections, multithreading, generics</div>
+          </div>
+          <span class="syl-card-dl btn-dl-magenta"><i class="fa-solid fa-download"></i> PDF</span>
+        </a>
+      </div>
 
-</p>
+      <!-- 5. Web Development -->
+      <div class="col-lg-6 reveal">
+        <a href="https://drive.google.com/uc?export=download&id=1pqbNsBslGTVfS5IUG8lvJKqI5IMR6sdG" class="syl-card" style="--sc-color:var(--teal);" download>
+          <span class="syl-card-num">05</span>
+          <div class="syl-card-icon" style="background:rgba(13,148,136,0.1);color:var(--teal);">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="syl-card-info">
+            <div class="syl-card-name">Web Development</div>
+            <div class="syl-card-desc">HTML5, CSS3, JavaScript, React basics, responsive design, deployment</div>
+          </div>
+          <span class="syl-card-dl btn-dl-magenta"><i class="fa-solid fa-download"></i> PDF</span>
+        </a>
+      </div>
 
-<ul>
+      <!-- 6. Python -->
+      <div class="col-lg-6 reveal reveal-delay-1">
+        <a href="https://drive.google.com/uc?export=download&id=1PUMhyBXObnpsHpLGHXWXrtdC0EFre6Fq" class="syl-card" style="--sc-color:var(--gold);" download>
+          <span class="syl-card-num">06</span>
+          <div class="syl-card-icon" style="background:rgba(255,209,102,0.15);color:#B45309;">
+            <i class="fa-brands fa-python"></i>
+          </div>
+          <div class="syl-card-info">
+            <div class="syl-card-name">Python</div>
+            <div class="syl-card-desc">Fundamentals, data structures, OOP, file I/O, NumPy, pandas, automation</div>
+          </div>
+          <span class="syl-card-dl btn-dl-magenta"><i class="fa-solid fa-download"></i> PDF</span>
+        </a>
+      </div>
 
-<li>Advanced Java</li>
+      <!-- 7. SQL -->
+      <div class="col-lg-6 reveal">
+        <a href="https://drive.google.com/uc?export=download&id=1vyJNvSmTT56_Aw1RTRegnfa_Yu9Q9a5E" class="syl-card" style="--sc-color:var(--rose);" download>
+          <span class="syl-card-num">07</span>
+          <div class="syl-card-icon" style="background:rgba(225,29,72,0.1);color:var(--rose);">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <div class="syl-card-info">
+            <div class="syl-card-name">SQL</div>
+            <div class="syl-card-desc">DDL, DML, joins, subqueries, views, indexes, procedures, triggers, normalization</div>
+          </div>
+          <span class="syl-card-dl btn-dl-magenta"><i class="fa-solid fa-download"></i> PDF</span>
+        </a>
+      </div>
 
-<li>C Language</li>
+      <!-- More coming -->
+      <div class="col-lg-6 reveal reveal-delay-1">
+        <div class="syl-card" style="border:2px dashed rgba(0,0,0,0.1);background:transparent;cursor:default;">
+          <span class="syl-card-num" style="color:rgba(0,0,0,0.04);">08</span>
+          <div class="syl-card-icon" style="background:rgba(0,0,0,0.03);color:rgba(0,0,0,0.15);">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div class="syl-card-info">
+            <div class="syl-card-name" style="color:var(--mid);">More Coming Soon</div>
+            <div class="syl-card-desc">Data Structures, OS, CN, DBMS, TOC, Compiler Design — syllabus PDFs being prepared.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<li>C++</li>
+<!-- TABLE VIEW -->
+<section id="syllabus-table">
+  <div class="container">
+    <div class="table-wrap reveal">
+      <div class="table-header">
+        <div>
+          <h4><i class="fa-solid fa-table-list" style="color:var(--magenta);margin-right:8px;"></i>Syllabus — Table View</h4>
+          <div class="table-header-sub">7 subjects available for download</div>
+        </div>
+        <a href="#syllabus-grid" class="d-inline-flex align-items-center gap-2 text-decoration-none" style="font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:500;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+          <i class="fa-solid fa-grip"></i> Card view
+        </a>
+      </div>
+      <table class="sytable">
+        <thead>
+          <tr>
+            <th style="width:60px;">#</th>
+            <th>Subject</th>
+            <th style="width:160px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="subj-num-sm">01</span></td>
+            <td>
+              <div class="subj-cell">
+                <div class="subj-icon-sm" style="background:rgba(255,45,120,0.1);color:var(--magenta);"><i class="fa-brands fa-java"></i></div>
+                <span class="subj-name">Advanced Java</span>
+              </div>
+            </td>
+            <td>
+              <a href="https://drive.google.com/uc?export=download&id=1Zl3Zkc2twq3O-ZBdXGjwklkKmA90PnUk" class="btn-dl-table" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="subj-num-sm">02</span></td>
+            <td>
+              <div class="subj-cell">
+                <div class="subj-icon-sm" style="background:rgba(0,87,255,0.1);color:var(--blue);"><i class="fa-solid fa-code"></i></div>
+                <span class="subj-name">C Language</span>
+              </div>
+            </td>
+            <td>
+              <a href="https://drive.google.com/uc?export=download&id=1ITlMR4TRPCR69VWODg6ruMzu0rWMHOjm" class="btn-dl-table" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="subj-num-sm">03</span></td>
+            <td>
+              <div class="subj-cell">
+                <div class="subj-icon-sm" style="background:rgba(124,58,237,0.1);color:var(--purple);"><i class="fa-solid fa-terminal"></i></div>
+                <span class="subj-name">C++</span>
+              </div>
+            </td>
+            <td>
+              <a href="https://drive.google.com/uc?export=download&id=1YiG69xLugUxLbcC2PcbDTuB-QaRT2A0G" class="btn-dl-table" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="subj-num-sm">04</span></td>
+            <td>
+              <div class="subj-cell">
+                <div class="subj-icon-sm" style="background:rgba(255,107,53,0.1);color:var(--orange);"><i class="fa-brands fa-java"></i></div>
+                <span class="subj-name">Core Java</span>
+              </div>
+            </td>
+            <td>
+              <a href="https://drive.google.com/uc?export=download&id=1NV_KNMMW47wpPipmr8eGjTgmFHJL51MJ" class="btn-dl-table" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="subj-num-sm">05</span></td>
+            <td>
+              <div class="subj-cell">
+                <div class="subj-icon-sm" style="background:rgba(13,148,136,0.1);color:var(--teal);"><i class="fa-solid fa-globe"></i></div>
+                <span class="subj-name">Web Development</span>
+              </div>
+            </td>
+            <td>
+              <a href="https://drive.google.com/uc?export=download&id=1pqbNsBslGTVfS5IUG8lvJKqI5IMR6sdG" class="btn-dl-table" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="subj-num-sm">06</span></td>
+            <td>
+              <div class="subj-cell">
+                <div class="subj-icon-sm" style="background:rgba(255,209,102,0.15);color:#B45309;"><i class="fa-brands fa-python"></i></div>
+                <span class="subj-name">Python</span>
+              </div>
+            </td>
+            <td>
+              <a href="https://drive.google.com/uc?export=download&id=1PUMhyBXObnpsHpLGHXWXrtdC0EFre6Fq" class="btn-dl-table" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="subj-num-sm">07</span></td>
+            <td>
+              <div class="subj-cell">
+                <div class="subj-icon-sm" style="background:rgba(225,29,72,0.1);color:var(--rose);"><i class="fa-solid fa-database"></i></div>
+                <span class="subj-name">SQL</span>
+              </div>
+            </td>
+            <td>
+              <a href="https://drive.google.com/uc?export=download&id=1vyJNvSmTT56_Aw1RTRegnfa_Yu9Q9a5E" class="btn-dl-table" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-<li>Core Java</li>
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="container text-center">
+    <div class="reveal">
+      <h2 class="mb-3">Need Syllabus for a Different Subject?</h2>
+      <p class="mb-4" style="max-width:480px;margin:0 auto;">We're constantly adding new syllabus PDFs. Message us on WhatsApp and we'll upload it within 24 hours.</p>
+      <a href="https://wa.me/919999999999?text=Hi!%20I%20need%20syllabus%20for%20[subject%20name]%20from%20Syntax%20Circuit" target="_blank" rel="noopener" class="btn-cta-glow">
+        <i class="fab fa-whatsapp"></i> Request Syllabus
+      </a>
+    </div>
+  </div>
+</section>
 
-<li>Web Development</li>
-
-<li>Python</li>
-
-<li>SQL</li>
-
-</ul>
-
-<p>
-
-Use the table below to download the syllabus for each subject.
-
-</p>
-
-<h3>Available Syllabus Resources</h3>
-
-<table class="table table-striped table-hover">
-
-<thead class="table-dark">
-
-<tr>
-
-<th>#</th>
-
-<th>Subject</th>
-
-<th>Download Link</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-<td>1</td>
-<td>Advanced Java</td>
-<td><a href="https://drive.google.com/uc?export=download&id=1Zl3Zkc2twq3O-ZBdXGjwklkKmA90PnUk" class="download-link" download>Download</a></td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>C Language</td>
-<td><a href="https://drive.google.com/uc?export=download&id=1ITlMR4TRPCR69VWODg6ruMzu0rWMHOjm" class="download-link" download>Download</a></td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>C++</td>
-<td><a href="https://drive.google.com/uc?export=download&id=1YiG69xLugUxLbcC2PcbDTuB-QaRT2A0G" class="download-link" download>Download</a></td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>Core Java</td>
-<td><a href="https://drive.google.com/uc?export=download&id=1NV_KNMMW47wpPipmr8eGjTgmFHJL51MJ" class="download-link" download>Download</a></td>
-</tr>
-
-<tr>
-<td>5</td>
-<td>Web Development</td>
-<td><a href="https://drive.google.com/uc?export=download&id=1pqbNsBslGTVfS5IUG8lvJKqI5IMR6sdG" class="download-link" download>Download</a></td>
-</tr>
-
-<tr>
-<td>6</td>
-<td>Python</td>
-<td><a href="https://drive.google.com/uc?export=download&id=1PUMhyBXObnpsHpLGHXWXrtdC0EFre6Fq" class="download-link" download>Download</a></td>
-</tr>
-
-<tr>
-<td>7</td>
-<td>SQL</td>
-<td><a href="https://drive.google.com/uc?export=download&id=1vyJNvSmTT56_Aw1RTRegnfa_Yu9Q9a5E" class="download-link" download>Download</a></td>
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-<!-- Footer -->
-
+<!-- FOOTER -->
 <footer>
-
-<p>© 2026 Syntax Circuit. All Rights Reserved.</p>
-
-<p>
-
-Follow us on:
-
-<a href="#">Facebook</a> |
-
-<a href="#">Twitter</a> |
-
-<a href="#">Instagram</a>
-
-</p>
-
-<p><a href="contact.html">Contact Us</a></p>
-
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <img src="syntaxLogo.jpg" style="width:30px;height:30px;border-radius:6px;" alt="Syntax Circuit"> Syntax Circuit
+        </div>
+        <p class="footer-desc">India's growing platform for computer science education — from UGC NET coaching to university tuitions and project guidance.</p>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Courses</div>
+        <ul class="footer-links">
+          <li><a href="ugcnet.html">UGC NET CS</a></li>
+          <li><a href="cpget.html">CPGET</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+          <li><a href="tuitions.html">Tuitions</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Resources</div>
+        <ul class="footer-links">
+          <li><a href="notes.html">Notes & PDFs</a></li>
+          <li><a href="syllabus.html">Syllabus</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="verify.html">Verify</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Connect</div>
+        <div class="footer-socials mt-2">
+          <a href="#" class="fs-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="fs-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="fs-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="fs-btn" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>&copy; 2025 Syntax Circuit. All rights reserved.</span>
+      <span>Made with <i class="fa-solid fa-heart" style="color:var(--magenta);font-size:0.7rem;"></i> in Hyderabad</span>
+    </div>
+  </div>
 </footer>
 
-<!-- Code injected by live-server -->
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/919999999999?text=Hi!%20I%20was%20browsing%20syllabus%20on%20your%20website" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- SCROLL TOP -->
+<a href="#" class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, cx = 0, cy = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.transform = `translate(${mx-6}px,${my-6}px)`; });
+(function loop(){ cx+=(mx-cx)*0.15; cy+=(my-cy)*0.15; ring.style.transform = `translate(${cx-20}px,${cy-20}px)`; requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button,.syl-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.style.transform += ' scale(2.5)');
+  el.addEventListener('mouseleave', () => cursor.style.transform = `translate(${mx-6}px,${my-6}px)`);
+});
+
+// ─── REVEAL ───
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+
+// ─── SCROLL TOP ───
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('show', window.scrollY > 600);
+});
+
+// Hide cursor on touch
+if('ontouchstart' in window){
+  cursor.style.display = 'none';
+  ring.style.display = 'none';
+}
 </script>
 </body>
 </html>
