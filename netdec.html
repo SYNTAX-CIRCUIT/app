@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UGC NET CS Dec 2026 — 90-Day Crash Course | Syntax Circuit</title>
+<meta name="description" content="Crack UGC NET Computer Science December 2026 with Syntax Circuit's intensive 90-day online coaching. Paper I + Paper II, live classes, WhatsApp community, expert faculty.">
+<link rel="icon" href="syntaxLogo.jpg">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #050A14;
+  --paper: #F5F3EE;
+  --cyan: #00FFD1;
+  --magenta: #FF2D78;
+  --gold: #FFD166;
+  --blue: #0057FF;
+  --mid: #8892A4;
+  --card-bg: #ffffff;
+  --nav-h: 72px;
+  --orange: #FF6B35;
+  --purple: #7C3AED;
+  --teal: #0D9488;
+  --rose: #E11D48;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* NOISE */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025; pointer-events: none; z-index: 1000;
+}
+
+/* CURSOR */
+.cursor { width:12px;height:12px;border-radius:50%;background:var(--cyan);position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:transform 0.15s ease; }
+.cursor-ring { width:40px;height:40px;border:1.5px solid var(--magenta);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform 0.35s cubic-bezier(.25,.46,.45,.94); }
+
+/* NAVBAR */
+.navbar { height:var(--nav-h);background:rgba(245,243,238,0.85);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.06);z-index:900;padding:0; }
+.navbar-brand { font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-0.5px;color:var(--ink)!important;display:flex;align-items:center;gap:10px; }
+.brand-logo { width:34px;height:34px;border-radius:8px;object-fit:cover; }
+.brand-dot { display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-left:2px;position:relative;top:-2px; }
+.nav-link { font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;color:var(--ink)!important;padding:6px 14px!important;border-radius:30px;transition:background 0.2s,color 0.2s;letter-spacing:0.01em; }
+.nav-link:hover { background:var(--ink);color:var(--cyan)!important; }
+.nav-cta { background:var(--ink)!important;color:var(--cyan)!important;font-weight:600;border-radius:30px;padding:6px 20px!important; }
+.nav-cta:hover { background:var(--magenta)!important;color:#fff!important; }
+
+/* ─── HERO ─── */
+.ugc-hero {
+  background: var(--ink);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+}
+.hero-grid {
+  position:absolute;inset:0;
+  background-image: linear-gradient(rgba(0,255,209,0.04) 1px,transparent 1px), linear-gradient(90deg,rgba(0,255,209,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gridPan 25s linear infinite;
+}
+@keyframes gridPan { to { background-position:60px 60px; } }
+
+.hero-blob { position:absolute;border-radius:50%;filter:blur(90px);opacity:0.3;animation:blobFloat 8s ease-in-out infinite alternate; }
+.hb1 { width:550px;height:550px;background:var(--cyan);top:-120px;right:-100px;opacity:0.15; }
+.hb2 { width:400px;height:400px;background:var(--magenta);bottom:-100px;left:5%;animation-delay:-4s; }
+.hb3 { width:320px;height:320px;background:var(--gold);top:40%;left:30%;opacity:0.12;animation-delay:-2s; }
+.hb4 { width:250px;height:250px;background:var(--purple);top:15%;right:25%;opacity:0.1;animation-delay:-6s; }
+@keyframes blobFloat { from{transform:translate(0,0) scale(1);} to{transform:translate(20px,30px) scale(1.08);} }
+
+/* Floating particles */
+.hero-particles { position:absolute;inset:0;overflow:hidden;pointer-events:none; }
+.particle {
+  position:absolute;width:3px;height:3px;border-radius:50%;background:var(--cyan);opacity:0;
+  animation:particleFloat linear infinite;
+}
+@keyframes particleFloat {
+  0% { opacity:0;transform:translateY(100vh) scale(0); }
+  10% { opacity:0.6; }
+  90% { opacity:0.6; }
+  100% { opacity:0;transform:translateY(-10vh) scale(1); }
+}
+
+.hero-inner { position:relative;z-index:2;color:#fff; }
+
+.hero-badge {
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,255,209,0.1);
+  border:1px solid rgba(0,255,209,0.3);
+  border-radius:30px;
+  padding:6px 18px;
+  font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:28px;backdrop-filter:blur(8px);
+  animation:fadeUp 0.8s ease both;
+}
+.fire-icon { animation:fireFlicker 1.5s ease infinite alternate; }
+@keyframes fireFlicker { from{transform:scale(1) rotate(-3deg);} to{transform:scale(1.15) rotate(3deg);} }
+
+.countdown-bar {
+  display:inline-flex;align-items:center;gap:16px;
+  background:rgba(255,209,102,0.1);border:1px solid rgba(255,209,102,0.25);
+  border-radius:14px;padding:10px 22px;margin-bottom:30px;
+  animation:fadeUp 0.85s 0.05s ease both;
+}
+.cd-item { display:flex;flex-direction:column;align-items:center; }
+.cd-num { font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--gold);line-height:1; }
+.cd-label { font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px; }
+.cd-sep { font-size:1.4rem;color:rgba(255,255,255,0.2);font-weight:300; }
+
+.hero-title {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.4rem,5.5vw,4.8rem);
+  font-weight:800;line-height:1.05;letter-spacing:-0.03em;
+  margin-bottom:22px;
+  animation:fadeUp 0.9s 0.1s ease both;
+}
+.hero-title .accent-cyan { color:var(--cyan); }
+.hero-title .accent-gold { color:var(--gold); }
+.hero-title .accent-magenta { color:var(--magenta); }
+.hero-title .stroke { -webkit-text-stroke:2px rgba(255,255,255,0.35);color:transparent; }
+
+.paper-tags { display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;animation:fadeUp 0.95s 0.15s ease both; }
+.paper-tag {
+  font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:5px 16px;border-radius:30px;
+}
+.paper-tag-1 { background:rgba(0,255,209,0.15);color:var(--cyan);border:1px solid rgba(0,255,209,0.3); }
+.paper-tag-2 { background:rgba(255,107,53,0.15);color:var(--orange);border:1px solid rgba(255,107,53,0.3); }
+
+.hero-sub { font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.55);max-width:540px;line-height:1.75;margin-bottom:38px;animation:fadeUp 1s 0.2s ease both; }
+
+.hero-actions { display:flex;align-items:center;gap:14px;flex-wrap:wrap;animation:fadeUp 1s 0.3s ease both; }
+.btn-cyan {
+  background:var(--cyan);color:var(--ink);
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
+  border:none;border-radius:50px;padding:15px 36px;
+  text-decoration:none;display:inline-flex;align-items:center;gap:10px;
+  transition:transform 0.25s,box-shadow 0.25s;
+}
+.btn-cyan:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,255,209,0.35);color:var(--ink); }
+.btn-outline-light-custom {
+  background:transparent;color:#fff;font-weight:500;font-size:0.9rem;
+  border:1.5px solid rgba(255,255,255,0.25);border-radius:50px;padding:14px 28px;
+  text-decoration:none;transition:border-color 0.2s,background 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-outline-light-custom:hover { border-color:var(--gold);background:rgba(255,209,102,0.1);color:#fff; }
+
+.hero-quick-stats {
+  display:flex;gap:32px;margin-top:50px;flex-wrap:wrap;
+  animation:fadeUp 1s 0.4s ease both;
+}
+.qs-item { display:flex;flex-direction:column; }
+.qs-num { font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:#fff;line-height:1; }
+.qs-label { font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:4px;letter-spacing:0.05em;text-transform:uppercase; }
+.qs-div { width:1px;background:rgba(255,255,255,0.1);align-self:stretch; }
+
+/* HERO CARD */
+.hero-info-card {
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+  border-radius:24px;padding:36px 30px;backdrop-filter:blur(20px);
+  box-shadow:0 30px 80px rgba(0,0,0,0.4);
+  animation:fadeUp 0.9s 0.2s ease both;
+}
+.info-row {
+  display:flex;align-items:center;gap:14px;padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.info-row:last-child { border-bottom:none;padding-bottom:0; }
+.info-row:first-child { padding-top:0; }
+.info-icon {
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.info-label { font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:2px; }
+.info-val { font-size:0.92rem;font-weight:500;color:#fff; }
+
+.enroll-btn-card {
+  width:100%;margin-top:24px;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:var(--ink);font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;
+  border:none;border-radius:14px;padding:16px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:transform 0.25s,box-shadow 0.25s;text-decoration:none;
+}
+.enroll-btn-card:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,255,209,0.3);color:var(--ink); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+
+/* ─── TICKER ─── */
+.ticker-wrap { background:linear-gradient(90deg,var(--cyan),var(--blue));padding:12px 0;overflow:hidden; }
+.ticker-track { display:flex;animation:ticker 28s linear infinite;white-space:nowrap; }
+.ticker-item { display:inline-flex;align-items:center;gap:10px;color:#fff;font-size:0.85rem;font-weight:600;padding:0 50px; }
+.ticker-sep { color:rgba(255,255,255,0.5); }
+@keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+/* ─── SECTIONS ─── */
+section { padding:90px 0; }
+.section-eyebrow { display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px; }
+.section-title { font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;color:var(--ink);line-height:1.1;margin-bottom:16px; }
+.section-sub { font-size:1rem;color:var(--mid);max-width:560px;line-height:1.7; }
+
+.reveal { opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease; }
+.reveal.visible { opacity:1;transform:translateY(0); }
+.reveal-delay-1 { transition-delay:0.1s; }
+.reveal-delay-2 { transition-delay:0.2s; }
+.reveal-delay-3 { transition-delay:0.3s; }
+
+/* ─── EXAM PATTERN ─── */
+#exam-pattern { background:#F0FFFE; }
+.pattern-card {
+  background:#fff;border-radius:24px;padding:40px 32px;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 10px 40px rgba(0,0,0,0.05);
+  height:100%;position:relative;overflow:hidden;
+  transition:transform 0.35s cubic-bezier(.22,.68,0,1.2),box-shadow 0.35s;
+}
+.pattern-card:hover { transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.1); }
+.pattern-card::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+}
+.pattern-card.paper1::before { background:linear-gradient(90deg,var(--cyan),var(--teal)); }
+.pattern-card.paper2::before { background:linear-gradient(90deg,var(--orange),var(--magenta)); }
+.pattern-num {
+  font-family:'Syne',sans-serif;font-weight:800;font-size:3.5rem;
+  line-height:1;margin-bottom:8px;
+}
+.paper1 .pattern-num { color:var(--cyan); }
+.paper2 .pattern-num { color:var(--orange); }
+.pattern-card h4 { font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;color:var(--ink);margin-bottom:6px; }
+.pattern-card .pattern-sub { font-size:0.85rem;color:var(--mid);margin-bottom:20px; }
+.pattern-stats { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+.pstat { background:#F8FAFB;border-radius:12px;padding:14px 16px; }
+.pstat-val { font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--ink); }
+.pstat-label { font-size:0.7rem;color:var(--mid);letter-spacing:0.04em;text-transform:uppercase;margin-top:2px; }
+
+/* ─── HIGHLIGHTS ─── */
+#highlights { background:#FFF8F0; }
+.highlight-card {
+  background:#fff;border-radius:22px;padding:36px 28px;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:transform 0.35s cubic-bezier(.22,.68,0,1.2),box-shadow 0.35s;
+  position:relative;overflow:hidden;height:100%;
+}
+.highlight-card::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--h-color,var(--cyan));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;
+}
+.highlight-card:hover::before { transform:scaleX(1); }
+.highlight-card:hover { transform:translateY(-10px);box-shadow:0 24px 60px rgba(0,0,0,0.1); }
+.h-icon { width:62px;height:62px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px; }
+.highlight-card h5 { font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:8px; }
+.highlight-card p { font-size:0.88rem;color:var(--mid);line-height:1.65; }
+
+/* ─── FACULTY ─── */
+#faculty { background:var(--paper); }
+.faculty-card {
+  background:#fff;border-radius:24px;padding:40px 32px;text-align:center;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:transform 0.3s,box-shadow 0.3s;
+  height:100%;position:relative;overflow:hidden;
+}
+.faculty-card::after {
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--cyan),var(--blue));
+  transform:scaleX(0);transition:transform 0.4s ease;transform-origin:left;
+}
+.faculty-card:hover::after { transform:scaleX(1); }
+.faculty-card:hover { transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.1); }
+.faculty-photo-wrap { position:relative;display:inline-block;margin-bottom:20px; }
+.faculty-photo { width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 0 0 3px var(--cyan);transition:transform 0.3s; }
+.faculty-card:hover .faculty-photo { transform:scale(1.05); }
+.faculty-badge {
+  position:absolute;bottom:0;right:0;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--cyan);display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;border:2px solid #fff;color:var(--ink);
+}
+.faculty-card h5 { font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:4px; }
+.faculty-role { font-size:0.8rem;color:var(--cyan);font-weight:600;margin-bottom:12px; }
+.faculty-card p { font-size:0.85rem;color:var(--mid);line-height:1.65; }
+.faculty-subjects { display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px; }
+.subj-pill {
+  font-size:0.7rem;font-weight:600;letter-spacing:0.05em;
+  padding:4px 12px;border-radius:30px;
+  background:#F0FFFE;color:var(--teal);border:1px solid rgba(13,148,136,0.2);
+}
+
+/* ─── SYLLABUS ─── */
+#syllabus { background:var(--paper); }
+.syl-tabs { display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap; }
+.syl-tab {
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.82rem;
+  padding:10px 22px;border-radius:50px;border:2px solid rgba(0,0,0,0.08);
+  background:transparent;color:var(--mid);cursor:pointer;
+  transition:all 0.3s;letter-spacing:0.02em;
+}
+.syl-tab:hover { border-color:var(--cyan);color:var(--cyan); }
+.syl-tab.active { background:var(--ink);color:var(--cyan);border-color:var(--ink); }
+
+.syl-accordion { display:flex;flex-direction:column;gap:10px; }
+.syl-item {
+  background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);
+  overflow:hidden;transition:box-shadow 0.3s;
+}
+.syl-item:hover { box-shadow:0 8px 30px rgba(0,0,0,0.08); }
+.syl-head {
+  display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;
+  user-select:none;transition:background 0.2s;
+}
+.syl-head:hover { background:#FAFAF8; }
+.syl-week {
+  font-family:'Syne',sans-serif;font-weight:800;font-size:0.72rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:4px 14px;border-radius:20px;white-space:nowrap;flex-shrink:0;
+  color:#fff;
+}
+.syl-head h6 { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);margin:0;flex:1; }
+.syl-unit { font-size:0.72rem;color:var(--mid);font-weight:500;letter-spacing:0.04em;text-transform:uppercase; }
+.syl-arrow { color:var(--cyan);transition:transform 0.3s;margin-left:auto;flex-shrink:0; }
+.syl-body { display:none;padding:0 24px 22px 24px; }
+.syl-body.open { display:block;animation:fadeUp 0.3s ease; }
+.syl-topics { display:flex;flex-wrap:wrap;gap:8px;margin-top:4px; }
+.topic-chip {
+  font-size:0.78rem;font-weight:500;padding:5px 14px;border-radius:20px;
+  background:#F0F4FF;color:var(--blue);border:1px solid rgba(0,87,255,0.12);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.topic-chip:hover { transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,87,255,0.15); }
+
+/* ─── COMMUNITY ─── */
+#community { background:var(--ink);position:relative;overflow:hidden; }
+#community::before {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(0,255,209,0.12) 0%,transparent 70%),
+             radial-gradient(ellipse 40% 50% at 10% 80%,rgba(255,45,120,0.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+#community .section-title { color:#fff; }
+#community .section-eyebrow { color:var(--gold); }
+#community .section-sub { color:rgba(255,255,255,0.4); }
+
+.comm-card {
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:24px;padding:36px 30px;
+  backdrop-filter:blur(12px);height:100%;
+  transition:transform 0.3s,border-color 0.3s;
+  position:relative;overflow:hidden;
+}
+.comm-card:hover { transform:translateY(-8px);border-color:rgba(255,255,255,0.2); }
+.comm-card::after {
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--c-color,rgba(0,255,209,0.05)) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.4s;pointer-events:none;
+}
+.comm-card:hover::after { opacity:1; }
+.comm-icon { width:72px;height:72px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:22px;border:1px solid rgba(255,255,255,0.1); }
+.comm-card h4 { font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:10px; }
+.comm-card p { font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:24px; }
+.comm-features { list-style:none;margin-bottom:28px; }
+.comm-features li { display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.6);margin-bottom:10px; }
+.comm-features li::before { content:'✓';color:var(--c-color,var(--cyan));font-weight:700;font-size:0.9rem; }
+.comm-btn {
+  display:inline-flex;align-items:center;gap:10px;width:100%;justify-content:center;
+  padding:14px 24px;border-radius:14px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;
+  text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;border:none;cursor:pointer;
+}
+.comm-btn:hover { transform:translateY(-3px); }
+.btn-wa { background:#25D366;color:#fff; }
+.btn-wa:hover { box-shadow:0 12px 30px rgba(37,211,102,0.4);color:#fff; }
+.btn-tg { background:#229ED9;color:#fff; }
+.btn-tg:hover { box-shadow:0 12px 30px rgba(34,158,217,0.4);color:#fff; }
+.members-badge {
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.08);border-radius:30px;
+  padding:6px 14px;font-size:0.75rem;color:rgba(255,255,255,0.5);margin-bottom:20px;
+}
+.online-dot { width:7px;height:7px;border-radius:50%;background:#25D366;animation:pulse 2s infinite; }
+@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,0.5);} 70%{box-shadow:0 0 0 8px rgba(37,211,102,0);} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0);} }
+
+/* ─── PRICING ─── */
+#pricing { background:#F0F4FF; }
+.price-card {
+  background:#fff;border-radius:28px;padding:44px 36px;
+  border:2px solid rgba(0,0,0,0.06);
+  position:relative;overflow:hidden;
+  transition:transform 0.35s,box-shadow 0.35s;
+  height:100%;
+}
+.price-card:hover { transform:translateY(-10px);box-shadow:0 30px 70px rgba(0,0,0,0.12); }
+.price-card.featured {
+  background:var(--ink);border-color:var(--cyan);
+  transform:scale(1.02);
+}
+.price-card.featured:hover { transform:scale(1.02) translateY(-10px); }
+.price-badge {
+  position:absolute;top:22px;right:22px;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));color:var(--ink);
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.72rem;
+  letter-spacing:0.06em;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;
+}
+.price-icon { font-size:2rem;margin-bottom:18px;display:block; }
+.price-name { font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px; }
+.price-card.featured .price-name { color:rgba(255,255,255,0.5); }
+.price-amount {
+  font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);
+  line-height:1;color:var(--ink);margin-bottom:6px;white-space:nowrap;
+  display:flex;align-items:center;justify-content:center;gap:2px;
+}
+.price-card.featured .price-amount { color:#fff; }
+.price-original { font-size:1rem;color:var(--mid);text-decoration:line-through;font-weight:400;margin-left:8px; }
+.price-card.featured .price-original { color:rgba(255,255,255,0.3); }
+.price-period { font-size:0.85rem;color:var(--mid);margin-bottom:28px; }
+.price-card.featured .price-period { color:rgba(255,255,255,0.4); }
+.price-features { list-style:none;margin-bottom:32px; }
+.price-features li { display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--ink);padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.05); }
+.price-features li:last-child { border-bottom:none; }
+.price-card.featured .price-features li { color:rgba(255,255,255,0.75);border-bottom-color:rgba(255,255,255,0.06); }
+.pf-check { color:var(--cyan);font-size:0.85rem;flex-shrink:0; }
+.price-card:not(.featured) .pf-check { color:var(--teal); }
+.btn-enroll {
+  width:100%;padding:15px;border-radius:50px;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
+  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;
+}
+.btn-enroll-outline { background:transparent;color:var(--ink);border:2px solid rgba(0,0,0,0.15); }
+.btn-enroll-outline:hover { border-color:var(--cyan);color:var(--teal); }
+.btn-enroll-filled { background:linear-gradient(135deg,var(--cyan),var(--blue));color:var(--ink); }
+.btn-enroll-filled:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,255,209,0.4);color:var(--ink); }
+
+/* ─── FAQ ─── */
+#faq { background:var(--paper); }
+.faq-item { background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,0.06);margin-bottom:10px;overflow:hidden;transition:box-shadow 0.3s; }
+.faq-item:hover { box-shadow:0 8px 30px rgba(0,0,0,0.07); }
+.faq-q { display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:0.98rem;color:var(--ink); }
+.faq-icon { color:var(--cyan);flex-shrink:0;transition:transform 0.3s; }
+.faq-a { display:none;padding:0 26px 22px;font-size:0.9rem;color:var(--mid);line-height:1.75; }
+.faq-a.open { display:block;animation:fadeUp 0.3s ease; }
+
+/* ─── CTA STRIP ─── */
+.cta-strip {
+  background:linear-gradient(135deg,var(--ink) 0%,#0a1628 50%,var(--ink) 100%);
+  padding:100px 0;position:relative;overflow:hidden;
+}
+.cta-strip::before {
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 80% at 50% 50%,rgba(0,255,209,0.1) 0%,transparent 70%);
+}
+.cta-strip h2 { font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-0.03em;position:relative; }
+.cta-strip p { color:rgba(255,255,255,0.5);font-size:1rem;position:relative; }
+.btn-cta-glow {
+  background:linear-gradient(135deg,var(--cyan),var(--blue));color:var(--ink);
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
+  border:none;border-radius:50px;padding:16px 40px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:transform 0.25s,box-shadow 0.25s;position:relative;
+}
+.btn-cta-glow:hover { transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,255,209,0.35);color:var(--ink); }
+
+/* ─── FOOTER ─── */
+footer { background:var(--ink);color:rgba(255,255,255,0.5);padding:60px 0 36px;position:relative;overflow:hidden; }
+footer::before { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,209,0.4),transparent); }
+.footer-brand { font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:10px; }
+.footer-desc { font-size:0.85rem;max-width:260px;line-height:1.7; }
+.footer-title { font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:18px; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:10px; }
+.footer-links a { color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.88rem;transition:color 0.2s;display:inline-flex;align-items:center;gap:6px; }
+.footer-links a:hover { color:var(--cyan); }
+.footer-links a::before { content:'—';opacity:0.3;font-size:0.7rem; }
+.footer-divider { border:none;border-top:1px solid rgba(255,255,255,0.06);margin:40px 0 24px; }
+.footer-bottom { display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;flex-wrap:wrap;gap:12px; }
+.footer-socials { display:flex;gap:8px; }
+.fs-btn { width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);font-size:0.85rem;text-decoration:none;transition:background 0.2s,color 0.2s; }
+.fs-btn:hover { background:var(--cyan);color:var(--ink); }
+
+/* WHATSAPP */
+.whatsapp-float { position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;z-index:800;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.3s,box-shadow 0.3s; }
+.whatsapp-float:hover { transform:scale(1.1);box-shadow:0 14px 40px rgba(37,211,102,0.5);color:#fff; }
+.whatsapp-float::before { content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,0.3);animation:ripple 2s ease infinite; }
+@keyframes ripple { 0%{transform:scale(1);opacity:1;} 100%{transform:scale(1.4);opacity:0;} }
+
+/* SCROLL TOP */
+.scroll-top {
+  position:fixed;bottom:28px;left:28px;width:44px;height:44px;border-radius:12px;
+  background:var(--ink);color:var(--cyan);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;z-index:800;text-decoration:none;
+  opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s,background 0.2s;
+  border:1px solid rgba(0,255,209,0.2);
+}
+.scroll-top.show { opacity:1;transform:translateY(0); }
+.scroll-top:hover { background:var(--cyan);color:var(--ink); }
+
+/* RESPONSIVE */
+@media(max-width:991px) { .hero-info-card { margin-top:50px; } }
+@media(max-width:768px) {
+  .hero-title{font-size:2.2rem;}
+  .hero-quick-stats{gap:18px;}
+  .price-card.featured{transform:scale(1);}
+  .pattern-stats{grid-template-columns:1fr;}
+  section{padding:60px 0;}
+}
+@media(max-width:576px) {
+  .countdown-bar{gap:10px;padding:8px 16px;}
+  .cd-num{font-size:1.3rem;}
+  .hero-quick-stats{gap:14px;}
+  .qs-num{font-size:1.5rem;}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .hero-grid, .ticker-track { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="syntaxLogo.jpg" class="brand-logo" alt="Syntax Circuit">
+      Syntax Circuit<span class="brand-dot"></span>
+    </a>
+    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Final Year Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="notes.html">Notes</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="ugcnet.html">UGC NET CS</a></li>
+        <li class="nav-item"><a class="nav-link" href="syllabus.html">Syllabus</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link nav-cta" href="verify.html">Verify</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="ugc-hero">
+  <div class="hero-grid"></div>
+  <div class="hb1 hero-blob"></div>
+  <div class="hb2 hero-blob"></div>
+  <div class="hb3 hero-blob"></div>
+  <div class="hb4 hero-blob"></div>
+  <div class="hero-particles" id="heroParticles"></div>
+
+  <div class="container py-5">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <div class="hero-inner">
+          <div class="hero-badge">
+            <span class="fire-icon">⚡</span> UGC NET CS Dec 2026 — Batch Now Open
+          </div>
+
+          <!-- COUNTDOWN -->
+          <div class="countdown-bar">
+            <div class="cd-item">
+              <span class="cd-num" id="cd-days">000</span>
+              <span class="cd-label">Days</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-item">
+              <span class="cd-num" id="cd-hours">00</span>
+              <span class="cd-label">Hours</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-item">
+              <span class="cd-num" id="cd-mins">00</span>
+              <span class="cd-label">Mins</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-item">
+              <span class="cd-num" id="cd-secs">00</span>
+              <span class="cd-label">Secs</span>
+            </div>
+            <span style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-left:10px;">to Exam</span>
+          </div>
+
+          <div class="paper-tags">
+            <span class="paper-tag paper-tag-1"><i class="fa-solid fa-file-lines fa-xs"></i>&nbsp; Paper I — General</span>
+            <span class="paper-tag paper-tag-2"><i class="fa-solid fa-microchip fa-xs"></i>&nbsp; Paper II — Computer Science</span>
+          </div>
+
+          <h1 class="hero-title">
+            Crack <span class="accent-cyan">UGC NET</span><br>
+            Computer Science<br>
+            <span class="accent-gold">Dec 2026</span> <span class="stroke">Attempt</span>
+          </h1>
+          <p class="hero-sub">
+            India's most focused 90-day crash course for UGC NET CS — covering Paper I & II with live sessions, daily MCQs, 15 mock tests, and mentorship from NET-qualified faculty.
+          </p>
+          <div class="hero-actions">
+            <a href="#pricing" class="btn-cyan">
+              <i class="fa-solid fa-bolt"></i> Enrol Now
+            </a>
+            <a href="#syllabus" class="btn-outline-light-custom">
+              <i class="fa-solid fa-list-check"></i> View Syllabus
+            </a>
+          </div>
+          <div class="hero-quick-stats">
+            <div class="qs-item">
+              <span class="qs-num">90</span>
+              <span class="qs-label">Days</span>
+            </div>
+            <div class="qs-div"></div>
+            <div class="qs-item">
+              <span class="qs-num">150+</span>
+              <span class="qs-label">Live Hours</span>
+            </div>
+            <div class="qs-div"></div>
+            <div class="qs-item">
+              <span class="qs-num">15</span>
+              <span class="qs-label">Mock Tests</span>
+            </div>
+            <div class="qs-div"></div>
+            <div class="qs-item">
+              <span class="qs-num">10</span>
+              <span class="qs-label">Units</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="hero-info-card">
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(0,255,209,0.1);color:var(--cyan);"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <div class="info-label">Batch Starts</div>
+              <div class="info-val">September 10, 2026 (Thursday)</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(255,107,53,0.15);color:var(--orange);"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="info-label">Class Timings</div>
+              <div class="info-val">7:00 AM – 9:00 AM &nbsp;|&nbsp; 7:00 PM – 9:00 PM</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(255,209,102,0.15);color:var(--gold);"><i class="fa-solid fa-video"></i></div>
+            <div>
+              <div class="info-label">Platform</div>
+              <div class="info-val">Live via Google Meet / Zoom</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(37,211,102,0.12);color:#25D366;"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <div class="info-label">Support</div>
+              <div class="info-val">24/7 WhatsApp & Telegram Community</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(255,45,120,0.12);color:var(--magenta);"><i class="fa-solid fa-file-lines"></i></div>
+            <div>
+              <div class="info-label">Materials</div>
+              <div class="info-val">Notes · Mock Tests · PYQs · Unit PDFs · Formula Sheets</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon" style="background:rgba(124,58,237,0.12);color:var(--purple);"><i class="fa-solid fa-trophy"></i></div>
+            <div>
+              <div class="info-label">Exam Date</div>
+              <div class="info-val">December 2026 (2nd/3rd week — Tentative)</div>
+            </div>
+          </div>
+          <a href="#pricing" class="enroll-btn-card">
+            <i class="fa-solid fa-bolt"></i> Register Now — Limited Seats
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap" role="marquee" aria-label="Course features">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Paper I + Paper II</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> 90-Day Intensive Plan</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> 150+ Live Hours</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Daily MCQ Practice</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> 15 Full Mock Tests</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> WhatsApp Community</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> PYQ Discussion (2012–2025)</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Unit-wise Notes PDF</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> NET Qualified Faculty</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Doubt Clearing Sessions</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Paper I + Paper II</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> 90-Day Intensive Plan</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> 150+ Live Hours</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Daily MCQ Practice</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> 15 Full Mock Tests</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> WhatsApp Community</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> PYQ Discussion (2012–2025)</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Unit-wise Notes PDF</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> NET Qualified Faculty</span>
+    <span class="ticker-item"><span class="ticker-sep">◆</span> Doubt Clearing Sessions</span>
+  </div>
+</div>
+
+<!-- EXAM PATTERN -->
+<section id="exam-pattern">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Exam Structure</span>
+      <h2 class="section-title">UGC NET CS — Paper I & II</h2>
+      <p class="section-sub mx-auto">Understand the exam format before you prepare. Both papers are mandatory — we cover everything.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-5 col-md-6 reveal">
+        <div class="pattern-card paper1">
+          <div class="pattern-num">I</div>
+          <h4>General Paper</h4>
+          <p class="pattern-sub">Teaching & Research Aptitude — common for all subjects</p>
+          <div class="pattern-stats">
+            <div class="pstat"><div class="pstat-val">50</div><div class="pstat-label">Questions</div></div>
+            <div class="pstat"><div class="pstat-val">100</div><div class="pstat-label">Marks</div></div>
+            <div class="pstat"><div class="pstat-val">1 hr</div><div class="pstat-label">Duration</div></div>
+            <div class="pstat"><div class="pstat-val">No -ve</div><div class="pstat-label">Negative Marking</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6 reveal reveal-delay-1">
+        <div class="pattern-card paper2">
+          <div class="pattern-num">II</div>
+          <h4>Computer Science</h4>
+          <p class="pattern-sub">Subject-specific — 10 units from CS syllabus</p>
+          <div class="pattern-stats">
+            <div class="pstat"><div class="pstat-val">100</div><div class="pstat-label">Questions</div></div>
+            <div class="pstat"><div class="pstat-val">200</div><div class="pstat-label">Marks</div></div>
+            <div class="pstat"><div class="pstat-val">2 hrs</div><div class="pstat-label">Duration</div></div>
+            <div class="pstat"><div class="pstat-val">No -ve</div><div class="pstat-label">Negative Marking</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4 reveal reveal-delay-2">
+      <p style="font-size:0.9rem;color:var(--mid);max-width:600px;margin:0 auto;">
+        <i class="fa-solid fa-circle-info" style="color:var(--cyan);"></i>&nbsp;
+        <strong>Total: 300 Marks | 3 Hours</strong> — Qualifying for both Assistant Professor & JRF depends on category-wise cut-off. No negative marking in either paper.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow" style="color:var(--orange);">Why choose us</span>
+      <h2 class="section-title">Everything You Need<br>to Clear UGC NET CS</h2>
+      <p class="section-sub mx-auto">A complete ecosystem — from live classes to community support — built around one goal: your NET qualification.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:var(--cyan);">
+          <div class="h-icon" style="background:#F0FFFE;color:var(--cyan);"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h5>Live Interactive Classes</h5>
+          <p>150+ hours of live sessions covering all 10 units of Paper II plus Paper I strategies. Every class recorded for replay.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal reveal-delay-1">
+        <div class="highlight-card" style="--h-color:var(--blue);">
+          <div class="h-icon" style="background:#EFF3FF;color:var(--blue);"><i class="fa-solid fa-brain"></i></div>
+          <h5>PYQ Analysis (2012–2025)</h5>
+          <p>Unit-wise previous year question breakdown with trend analysis — know exactly what NTA repeats and what's new.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal reveal-delay-2">
+        <div class="highlight-card" style="--h-color:#25D366;">
+          <div class="h-icon" style="background:#E8FFF5;color:#25D366;"><i class="fab fa-whatsapp"></i></div>
+          <h5>WhatsApp Community</h5>
+          <p>Active group of 800+ NET aspirants — share doubts, get daily MCQs, PYQ challenges, and stay motivated together.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:#229ED9;">
+          <div class="h-icon" style="background:#E8F6FF;color:#229ED9;"><i class="fab fa-telegram"></i></div>
+          <h5>Telegram Study Channel</h5>
+          <p>Notes, formula sheets, shortcuts, daily revision questions, and important announcements pushed every morning.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal reveal-delay-1">
+        <div class="highlight-card" style="--h-color:var(--magenta);">
+          <div class="h-icon" style="background:#FFF0F5;color:var(--magenta);"><i class="fa-solid fa-file-pdf"></i></div>
+          <h5>Comprehensive Notes</h5>
+          <p>Concise PDFs for all 10 units — designed for last-week revision. Includes diagrams, tables, and mnemonics.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal reveal-delay-2">
+        <div class="highlight-card" style="--h-color:var(--purple);">
+          <div class="h-icon" style="background:#F3EEFF;color:var(--purple);"><i class="fa-solid fa-chart-line"></i></div>
+          <h5>15 Full Mock Tests</h5>
+          <p>Simulated exam-length mocks with detailed answer keys, explanations, and all-India rank prediction analytics.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal">
+        <div class="highlight-card" style="--h-color:var(--gold);">
+          <div class="h-icon" style="background:#FFF8E8;color:var(--gold);"><i class="fa-solid fa-book-open"></i></div>
+          <h5>Paper I Coverage</h5>
+          <p>Dedicated 15 sessions for Teaching Aptitude, Research Methodology, Comprehension, Logical Reasoning, and Data Interpretation.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal reveal-delay-1">
+        <div class="highlight-card" style="--h-color:var(--rose);">
+          <div class="h-icon" style="background:#FFF0F3;color:var(--rose);"><i class="fa-solid fa-bullseye"></i></div>
+          <h5>Unit-wise MCQ Drills</h5>
+          <p>After every unit, solve 100+ curated MCQs in timed mode — build speed and accuracy for the real exam.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 reveal reveal-delay-2">
+        <div class="highlight-card" style="--h-color:var(--teal);">
+          <div class="h-icon" style="background:#F0FFFE;color:var(--teal);"><i class="fa-solid fa-comments"></i></div>
+          <h5>Doubt Resolution</h5>
+          <p>Weekly dedicated doubt-clearing live sessions + 24/7 WhatsApp support. No question goes unanswered.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY -->
+<section id="faculty">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-7 reveal">
+        <span class="section-eyebrow">Learn from the best</span>
+        <h2 class="section-title">NET Qualified<br>Expert Faculty</h2>
+        <p class="section-sub">
+          Learn from experienced faculty members — UGC NET qualified mentors, GATE rankers, and post-graduates from top universities who understand exactly what it takes to clear the exam.
+        </p>
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <!-- FACULTY 1 -->
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="faculty-card">
+          <div class="faculty-photo-wrap">
+            <img src="mypic.png" class="faculty-photo" alt="Akhil Jampala"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Akhil+Jampala&background=0D9488&color=fff&size=120'">
+            <div class="faculty-badge"><i class="fa-solid fa-trophy fa-xs"></i></div>
+          </div>
+          <h5>Akhil Jampala</h5>
+          <div class="faculty-role">Lead Faculty · UGC NET Mentor</div>
+          <p>M.Sc Computer Science (Osmania University) | UGC NET Qualified | GATE CS Aspirant. Specialist in Discrete Mathematics, Data Structures, Theory of Computation, and exam strategy.</p>
+          <div class="faculty-subjects">
+            <span class="subj-pill">Discrete Maths</span>
+            <span class="subj-pill">DSA</span>
+            <span class="subj-pill">TOC</span>
+            <span class="subj-pill">Operating Systems</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FACULTY 2 -->
+      <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+        <div class="faculty-card">
+          <div class="faculty-photo-wrap">
+            <img src="https://ui-avatars.com/api/?name=Faculty+2&background=0057FF&color=fff&size=120" class="faculty-photo" alt="Faculty Member">
+            <div class="faculty-badge" style="background:var(--blue);"><i class="fa-solid fa-graduation-cap fa-xs"></i></div>
+          </div>
+          <h5>Guest Faculty</h5>
+          <div class="faculty-role">Computer Networks & DBMS Expert</div>
+          <p>M.Tech Computer Science | UGC NET Qualified. Expert in Computer Networks, DBMS, and Software Engineering with 5+ years of NET coaching experience.</p>
+          <div class="faculty-subjects">
+            <span class="subj-pill">Computer Networks</span>
+            <span class="subj-pill">DBMS</span>
+            <span class="subj-pill">Software Engineering</span>
+            <span class="subj-pill">Web Tech</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FACULTY 3 -->
+      <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+        <div class="faculty-card">
+          <div class="faculty-photo-wrap">
+            <img src="https://ui-avatars.com/api/?name=Faculty+3&background=7C3AED&color=fff&size=120" class="faculty-photo" alt="Faculty Member">
+            <div class="faculty-badge" style="background:var(--purple);"><i class="fa-solid fa-award fa-xs"></i></div>
+          </div>
+          <h5>Guest Faculty</h5>
+          <div class="faculty-role">Paper I & Programming Expert</div>
+          <p>M.Sc Computer Science | UGC NET Qualified | JRF Holder. Specializes in Paper I teaching strategies, C/C++ Programming, and Compiler Design.</p>
+          <div class="faculty-subjects">
+            <span class="subj-pill">Paper I</span>
+            <span class="subj-pill">C / C++</span>
+            <span class="subj-pill">Compiler Design</span>
+            <span class="subj-pill">AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYLLABUS -->
+<section id="syllabus">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-7 reveal">
+        <span class="section-eyebrow">Full Coverage</span>
+        <h2 class="section-title">UGC NET CS<br>Complete Syllabus</h2>
+        <p class="section-sub">All 10 units of Paper II mapped to our 90-day plan — click to expand topics covered in each unit.</p>
+      </div>
+    </div>
+
+    <div class="syl-tabs reveal" role="tablist">
+      <button class="syl-tab active" onclick="filterSyl('all',this)" role="tab" aria-selected="true">All Units</button>
+      <button class="syl-tab" onclick="filterSyl('math',this)" role="tab" aria-selected="false">Mathematical</button>
+      <button class="syl-tab" onclick="filterSyl('core',this)" role="tab" aria-selected="false">Core CS</button>
+      <button class="syl-tab" onclick="filterSyl('applied',this)" role="tab" aria-selected="false">Applied CS</button>
+    </div>
+
+    <div class="syl-accordion" id="syllabus-acc">
+
+      <div class="syl-item" data-cat="math">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:var(--cyan);">Unit 1</span>
+          <h6>Discrete Mathematics</h6>
+          <span class="syl-unit">Days 1–10</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">Set Theory</span>
+            <span class="topic-chip">Relations</span>
+            <span class="topic-chip">Functions</span>
+            <span class="topic-chip">Propositional Logic</span>
+            <span class="topic-chip">Predicate Logic</span>
+            <span class="topic-chip">Groups</span>
+            <span class="topic-chip">Lattices</span>
+            <span class="topic-chip">Graph Theory</span>
+            <span class="topic-chip">Trees</span>
+            <span class="topic-chip">Combinatorics</span>
+            <span class="topic-chip">Recurrence Relations</span>
+            <span class="topic-chip">Algebraic Structures</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="math">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:var(--blue);">Unit 2</span>
+          <h6>Computer Arithmetic</h6>
+          <span class="syl-unit">Days 11–15</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">Number Systems</span>
+            <span class="topic-chip">Binary Arithmetic</span>
+            <span class="topic-chip">2's Complement</span>
+            <span class="topic-chip">Floating Point</span>
+            <span class="topic-chip">IEEE 754</span>
+            <span class="topic-chip">Boolean Algebra</span>
+            <span class="topic-chip">K-Maps</span>
+            <span class="topic-chip">Minimization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="core">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:#25D366;">Unit 3</span>
+          <h6>Programming in C, C++ & Java</h6>
+          <span class="syl-unit">Days 16–28</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">C Basics & Control</span>
+            <span class="topic-chip">Pointers</span>
+            <span class="topic-chip">Arrays & Strings</span>
+            <span class="topic-chip">Structures & Unions</span>
+            <span class="topic-chip">File Handling</span>
+            <span class="topic-chip">C++ OOP</span>
+            <span class="topic-chip">Inheritance</span>
+            <span class="topic-chip">Polymorphism</span>
+            <span class="topic-chip">Templates</span>
+            <span class="topic-chip">Java Basics</span>
+            <span class="topic-chip">Multithreading</span>
+            <span class="topic-chip">Collections</span>
+            <span class="topic-chip">Exception Handling</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="core">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:var(--orange);">Unit 4</span>
+          <h6>Data Structures</h6>
+          <span class="syl-unit">Days 29–40</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">Arrays</span>
+            <span class="topic-chip">Stacks</span>
+            <span class="topic-chip">Queues</span>
+            <span class="topic-chip">Linked Lists</span>
+            <span class="topic-chip">Trees (BST, AVL)</span>
+            <span class="topic-chip">B-Trees</span>
+            <span class="topic-chip">Heaps</span>
+            <span class="topic-chip">Hashing</span>
+            <span class="topic-chip">Graphs</span>
+            <span class="topic-chip">Searching & Sorting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="core">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:var(--magenta);">Unit 5</span>
+          <h6>Database Management Systems</h6>
+          <span class="syl-unit">Days 41–48</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">ER Model</span>
+            <span class="topic-chip">Relational Model</span>
+            <span class="topic-chip">SQL</span>
+            <span class="topic-chip">Normalization (1NF–5NF)</span>
+            <span class="topic-chip">Transactions</span>
+            <span class="topic-chip">Concurrency Control</span>
+            <span class="topic-chip">Recovery</span>
+            <span class="topic-chip">NoSQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="core">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:var(--purple);">Unit 6</span>
+          <h6>Theory of Computation</h6>
+          <span class="syl-unit">Days 49–55</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">DFA</span>
+            <span class="topic-chip">NFA</span>
+            <span class="topic-chip">Regex</span>
+            <span class="topic-chip">CFG</span>
+            <span class="topic-chip">PDA</span>
+            <span class="topic-chip">Turing Machines</span>
+            <span class="topic-chip">Chomsky Hierarchy</span>
+            <span class="topic-chip">Decidability</span>
+            <span class="topic-chip">Computability</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="core">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:var(--gold);">Unit 7</span>
+          <h6>Compiler Design</h6>
+          <span class="syl-unit">Days 56–60</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">Lexical Analysis</span>
+            <span class="topic-chip">Parsing (LL, LR)</span>
+            <span class="topic-chip">Syntax-Directed Translation</span>
+            <span class="topic-chip">Semantic Analysis</span>
+            <span class="topic-chip">Intermediate Code</span>
+            <span class="topic-chip">Code Optimization</span>
+            <span class="topic-chip">Code Generation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="core">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:var(--teal);">Unit 8</span>
+          <h6>Operating Systems</h6>
+          <span class="syl-unit">Days 61–68</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">Process Management</span>
+            <span class="topic-chip">CPU Scheduling</span>
+            <span class="topic-chip">Deadlocks</span>
+            <span class="topic-chip">Memory Management</span>
+            <span class="topic-chip">Paging & Segmentation</span>
+            <span class="topic-chip">Virtual Memory</span>
+            <span class="topic-chip">File Systems</span>
+            <span class="topic-chip">Disk Scheduling</span>
+            <span class="topic-chip">Synchronization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="applied">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:var(--rose);">Unit 9</span>
+          <h6>Computer Networks</h6>
+          <span class="syl-unit">Days 69–76</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">OSI & TCP/IP</span>
+            <span class="topic-chip">Data Link Layer</span>
+            <span class="topic-chip">Error Detection</span>
+            <span class="topic-chip">Network Layer</span>
+            <span class="topic-chip">IP Addressing</span>
+            <span class="topic-chip">Routing</span>
+            <span class="topic-chip">Transport Layer</span>
+            <span class="topic-chip">TCP/UDP</span>
+            <span class="topic-chip">Application Layer</span>
+            <span class="topic-chip">Network Security</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="syl-item" data-cat="applied">
+        <div class="syl-head" onclick="toggleSyl(this)" role="button" aria-expanded="false">
+          <span class="syl-week" style="background:#B45309;">Unit 10</span>
+          <h6>AI, Web Tech & Software Engineering</h6>
+          <span class="syl-unit">Days 77–85</span>
+          <i class="fa-solid fa-chevron-down syl-arrow"></i>
+        </div>
+        <div class="syl-body">
+          <div class="syl-topics">
+            <span class="topic-chip">AI Search</span>
+            <span class="topic-chip">Propositional & FOL</span>
+            <span class="topic-chip">Machine Learning Basics</span>
+            <span class="topic-chip">HTML/CSS/JS</span>
+            <span class="topic-chip">PHP</span>
+            <span class="topic-chip">XML</span>
+            <span class="topic-chip">Software Process Models</span>
+            <span class="topic-chip">Testing</span>
+            <span class="topic-chip">UML</span>
+            <span class="topic-chip">Project Management</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="text-center mt-4 reveal" style="font-size:0.88rem;color:var(--mid);">
+      <i class="fa-solid fa-calendar-check" style="color:var(--cyan);"></i>&nbsp;
+      Days 86–90 reserved for full-length mock tests, revision marathons, and doubt-clearing sessions.
+    </p>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Stay Connected</span>
+      <h2 class="section-title">Join Our Active<br>Community</h2>
+      <p class="section-sub mx-auto" style="color:rgba(255,255,255,0.4);">Preparation is lonely — it shouldn't be. Join 800+ serious NET CS aspirants who study, compete, and grow together.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-5 col-md-6 reveal">
+        <div class="comm-card" style="--c-color:rgba(37,211,102,0.08);">
+          <div class="members-badge">
+            <span class="online-dot"></span> 800+ Members Active
+          </div>
+          <div class="comm-icon" style="background:rgba(37,211,102,0.1);color:#25D366;border-color:rgba(37,211,102,0.2);">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h4>WhatsApp Group</h4>
+          <p>Instant doubt resolution, daily MCQ challenges, PYQ discussions, and motivational check-ins.</p>
+          <ul class="comm-features">
+            <li>Daily 20 MCQs posted every morning</li>
+            <li>Instant doubt clearing by faculty</li>
+            <li>PYQ discussion threads</li>
+            <li>Exam alerts & NTA updates</li>
+            <li>Peer-to-peer study partnerships</li>
+          </ul>
+          <a href="https://wa.me/919999999999?text=Hi!%20I%20want%20to%20join%20UGC%20NET%20CS%20Dec%202026%20batch" class="comm-btn btn-wa" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6 reveal reveal-delay-1">
+        <div class="comm-card" style="--c-color:rgba(34,158,217,0.08);">
+          <div class="members-badge">
+            <span class="online-dot" style="background:#229ED9;"></span> 1200+ Subscribers
+          </div>
+          <div class="comm-icon" style="background:rgba(34,158,217,0.1);color:#229ED9;border-color:rgba(34,158,217,0.2);">
+            <i class="fab fa-telegram"></i>
+          </div>
+          <h4>Telegram Channel</h4>
+          <p>Your 24/7 study companion — notes, shortcuts, and revision material delivered to your phone.</p>
+          <ul class="comm-features">
+            <li>Unit-wise notes PDFs uploaded daily</li>
+            <li>Formula sheets & quick revision cards</li>
+            <li>Video solution links for PYQs</li>
+            <li>Current affairs for Paper I</li>
+            <li>Mock test announcements & links</li>
+          </ul>
+          <a href="https://t.me/syntaxcircuitugcnet" class="comm-btn btn-tg" target="_blank" rel="noopener">
+            <i class="fab fa-telegram"></i> Join Telegram Channel
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow">Invest in Your Future</span>
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <p class="section-sub mx-auto">No hidden charges. Pick the plan that fits your preparation level.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="price-card">
+          <span class="price-icon">📘</span>
+          <div class="price-name">Paper II Only</div>
+          <div class="price-amount">
+            ₹4,999
+          </div>
+          <div class="price-period">One-time payment · Lifetime access to recordings</div>
+          <ul class="price-features">
+            <li><i class="fa-solid fa-check pf-check"></i> All 10 Units — Paper II</li>
+            <li><i class="fa-solid fa-check pf-check"></i> 120+ Hours Live Classes</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Unit-wise Notes PDFs</li>
+            <li><i class="fa-solid fa-check pf-check"></i> 10 Mock Tests (Paper II)</li>
+            <li><i class="fa-solid fa-check pf-check"></i> PYQ Discussions</li>
+            <li><i class="fa-solid fa-check pf-check"></i> WhatsApp Community</li>
+          </ul>
+          <a href="#pricing" class="btn-enroll btn-enroll-outline">
+            <i class="fa-solid fa-arrow-right"></i> Get Started
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+        <div class="price-card featured">
+          <span class="price-badge">Most Popular</span>
+          <span class="price-icon" style="color:var(--cyan);">📚</span>
+          <div class="price-name">Paper I + Paper II</div>
+          <div class="price-amount">
+            ₹7,999
+            <span class="price-original">₹11,999</span>
+          </div>
+          <div class="price-period">One-time payment · Lifetime access to recordings</div>
+          <ul class="price-features">
+            <li><i class="fa-solid fa-check pf-check"></i> Paper I (15 sessions) + Paper II (all 10 units)</li>
+            <li><i class="fa-solid fa-check pf-check"></i> 150+ Hours Live Classes</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Complete Notes PDFs</li>
+            <li><i class="fa-solid fa-check pf-check"></i> 15 Full Mock Tests (Paper I + II)</li>
+            <li><i class="fa-solid fa-check pf-check"></i> PYQ Analysis (2012–2025)</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Formula Sheets & Mnemonics</li>
+            <li><i class="fa-solid fa-check pf-check"></i> WhatsApp + Telegram Access</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Weekly Doubt Clearing Sessions</li>
+          </ul>
+          <a href="#pricing" class="btn-enroll btn-enroll-filled">
+            <i class="fa-solid fa-bolt"></i> Enrol Now
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+        <div class="price-card">
+          <span class="price-icon">🎯</span>
+          <div class="price-name">Test Series Only</div>
+          <div class="price-amount">
+            ₹1,499
+          </div>
+          <div class="price-period">One-time payment · Valid till Dec 2026 exam</div>
+          <ul class="price-features">
+            <li><i class="fa-solid fa-check pf-check"></i> 15 Full Mock Tests</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Detailed Answer Keys</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Topic-wise MCQ Banks</li>
+            <li><i class="fa-solid fa-check pf-check"></i> Performance Analytics</li>
+            <li><i class="fa-solid fa-check pf-check"></i> PYQ Mock Replicates</li>
+          </ul>
+          <a href="#pricing" class="btn-enroll btn-enroll-outline">
+            <i class="fa-solid fa-arrow-right"></i> Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-4 reveal" style="font-size:0.85rem;color:var(--mid);">
+      <i class="fa-solid fa-shield-halved" style="color:var(--teal);"></i>&nbsp;
+      EMI options available via UPI · 100% refund within 3 days if unsatisfied
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-7 reveal">
+        <span class="section-eyebrow">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+            What is UGC NET Computer Science and why should I clear it?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-a">UGC NET CS is a national-level exam conducted by NTA. Clearing it makes you eligible for Assistant Professor positions in universities/colleges across India, and if you qualify for JRF, you receive a monthly fellowship of ₹37,000 for research. It's one of the most prestigious exams for CS post-graduates.</div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+            Is this course suitable for December 2026 attempt only?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-a">This batch is specifically timed for the December 2026 cycle. However, all recordings, notes, and mock tests remain accessible — so if you plan for June 2027, you can continue using the material. The syllabus rarely changes between cycles.</div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+            What if I miss a live class?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-a">Every live session is recorded and uploaded within 4 hours. You get lifetime access to all recordings. Plus, our Telegram channel posts summary notes of each class so you can catch up quickly.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+            Does this course cover Paper I as well?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-a">Yes! The "Paper I + Paper II" plan includes 15 dedicated sessions for Paper I covering Teaching Aptitude, Research Methodology, Comprehension, Logical Reasoning, Data Interpretation, Communication, and Mathematical Reasoning.</div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+            How are mock tests conducted?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-a">Mock tests are conducted on an online platform simulating the actual NTA interface. You get 3 hours (Paper I + II combined), and results with detailed explanations are released within 24 hours. We conduct 15 mocks — 5 unit-wise + 10 full-length.</div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+            What is the eligibility for UGC NET CS?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-a">You need a Master's degree in Computer Science / Applications / IT / Electronics with at least 55% marks (50% for OBC-NCL/SC/ST/PwD). Final year post-graduate students are also eligible to appear.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+            Is there any negative marking in UGC NET?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-a">No. There is no negative marking in either Paper I or Paper II of UGC NET. This makes attempted-question strategy very important — our faculty will teach you how to maximize your score safely.</div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+            Can I get a refund if I'm not satisfied?
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-a">Yes. We offer a 100% refund within 3 days of enrollment if you're not satisfied with the quality. No questions asked. After 3 days, refund requests are evaluated on a case-by-case basis.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="container text-center position-relative">
+    <div class="reveal">
+      <h2 class="mb-3">Your NET Qualification Starts Here</h2>
+      <p class="mb-4" style="max-width:500px;margin-left:auto;margin-right:auto;">Don't wait for the notification to start preparing. Early birds always have an advantage. Join 800+ aspirants who've already enrolled.</p>
+      <a href="#pricing" class="btn-cta-glow">
+        <i class="fa-solid fa-bolt"></i> Enrol Now — December 2026 Batch
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <img src="syntaxLogo.jpg" style="width:30px;height:30px;border-radius:6px;" alt="Syntax Circuit"> Syntax Circuit
+        </div>
+        <p class="footer-desc">India's growing platform for computer science education — from UGC NET coaching to university tuitions and project guidance.</p>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Courses</div>
+        <ul class="footer-links">
+          <li><a href="ugcnet.html">UGC NET CS</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+          <li><a href="tuitions.html">Tuitions</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Resources</div>
+        <ul class="footer-links">
+          <li><a href="notes.html">Notes</a></li>
+          <li><a href="syllabus.html">Syllabus</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="verify.html">Verify</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-title">Connect</div>
+        <div class="footer-socials mt-2">
+          <a href="#" class="fs-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="fs-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="fs-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="fs-btn" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>&copy; 2025 Syntax Circuit. All rights reserved.</span>
+      <span>Made with <i class="fa-solid fa-heart" style="color:var(--magenta);font-size:0.7rem;"></i> in Hyderabad</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/919999999999?text=Hi!%20I'm%20interested%20in%20UGC%20NET%20CS%20Dec%202026%20crash%20course" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- SCROLL TOP -->
+<a href="#" class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, cx = 0, cy = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.transform = `translate(${mx-6}px,${my-6}px)`; });
+(function loop(){ cx+=(mx-cx)*0.15; cy+=(my-cy)*0.15; ring.style.transform = `translate(${cx-20}px,${cy-20}px)`; requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button,.syl-head,.faq-q').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.style.transform += ' scale(2.5)');
+  el.addEventListener('mouseleave', () => cursor.style.transform = `translate(${mx-6}px,${my-6}px)`);
+});
+
+// ─── PARTICLES ───
+(function createParticles(){
+  const container = document.getElementById('heroParticles');
+  if(!container) return;
+  for(let i=0; i<30; i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random()*100 + '%';
+    p.style.animationDuration = (6 + Math.random()*10) + 's';
+    p.style.animationDelay = (Math.random()*8) + 's';
+    p.style.width = p.style.height = (2 + Math.random()*3) + 'px';
+    p.style.background = ['var(--cyan)','var(--gold)','var(--magenta)','rgba(255,255,255,0.5)'][Math.floor(Math.random()*4)];
+    container.appendChild(p);
+  }
+})();
+
+// ─── COUNTDOWN ───
+(function countdown(){
+  // Target: December 15, 2026 10:00 AM IST
+  const target = new Date('2026-12-15T10:00:00+05:30').getTime();
+  function update(){
+    const now = Date.now();
+    let diff = Math.max(0, target - now);
+    const d = Math.floor(diff/(86400000)); diff %= 86400000;
+    const h = Math.floor(diff/3600000); diff %= 3600000;
+    const m = Math.floor(diff/60000); diff %= 60000;
+    const s = Math.floor(diff/1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(3,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+    requestAnimationFrame(update);
+  }
+  update();
+})();
+
+// ─── REVEAL ON SCROLL ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ─── SYLLABUS ACCORDION ───
+function toggleSyl(head){
+  const body = head.nextElementSibling;
+  const arrow = head.querySelector('.syl-arrow');
+  const isOpen = body.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.syl-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.syl-arrow').forEach(a => a.style.transform = 'rotate(0deg)');
+  document.querySelectorAll('.syl-head').forEach(h => h.setAttribute('aria-expanded','false'));
+  if(!isOpen){
+    body.classList.add('open');
+    arrow.style.transform = 'rotate(180deg)';
+    head.setAttribute('aria-expanded','true');
+  }
+}
+
+// ─── SYLLABUS FILTER ───
+function filterSyl(cat, btn){
+  document.querySelectorAll('.syl-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+  document.querySelectorAll('.syl-item').forEach(item => {
+    if(cat === 'all' || item.dataset.cat === cat){
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+      const body = item.querySelector('.syl-body');
+      if(body) body.classList.remove('open');
+    }
+  });
+}
+
+// ─── FAQ ACCORDION ───
+function toggleFaq(q){
+  const a = q.nextElementSibling;
+  const icon = q.querySelector('.faq-icon');
+  const isOpen = a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.faq-icon').forEach(i => { i.classList.remove('fa-minus'); i.classList.add('fa-plus'); });
+  document.querySelectorAll('.faq-q').forEach(h => h.setAttribute('aria-expanded','false'));
+  if(!isOpen){
+    a.classList.add('open');
+    icon.classList.remove('fa-plus'); icon.classList.add('fa-minus');
+    q.setAttribute('aria-expanded','true');
+  }
+}
+
+// ─── SCROLL TOP BUTTON ───
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('show', window.scrollY > 600);
+});
+
+// Hide cursor on touch devices
+if('ontouchstart' in window){
+  cursor.style.display = 'none';
+  ring.style.display = 'none';
+}
+</script>
+</body>
+</html>
