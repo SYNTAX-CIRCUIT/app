@@ -7297,3 +7297,99 @@ body.dark-mode .back-top {
     }
 
 }
+
+/* =========================================================
+   VISIBILITY SAFETY FIX
+   Prevent sections/content from remaining invisible
+   if JavaScript fails or reveal classes don't initialize.
+   ========================================================= */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+section,
+.section,
+.section-inner,
+.section-heading,
+.course-list,
+.course-row,
+.roadmap,
+.tuition-grid,
+.project-grid,
+.testimonial-grid,
+.why-grid,
+.faq-layout,
+.about-grid,
+.contact-layout,
+.site-footer {
+    visibility: visible;
+}
+
+/* Reveal animation only when JS is ready */
+.js-ready .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.2,.7,.2,1);
+}
+
+.js-ready .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*
+ * Critical fallback:
+ * If JavaScript doesn't initialize, NEVER hide
+ * the actual website content.
+ */
+:not(.js-ready) .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* If browser/observer doesn't support animation,
+   content must remain visible. */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .js-ready .reveal,
+    .js-ready .reveal.revealed {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* Keep sections from collapsing */
+section {
+    position: relative;
+    display: block;
+}
+
+/* Make sure text isn't accidentally hidden */
+section h1,
+section h2,
+section h3,
+section h4,
+section p,
+section span,
+section li,
+section a,
+section img {
+    visibility: visible;
+}
+
+/* Prevent accidental clipping of content */
+.course-row,
+.project-card,
+.testimonial-card,
+.tuition-card,
+.faq-item,
+.team-member,
+.contact-form-panel,
+.contact-info {
+    overflow: visible;
+}
