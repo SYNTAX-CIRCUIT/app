@@ -1,359 +1,4109 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tuitions | Syntax Circuit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" href="syntaxLogo.jpg">
+    <meta name="description"
+        content="Syntax Circuit Computer Science Tuitions — personalized coaching for BSc, BCA, BTech, MSc, MCA and MTech Computer Science students.">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#090909">
 
-<style>
+    <title>Tuitions — Syntax Circuit</title>
 
-:root{
---primary:#ff4d94;
---secondary:#0056b3;
-}
+    <link rel="icon" href="syntaxLogo.jpg">
 
-body{
-font-family:Arial, sans-serif;
-background:#f8f9fa;
-}
+    <!-- =========================================================
+         EXTERNAL FONTS / ICONS
+    ========================================================== -->
 
-/* Navbar */
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.navbar{
-box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-/* Section title */
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-.section-title{
-text-align:center;
-margin-bottom:40px;
-font-size:2.5rem;
-font-weight:bold;
-color:var(--secondary);
-}
 
-/* Cards */
+    <!-- =========================================================
+         INTERNAL CSS
+    ========================================================== -->
 
-.card{
-border:none;
-border-radius:10px;
-transition:transform 0.3s, box-shadow 0.3s;
-}
+    <style>
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
+        :root {
 
-/* Buttons */
+            --bg: #f3f3ee;
+            --surface: #ffffff;
+            --surface-soft: #e9e9e2;
 
-.btn-outline-primary{
-border-color:var(--primary);
-color:var(--primary);
-}
+            --dark: #080808;
+            --dark-soft: #111111;
 
-.btn-outline-primary:hover{
-background:var(--primary);
-color:white;
-border-color:var(--primary);
-}
+            --text: #101010;
+            --muted: #70706a;
 
-.btn-primary{
-background:var(--primary);
-border-color:var(--primary);
-}
+            --line: rgba(16,16,16,.12);
+            --dark-line: rgba(255,255,255,.12);
 
-.btn-primary:hover{
-background:#ff6699;
-border-color:#ff6699;
-}
+            --accent: #c8ff00;
+            --accent-dark: #a9d900;
 
-/* Contact form */
+            --purple: #8b5cf6;
+            --blue: #4f8cff;
+            --pink: #ff4d94;
+            --orange: #ff8a4c;
 
-.contact-section form{
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 6px 20px rgba(0,0,0,0.1);
-}
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
 
-.form-control:focus{
-border-color:var(--primary);
-box-shadow:0 0 8px rgba(255,77,148,0.5);
-}
+            --display: "Space Grotesk", sans-serif;
+            --body: "DM Sans", sans-serif;
+            --mono: "DM Mono", monospace;
 
-/* Social icons */
+            --shadow:
+                0 25px 70px rgba(0,0,0,.08);
 
-.social-icons a{
-margin:0 15px;
-font-size:2rem;
-color:var(--primary);
-}
+        }
 
-.social-icons a:hover{
-transform:scale(1.2);
-}
 
-</style>
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: var(--body);
+
+            background: var(--bg);
+
+            color: var(--text);
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+
+        }
+
+        body.dark {
+
+            --bg: #080808;
+            --surface: #111111;
+            --surface-soft: #191919;
+
+            --text: #f4f4ef;
+            --muted: #989891;
+
+            --line: rgba(255,255,255,.12);
+
+            --shadow:
+                0 25px 70px rgba(0,0,0,.35);
+
+        }
+
+
+        ::selection {
+
+            background: var(--accent);
+
+            color: #000;
+
+        }
+
+
+        a {
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+
+
+        button,
+        input,
+        select,
+        textarea {
+
+            font-family: inherit;
+
+        }
+
+
+        button {
+
+            cursor: pointer;
+
+        }
+
+
+        /* =====================================================
+           SCROLLBAR
+        ====================================================== */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: #777;
+
+            border-radius: 100px;
+
+        }
+
+
+        /* =====================================================
+           LOADER
+        ====================================================== */
+
+        .loader {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: #080808;
+
+            z-index: 9999;
+
+            display: grid;
+
+            place-items: center;
+
+            transition:
+                opacity .6s ease,
+                visibility .6s ease;
+
+        }
+
+        .loader.hide {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+        }
+
+        .loader-inner {
+
+            text-align: center;
+
+        }
+
+        .loader-brand {
+
+            font-family: var(--display);
+
+            font-size: 2rem;
+
+            font-weight: 700;
+
+            color: white;
+
+            letter-spacing: -.06em;
+
+        }
+
+        .loader-brand span {
+
+            color: var(--accent);
+
+        }
+
+        .loader-progress {
+
+            width: 120px;
+
+            height: 2px;
+
+            background: rgba(255,255,255,.15);
+
+            margin: 20px auto 0;
+
+            overflow: hidden;
+
+        }
+
+        .loader-progress::after {
+
+            content: "";
+
+            display: block;
+
+            width: 45%;
+
+            height: 100%;
+
+            background: var(--accent);
+
+            animation:
+                loading 1s infinite ease-in-out;
+
+        }
+
+        @keyframes loading {
+
+            from {
+                transform: translateX(-120%);
+            }
+
+            to {
+                transform: translateX(330%);
+            }
+
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
+        .navbar {
+
+            position: fixed;
+
+            top: 16px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: min(1180px, calc(100% - 32px));
+
+            height: 68px;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                0 10px
+                0 20px;
+
+            background:
+                rgba(255,255,255,.78);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border:
+                1px solid rgba(0,0,0,.08);
+
+            border-radius: 999px;
+
+            box-shadow:
+                0 15px 45px rgba(0,0,0,.08);
+
+        }
+
+        body.dark .navbar {
+
+            background:
+                rgba(15,15,15,.82);
+
+            border-color:
+                rgba(255,255,255,.1);
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-family: var(--display);
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+        }
+
+
+        .brand-mark {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: #080808;
+
+            color: var(--accent);
+
+            font-family: var(--mono);
+
+            font-size: .85rem;
+
+        }
+
+        body.dark .brand-mark {
+
+            background: white;
+
+            color: black;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 4px;
+
+        }
+
+
+        .nav-links a {
+
+            padding: 9px 13px;
+
+            border-radius: 999px;
+
+            color: var(--muted);
+
+            font-size: .82rem;
+
+            font-weight: 600;
+
+            transition: .25s ease;
+
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color: var(--text);
+
+            background: var(--surface-soft);
+
+        }
+
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .icon-button {
+
+            width: 40px;
+
+            height: 40px;
+
+            border:
+
+                1px solid var(--line);
+
+            background: var(--surface);
+
+            color: var(--text);
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            transition: .25s ease;
+
+        }
+
+
+        .icon-button:hover {
+
+            transform: rotate(8deg);
+
+        }
+
+
+        .nav-cta {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: #080808;
+
+            color: white;
+
+            padding: 11px 17px;
+
+            border-radius: 999px;
+
+            font-size: .78rem;
+
+            font-weight: 700;
+
+            transition: .25s ease;
+
+        }
+
+
+        .nav-cta:hover {
+
+            transform: translateY(-2px);
+
+        }
+
+
+        body.dark .nav-cta {
+
+            background: var(--accent);
+
+            color: #000;
+
+        }
+
+
+        .menu-button {
+
+            display: none;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .hero {
+
+            min-height: 760px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(200,255,0,.14),
+                    transparent 27%
+                ),
+
+                radial-gradient(
+                    circle at 15% 80%,
+                    rgba(139,92,246,.12),
+                    transparent 28%
+                ),
+
+                #080808;
+
+            color: white;
+
+            padding:
+                185px 7vw 100px;
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+        .hero-grid {
+
+            position: absolute;
+
+            inset: 0;
+
+            opacity: .1;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(255,255,255,.45) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.45) 1px,
+                    transparent 1px
+                );
+
+            background-size: 80px 80px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent
+                );
+
+        }
+
+
+        .hero-glow {
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            right: -200px;
+
+            top: 100px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            filter: blur(130px);
+
+            opacity: .07;
+
+        }
+
+
+        .hero-inner {
+
+            width: min(1200px,100%);
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .hero-kicker {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-family: var(--mono);
+
+            font-size: .68rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .14em;
+
+            color: #92928c;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .hero-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            background: var(--accent);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 20px var(--accent);
+
+        }
+
+
+        .hero h1 {
+
+            max-width: 1050px;
+
+            font-family: var(--display);
+
+            font-size:
+                clamp(4rem, 8.8vw, 8.5rem);
+
+            font-weight: 600;
+
+            letter-spacing: -.08em;
+
+            line-height: .86;
+
+        }
+
+
+        .hero h1 .outline {
+
+            color: transparent;
+
+            -webkit-text-stroke:
+                1px rgba(255,255,255,.55);
+
+        }
+
+
+        .hero h1 .lime {
+
+            color: var(--accent);
+
+        }
+
+
+        .hero-bottom {
+
+            margin-top: 55px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+
+            align-items: end;
+
+        }
+
+
+        .hero-description {
+
+            max-width: 520px;
+
+            color: #999993;
+
+            font-size: 1rem;
+
+            line-height: 1.8;
+
+        }
+
+
+        .hero-description strong {
+
+            color: white;
+
+        }
+
+
+        .hero-side {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+        }
+
+
+        .hero-card {
+
+            width: 340px;
+
+            padding: 22px;
+
+            border:
+                1px solid rgba(255,255,255,.12);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            backdrop-filter: blur(15px);
+
+            transform: rotate(-2deg);
+
+        }
+
+
+        .hero-card-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding-bottom: 15px;
+
+            margin-bottom: 15px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.1);
+
+        }
+
+
+        .hero-card-label {
+
+            font-family: var(--mono);
+
+            font-size: .6rem;
+
+            color: #777;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .hero-card-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            font-family: var(--mono);
+
+            font-size: .58rem;
+
+            color: var(--accent);
+
+        }
+
+
+        .status-dot {
+
+            width: 6px;
+
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+        }
+
+
+        .hero-card h3 {
+
+            font-family: var(--display);
+
+            font-size: 1.5rem;
+
+            line-height: 1.05;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .hero-card p {
+
+            color: #7c7c77;
+
+            font-size: .76rem;
+
+            line-height: 1.7;
+
+        }
+
+
+        .hero-card-line {
+
+            margin-top: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            color: #777;
+
+            font-family: var(--mono);
+
+            font-size: .58rem;
+
+        }
+
+
+        .hero-card-line span:last-child {
+
+            color: var(--accent);
+
+        }
+
+
+        /* =====================================================
+           COMMON SECTION
+        ====================================================== */
+
+        .section {
+
+            padding: 120px 7vw;
+
+        }
+
+
+        .container {
+
+            width: min(1200px,100%);
+
+            margin: auto;
+
+        }
+
+
+        .section-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            gap: 50px;
+
+            margin-bottom: 60px;
+
+        }
+
+
+        .eyebrow {
+
+            font-family: var(--mono);
+
+            font-size: .65rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .13em;
+
+            color: var(--muted);
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .section-title {
+
+            font-family: var(--display);
+
+            font-size:
+                clamp(3rem, 5.5vw, 5.5rem);
+
+            line-height: .92;
+
+            letter-spacing: -.07em;
+
+            font-weight: 600;
+
+        }
+
+
+        .section-title span {
+
+            color: var(--muted);
+
+        }
+
+
+        .section-description {
+
+            max-width: 410px;
+
+            color: var(--muted);
+
+            font-size: .9rem;
+
+            line-height: 1.75;
+
+        }
+
+
+        /* =====================================================
+           PROGRAM GRID
+        ====================================================== */
+
+        .program-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 14px;
+
+        }
+
+
+        .program-card {
+
+            position: relative;
+
+            min-height: 360px;
+
+            background: var(--surface);
+
+            border:
+                1px solid var(--line);
+
+            border-radius: var(--radius-md);
+
+            padding: 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            overflow: hidden;
+
+            transition:
+
+                transform .4s
+                cubic-bezier(.2,.8,.2,1),
+
+                box-shadow .4s ease,
+
+                border-color .3s ease;
+
+        }
+
+
+        .program-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow: var(--shadow);
+
+            border-color:
+                rgba(0,0,0,.25);
+
+        }
+
+
+        body.dark .program-card:hover {
+
+            border-color:
+                rgba(255,255,255,.25);
+
+        }
+
+
+        .program-card.featured {
+
+            grid-column: span 2;
+
+            min-height: 410px;
+
+            background:
+
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(200,255,0,.14),
+                    transparent 28%
+                ),
+
+                #090909;
+
+            color: white;
+
+            border-color:
+                rgba(255,255,255,.1);
+
+        }
+
+
+        .program-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 50px;
+
+        }
+
+
+        .program-number {
+
+            font-family: var(--mono);
+
+            font-size: .62rem;
+
+            color: var(--muted);
+
+        }
+
+
+        .featured .program-number {
+
+            color: #6d6d67;
+
+        }
+
+
+        .program-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid var(--line);
+
+            display: grid;
+
+            place-items: center;
+
+            background: var(--surface);
+
+            color: var(--text);
+
+            transition: .3s ease;
+
+        }
+
+
+        .featured .program-icon {
+
+            background:
+                rgba(255,255,255,.05);
+
+            color: var(--accent);
+
+            border-color:
+                rgba(255,255,255,.1);
+
+        }
+
+
+        .program-card:hover
+        .program-icon {
+
+            transform:
+                rotate(-8deg)
+                scale(1.07);
+
+        }
+
+
+        .program-tag {
+
+            display: inline-flex;
+
+            width: fit-content;
+
+            padding: 5px 8px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 5px;
+
+            font-family: var(--mono);
+
+            font-size: .56rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+
+            color: var(--muted);
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .featured .program-tag {
+
+            color: var(--accent);
+
+            border-color:
+                rgba(200,255,0,.25);
+
+        }
+
+
+        .program-title {
+
+            font-family: var(--display);
+
+            font-size: 1.8rem;
+
+            line-height: 1;
+
+            letter-spacing: -.05em;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .featured .program-title {
+
+            font-size:
+                clamp(2.5rem,4vw,4.4rem);
+
+            max-width: 600px;
+
+        }
+
+
+        .program-description {
+
+            color: var(--muted);
+
+            font-size: .82rem;
+
+            line-height: 1.7;
+
+            max-width: 500px;
+
+        }
+
+
+        .featured .program-description {
+
+            color: #8c8c86;
+
+        }
+
+
+        .program-footer {
+
+            margin-top: auto;
+
+            padding-top: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .program-level {
+
+            font-family: var(--mono);
+
+            font-size: .56rem;
+
+            color: var(--muted);
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+
+        }
+
+
+        .program-link {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: .75rem;
+
+            font-weight: 700;
+
+            transition: .25s ease;
+
+        }
+
+
+        .program-link i {
+
+            transition: .25s ease;
+
+        }
+
+
+        .program-link:hover i {
+
+            transform:
+                translateX(5px);
+
+        }
+
+
+        .featured .program-link {
+
+            color: var(--accent);
+
+        }
+
+
+        /* =====================================================
+           WHY SECTION
+        ====================================================== */
+
+        .why-section {
+
+            background: #080808;
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .why-section::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            right: -220px;
+
+            top: -220px;
+
+            background: var(--accent);
+
+            filter: blur(150px);
+
+            opacity: .07;
+
+            border-radius: 50%;
+
+        }
+
+
+        .why-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            border-top:
+                1px solid var(--dark-line);
+
+            border-bottom:
+                1px solid var(--dark-line);
+
+        }
+
+
+        .why-item {
+
+            padding:
+                38px 30px 45px 0;
+
+            border-right:
+                1px solid var(--dark-line);
+
+            margin-right: 30px;
+
+        }
+
+
+        .why-item:last-child {
+
+            border-right: none;
+
+            margin-right: 0;
+
+        }
+
+
+        .why-number {
+
+            font-family: var(--mono);
+
+            font-size: .65rem;
+
+            color: var(--accent);
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .why-item h3 {
+
+            font-family: var(--display);
+
+            font-size: 1.7rem;
+
+            letter-spacing: -.05em;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .why-item p {
+
+            max-width: 290px;
+
+            color: #85857f;
+
+            font-size: .8rem;
+
+            line-height: 1.75;
+
+        }
+
+
+        /* =====================================================
+           ENQUIRY SECTION
+        ====================================================== */
+
+        .contact-section {
+
+            padding:
+                120px 7vw;
+
+        }
+
+
+        .contact-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                .85fr 1.15fr;
+
+            gap: 80px;
+
+            align-items: start;
+
+        }
+
+
+        .contact-copy {
+
+            position: sticky;
+
+            top: 120px;
+
+        }
+
+
+        .contact-title {
+
+            font-family: var(--display);
+
+            font-size:
+                clamp(3.5rem,6vw,6.5rem);
+
+            line-height: .88;
+
+            letter-spacing: -.075em;
+
+            font-weight: 600;
+
+        }
+
+
+        .contact-title span {
+
+            color: var(--muted);
+
+        }
+
+
+        .contact-text {
+
+            max-width: 380px;
+
+            margin-top: 25px;
+
+            color: var(--muted);
+
+            font-size: .9rem;
+
+            line-height: 1.8;
+
+        }
+
+
+        .contact-meta {
+
+            margin-top: 45px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 14px;
+
+        }
+
+
+        .meta-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: var(--muted);
+
+            font-size: .78rem;
+
+        }
+
+
+        .meta-icon {
+
+            width: 34px;
+
+            height: 34px;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 10px;
+
+            color: var(--text);
+
+        }
+
+
+        /* =====================================================
+           FORM
+        ====================================================== */
+
+        .enquiry-form {
+
+            background: var(--surface);
+
+            border:
+                1px solid var(--line);
+
+            border-radius: var(--radius-lg);
+
+            padding: 38px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+        .form-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding-bottom: 22px;
+
+            margin-bottom: 28px;
+
+            border-bottom:
+                1px solid var(--line);
+
+        }
+
+
+        .form-title {
+
+            font-family: var(--display);
+
+            font-size: 1.45rem;
+
+            letter-spacing: -.04em;
+
+        }
+
+
+        .form-code {
+
+            font-family: var(--mono);
+
+            font-size: .55rem;
+
+            color: var(--muted);
+
+        }
+
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+
+        }
+
+
+        .form-group.full {
+
+            grid-column: span 2;
+
+        }
+
+
+        .form-label {
+
+            font-family: var(--mono);
+
+            font-size: .58rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+
+            color: var(--muted);
+
+        }
+
+
+        .form-control {
+
+            width: 100%;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                var(--bg);
+
+            color: var(--text);
+
+            padding:
+                13px 15px;
+
+            border-radius: 11px;
+
+            outline: none;
+
+            font-size: .82rem;
+
+            transition: .25s ease;
+
+        }
+
+
+        .form-control:focus {
+
+            border-color:
+                var(--text);
+
+            box-shadow:
+                0 0 0 4px
+                rgba(0,0,0,.04);
+
+        }
+
+
+        body.dark .form-control:focus {
+
+            box-shadow:
+                0 0 0 4px
+                rgba(255,255,255,.04);
+
+        }
+
+
+        textarea.form-control {
+
+            min-height: 135px;
+
+            resize: vertical;
+
+        }
+
+
+        select.form-control {
+
+            appearance: none;
+
+            background-image:
+                linear-gradient(
+                    45deg,
+                    transparent 50%,
+                    var(--muted) 50%
+                ),
+                linear-gradient(
+                    135deg,
+                    var(--muted) 50%,
+                    transparent 50%
+                );
+
+            background-position:
+                calc(100% - 18px) 50%,
+                calc(100% - 13px) 50%;
+
+            background-size:
+                5px 5px,
+                5px 5px;
+
+            background-repeat: no-repeat;
+
+        }
+
+
+        .submit-button {
+
+            width: 100%;
+
+            border: none;
+
+            margin-top: 8px;
+
+            padding: 15px 20px;
+
+            border-radius: 999px;
+
+            background: var(--accent);
+
+            color: #000;
+
+            font-size: .8rem;
+
+            font-weight: 700;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 10px;
+
+            transition: .25s ease;
+
+        }
+
+
+        .submit-button:hover {
+
+            background:
+                var(--accent-dark);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(200,255,0,.18);
+
+        }
+
+
+        .form-note {
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-family: var(--mono);
+
+            font-size: .53rem;
+
+            margin-top: 14px;
+
+        }
+
+
+        /* =====================================================
+           SUCCESS MESSAGE
+        ====================================================== */
+
+        .success-message {
+
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 14px 16px;
+
+            border-radius: 11px;
+
+            background:
+                rgba(200,255,0,.12);
+
+            border:
+                1px solid
+                rgba(200,255,0,.3);
+
+            color: var(--text);
+
+            font-size: .78rem;
+
+        }
+
+
+        .success-message.show {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .success-message i {
+
+            color: #70b000;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            background: #080808;
+
+            color: white;
+
+            padding:
+                75px 7vw 25px;
+
+        }
+
+
+        .footer-inner {
+
+            width: min(1200px,100%);
+
+            margin: auto;
+
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1fr;
+
+            gap: 55px;
+
+            padding-bottom: 70px;
+
+        }
+
+
+        .footer-brand {
+
+            font-family: var(--display);
+
+            font-size: 1.4rem;
+
+            font-weight: 700;
+
+        }
+
+
+        .footer-brand span {
+
+            color: var(--accent);
+
+        }
+
+
+        .footer-description {
+
+            margin-top: 15px;
+
+            max-width: 320px;
+
+            color: #777;
+
+            font-size: .78rem;
+
+            line-height: 1.8;
+
+        }
+
+
+        .footer-heading {
+
+            font-family: var(--mono);
+
+            color: #70706a;
+
+            font-size: .58rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .12em;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+        }
+
+
+        .footer-links a {
+
+            color: #c5c5c0;
+
+            font-size: .75rem;
+
+            transition: .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color: var(--accent);
+
+            transform:
+                translateX(4px);
+
+        }
+
+
+        .footer-bottom {
+
+            border-top:
+                1px solid var(--dark-line);
+
+            padding-top: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #666;
+
+            font-family: var(--mono);
+
+            font-size: .55rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+
+        }
+
+
+        /* =====================================================
+           FLOATING WHATSAPP
+        ====================================================== */
+
+        .whatsapp {
+
+            position: fixed;
+
+            right: 22px;
+
+            bottom: 22px;
+
+            width: 54px;
+
+            height: 54px;
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            background: #25d366;
+
+            color: white;
+
+            font-size: 1.35rem;
+
+            box-shadow:
+                0 15px 35px
+                rgba(37,211,102,.3);
+
+            z-index: 900;
+
+            transition: .25s ease;
+
+        }
+
+
+        .whatsapp:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.05);
+
+        }
+
+
+        /* =====================================================
+           BACK TO TOP
+        ====================================================== */
+
+        .back-top {
+
+            position: fixed;
+
+            right: 22px;
+
+            bottom: 88px;
+
+            width: 42px;
+
+            height: 42px;
+
+            border:
+                1px solid var(--line);
+
+            background: var(--surface);
+
+            color: var(--text);
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform:
+                translateY(10px);
+
+            transition: .3s ease;
+
+            z-index: 900;
+
+        }
+
+
+        .back-top.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ====================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s
+                cubic-bezier(.2,.8,.2,1);
+
+        }
+
+
+        .reveal.visible {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 1050px) {
+
+            .program-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+            .program-card.featured {
+
+                grid-column:
+                    span 2;
+
+            }
+
+            .contact-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .contact-copy {
+
+                position: static;
+
+            }
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 850px) {
+
+            .navbar {
+
+                height: 62px;
+
+            }
+
+            .nav-links {
+
+                position: absolute;
+
+                left: 0;
+
+                right: 0;
+
+                top:
+                    calc(100% + 10px);
+
+                padding: 10px;
+
+                border:
+                    1px solid var(--line);
+
+                background:
+                    var(--surface);
+
+                border-radius: 20px;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                box-shadow: var(--shadow);
+
+            }
+
+            .nav-links.open {
+
+                display: flex;
+
+            }
+
+            .nav-links a {
+
+                padding: 13px 15px;
+
+            }
+
+            .nav-cta {
+
+                display: none;
+
+            }
+
+            .menu-button {
+
+                display: grid;
+
+            }
+
+            .hero {
+
+                padding-top: 145px;
+
+            }
+
+            .hero-bottom {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 40px;
+
+            }
+
+            .hero-side {
+
+                justify-content: flex-start;
+
+            }
+
+            .section-header {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+            .why-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .why-item {
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid var(--dark-line);
+
+                margin: 0;
+
+                padding-right: 0;
+
+            }
+
+            .why-item:last-child {
+
+                border-bottom: none;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+
+                width:
+                    calc(100% - 20px);
+
+                top: 10px;
+
+                padding-left: 12px;
+
+            }
+
+            .brand {
+
+                font-size: .9rem;
+
+            }
+
+            .brand-mark {
+
+                width: 34px;
+
+                height: 34px;
+
+            }
+
+            .hero {
+
+                min-height: auto;
+
+                padding:
+                    140px 22px 80px;
+
+            }
+
+            .hero h1 {
+
+                font-size:
+                    clamp(3.4rem,18vw,6rem);
+
+            }
+
+            .hero-card {
+
+                width: 100%;
+
+            }
+
+            .section {
+
+                padding:
+                    80px 22px;
+
+            }
+
+            .section-title {
+
+                font-size:
+                    3.3rem;
+
+            }
+
+            .program-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .program-card.featured {
+
+                grid-column: span 1;
+
+            }
+
+            .program-card {
+
+                min-height: 330px;
+
+            }
+
+            .program-card.featured {
+
+                min-height: 390px;
+
+            }
+
+            .program-title {
+
+                font-size: 1.6rem;
+
+            }
+
+            .program-card.featured
+            .program-title {
+
+                font-size: 2.7rem;
+
+            }
+
+            .contact-section {
+
+                padding:
+                    80px 22px;
+
+            }
+
+            .contact-title {
+
+                font-size:
+                    3.6rem;
+
+            }
+
+            .enquiry-form {
+
+                padding: 25px 20px;
+
+                border-radius: 20px;
+
+            }
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .form-group.full {
+
+                grid-column:
+                    span 1;
+
+            }
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 40px 25px;
+
+            }
+
+            .footer-main {
+
+                grid-column:
+                    span 2;
+
+            }
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                align-items:
+                    flex-start;
+
+            }
+
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- Navbar -->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <!-- =========================================================
+         LOADER
+    ========================================================== -->
 
-<div class="container">
+    <div class="loader" id="loader">
 
-<a class="navbar-brand" href="index.html">
-<img src="syntaxLogo.jpg" height="30"> Syntax Circuit
-</a>
+        <div class="loader-inner">
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <div class="loader-brand">
+                SYNTAX<span>.</span>
+            </div>
 
-<div class="collapse navbar-collapse" id="navbarNav">
+            <div class="loader-progress"></div>
 
-<ul class="navbar-nav ms-auto">
+        </div>
 
-<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-<li class="nav-item"><a class="nav-link active" href="tuitions.html">Tuitions</a></li>
-<li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    </div>
 
-</ul>
 
-</div>
-</div>
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
 
-</nav>
+    <header class="navbar">
 
-<!-- Tuitions Section -->
 
-<section class="py-5">
+        <a href="index.html" class="brand">
 
-<div class="container">
+            <div class="brand-mark">
+                &lt;/&gt;
+            </div>
 
-<h2 class="section-title">Computer Science Tuitions</h2>
+            <span>
+                Syntax Circuit
+            </span>
 
-<p class="text-center mb-5">
-Personalized coaching for Computer Science students across undergraduate and postgraduate programs.
-</p>
+        </a>
 
-<div class="row text-center">
 
-<div class="col-md-4 mb-4">
-<div class="card shadow">
-<div class="card-body">
-<h5>BSc Computer Science</h5>
-<p>Support for programming, DBMS, operating systems and computer fundamentals.</p>
-<a href="#contact" class="btn btn-outline-primary">Enquire</a>
-</div>
-</div>
-</div>
+        <nav class="nav-links" id="navLinks">
 
-<div class="col-md-4 mb-4">
-<div class="card shadow">
-<div class="card-body">
-<h5>BCA</h5>
-<p>Comprehensive tuition for BCA subjects including Java, Python, and web technologies.</p>
-<a href="#contact" class="btn btn-outline-primary">Enquire</a>
-</div>
-</div>
-</div>
+            <a href="index.html">
+                Home
+            </a>
 
-<div class="col-md-4 mb-4">
-<div class="card shadow">
-<div class="card-body">
-<h5>BTech Computer Science</h5>
-<p>Special coaching for core CS subjects like DSA, DBMS, OS and CN.</p>
-<a href="#contact" class="btn btn-outline-primary">Enquire</a>
-</div>
-</div>
-</div>
+            <a href="tuitions.html" class="active">
+                Tuitions
+            </a>
 
-<div class="col-md-4 mb-4">
-<div class="card shadow">
-<div class="card-body">
-<h5>MSc Computer Science</h5>
-<p>Advanced tuition for postgraduate students focusing on algorithms and research topics.</p>
-<a href="#contact" class="btn btn-outline-primary">Enquire</a>
-</div>
-</div>
-</div>
+            <a href="courses.html">
+                Courses
+            </a>
 
-<div class="col-md-4 mb-4">
-<div class="card shadow">
-<div class="card-body">
-<h5>MCA</h5>
-<p>Professional coaching for MCA programming and application development subjects.</p>
-<a href="#contact" class="btn btn-outline-primary">Enquire</a>
-</div>
-</div>
-</div>
+            <a href="projects.html">
+                Projects
+            </a>
 
-<div class="col-md-4 mb-4">
-<div class="card shadow">
-<div class="card-body">
-<h5>MTech Computer Science</h5>
-<p>Advanced mentoring for MTech students in algorithms, AI and system design.</p>
-<a href="#contact" class="btn btn-outline-primary">Enquire</a>
-</div>
-</div>
-</div>
+            <a href="contact.html">
+                Contact
+            </a>
 
-</div>
+        </nav>
 
-</div>
 
-</section>
+        <div class="nav-actions">
 
-<!-- Contact Form -->
 
-<section id="contact" class="contact-section py-5">
+            <button
+                class="icon-button"
+                id="themeToggle"
+                aria-label="Toggle theme">
 
-<div class="container">
+                <i class="fa-solid fa-moon"></i>
 
-<h2 class="section-title">Tuition Enquiry</h2>
+            </button>
 
-<form id="tuitionForm">
 
-<div class="row">
+            <a
+                href="#contact"
+                class="nav-cta">
 
-<div class="col-md-6 mb-3">
-<label>Your Name</label>
-<input type="text" id="name" class="form-control" required>
-</div>
+                Enquire
 
-<div class="col-md-6 mb-3">
-<label>WhatsApp Number</label>
-<input type="tel" id="phone" class="form-control" required>
-</div>
+                <i class="fa-solid fa-arrow-right"></i>
 
-</div>
+            </a>
 
-<div class="row">
 
-<div class="col-md-6 mb-3">
-<label>Email</label>
-<input type="email" id="email" class="form-control" required>
-</div>
+            <button
+                class="icon-button menu-button"
+                id="menuButton"
+                aria-label="Open navigation">
 
-<div class="col-md-6 mb-3">
+                <i class="fa-solid fa-bars"></i>
 
-<label>Program</label>
+            </button>
 
-<select id="program" class="form-control" required>
 
-<option value="">Select Program</option>
-<option>BSc Computer Science</option>
-<option>BCA</option>
-<option>BTech Computer Science</option>
-<option>MSc Computer Science</option>
-<option>MCA</option>
-<option>MTech Computer Science</option>
+        </div>
 
-</select>
+    </header>
 
-</div>
 
-</div>
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
 
-<div class="mb-3">
+    <main>
 
-<label>Message</label>
 
-<textarea id="message" class="form-control" rows="4"></textarea>
+        <section class="hero">
 
-</div>
 
-<button class="btn btn-primary w-100">
+            <div class="hero-grid"></div>
 
-<i class="fas fa-paper-plane"></i> Submit Enquiry
+            <div class="hero-glow"></div>
 
-</button>
 
-</form>
+            <div class="hero-inner">
 
-</div>
 
-</section>
+                <div class="hero-kicker">
 
-<script>
+                    <span class="hero-dot"></span>
 
-document.getElementById("tuitionForm").addEventListener("submit", function(e){
+                    Computer Science Tuition
 
-e.preventDefault();
+                </div>
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let email=document.getElementById("email").value;
-let program=document.getElementById("program").value;
-let message=document.getElementById("message").value;
 
-let body =
-"Name: "+name+"%0D%0A"+
-"Phone: "+phone+"%0D%0A"+
-"Email: "+email+"%0D%0A"+
-"Program: "+program+"%0D%0A%0D%0A"+
-"Message: "+message;
+                <h1>
 
-window.location.href=
-"mailto:info@syntaxcircuit.in?subject=Tuition Enquiry - Syntax Circuit&body="+body;
+                    Learn with
+                    <span class="outline">
+                        clarity.
+                    </span>
 
-});
+                    <br>
 
-</script>
+                    Build with
+                    <span class="lime">
+                        confidence.
+                    </span>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                </h1>
 
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+
+                <div class="hero-bottom">
+
+
+                    <p class="hero-description">
+
+                        Personalized Computer Science coaching
+                        for undergraduate and postgraduate students.
+                        Understand difficult concepts, strengthen
+                        programming fundamentals and become confident
+                        with <strong>real technical skills.</strong>
+
+                    </p>
+
+
+                    <div class="hero-side">
+
+
+                        <div class="hero-card">
+
+
+                            <div class="hero-card-top">
+
+                                <span class="hero-card-label">
+                                    Tuition status
+                                </span>
+
+                                <span class="hero-card-status">
+
+                                    <span class="status-dot"></span>
+
+                                    Enquiries open
+
+                                </span>
+
+                            </div>
+
+
+                            <h3>
+                                Your syllabus.
+                                Your pace.
+                                Your progress.
+                            </h3>
+
+
+                            <p>
+
+                                Focused guidance designed around
+                                your academic requirements and
+                                technical learning goals.
+
+                            </p>
+
+
+                            <div class="hero-card-line">
+
+                                <span>
+                                    BSc / BCA / BTech
+                                </span>
+
+                                <span>
+                                    MSc / MCA / MTech
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROGRAMS
+        ====================================================== -->
+
+        <section class="section">
+
+
+            <div class="container">
+
+
+                <div class="section-header reveal">
+
+
+                    <div>
+
+                        <div class="eyebrow">
+                            01 / Programs
+                        </div>
+
+                        <h2 class="section-title">
+
+                            Choose your
+                            <br>
+
+                            <span>program.</span>
+
+                        </h2>
+
+                    </div>
+
+
+                    <p class="section-description">
+
+                        Personalized coaching for Computer Science
+                        students across undergraduate and postgraduate
+                        programs.
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="program-grid">
+
+
+                    <!-- BSc -->
+
+                    <article class="program-card featured reveal">
+
+
+                        <div class="program-top">
+
+                            <span class="program-number">
+                                01 / 06
+                            </span>
+
+                            <div class="program-icon">
+
+                                <i class="fa-solid fa-laptop-code"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="program-tag">
+                                Undergraduate
+                            </span>
+
+                            <h3 class="program-title">
+                                BSc Computer Science
+                            </h3>
+
+                            <p class="program-description">
+
+                                Support for programming, DBMS,
+                                operating systems and computer
+                                fundamentals.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="program-footer">
+
+                            <span class="program-level">
+                                Core CS
+                            </span>
+
+                            <a
+                                href="#contact"
+                                class="program-link">
+
+                                Enquire
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BCA -->
+
+                    <article class="program-card reveal">
+
+
+                        <div class="program-top">
+
+                            <span class="program-number">
+                                02 / 06
+                            </span>
+
+                            <div class="program-icon">
+
+                                <i class="fa-solid fa-code"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="program-tag">
+                                Undergraduate
+                            </span>
+
+                            <h3 class="program-title">
+                                BCA
+                            </h3>
+
+                            <p class="program-description">
+
+                                Comprehensive tuition for BCA subjects
+                                including Java, Python and web
+                                technologies.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="program-footer">
+
+                            <span class="program-level">
+                                Programming
+                            </span>
+
+                            <a
+                                href="#contact"
+                                class="program-link">
+
+                                Enquire
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BTech -->
+
+                    <article class="program-card reveal">
+
+
+                        <div class="program-top">
+
+                            <span class="program-number">
+                                03 / 06
+                            </span>
+
+                            <div class="program-icon">
+
+                                <i class="fa-solid fa-microchip"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="program-tag">
+                                Undergraduate
+                            </span>
+
+                            <h3 class="program-title">
+                                BTech Computer Science
+                            </h3>
+
+                            <p class="program-description">
+
+                                Special coaching for core CS subjects
+                                like DSA, DBMS, OS and Computer Networks.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="program-footer">
+
+                            <span class="program-level">
+                                Engineering
+                            </span>
+
+                            <a
+                                href="#contact"
+                                class="program-link">
+
+                                Enquire
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MSc -->
+
+                    <article class="program-card reveal">
+
+
+                        <div class="program-top">
+
+                            <span class="program-number">
+                                04 / 06
+                            </span>
+
+                            <div class="program-icon">
+
+                                <i class="fa-solid fa-flask"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="program-tag">
+                                Postgraduate
+                            </span>
+
+                            <h3 class="program-title">
+                                MSc Computer Science
+                            </h3>
+
+                            <p class="program-description">
+
+                                Advanced tuition for postgraduate
+                                students focusing on algorithms
+                                and research topics.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="program-footer">
+
+                            <span class="program-level">
+                                Advanced
+                            </span>
+
+                            <a
+                                href="#contact"
+                                class="program-link">
+
+                                Enquire
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MCA -->
+
+                    <article class="program-card reveal">
+
+
+                        <div class="program-top">
+
+                            <span class="program-number">
+                                05 / 06
+                            </span>
+
+                            <div class="program-icon">
+
+                                <i class="fa-solid fa-terminal"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="program-tag">
+                                Postgraduate
+                            </span>
+
+                            <h3 class="program-title">
+                                MCA
+                            </h3>
+
+                            <p class="program-description">
+
+                                Professional coaching for MCA
+                                programming and application
+                                development subjects.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="program-footer">
+
+                            <span class="program-level">
+                                Application
+                            </span>
+
+                            <a
+                                href="#contact"
+                                class="program-link">
+
+                                Enquire
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- MTech -->
+
+                    <article class="program-card reveal">
+
+
+                        <div class="program-top">
+
+                            <span class="program-number">
+                                06 / 06
+                            </span>
+
+                            <div class="program-icon">
+
+                                <i class="fa-solid fa-network-wired"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="program-tag">
+                                Postgraduate
+                            </span>
+
+                            <h3 class="program-title">
+                                MTech Computer Science
+                            </h3>
+
+                            <p class="program-description">
+
+                                Advanced mentoring for MTech students
+                                in algorithms, AI and system design.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="program-footer">
+
+                            <span class="program-level">
+                                Research
+                            </span>
+
+                            <a
+                                href="#contact"
+                                class="program-link">
+
+                                Enquire
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             WHY SYNTAX
+        ====================================================== -->
+
+        <section class="section why-section">
+
+
+            <div class="container">
+
+
+                <div class="section-header reveal">
+
+
+                    <div>
+
+                        <div class="eyebrow">
+                            02 / Approach
+                        </div>
+
+                        <h2 class="section-title">
+
+                            More than
+                            <br>
+
+                            <span>just tuition.</span>
+
+                        </h2>
+
+                    </div>
+
+
+                    <p class="section-description">
+
+                        The goal isn't simply to finish a syllabus.
+                        It's to make difficult Computer Science
+                        concepts easier to understand and apply.
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="why-grid">
+
+
+                    <div class="why-item reveal">
+
+                        <div class="why-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Understand
+                        </h3>
+
+                        <p>
+
+                            Break complex technical topics into
+                            clear concepts that are easier to
+                            understand and remember.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-item reveal">
+
+                        <div class="why-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Practice
+                        </h3>
+
+                        <p>
+
+                            Strengthen your understanding through
+                            programming practice, problem solving
+                            and practical examples.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-item reveal">
+
+                        <div class="why-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Progress
+                        </h3>
+
+                        <p>
+
+                            Build confidence gradually and develop
+                            the technical foundation required for
+                            academic and professional growth.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACT / ENQUIRY
+        ====================================================== -->
+
+        <section
+            class="contact-section"
+            id="contact">
+
+
+            <div class="container">
+
+
+                <div class="contact-layout">
+
+
+                    <!-- LEFT -->
+
+                    <div class="contact-copy reveal">
+
+
+                        <div class="eyebrow">
+                            03 / Tuition enquiry
+                        </div>
+
+
+                        <h2 class="contact-title">
+
+                            Let's build
+                            <br>
+
+                            <span>your next</span>
+                            <br>
+
+                            level.
+
+                        </h2>
+
+
+                        <p class="contact-text">
+
+                            Tell us about your program, subjects
+                            and learning requirements. Submit an
+                            enquiry and we'll help you choose the
+                            right direction.
+
+                        </p>
+
+
+                        <div class="contact-meta">
+
+
+                            <div class="meta-item">
+
+                                <div class="meta-icon">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+
+                                <span>
+                                    WhatsApp support available
+                                </span>
+
+                            </div>
+
+
+                            <div class="meta-item">
+
+                                <div class="meta-icon">
+                                    <i class="fa-solid fa-laptop"></i>
+                                </div>
+
+                                <span>
+                                    Computer Science focused
+                                </span>
+
+                            </div>
+
+
+                            <div class="meta-item">
+
+                                <div class="meta-icon">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+
+                                <span>
+                                    Programming + core CS
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT FORM -->
+
+                    <div class="enquiry-form reveal">
+
+
+                        <div class="form-header">
+
+                            <div class="form-title">
+                                Tuition enquiry
+                            </div>
+
+                            <div class="form-code">
+                                / start_learning
+                            </div>
+
+                        </div>
+
+
+                        <form id="tuitionForm">
+
+
+                            <div class="form-grid">
+
+
+                                <!-- NAME -->
+
+                                <div class="form-group">
+
+                                    <label
+                                        class="form-label"
+                                        for="name">
+
+                                        Your name
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        class="form-control"
+                                        placeholder="Enter your name"
+                                        autocomplete="name"
+                                        required>
+
+                                </div>
+
+
+                                <!-- PHONE -->
+
+                                <div class="form-group">
+
+                                    <label
+                                        class="form-label"
+                                        for="phone">
+
+                                        WhatsApp number
+
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        class="form-control"
+                                        placeholder="Enter WhatsApp number"
+                                        autocomplete="tel"
+                                        required>
+
+                                </div>
+
+
+                                <!-- EMAIL -->
+
+                                <div class="form-group">
+
+                                    <label
+                                        class="form-label"
+                                        for="email">
+
+                                        Email
+
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        class="form-control"
+                                        placeholder="you@example.com"
+                                        autocomplete="email"
+                                        required>
+
+                                </div>
+
+
+                                <!-- PROGRAM -->
+
+                                <div class="form-group">
+
+                                    <label
+                                        class="form-label"
+                                        for="program">
+
+                                        Program
+
+                                    </label>
+
+                                    <select
+                                        id="program"
+                                        class="form-control"
+                                        required>
+
+                                        <option value="">
+                                            Select program
+                                        </option>
+
+                                        <option>
+                                            BSc Computer Science
+                                        </option>
+
+                                        <option>
+                                            BCA
+                                        </option>
+
+                                        <option>
+                                            BTech Computer Science
+                                        </option>
+
+                                        <option>
+                                            MSc Computer Science
+                                        </option>
+
+                                        <option>
+                                            MCA
+                                        </option>
+
+                                        <option>
+                                            MTech Computer Science
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <!-- MESSAGE -->
+
+                                <div class="form-group full">
+
+                                    <label
+                                        class="form-label"
+                                        for="message">
+
+                                        Message
+
+                                    </label>
+
+                                    <textarea
+                                        id="message"
+                                        class="form-control"
+                                        placeholder="Tell us what you need help with..."></textarea>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="submit-button">
+
+                                <i class="fa-solid fa-paper-plane"></i>
+
+                                Submit enquiry
+
+                            </button>
+
+
+                            <div
+                                class="form-note">
+
+                                Your enquiry will open in your
+                                default email application.
+
+                            </div>
+
+
+                            <div
+                                class="success-message"
+                                id="successMessage">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                Preparing your enquiry...
+
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+
+        <div class="footer-inner">
+
+
+            <div class="footer-grid">
+
+
+                <div class="footer-main">
+
+
+                    <div class="footer-brand">
+
+                        Syntax<span>Circuit</span>
+
+                    </div>
+
+
+                    <p class="footer-description">
+
+                        Practical technology learning focused on
+                        programming, Computer Science, projects
+                        and real-world technical skills.
+
+                    </p>
+
+
+                </div>
+
+
+                <div>
+
+
+                    <div class="footer-heading">
+                        Explore
+                    </div>
+
+
+                    <div class="footer-links">
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                        <a href="courses.html">
+                            Courses
+                        </a>
+
+                        <a href="tuitions.html">
+                            Tuitions
+                        </a>
+
+                        <a href="projects.html">
+                            Projects
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+
+                    <div class="footer-heading">
+                        Company
+                    </div>
+
+
+                    <div class="footer-links">
+
+                        <a href="about.html">
+                            About
+                        </a>
+
+                        <a href="contact.html">
+                            Contact
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+
+                    <div class="footer-heading">
+                        Learning
+                    </div>
+
+
+                    <div class="footer-links">
+
+                        <a href="syntaxPython.html">
+                            Python
+                        </a>
+
+                        <a href="syntaxJavaFullStock.html">
+                            Java Full Stack
+                        </a>
+
+                        <a href="syntaxHtml.html">
+                            Web Design
+                        </a>
+
+                        <a href="syntaxSql.html">
+                            SQL
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © <span id="year"></span>
+                    Syntax Circuit
+                </span>
+
+                <span>
+                    Learn · Build · Ship
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         FLOATING WHATSAPP
+    ========================================================== -->
+
+    <a
+        href="https://wa.me/916302204738"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp"
+        aria-label="Contact Syntax Circuit on WhatsApp">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
+
+    <button
+        class="back-top"
+        id="backTop"
+        aria-label="Back to top">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+
+    <!-- =========================================================
+         INTERNAL JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           PAGE LOADER
+        ====================================================== */
+
+        window.addEventListener("load", () => {
+
+            const loader =
+                document.getElementById("loader");
+
+            setTimeout(() => {
+
+                loader.classList.add("hide");
+
+            }, 350);
+
+        });
+
+
+        /* =====================================================
+           MOBILE NAVIGATION
+        ====================================================== */
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuButton.addEventListener("click", () => {
+
+            navLinks.classList.toggle("open");
+
+            const icon =
+                menuButton.querySelector("i");
+
+
+            if (navLinks.classList.contains("open")) {
+
+                icon.classList.remove("fa-bars");
+
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+            }
+
+        });
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("open");
+
+                    const icon =
+                        menuButton.querySelector("i");
+
+                    icon.classList.remove("fa-xmark");
+
+                    icon.classList.add("fa-bars");
+
+                });
+
+            });
+
+
+        /* =====================================================
+           DARK MODE
+        ====================================================== */
+
+        const themeToggle =
+            document.getElementById("themeToggle");
+
+
+        const savedTheme =
+            localStorage.getItem("syntax-theme");
+
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add("dark");
+
+        }
+
+
+        function updateThemeIcon() {
+
+            const icon =
+                themeToggle.querySelector("i");
+
+
+            if (
+                document.body.classList.contains("dark")
+            ) {
+
+                icon.classList.remove("fa-moon");
+
+                icon.classList.add("fa-sun");
+
+            } else {
+
+                icon.classList.remove("fa-sun");
+
+                icon.classList.add("fa-moon");
+
+            }
+
+        }
+
+
+        updateThemeIcon();
+
+
+        themeToggle.addEventListener("click", () => {
+
+            document.body.classList.toggle("dark");
+
+
+            localStorage.setItem(
+                "syntax-theme",
+
+                document.body.classList.contains("dark")
+                    ? "dark"
+                    : "light"
+            );
+
+
+            updateThemeIcon();
+
+        });
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target
+                                .classList
+                                .add("visible");
+
+
+                            revealObserver
+                                .unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: .12
+                }
+
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =====================================================
+           BACK TO TOP
+        ====================================================== */
+
+        const backTop =
+            document.getElementById("backTop");
+
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 600) {
+
+                backTop.classList.add("show");
+
+            } else {
+
+                backTop.classList.remove("show");
+
+            }
+
+        });
+
+
+        backTop.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+
+        /* =====================================================
+           TUITION FORM
+        ====================================================== */
+
+        const tuitionForm =
+            document.getElementById("tuitionForm");
+
+
+        const successMessage =
+            document.getElementById("successMessage");
+
+
+        tuitionForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById("name")
+                        .value
+                        .trim();
+
+
+                const phone =
+                    document.getElementById("phone")
+                        .value
+                        .trim();
+
+
+                const email =
+                    document.getElementById("email")
+                        .value
+                        .trim();
+
+
+                const program =
+                    document.getElementById("program")
+                        .value
+                        .trim();
+
+
+                const message =
+                    document.getElementById("message")
+                        .value
+                        .trim();
+
+
+                if (
+                    !name ||
+                    !phone ||
+                    !email ||
+                    !program
+                ) {
+
+                    return;
+
+                }
+
+
+                successMessage.classList.add("show");
+
+
+                const body =
+
+                    "Name: " +
+                    name +
+
+                    "\n\n" +
+
+                    "Phone: " +
+                    phone +
+
+                    "\n\n" +
+
+                    "Email: " +
+                    email +
+
+                    "\n\n" +
+
+                    "Program: " +
+                    program +
+
+                    "\n\n" +
+
+                    "Message: " +
+                    (message || "No additional message");
+
+
+                const mailto =
+
+                    "mailto:info@syntaxcircuit.in" +
+
+                    "?subject=" +
+
+                    encodeURIComponent(
+                        "Tuition Enquiry - Syntax Circuit"
+                    ) +
+
+                    "&body=" +
+
+                    encodeURIComponent(body);
+
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        mailto;
+
+                }, 350);
+
+            }
+        );
+
+
+        /* =====================================================
+           AUTO CURRENT YEAR
+        ====================================================== */
+
+        document.getElementById("year")
+            .textContent =
+            new Date().getFullYear();
+
+
+        /* =====================================================
+           SMOOTH INTERNAL LINKS
+        ====================================================== */
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const targetId =
+                            this.getAttribute("href");
+
+
+                        if (
+                            targetId &&
+                            targetId !== "#"
+                        ) {
+
+                            const target =
+                                document.querySelector(
+                                    targetId
+                                );
+
+
+                            if (target) {
+
+                                event.preventDefault();
+
+
+                                target.scrollIntoView({
+
+                                    behavior: "smooth",
+
+                                    block: "start"
+
+                                });
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+    </script>
+
+
 </body>
+
 </html>
