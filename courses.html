@@ -1,365 +1,3772 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Courses</title>
+    <meta name="description"
+          content="Explore Syntax Circuit courses in Python, Java, Full Stack Development, Web Design, SQL, Cloud, Cybersecurity, DevOps and more.">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#0a0a0a">
 
-<style>
+    <title>Courses — Syntax Circuit</title>
 
-:root{
---primary:#ff4d94;
---secondary:#0056b3;
-}
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-body{
-font-family:Arial, sans-serif;
-background:#f8f9fa;
-}
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
-/* Navbar */
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-.navbar{
-box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
+    <style>
 
-/* Section title */
+        /* =========================================================
+           ROOT
+        ========================================================= */
 
-h2{
-text-align:center;
-margin-bottom:50px;
-font-size:2.5rem;
-color:var(--secondary);
-font-weight:bold;
-}
+        :root {
+            --bg: #f4f4ef;
+            --surface: #ffffff;
+            --surface-soft: #ecece5;
 
-/* Cards */
+            --text: #101010;
+            --muted: #6d6d67;
 
-.card{
-margin-bottom:20px;
-border:none;
-border-radius:10px;
-transition:transform 0.3s, box-shadow 0.3s;
-}
+            --dark: #090909;
+            --dark-soft: #121212;
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
+            --line: rgba(16, 16, 16, 0.12);
+            --dark-line: rgba(255, 255, 255, 0.12);
 
-/* Course card */
+            --accent: #c8ff00;
+            --accent-hover: #b5eb00;
 
-.course-card{
-background:white;
-text-align:center;
-padding:20px;
-}
+            --purple: #8b5cf6;
+            --blue: #4f8cff;
+            --orange: #ff7a45;
 
-.course-icon{
-font-size:3rem;
-margin-bottom:15px;
-color:var(--primary);
-}
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
 
-/* Buttons */
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
 
-.btn-light{
-background:var(--primary);
-border:none;
-color:white;
-}
+            --display: "Space Grotesk", sans-serif;
+            --body: "DM Sans", sans-serif;
+            --mono: "DM Mono", monospace;
+        }
 
-.btn-light:hover{
-background:#ff6699;
-color:white;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Footer */
+        html {
+            scroll-behavior: smooth;
+        }
 
-footer{
-background:#f8f9fa;
-text-align:center;
-padding:20px 0;
-margin-top:40px;
-}
+        body {
+            font-family: var(--body);
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-</style>
+        body.dark-mode {
+            --bg: #080808;
+            --surface: #111111;
+            --surface-soft: #181818;
 
+            --text: #f5f5f0;
+            --muted: #9a9a94;
+
+            --line: rgba(255,255,255,.12);
+
+            --shadow: 0 20px 60px rgba(0,0,0,.35);
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #000;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================================================
+           SCROLLBAR
+        ========================================================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text);
+        }
+
+        /* =========================================================
+           PAGE LOADER
+        ========================================================= */
+
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            z-index: 9999;
+            display: grid;
+            place-items: center;
+            transition: opacity .6s ease, visibility .6s ease;
+        }
+
+        .page-loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-family: var(--display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .loader-logo span {
+            color: var(--accent);
+        }
+
+        .loader-line {
+            width: 120px;
+            height: 2px;
+            background: rgba(255,255,255,.15);
+            margin: 20px auto 0;
+            overflow: hidden;
+        }
+
+        .loader-line::after {
+            content: "";
+            display: block;
+            width: 45%;
+            height: 100%;
+            background: var(--accent);
+            animation: loader 1s infinite ease-in-out;
+        }
+
+        @keyframes loader {
+            from {
+                transform: translateX(-120%);
+            }
+
+            to {
+                transform: translateX(330%);
+            }
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1180px, calc(100% - 32px));
+            height: 68px;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 10px 0 22px;
+
+            background: rgba(255,255,255,.76);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 999px;
+
+            box-shadow: 0 12px 40px rgba(0,0,0,.08);
+
+            transition: .3s ease;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(15,15,15,.78);
+            border-color: rgba(255,255,255,.1);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: -.4px;
+            white-space: nowrap;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--dark);
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: .9rem;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+        }
+
+        body.dark-mode .brand-mark {
+            background: white;
+            color: black;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 9px 13px;
+            border-radius: 999px;
+
+            font-size: .84rem;
+            font-weight: 600;
+            color: var(--muted);
+
+            transition: .25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+            background: var(--surface-soft);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: var(--surface);
+            color: var(--text);
+            display: grid;
+            place-items: center;
+            transition: .25s ease;
+        }
+
+        .icon-btn:hover {
+            transform: rotate(8deg);
+            border-color: var(--text);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 11px 17px;
+            border-radius: 999px;
+
+            background: var(--dark);
+            color: white;
+
+            font-size: .82rem;
+            font-weight: 700;
+
+            transition: .25s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.18);
+        }
+
+        body.dark-mode .nav-cta {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 780px;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 75% 25%, rgba(200,255,0,.13), transparent 28%),
+                radial-gradient(circle at 20% 70%, rgba(139,92,246,.13), transparent 30%),
+                var(--dark);
+
+            color: white;
+
+            padding: 190px 7vw 100px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: .11;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px);
+
+            background-size: 80px 80px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black 0%,
+                rgba(0,0,0,.5) 60%,
+                transparent 100%
+            );
+        }
+
+        .hero-orb {
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            border-radius: 50%;
+            right: -170px;
+            top: 120px;
+
+            background: var(--accent);
+
+            filter: blur(100px);
+            opacity: .08;
+        }
+
+        .hero-content {
+            width: min(1200px, 100%);
+            margin: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: var(--mono);
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+
+            color: #bdbdb7;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-kicker-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        .hero h1 {
+            max-width: 950px;
+
+            font-family: var(--display);
+            font-size: clamp(4rem, 8.5vw, 8.5rem);
+            line-height: .86;
+            letter-spacing: -.075em;
+            font-weight: 600;
+        }
+
+        .hero h1 .outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,.55);
+        }
+
+        .hero h1 .lime {
+            color: var(--accent);
+        }
+
+        .hero-bottom {
+            margin-top: 55px;
+
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 60px;
+            align-items: end;
+        }
+
+        .hero-description {
+            max-width: 540px;
+            color: #a7a7a1;
+            font-size: 1.08rem;
+            line-height: 1.75;
+        }
+
+        .hero-description strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid rgba(255,255,255,.15);
+        }
+
+        .stat {
+            padding: 20px 15px 0 0;
+        }
+
+        .stat:not(:last-child) {
+            border-right: 1px solid rgba(255,255,255,.12);
+            margin-right: 18px;
+        }
+
+        .stat-number {
+            font-family: var(--display);
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+
+        .stat-label {
+            color: #85857f;
+            font-family: var(--mono);
+            font-size: .62rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-top: 5px;
+        }
+
+        /* =========================================================
+           CODE FLOATING CARD
+        ========================================================= */
+
+        .terminal {
+            position: absolute;
+            z-index: 3;
+
+            right: 8%;
+            top: 155px;
+
+            width: 330px;
+
+            background: rgba(15,15,15,.88);
+            border: 1px solid rgba(255,255,255,.14);
+
+            border-radius: 18px;
+            padding: 16px;
+
+            box-shadow:
+                0 30px 100px rgba(0,0,0,.4),
+                inset 0 1px rgba(255,255,255,.05);
+
+            transform: rotate(3deg);
+            animation: floatTerminal 5s ease-in-out infinite;
+        }
+
+        @keyframes floatTerminal {
+            0%,100% {
+                transform: rotate(3deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(1deg) translateY(-12px);
+            }
+        }
+
+        .terminal-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-bottom: 13px;
+            margin-bottom: 14px;
+
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .terminal-dots span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #5b5b5b;
+        }
+
+        .terminal-title {
+            font-family: var(--mono);
+            font-size: .58rem;
+            color: #73736e;
+        }
+
+        .code {
+            font-family: var(--mono);
+            font-size: .7rem;
+            line-height: 2;
+            color: #bcbcb6;
+        }
+
+        .code .green {
+            color: var(--accent);
+        }
+
+        .code .purple {
+            color: #b58cff;
+        }
+
+        .code .orange {
+            color: #ff9b72;
+        }
+
+        /* =========================================================
+           SECTION COMMON
+        ========================================================= */
+
+        .section {
+            padding: 120px 7vw;
+        }
+
+        .section-inner {
+            width: min(1200px, 100%);
+            margin: auto;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            align-items: end;
+
+            margin-bottom: 55px;
+        }
+
+        .eyebrow {
+            font-family: var(--mono);
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: .68rem;
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: var(--display);
+            font-size: clamp(2.8rem, 5vw, 5.5rem);
+            line-height: .95;
+            letter-spacing: -.065em;
+            font-weight: 600;
+        }
+
+        .section-title span {
+            color: var(--muted);
+        }
+
+        .section-intro {
+            max-width: 390px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: .95rem;
+        }
+
+        /* =========================================================
+           COURSE EXPLORER
+        ========================================================= */
+
+        .explorer {
+            padding-top: 70px;
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--line);
+
+            margin-bottom: 35px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--muted);
+
+            border-radius: 999px;
+            padding: 9px 15px;
+
+            font-size: .76rem;
+            font-weight: 600;
+
+            transition: .25s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--dark);
+            border-color: var(--dark);
+            color: white;
+        }
+
+        body.dark-mode .filter-btn:hover,
+        body.dark-mode .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+        }
+
+        .search-box {
+            position: relative;
+            width: 260px;
+            flex-shrink: 0;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: .8rem;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            border: 1px solid var(--line);
+            background: var(--surface);
+
+            color: var(--text);
+
+            border-radius: 999px;
+            padding: 11px 16px 11px 39px;
+
+            outline: none;
+            font-size: .8rem;
+
+            transition: .25s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--text);
+            box-shadow: 0 0 0 4px rgba(0,0,0,.04);
+        }
+
+        /* =========================================================
+           COURSE GRID
+        ========================================================= */
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .course-card {
+            position: relative;
+            min-height: 350px;
+
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+
+            padding: 25px;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+
+            transition:
+                transform .4s cubic-bezier(.2,.8,.2,1),
+                box-shadow .4s ease,
+                border-color .3s ease;
+
+            opacity: 1;
+        }
+
+        .course-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+            border-color: rgba(0,0,0,.22);
+        }
+
+        body.dark-mode .course-card:hover {
+            border-color: rgba(255,255,255,.25);
+        }
+
+        .course-card::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+
+            top: -90px;
+            right: -90px;
+
+            background: var(--accent);
+            opacity: 0;
+
+            filter: blur(40px);
+
+            transition: .5s ease;
+        }
+
+        .course-card:hover::after {
+            opacity: .12;
+        }
+
+        .course-card.featured {
+            grid-column: span 2;
+            min-height: 410px;
+
+            background:
+                radial-gradient(circle at 85% 10%, rgba(200,255,0,.15), transparent 28%),
+                var(--dark);
+
+            color: white;
+            border-color: rgba(255,255,255,.1);
+        }
+
+        .course-card.featured::after {
+            opacity: .05;
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 50px;
+        }
+
+        .course-number {
+            font-family: var(--mono);
+            font-size: .68rem;
+            color: var(--muted);
+        }
+
+        .featured .course-number {
+            color: #777;
+        }
+
+        .course-icon {
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--line);
+            border-radius: 12px;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--text);
+            background: var(--surface);
+
+            transition: .3s ease;
+        }
+
+        .featured .course-icon {
+            color: var(--accent);
+            background: rgba(255,255,255,.05);
+            border-color: rgba(255,255,255,.1);
+        }
+
+        .course-card:hover .course-icon {
+            transform: rotate(-7deg) scale(1.06);
+        }
+
+        .course-tag {
+            display: inline-flex;
+            align-items: center;
+
+            width: fit-content;
+
+            font-family: var(--mono);
+            font-size: .59rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+
+            color: var(--muted);
+
+            padding: 5px 8px;
+            border: 1px solid var(--line);
+            border-radius: 5px;
+
+            margin-bottom: 13px;
+        }
+
+        .featured .course-tag {
+            color: var(--accent);
+            border-color: rgba(200,255,0,.25);
+        }
+
+        .course-title {
+            font-family: var(--display);
+            font-size: 1.65rem;
+            line-height: 1.05;
+            letter-spacing: -.045em;
+            font-weight: 600;
+
+            margin-bottom: 13px;
+        }
+
+        .featured .course-title {
+            font-size: clamp(2.3rem, 4vw, 4.2rem);
+            max-width: 600px;
+        }
+
+        .course-description {
+            color: var(--muted);
+            font-size: .84rem;
+            line-height: 1.7;
+
+            max-width: 540px;
+        }
+
+        .featured .course-description {
+            color: #999993;
+            max-width: 600px;
+        }
+
+        .course-footer {
+            margin-top: auto;
+            padding-top: 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .course-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: .76rem;
+            font-weight: 700;
+
+            transition: .25s ease;
+        }
+
+        .course-link i {
+            transition: .25s ease;
+        }
+
+        .course-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .featured .course-link {
+            color: var(--accent);
+        }
+
+        .level {
+            font-family: var(--mono);
+            font-size: .58rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--muted);
+        }
+
+        .featured .level {
+            color: #777;
+        }
+
+        /* =========================================================
+           EMPTY SEARCH
+        ========================================================= */
+
+        .empty-state {
+            display: none;
+            text-align: center;
+            padding: 80px 20px;
+            border: 1px dashed var(--line);
+            border-radius: var(--radius-md);
+            color: var(--muted);
+        }
+
+        .empty-state i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* =========================================================
+           PROCESS SECTION
+        ========================================================= */
+
+        .process-section {
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-section::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            right: -200px;
+            top: -200px;
+
+            border-radius: 50%;
+            background: var(--accent);
+
+            filter: blur(140px);
+            opacity: .08;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+
+            border-top: 1px solid var(--dark-line);
+            border-bottom: 1px solid var(--dark-line);
+        }
+
+        .process-item {
+            padding: 38px 30px 45px 0;
+            border-right: 1px solid var(--dark-line);
+            margin-right: 30px;
+        }
+
+        .process-item:last-child {
+            border-right: none;
+            margin-right: 0;
+        }
+
+        .process-number {
+            font-family: var(--mono);
+            color: var(--accent);
+            font-size: .7rem;
+            margin-bottom: 55px;
+        }
+
+        .process-item h3 {
+            font-family: var(--display);
+            font-size: 1.65rem;
+            letter-spacing: -.04em;
+            margin-bottom: 12px;
+        }
+
+        .process-item p {
+            color: #85857f;
+            font-size: .85rem;
+            max-width: 280px;
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta-section {
+            padding: 120px 7vw;
+        }
+
+        .cta-box {
+            position: relative;
+            overflow: hidden;
+
+            background: var(--accent);
+            color: #000;
+
+            border-radius: var(--radius-lg);
+
+            padding: 75px;
+
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .cta-box::before {
+            content: "SYNTAX";
+            position: absolute;
+            right: -40px;
+            bottom: -90px;
+
+            font-family: var(--display);
+            font-size: 15rem;
+            font-weight: 700;
+
+            opacity: .055;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .cta-eyebrow {
+            font-family: var(--mono);
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: 15px;
+        }
+
+        .cta-title {
+            font-family: var(--display);
+            font-size: clamp(3rem, 5vw, 5.5rem);
+            line-height: .9;
+            letter-spacing: -.065em;
+            font-weight: 600;
+        }
+
+        .cta-copy {
+            margin-top: 20px;
+            max-width: 550px;
+            font-size: .95rem;
+            color: rgba(0,0,0,.65);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            margin-top: 28px;
+
+            background: #000;
+            color: white;
+
+            padding: 14px 20px;
+            border-radius: 999px;
+
+            font-size: .8rem;
+            font-weight: 700;
+
+            transition: .25s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.2);
+        }
+
+        .cta-code {
+            position: relative;
+            z-index: 2;
+
+            background: #0b0b0b;
+            color: #c5c5bf;
+
+            border-radius: 16px;
+            padding: 25px;
+
+            font-family: var(--mono);
+            font-size: .72rem;
+            line-height: 2;
+
+            box-shadow: 0 25px 60px rgba(0,0,0,.15);
+        }
+
+        .cta-code .green {
+            color: var(--accent);
+        }
+
+        .cta-code .purple {
+            color: #b58cff;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 75px 7vw 25px;
+        }
+
+        .footer-inner {
+            width: min(1200px, 100%);
+            margin: auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+
+            padding-bottom: 70px;
+        }
+
+        .footer-brand {
+            font-family: var(--display);
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .footer-brand span {
+            color: var(--accent);
+        }
+
+        .footer-description {
+            margin-top: 15px;
+            color: #777772;
+            max-width: 310px;
+            font-size: .83rem;
+            line-height: 1.7;
+        }
+
+        .footer-title {
+            font-family: var(--mono);
+            color: #777772;
+
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #c5c5c0;
+            font-size: .78rem;
+            transition: .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dark-line);
+
+            padding-top: 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: #666660;
+
+            font-family: var(--mono);
+            font-size: .58rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        /* =========================================================
+           WHATSAPP
+        ========================================================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+
+            width: 54px;
+            height: 54px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: #25d366;
+            color: white;
+
+            font-size: 1.35rem;
+
+            box-shadow: 0 15px 35px rgba(37,211,102,.3);
+
+            z-index: 900;
+
+            transition: .25s ease;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        .back-top {
+            position: fixed;
+            right: 22px;
+            bottom: 90px;
+
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border: 1px solid var(--line);
+            background: var(--surface);
+            color: var(--text);
+
+            border-radius: 50%;
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+
+            transition: .3s ease;
+
+            z-index: 900;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity .8s ease,
+                transform .8s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .terminal {
+                right: 4%;
+                transform: scale(.85) rotate(3deg);
+            }
+
+            .hero h1 {
+                max-width: 700px;
+            }
+
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .course-card.featured {
+                grid-column: span 2;
+            }
+
+            .cta-box {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1.4fr 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                height: 62px;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: calc(100% + 10px);
+                left: 0;
+                right: 0;
+
+                padding: 10px;
+
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: 20px;
+
+                box-shadow: var(--shadow);
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 13px 15px;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .menu-btn {
+                display: grid;
+            }
+
+            .terminal {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 165px;
+                padding-bottom: 90px;
+            }
+
+            .hero-bottom {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-stats {
+                max-width: 600px;
+            }
+
+            .section-head {
+                flex-direction: column;
+                align-items: start;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-item {
+                border-right: none;
+                border-bottom: 1px solid var(--dark-line);
+                margin: 0;
+                padding-right: 0;
+            }
+
+            .process-item:last-child {
+                border-bottom: none;
+            }
+
+            .cta-box {
+                padding: 50px 35px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                width: calc(100% - 20px);
+                top: 10px;
+                padding-left: 13px;
+            }
+
+            .brand {
+                font-size: .92rem;
+            }
+
+            .brand-mark {
+                width: 34px;
+                height: 34px;
+            }
+
+            .hero {
+                padding-left: 22px;
+                padding-right: 22px;
+                padding-top: 140px;
+            }
+
+            .hero h1 {
+                font-size: clamp(3.5rem, 18vw, 6rem);
+            }
+
+            .hero-description {
+                font-size: .94rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .stat {
+                border-right: none !important;
+                border-bottom: 1px solid rgba(255,255,255,.12);
+                padding-bottom: 15px;
+                margin: 0 !important;
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            .section {
+                padding: 80px 22px;
+            }
+
+            .section-title {
+                font-size: 3.3rem;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-card,
+            .course-card.featured {
+                grid-column: span 1;
+                min-height: 330px;
+            }
+
+            .course-card.featured {
+                min-height: 390px;
+            }
+
+            .course-card.featured .course-title {
+                font-size: 2.6rem;
+            }
+
+            .filters {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 5px;
+            }
+
+            .filter-btn {
+                flex-shrink: 0;
+            }
+
+            .cta-section {
+                padding: 80px 22px;
+            }
+
+            .cta-box {
+                padding: 42px 25px;
+                border-radius: 20px;
+            }
+
+            .cta-title {
+                font-size: 3.2rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 45px 25px;
+            }
+
+            .footer-brand-column {
+                grid-column: span 2;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .whatsapp {
+                right: 16px;
+                bottom: 16px;
+            }
+
+            .back-top {
+                right: 17px;
+                bottom: 82px;
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+        }
+
+    </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-<div class="container">
+    <!-- =========================================================
+         PAGE LOADER
+    ========================================================= -->
 
-<a class="navbar-brand" href="index.html">
-<img src="syntaxLogo.jpg" height="30"> Syntax Circuit
-</a>
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                SYNTAX<span>.</span>
+            </div>
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarNav">
-
-<ul class="navbar-nav ms-auto">
-
-<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-<li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
-<li class="nav-item"><a class="nav-link" href="tuitions.html">Tuitions</a></li>
-<li class="nav-item"><a class="nav-link" href="projects.html">Final Year Projects</a></li>
-<li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-
-</ul>
-
-</div>
-</div>
-</nav>
+            <div class="loader-line"></div>
+        </div>
+    </div>
 
 
-<section class="py-5">
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
 
-<div class="container">
+    <header class="navbar">
 
-<h2>Our Courses</h2>
+        <a href="index.html" class="brand">
 
-<div class="row">
+            <div class="brand-mark">
+                &lt;/&gt;
+            </div>
 
-<!-- Python -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-python"></i></div>
-<h5>Python Programming</h5>
-<p>Learn Python from basics to intermediate level levels.</p>
-<a href="syntaxPython.html" class="btn btn-light mt-3">View</a>
-</div>
-</div>
+            <span>Syntax Circuit</span>
 
-<!-- Full Stack Python -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-python"></i></div>
-<h5>Full stack python</h5>
-<p>Learn Python from intermediate level to pro-advanced level levels</p>
-<a href="syntaxPythonFullStock.html" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Web -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fa-solid fa-globe"></i></div>
-<h5>Web-Designing</h5>
-<p>Build stunning websites with HTML CSS and JavaScript.</p>
-<a href="syntaxHtml.html" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- SQL -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fas fa-database"></i></div>
-<h5>SQL Databases</h5>
-<p>Learn how to design and query databases effectively.</p>
-<a href="syntaxSql.html" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Java Full Stack -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-java"></i></div>
-<h5>Java Full Stack</h5>
-<p>Develop full-stack applications using Java.</p>
-<a href="syntaxJavaFullStock.html" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Core Java -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-java"></i></div>
-<h5>Core Java</h5>
-<p>Learn Java from Zero to Hero</p>
-<a href="syntaxCoreJava.html" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- C -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fas fa-c"></i></div>
-<h5>C</h5>
-<p>Understand C concepts and techniques.</p>
-<a href="syntaxC.html" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- C++ -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fa fa-terminal"></i></div>
-<h5>c++</h5>
-<p>Concepts of cpp and OOPs Concepts</p>
-<a href="syntaxCplus.html" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Remaining courses unchanged -->
-<!-- AWS -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-aws"></i></div>
-<h5>AWS Cloud Computing</h5>
-<p>Master AWS cloud services and solutions.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Cybersecurity -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fas fa-lock"></i></div>
-<h5>Cybersecurity</h5>
-<p>Learn how to secure systems and networks.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Linux -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-linux"></i></div>
-<h5>Linux Administration</h5>
-<p>Manage Linux systems like a pro.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Git -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-git"></i></div>
-<h5>Version Control with Git</h5>
-<p>Master Git for collaborative development.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Google Cloud -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fas fa-cloud"></i></div>
-<h5>Google Cloud</h5>
-<p>Learn Google Cloud Platform services.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Mobile -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fas fa-mobile-alt"></i></div>
-<h5>Mobile App Development</h5>
-<p>Create Android and iOS applications.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Node -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-node-js"></i></div>
-<h5>Node.js Backend</h5>
-<p>Build server-side applications with Node.js.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Docker -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fab fa-docker"></i></div>
-<h5>Docker Essentials</h5>
-<p>Learn containerization with Docker.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- Content -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fas fa-pen-nib"></i></div>
-<h5>Content Writing</h5>
-<p>Improve your professional writing skills.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-<!-- SEO -->
-<div class="col-md-4">
-<div class="card course-card">
-<div class="course-icon"><i class="fas fa-chart-line"></i></div>
-<h5>SEO & Digital Marketing</h5>
-<p>Master marketing strategies for the digital world.</p>
-<a href="#" class="btn btn-light mt-3">View</a>
-</div>
-</div>
-
-</div>
-</div>
-</section>
+        </a>
 
 
-<footer>
-<p>&copy; 2026 Syntax Circuit. All Rights Reserved.</p>
-</footer>
+        <nav class="nav-links" id="navLinks">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+            <a href="index.html">
+                Home
+            </a>
 
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+            <a href="courses.html" class="active">
+                Courses
+            </a>
+
+            <a href="tuitions.html">
+                Tuitions
+            </a>
+
+            <a href="projects.html">
+                Projects
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <a href="contact.html" class="nav-cta">
+                Start learning
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-grid"></div>
+
+            <div class="hero-orb"></div>
+
+
+            <!-- Floating Terminal -->
+
+            <div class="terminal">
+
+                <div class="terminal-top">
+
+                    <div class="terminal-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="terminal-title">
+                        learning_stack.py
+                    </div>
+
+                </div>
+
+
+                <div class="code">
+
+                    <div>
+                        <span class="purple">class</span>
+                        Developer:
+                    </div>
+
+                    <div>
+                        &nbsp;&nbsp;
+                        <span class="purple">def</span>
+                        build(self):
+                    </div>
+
+                    <div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        skills =
+                        <span class="green">"syntax"</span>
+                    </div>
+
+                    <div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        skills +=
+                        <span class="green">"practice"</span>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        &nbsp;&nbsp;
+                        <span class="purple">return</span>
+                        <span class="orange">success</span>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <span class="green">&gt;&gt;&gt;</span>
+                        build.next()
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-content">
+
+                <div class="hero-kicker">
+                    <span class="hero-kicker-dot"></span>
+                    Build your next skillset
+                </div>
+
+
+                <h1>
+
+                    Courses that turn
+                    <span class="outline">
+                        syntax
+                    </span>
+
+                    <br>
+
+                    into
+                    <span class="lime">
+                        skill.
+                    </span>
+
+                </h1>
+
+
+                <div class="hero-bottom">
+
+                    <p class="hero-description">
+
+                        Learn technology through a practical,
+                        project-first approach. From your first
+                        line of code to <strong>full-stack systems,
+                        cloud and modern development.</strong>
+
+                    </p>
+
+
+                    <div class="hero-stats">
+
+                        <div class="stat">
+
+                            <div class="stat-number">
+                                18+
+                            </div>
+
+                            <div class="stat-label">
+                                Learning tracks
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <div class="stat-number">
+                                Build
+                            </div>
+
+                            <div class="stat-label">
+                                Project-first
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <div class="stat-number">
+                                01 → ∞
+                            </div>
+
+                            <div class="stat-label">
+                                Beginner to advanced
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COURSE EXPLORER
+        ===================================================== -->
+
+        <section class="section explorer" id="courses">
+
+            <div class="section-inner">
+
+                <div class="section-head reveal">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            01 / Course library
+                        </div>
+
+                        <h2 class="section-title">
+                            Choose<br>
+                            <span>your stack.</span>
+                        </h2>
+
+                    </div>
+
+
+                    <p class="section-intro">
+
+                        Pick a technology, build practical
+                        knowledge, and move from syntax to
+                        real-world implementation.
+
+                    </p>
+
+                </div>
+
+
+                <!-- Toolbar -->
+
+                <div class="toolbar reveal">
+
+                    <div class="filters">
+
+                        <button class="filter-btn active"
+                                data-filter="all">
+                            All
+                        </button>
+
+                        <button class="filter-btn"
+                                data-filter="programming">
+                            Programming
+                        </button>
+
+                        <button class="filter-btn"
+                                data-filter="fullstack">
+                            Full Stack
+                        </button>
+
+                        <button class="filter-btn"
+                                data-filter="database">
+                            Database
+                        </button>
+
+                        <button class="filter-btn"
+                                data-filter="cloud">
+                            Cloud
+                        </button>
+
+                        <button class="filter-btn"
+                                data-filter="devops">
+                            DevOps
+                        </button>
+
+                        <button class="filter-btn"
+                                data-filter="career">
+                            Career
+                        </button>
+
+                    </div>
+
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="courseSearch"
+                            placeholder="Search courses..."
+                            aria-label="Search courses"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Course Grid -->
+
+                <div class="course-grid" id="courseGrid">
+
+
+                    <!-- 01 -->
+
+                    <article class="course-card featured reveal"
+                             data-category="programming"
+                             data-title="Python Programming">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                01 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="course-tag">
+                                Programming
+                            </span>
+
+                            <h3 class="course-title">
+                                Python Programming
+                            </h3>
+
+                            <p class="course-description">
+
+                                Learn Python from fundamentals
+                                through advanced programming concepts
+                                with a strong focus on writing clean,
+                                practical code.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Beginner → Advanced
+                            </span>
+
+                            <a href="syntaxPython.html"
+                               class="course-link">
+
+                                Explore course
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 02 -->
+
+                    <article class="course-card featured reveal"
+                             data-category="fullstack"
+                             data-title="Full Stack Python">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                02 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="course-tag">
+                                Full Stack
+                            </span>
+
+                            <h3 class="course-title">
+                                Full Stack Python
+                            </h3>
+
+                            <p class="course-description">
+
+                                Move beyond programming fundamentals
+                                and learn how modern web applications
+                                are designed, developed and connected
+                                end-to-end.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Intermediate → Advanced
+                            </span>
+
+                            <a href="syntaxPythonFullStock.html"
+                               class="course-link">
+
+                                Explore course
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 03 -->
+
+                    <article class="course-card reveal"
+                             data-category="fullstack"
+                             data-title="Web Designing">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                03 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-html5"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Web
+                            </span>
+
+                            <h3 class="course-title">
+                                Web Designing
+                            </h3>
+
+                            <p class="course-description">
+
+                                Learn how modern websites are structured,
+                                styled and brought to life using the core
+                                technologies of the web.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Beginner → Advanced
+                            </span>
+
+                            <a href="syntaxHtml.html"
+                               class="course-link">
+
+                                Explore
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 04 -->
+
+                    <article class="course-card reveal"
+                             data-category="database"
+                             data-title="SQL Databases">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                04 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Database
+                            </span>
+
+                            <h3 class="course-title">
+                                SQL Databases
+                            </h3>
+
+                            <p class="course-description">
+
+                                Understand relational databases,
+                                SQL queries, data manipulation,
+                                relationships and practical database work.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Beginner → Advanced
+                            </span>
+
+                            <a href="syntaxSql.html"
+                               class="course-link">
+
+                                Explore
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 05 -->
+
+                    <article class="course-card reveal"
+                             data-category="fullstack"
+                             data-title="Java Full Stack">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                05 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-java"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Full Stack
+                            </span>
+
+                            <h3 class="course-title">
+                                Java Full Stack
+                            </h3>
+
+                            <p class="course-description">
+
+                                Build a strong Java foundation and
+                                progress towards complete full-stack
+                                application development.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Beginner → Advanced
+                            </span>
+
+                            <a href="syntaxJavaFullStock.html"
+                               class="course-link">
+
+                                Explore
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 06 -->
+
+                    <article class="course-card reveal"
+                             data-category="programming"
+                             data-title="Core Java">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                06 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-java"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Programming
+                            </span>
+
+                            <h3 class="course-title">
+                                Core Java
+                            </h3>
+
+                            <p class="course-description">
+
+                                Build a strong understanding of Java
+                                fundamentals, object-oriented programming
+                                and core development concepts.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Beginner → Advanced
+                            </span>
+
+                            <a href="syntaxCoreJava.html"
+                               class="course-link">
+
+                                Explore
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 07 -->
+
+                    <article class="course-card reveal"
+                             data-category="programming"
+                             data-title="C Programming">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                07 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-solid fa-c"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Programming
+                            </span>
+
+                            <h3 class="course-title">
+                                C Programming
+                            </h3>
+
+                            <p class="course-description">
+
+                                Learn the fundamentals of C programming,
+                                logic building, functions, arrays,
+                                pointers and structured programming.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Beginner → Advanced
+                            </span>
+
+                            <a href="syntaxC.html"
+                               class="course-link">
+
+                                Explore
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 08 -->
+
+                    <article class="course-card reveal"
+                             data-category="programming"
+                             data-title="C++">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                08 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Programming
+                            </span>
+
+                            <h3 class="course-title">
+                                C++
+                            </h3>
+
+                            <p class="course-description">
+
+                                Explore C++ programming, object-oriented
+                                concepts, reusable code structures and
+                                practical problem solving.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Beginner → Advanced
+                            </span>
+
+                            <a href="syntaxCplus.html"
+                               class="course-link">
+
+                                Explore
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 09 -->
+
+                    <article class="course-card reveal"
+                             data-category="cloud"
+                             data-title="AWS Cloud Computing">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                09 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-aws"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Cloud
+                            </span>
+
+                            <h3 class="course-title">
+                                AWS Cloud Computing
+                            </h3>
+
+                            <p class="course-description">
+
+                                Understand cloud computing concepts
+                                and the foundations of working with
+                                AWS services and infrastructure.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Foundation
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 10 -->
+
+                    <article class="course-card reveal"
+                             data-category="career"
+                             data-title="Cybersecurity">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                10 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Security
+                            </span>
+
+                            <h3 class="course-title">
+                                Cybersecurity
+                            </h3>
+
+                            <p class="course-description">
+
+                                Develop foundational knowledge of
+                                cybersecurity concepts, threats,
+                                protection and secure systems.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Foundation
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 11 -->
+
+                    <article class="course-card reveal"
+                             data-category="devops"
+                             data-title="Linux Administration">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                11 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-linux"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Systems
+                            </span>
+
+                            <h3 class="course-title">
+                                Linux Administration
+                            </h3>
+
+                            <p class="course-description">
+
+                                Learn Linux fundamentals, command-line
+                                usage, system concepts and administration
+                                essentials.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Foundation
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 12 -->
+
+                    <article class="course-card reveal"
+                             data-category="devops"
+                             data-title="Version Control with Git">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                12 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-git-alt"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Developer Tools
+                            </span>
+
+                            <h3 class="course-title">
+                                Version Control with Git
+                            </h3>
+
+                            <p class="course-description">
+
+                                Learn Git fundamentals, repositories,
+                                branching, commits, collaboration and
+                                practical version-control workflows.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Beginner
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 13 -->
+
+                    <article class="course-card reveal"
+                             data-category="cloud"
+                             data-title="Google Cloud">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                13 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-google"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Cloud
+                            </span>
+
+                            <h3 class="course-title">
+                                Google Cloud
+                            </h3>
+
+                            <p class="course-description">
+
+                                Explore Google Cloud concepts,
+                                services, infrastructure and the
+                                fundamentals of cloud deployment.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Foundation
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 14 -->
+
+                    <article class="course-card reveal"
+                             data-category="fullstack"
+                             data-title="Mobile App Development">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                14 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Development
+                            </span>
+
+                            <h3 class="course-title">
+                                Mobile App Development
+                            </h3>
+
+                            <p class="course-description">
+
+                                Understand the foundations of mobile
+                                application development and modern
+                                app-building workflows.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Foundation
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 15 -->
+
+                    <article class="course-card reveal"
+                             data-category="fullstack"
+                             data-title="Node.js Backend">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                15 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-node-js"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Backend
+                            </span>
+
+                            <h3 class="course-title">
+                                Node.js Backend
+                            </h3>
+
+                            <p class="course-description">
+
+                                Learn backend development with Node.js
+                                and understand how server-side applications
+                                power modern web experiences.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Intermediate
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 16 -->
+
+                    <article class="course-card reveal"
+                             data-category="devops"
+                             data-title="Docker Essentials">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                16 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-brands fa-docker"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                DevOps
+                            </span>
+
+                            <h3 class="course-title">
+                                Docker Essentials
+                            </h3>
+
+                            <p class="course-description">
+
+                                Understand containers, Docker images,
+                                containerized applications and the
+                                fundamentals of modern deployment.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Foundation
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 17 -->
+
+                    <article class="course-card reveal"
+                             data-category="career"
+                             data-title="Content Writing">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                17 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Career
+                            </span>
+
+                            <h3 class="course-title">
+                                Content Writing
+                            </h3>
+
+                            <p class="course-description">
+
+                                Develop practical writing skills for
+                                creating clear, engaging and useful
+                                digital content.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Foundation
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 18 -->
+
+                    <article class="course-card reveal"
+                             data-category="career"
+                             data-title="SEO Digital Marketing">
+
+                        <div class="card-top">
+
+                            <span class="course-number">
+                                18 / 18
+                            </span>
+
+                            <div class="course-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <span class="course-tag">
+                                Digital
+                            </span>
+
+                            <h3 class="course-title">
+                                SEO & Digital Marketing
+                            </h3>
+
+                            <p class="course-description">
+
+                                Understand search visibility, digital
+                                marketing fundamentals and practical
+                                strategies for growing online presence.
+
+                            </p>
+
+                        </div>
+
+                        <div class="course-footer">
+
+                            <span class="level">
+                                Foundation
+                            </span>
+
+                            <a href="#"
+                               class="course-link">
+
+                                Coming soon
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <div class="empty-state" id="emptyState">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <h3>
+                        No courses found
+                    </h3>
+
+                    <p>
+                        Try another search term or category.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LEARNING PROCESS
+        ===================================================== -->
+
+        <section class="section process-section">
+
+            <div class="section-inner">
+
+                <div class="section-head reveal">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            02 / Learning philosophy
+                        </div>
+
+                        <h2 class="section-title">
+                            Learn by<br>
+                            <span>building.</span>
+                        </h2>
+
+                    </div>
+
+                    <p class="section-intro">
+                        Technology becomes easier when concepts
+                        are connected to actual problems and
+                        practical implementation.
+                    </p>
+
+                </div>
+
+
+                <div class="process-grid">
+
+                    <div class="process-item reveal">
+
+                        <div class="process-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Understand
+                        </h3>
+
+                        <p>
+                            Build the conceptual foundation before
+                            jumping into implementation.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item reveal">
+
+                        <div class="process-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Practice
+                        </h3>
+
+                        <p>
+                            Convert concepts into working code,
+                            exercises and practical workflows.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item reveal">
+
+                        <div class="process-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Build
+                        </h3>
+
+                        <p>
+                            Apply your knowledge to projects that
+                            resemble real development work.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CTA
+        ===================================================== -->
+
+        <section class="cta-section">
+
+            <div class="section-inner">
+
+                <div class="cta-box reveal">
+
+                    <div>
+
+                        <div class="cta-eyebrow">
+                            Ready to build?
+                        </div>
+
+                        <h2 class="cta-title">
+                            Your next<br>
+                            skill starts here.
+                        </h2>
+
+                        <p class="cta-copy">
+
+                            Choose a course, start learning and
+                            turn your knowledge into something you
+                            can actually build.
+
+                        </p>
+
+                        <a href="contact.html" class="cta-button">
+
+                            Get started
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="cta-code">
+
+                        <div>
+                            <span class="purple">const</span>
+                            learner =
+                            <span class="green">"you"</span>;
+                        </div>
+
+                        <div>
+                            <span class="purple">const</span>
+                            goal =
+                            <span class="green">"build"</span>;
+                        </div>
+
+                        <br>
+
+                        <div>
+                            learner.<span class="green">learn</span>();
+                        </div>
+
+                        <div>
+                            learner.<span class="green">practice</span>();
+                        </div>
+
+                        <div>
+                            learner.<span class="green">build</span>();
+                        </div>
+
+                        <br>
+
+                        <div>
+                            <span class="purple">return</span>
+                            <span class="green">"next level"</span>;
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-top">
+
+
+                <div class="footer-brand-column">
+
+                    <div class="footer-brand">
+                        Syntax<span>Circuit</span>
+                    </div>
+
+                    <p class="footer-description">
+
+                        A practical technology learning platform
+                        focused on programming, development,
+                        projects and real-world skills.
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Explore
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                        <a href="courses.html">
+                            Courses
+                        </a>
+
+                        <a href="tuitions.html">
+                            Tuitions
+                        </a>
+
+                        <a href="projects.html">
+                            Projects
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Company
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a href="about.html">
+                            About
+                        </a>
+
+                        <a href="contact.html">
+                            Contact
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Learning
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a href="syntaxPython.html">
+                            Python
+                        </a>
+
+                        <a href="syntaxJavaFullStock.html">
+                            Java Full Stack
+                        </a>
+
+                        <a href="syntaxHtml.html">
+                            Web Design
+                        </a>
+
+                        <a href="syntaxSql.html">
+                            SQL
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © <span id="year"></span> Syntax Circuit
+                </span>
+
+                <span>
+                    Learn · Build · Ship
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         FLOATING ACTIONS
+    ========================================================= -->
+
+    <a href="https://wa.me/916302204738"
+       class="whatsapp"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+    <button class="back-top"
+            id="backTop"
+            aria-label="Back to top">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+
+    <!-- =========================================================
+         INTERNAL JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =====================================================
+           PAGE LOADER
+        ===================================================== */
+
+        window.addEventListener("load", function () {
+
+            const loader = document.getElementById("pageLoader");
+
+            setTimeout(() => {
+                loader.classList.add("hide");
+            }, 350);
+
+        });
+
+
+        /* =====================================================
+           MOBILE NAVIGATION
+        ===================================================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("open");
+
+            const icon = menuBtn.querySelector("i");
+
+            if (navLinks.classList.contains("open")) {
+
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            }
+
+        });
+
+
+        /* Close mobile navigation after clicking link */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("open");
+
+                const icon = menuBtn.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            });
+
+        });
+
+
+        /* =====================================================
+           DARK MODE
+        ===================================================== */
+
+        const themeToggle = document.getElementById("themeToggle");
+
+        function updateThemeIcon() {
+
+            const icon = themeToggle.querySelector("i");
+
+            if (document.body.classList.contains("dark-mode")) {
+
+                icon.classList.remove("fa-moon");
+                icon.classList.add("fa-sun");
+
+            } else {
+
+                icon.classList.remove("fa-sun");
+                icon.classList.add("fa-moon");
+
+            }
+
+        }
+
+
+        const savedTheme = localStorage.getItem("syntax-theme");
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add("dark-mode");
+
+        }
+
+        updateThemeIcon();
+
+
+        themeToggle.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark-mode");
+
+            const theme =
+                document.body.classList.contains("dark-mode")
+                    ? "dark"
+                    : "light";
+
+            localStorage.setItem("syntax-theme", theme);
+
+            updateThemeIcon();
+
+        });
+
+
+        /* =====================================================
+           COURSE FILTER + SEARCH
+        ===================================================== */
+
+        const filterButtons =
+            document.querySelectorAll(".filter-btn");
+
+        const courseCards =
+            document.querySelectorAll(".course-card");
+
+        const searchInput =
+            document.getElementById("courseSearch");
+
+        const emptyState =
+            document.getElementById("emptyState");
+
+
+        let currentFilter = "all";
+
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                filterButtons.forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+                this.classList.add("active");
+
+                currentFilter =
+                    this.dataset.filter;
+
+                filterCourses();
+
+            });
+
+        });
+
+
+        searchInput.addEventListener("input", filterCourses);
+
+
+        function filterCourses() {
+
+            const query =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+            let visibleCount = 0;
+
+
+            courseCards.forEach(card => {
+
+                const category =
+                    card.dataset.category.toLowerCase();
+
+                const title =
+                    card.dataset.title.toLowerCase();
+
+                const description =
+                    card.querySelector(".course-description")
+                        ?.textContent
+                        .toLowerCase() || "";
+
+
+                const matchesFilter =
+                    currentFilter === "all" ||
+                    category === currentFilter;
+
+
+                const matchesSearch =
+                    !query ||
+                    title.includes(query) ||
+                    description.includes(query) ||
+                    category.includes(query);
+
+
+                if (matchesFilter && matchesSearch) {
+
+                    card.style.display = "flex";
+
+                    requestAnimationFrame(() => {
+                        card.style.opacity = "1";
+                    });
+
+                    visibleCount++;
+
+                } else {
+
+                    card.style.opacity = "0";
+
+                    setTimeout(() => {
+
+                        if (card.style.opacity === "0") {
+                            card.style.display = "none";
+                        }
+
+                    }, 180);
+
+                }
+
+            });
+
+
+            emptyState.style.display =
+                visibleCount === 0
+                    ? "block"
+                    : "none";
+
+        }
+
+
+        /* =====================================================
+           SEARCH KEYBOARD SHORTCUT
+        ===================================================== */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (
+                event.key === "/" &&
+                document.activeElement.tagName !== "INPUT"
+            ) {
+
+                event.preventDefault();
+
+                searchInput.focus();
+
+            }
+
+            if (
+                event.key === "Escape" &&
+                document.activeElement === searchInput
+            ) {
+
+                searchInput.value = "";
+
+                searchInput.blur();
+
+                filterCourses();
+
+            }
+
+        });
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        const backTop =
+            document.getElementById("backTop");
+
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 600) {
+
+                backTop.classList.add("show");
+
+            } else {
+
+                backTop.classList.remove("show");
+
+            }
+
+        });
+
+
+        backTop.addEventListener("click", function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* =====================================================
+           COURSE CARD TILT
+        ===================================================== */
+
+        const tiltCards =
+            document.querySelectorAll(
+                ".course-card:not(.featured)"
+            );
+
+
+        if (window.matchMedia("(pointer:fine)").matches) {
+
+            tiltCards.forEach(card => {
+
+                card.addEventListener(
+                    "mousemove",
+                    function (event) {
+
+                        const rect =
+                            card.getBoundingClientRect();
+
+                        const x =
+                            event.clientX - rect.left;
+
+                        const y =
+                            event.clientY - rect.top;
+
+
+                        const centerX =
+                            rect.width / 2;
+
+                        const centerY =
+                            rect.height / 2;
+
+
+                        const rotateX =
+                            ((y - centerY) / centerY) * -2;
+
+                        const rotateY =
+                            ((x - centerX) / centerX) * 2;
+
+
+                        card.style.transform =
+                            `perspective(900px)
+                             rotateX(${rotateX}deg)
+                             rotateY(${rotateY}deg)
+                             translateY(-7px)`;
+
+                    }
+                );
+
+
+                card.addEventListener(
+                    "mouseleave",
+                    function () {
+
+                        card.style.transform = "";
+
+                    }
+                );
+
+            });
+
+        }
+
+
+        /* =====================================================
+           CURRENT YEAR
+        ===================================================== */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* =====================================================
+           SMOOTH ANCHOR SCROLL
+        ===================================================== */
+
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+            link.addEventListener("click", function (event) {
+
+                const targetId =
+                    this.getAttribute("href");
+
+                if (
+                    targetId &&
+                    targetId !== "#"
+                ) {
+
+                    const target =
+                        document.querySelector(targetId);
+
+                    if (target) {
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    </script>
+
 </body>
 </html>
