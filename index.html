@@ -8,113 +8,143 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Syntax Circuit — Learn. Build. Grow.</title>
+    <title>Syntax Circuit — CS Learning Platform</title>
 
     <meta
         name="description"
-        content="Syntax Circuit offers industry-focused courses, expert mentorship, hands-on projects, programming training and career-focused learning for computer science students."
+        content="Syntax Circuit offers industry-focused courses, expert mentorship, and hands-on project guidance for computer science students."
     >
 
     <meta
         name="keywords"
-        content="Syntax Circuit, Java Full Stack, Python Full Stack, Data Science, AI ML, Web Development, B.Tech, MCA, programming courses, final year projects"
+        content="CS learning, programming courses, Java, Python, Data Science, AI/ML, B.Tech tuitions, final year projects, skill development"
     >
 
-    <meta name="author" content="Syntax Circuit">
+    <meta
+        name="author"
+        content="Syntax Circuit"
+    >
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Syntax Circuit — Learn. Build. Grow.">
+    <meta
+        property="og:title"
+        content="Syntax Circuit — CS Learning Platform"
+    >
+
     <meta
         property="og:description"
-        content="Industry-focused learning, real projects and expert mentorship for the next generation of developers."
+        content="Industry-focused courses, expert mentorship, and hands-on project guidance for CS students."
     >
-    <meta property="og:type" content="website">
 
-    <!-- Favicon -->
-    <link rel="icon" href="syntaxLogo.jpg">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+        property="og:type"
+        content="website"
+    >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="icon"
+        href="syntaxLogo.jpg"
+    >
+
+    <!-- Fonts -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Icons -->
+    <!-- Font Awesome -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     >
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
 
-    <!-- =========================================================
-         PAGE LOADER
-    ========================================================== -->
+    <!-- =====================================================
+         PRELOADER
+         ===================================================== -->
 
-    <div class="page-loader" id="pageLoader">
+    <div
+        class="page-loader"
+        id="preloader"
+        aria-hidden="true"
+    >
 
         <div class="loader-inner">
 
-            <div class="loader-mark">
-                <span>&lt;</span>
-                <span>/</span>
-                <span>&gt;</span>
-            </div>
+            <img
+                src="syntaxLogo.jpg"
+                class="loader-mark"
+                alt="Syntax Circuit"
+            >
 
             <div class="loader-brand">
-                SYNTAX<span>CIRCUIT</span>
+                SYNTAX CIRCUIT
             </div>
 
             <div class="loader-line">
                 <span></span>
             </div>
 
-            <p>INITIALIZING LEARNING ENVIRONMENT...</p>
-
         </div>
 
     </div>
 
 
-    <!-- =========================================================
+    <!-- =====================================================
          CUSTOM CURSOR
-    ========================================================== -->
+         ===================================================== -->
 
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-outline" id="cursorOutline"></div>
+    <div
+        class="cursor-dot"
+        id="cursor"
+    ></div>
+
+    <div
+        class="cursor-outline"
+        id="cursorRing"
+    ></div>
 
 
-    <!-- =========================================================
+    <!-- =====================================================
          HEADER / NAVIGATION
-    ========================================================== -->
+         ===================================================== -->
 
-    <header class="site-header" id="siteHeader">
+    <header class="site-header">
 
         <nav class="navbar">
 
             <div class="nav-container">
 
-                <!-- Logo -->
+                <a
+                    href="index.html"
+                    class="brand"
+                >
 
-                <a href="index.html" class="brand">
+                    <span class="brand-symbol">
+                        &lt;/&gt;
+                    </span>
 
-                    <div class="brand-symbol">
-                        <span>&lt;</span>
-                        <span>/</span>
-                        <span>&gt;</span>
-                    </div>
-
-                    <div class="brand-name">
-                        <strong>SYNTAX</strong>
-                        <span>CIRCUIT</span>
-                    </div>
+                    <span class="brand-name">
+                        SYNTAX<span>CIRCUIT</span>
+                    </span>
 
                 </a>
 
@@ -123,72 +153,100 @@
 
                 <div class="desktop-nav">
 
-                    <a href="courses.html" class="nav-link">
-                        <span>01</span>
+                    <a
+                        href="courses.html"
+                        class="nav-link"
+                    >
                         Courses
                     </a>
 
-                    <a href="tuitions.html" class="nav-link">
-                        <span>02</span>
+                    <a
+                        href="tuitions.html"
+                        class="nav-link"
+                    >
                         Tuitions
                     </a>
 
-                    <a href="projects.html" class="nav-link">
-                        <span>03</span>
+                    <a
+                        href="projects.html"
+                        class="nav-link"
+                    >
                         Projects
                     </a>
 
-                    <a href="notes.html" class="nav-link">
-                        <span>04</span>
+                    <a
+                        href="notes.html"
+                        class="nav-link"
+                    >
                         Notes
                     </a>
 
-                    <a href="netdec" class="nav-link">
-                        <span>05</span>
-                        UGC-NET
+                    <a
+                        href="netdec"
+                        class="nav-link"
+                    >
+                        UGC-NET(CS)
                     </a>
 
-                    <a href="syllabus.html" class="nav-link">
-                        <span>06</span>
+                    <a
+                        href="syllabus.html"
+                        class="nav-link"
+                    >
                         Syllabus
                     </a>
 
-                    <a href="about.html" class="nav-link">
-                        <span>07</span>
+                    <a
+                        href="about.html"
+                        class="nav-link"
+                    >
                         About
+                    </a>
+
+                    <a
+                        href="contact.html"
+                        class="nav-link"
+                    >
+                        Contact
+                    </a>
+
+                    <a
+                        href="verify.html"
+                        class="nav-link"
+                    >
+                        Verify
                     </a>
 
                 </div>
 
 
-                <!-- Right navigation -->
+                <!-- Actions -->
 
                 <div class="nav-actions">
 
-                    <a href="verify.html" class="verify-link">
-                        <i class="fa-solid fa-shield-check"></i>
-                        Verify
-                    </a>
-
-                    <a href="contact.html" class="nav-contact">
-                        Contact
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-
                     <button
                         class="theme-toggle"
-                        id="themeToggle"
+                        id="darkModeToggle"
                         type="button"
-                        aria-label="Toggle theme"
+                        aria-label="Toggle dark mode"
                     >
-                        <i class="fa-solid fa-moon"></i>
+                        <i
+                            class="fa-solid fa-moon"
+                            id="darkModeIcon"
+                        ></i>
                     </button>
+
+                    <a
+                        href="courses.html"
+                        class="nav-cta"
+                    >
+                        Start Learning
+                    </a>
 
                     <button
                         class="menu-toggle"
-                        id="menuToggle"
                         type="button"
                         aria-label="Open navigation"
+                        aria-expanded="false"
                     >
                         <span></span>
                         <span></span>
@@ -203,78 +261,57 @@
 
         <!-- Mobile Navigation -->
 
-        <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu">
 
             <div class="mobile-menu-inner">
 
-                <div class="mobile-menu-top">
-                    <span>NAVIGATION</span>
-                    <span>MENU_01</span>
-                </div>
+                <a href="index.html">
+                    Home
+                </a>
 
-                <div class="mobile-links">
+                <a href="courses.html">
+                    Courses
+                </a>
 
-                    <a href="courses.html">
-                        <span>01</span>
-                        Courses
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                <a href="tuitions.html">
+                    Tuitions
+                </a>
 
-                    <a href="tuitions.html">
-                        <span>02</span>
-                        Tuitions
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                <a href="projects.html">
+                    Projects
+                </a>
 
-                    <a href="projects.html">
-                        <span>03</span>
-                        Projects
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                <a href="notes.html">
+                    Notes
+                </a>
 
-                    <a href="notes.html">
-                        <span>04</span>
-                        Notes
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                <a href="netdec">
+                    UGC-NET(CS)
+                </a>
 
-                    <a href="netdec">
-                        <span>05</span>
-                        UGC-NET
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                <a href="syllabus.html">
+                    Syllabus
+                </a>
 
-                    <a href="syllabus.html">
-                        <span>06</span>
-                        Syllabus
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                <a href="about.html">
+                    About
+                </a>
 
-                    <a href="about.html">
-                        <span>07</span>
-                        About
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                <a href="contact.html">
+                    Contact
+                </a>
 
-                    <a href="contact.html">
-                        <span>08</span>
-                        Contact
-                        <i class="fa-solid fa-arrow-up-right"></i>
-                    </a>
+                <a href="verify.html">
+                    Verify
+                </a>
 
-                </div>
-
-                <div class="mobile-menu-footer">
-
-                    <a href="mailto:info@syntaxcircuit.in">
-                        info@syntaxcircuit.in
-                    </a>
-
-                    <a href="https://wa.me/916302204738">
-                        +91 63022 04738
-                    </a>
-
-                </div>
+                <a
+                    href="courses.html"
+                    class="mobile-menu-cta"
+                >
+                    Start Learning
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
 
             </div>
 
@@ -283,29 +320,30 @@
     </header>
 
 
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
-
     <main>
 
-        <section class="hero" id="home">
 
-            <!-- Background -->
+        <!-- =================================================
+             HERO
+             ================================================= -->
 
-            <div class="hero-noise"></div>
+        <header
+            class="hero"
+            id="home"
+        >
 
             <div class="hero-grid"></div>
 
-            <div class="hero-glow hero-glow-one"></div>
-            <div class="hero-glow hero-glow-two"></div>
+            <div class="hero-glow"></div>
+
+            <div class="hero-blob blob1"></div>
+            <div class="hero-blob blob2"></div>
+            <div class="hero-blob blob3"></div>
 
 
             <div class="hero-container">
 
-                <!-- Left content -->
-
-                <div class="hero-content">
+                <div class="hero-content reveal">
 
                     <div class="hero-status">
 
@@ -315,46 +353,48 @@
                             NOW ENROLLING
                         </span>
 
-                        <strong>
+                        <span class="status-year">
                             BATCH 2026
-                        </strong>
+                        </span>
 
                     </div>
 
 
                     <div class="hero-index">
-                        <span>01</span>
-                        <span>LEARNING / PLATFORM</span>
+                        01 / 07
                     </div>
 
 
                     <h1 class="hero-title">
 
-                        <span class="hero-line">
-                            Learn.
-                        </span>
+                        Learn.
+                        <br>
+
+                        Build.
+
+                        <br>
 
                         <span class="hero-line">
-                            <em>Build.</em>
+                            <span class="hero-title-outline">
+                                Grow.
+                            </span>
                         </span>
 
-                        <span class="hero-line">
-                            Grow.
+                        <br>
+
+                        <span class="hero-title-small">
+                            Become Industry Ready.
                         </span>
 
                     </h1>
 
 
-                    <div class="hero-title-outline">
-                        BECOME INDUSTRY READY.
-                    </div>
-
-
                     <p class="hero-description">
 
-                        Industry-focused courses, expert mentorship,
-                        hands-on projects and practical coding —
-                        designed to turn learners into confident builders.
+                        Industry-focused courses,
+                        expert mentorship, and
+                        hands-on project guidance —
+                        crafted for the modern developer.
 
                     </p>
 
@@ -365,63 +405,76 @@
                             href="courses.html"
                             class="button button-primary"
                         >
-                            <span>Explore Courses</span>
-
+                            Explore Courses
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
 
                         <a
-                            href="#about"
+                            href="contact.html"
                             class="button button-ghost"
                         >
-                            <span>Our Approach</span>
-
-                            <i class="fa-solid fa-arrow-down"></i>
+                            Talk to us
                         </a>
 
                     </div>
 
 
-                    <!-- Hero metrics -->
+                    <!-- HERO STATISTICS -->
 
                     <div class="hero-metrics">
 
                         <div class="metric">
 
-                            <strong data-count="500" data-suffix="+">
-                                0
+                            <strong>
+                                <span
+                                    class="counter"
+                                    data-target="500"
+                                    data-suffix="+"
+                                >
+                                    500+
+                                </span>
                             </strong>
 
                             <span>
-                                STUDENTS
+                                Students Trained
                             </span>
 
                         </div>
 
-                        <div class="metric-divider"></div>
 
                         <div class="metric">
 
-                            <strong data-count="15" data-suffix="+">
-                                0
+                            <strong>
+                                <span
+                                    class="counter"
+                                    data-target="15"
+                                    data-suffix="+"
+                                >
+                                    15+
+                                </span>
                             </strong>
 
                             <span>
-                                COURSES
+                                Industry Courses
                             </span>
 
                         </div>
 
-                        <div class="metric-divider"></div>
 
                         <div class="metric">
 
-                            <strong data-count="100" data-suffix="+">
-                                0
+                            <strong>
+                                <span
+                                    class="counter"
+                                    data-target="100"
+                                    data-suffix="+"
+                                >
+                                    100+
+                                </span>
                             </strong>
 
                             <span>
-                                PROJECTS
+                                Projects Completed
                             </span>
 
                         </div>
@@ -431,32 +484,24 @@
                 </div>
 
 
-                <!-- Right visual -->
+                <!-- HERO CODE VISUAL -->
 
-                <div class="hero-visual">
-
-                    <div class="visual-label visual-label-top">
-                        <span>LIVE ENVIRONMENT</span>
-                        <i class="fa-solid fa-circle"></i>
-                    </div>
-
+                <div class="hero-visual reveal">
 
                     <div class="terminal-window">
 
                         <div class="terminal-header">
 
-                            <div class="terminal-dots">
+                            <div class="terminal-controls">
+
                                 <span></span>
                                 <span></span>
                                 <span></span>
+
                             </div>
 
-                            <span class="terminal-file">
-                                syntax_circuit.py
-                            </span>
-
-                            <span class="terminal-status">
-                                ● RUNNING
+                            <span class="terminal-title">
+                                SyntaxCircuit.py
                             </span>
 
                         </div>
@@ -465,131 +510,267 @@
                         <div class="terminal-body">
 
                             <div class="code-line">
-                                <span class="line-number">01</span>
-                                <span class="comment">
-                                    # your journey starts here
+                                <span class="line-number">
+                                    01
                                 </span>
-                            </div>
 
-                            <div class="code-line">
-                                <span class="line-number">02</span>
                                 <span>
-                                    <b class="purple">class</b>
-                                    <b class="cyan">Developer</b>:
+                                    <span class="code-purple">
+                                        #
+                                    </span>
+
+                                    <span class="code-comment">
+                                        Your journey starts here 🚀
+                                    </span>
                                 </span>
                             </div>
 
+
                             <div class="code-line">
-                                <span class="line-number">03</span>
+
+                                <span class="line-number">
+                                    02
+                                </span>
+
+                                <span>
+                                    <span class="code-purple">
+                                        class
+                                    </span>
+
+                                    <span class="code-blue">
+                                        Developer
+                                    </span>:
+                                </span>
+
+                            </div>
+
+
+                            <div class="code-line">
+
+                                <span class="line-number">
+                                    03
+                                </span>
+
                                 <span class="indent">
-                                    <b class="purple">def</b>
-                                    <b class="cyan">__init__</b>(self):
+                                    <span class="code-purple">
+                                        def
+                                    </span>
+
+                                    <span class="code-blue">
+                                        __init__
+                                    </span>
+                                    (self):
                                 </span>
+
                             </div>
 
+
                             <div class="code-line">
-                                <span class="line-number">04</span>
+
+                                <span class="line-number">
+                                    04
+                                </span>
+
                                 <span class="indent-double">
-                                    self.skills =
-                                    [
-                                    <b class="yellow">"Python"</b>,
-                                    <b class="yellow">"Java"</b>
+
+                                    self.skills = [
+
+                                    <span class="code-string">
+                                        "Python"
+                                    </span>,
+
+                                    <span class="code-string">
+                                        "Java"
+                                    </span>
+
                                     ]
+
                                 </span>
+
                             </div>
 
+
                             <div class="code-line">
-                                <span class="line-number">05</span>
+
+                                <span class="line-number">
+                                    05
+                                </span>
+
                                 <span class="indent-double">
+
                                     self.level =
-                                    <b class="yellow">"Beginner"</b>
+
+                                    <span class="code-string">
+                                        "Beginner"
+                                    </span>
+
                                 </span>
+
                             </div>
 
+
                             <div class="code-line">
-                                <span class="line-number">06</span>
+
+                                <span class="line-number">
+                                    06
+                                </span>
+
                                 <span class="indent-double">
-                                    self.projects =
-                                    <b class="orange">100</b>
+
+                                    self.enrolled =
+
+                                    <span class="code-purple">
+                                        True
+                                    </span>
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="code-line">
+                                <span class="line-number">
+                                    07
                                 </span>
                             </div>
 
-                            <div class="code-line empty">
-                                <span class="line-number">07</span>
-                            </div>
 
                             <div class="code-line">
-                                <span class="line-number">08</span>
+
+                                <span class="line-number">
+                                    08
+                                </span>
+
                                 <span class="indent">
-                                    <b class="purple">def</b>
-                                    <b class="cyan">learn</b>(self):
+
+                                    <span class="code-purple">
+                                        def
+                                    </span>
+
+                                    <span class="code-blue">
+                                        learn
+                                    </span>
+                                    (self, topic):
+
                                 </span>
+
                             </div>
 
+
                             <div class="code-line">
-                                <span class="line-number">09</span>
+
+                                <span class="line-number">
+                                    09
+                                </span>
+
                                 <span class="indent-double">
+
+                                    <span class="code-comment">
+                                        # Syntax Circuit magic ✨
+                                    </span>
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="code-line">
+
+                                <span class="line-number">
+                                    10
+                                </span>
+
+                                <span class="indent-double">
+
                                     self.level =
-                                    <b class="yellow">
+
+                                    <span class="code-string">
                                         "Industry Ready"
-                                    </b>
+                                    </span>
+
                                 </span>
+
                             </div>
 
+
                             <div class="code-line">
-                                <span class="line-number">10</span>
+
+                                <span class="line-number">
+                                    11
+                                </span>
+
                                 <span class="indent-double">
-                                    <b class="purple">return</b>
-                                    <b class="yellow">
-                                        "Career unlocked."
-                                    </b>
+
+                                    <span class="code-purple">
+                                        return
+                                    </span>
+
+                                    <span class="code-string">
+                                        "🎓 Career unlocked!"
+                                    </span>
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="code-line">
+                                <span class="line-number">
+                                    12
                                 </span>
                             </div>
 
-                            <div class="code-line empty">
-                                <span class="line-number">11</span>
-                            </div>
 
                             <div class="code-line">
-                                <span class="line-number">12</span>
+
+                                <span class="line-number">
+                                    13
+                                </span>
+
                                 <span>
                                     me =
-                                    <b class="cyan">
+                                    <span class="code-blue">
                                         Developer
-                                    </b>()
+                                    </span>()
                                 </span>
+
                             </div>
+
 
                             <div class="code-line">
-                                <span class="line-number">13</span>
-                                <span>
-                                    me.<b class="cyan">learn</b>()
-                                    <span class="typing-cursor"></span>
+
+                                <span class="line-number">
+                                    14
                                 </span>
+
+                                <span>
+
+                                    me.
+                                    <span class="code-blue">
+                                        learn
+                                    </span>(
+                                    <span class="code-string">
+                                        "Data Science"
+                                    </span>
+                                    )
+
+                                    <span class="typing-cursor">
+                                        _
+                                    </span>
+
+                                </span>
+
                             </div>
 
-                        </div>
 
+                            <div class="terminal-output">
 
-                        <div class="terminal-output">
+                                <span>
+                                    &gt;
+                                </span>
 
-                            <div class="output-heading">
-                                TERMINAL OUTPUT
-                            </div>
+                                BUILD SUCCESSFUL
 
-                            <div class="output-text">
-                                <span class="green">✓</span>
-                                Environment initialized
-                            </div>
-
-                            <div class="output-text">
-                                <span class="green">✓</span>
-                                Skills loaded
-                            </div>
-
-                            <div class="output-text">
-                                <span class="green">✓</span>
-                                Career mode activated
                             </div>
 
                         </div>
@@ -597,41 +778,30 @@
                     </div>
 
 
-                    <!-- Floating cards -->
+                    <!-- FLOATING BADGES -->
 
                     <div class="floating-card floating-card-one">
 
-                        <div class="floating-icon">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
+                        <span class="floating-icon">
+                            ⚡
+                        </span>
 
-                        <div>
-                            <span>LEARNING TRACK</span>
-                            <strong>Java Full Stack</strong>
-                        </div>
+                        <span>
+                            Java Full Stack
+                        </span>
 
                     </div>
 
 
                     <div class="floating-card floating-card-two">
 
-                        <div class="floating-icon purple-icon">
-                            <i class="fa-solid fa-robot"></i>
-                        </div>
+                        <span class="floating-icon">
+                            🤖
+                        </span>
 
-                        <div>
-                            <span>BUILD WITH</span>
-                            <strong>AI / ML</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="visual-orbit">
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <span>
+                            AI / ML Projects
+                        </span>
 
                     </div>
 
@@ -640,205 +810,294 @@
             </div>
 
 
-            <!-- Hero bottom -->
-
             <div class="hero-bottom">
 
-                <div class="scroll-indicator">
+                <span>
+                    SCROLL TO EXPLORE
+                </span>
 
-                    <span class="scroll-line"></span>
+                <span class="hero-scroll-line"></span>
 
-                    <span>
-                        SCROLL TO EXPLORE
-                    </span>
-
-                </div>
-
-                <span class="hero-location">
-                    HYDERABAD · INDIA
+                <span>
+                    SC / 2026
                 </span>
 
             </div>
 
-        </section>
+        </header>
 
 
-        <!-- =====================================================
-             MARQUEE
-        ====================================================== -->
+        <!-- =================================================
+             TICKER
+             ================================================= -->
 
         <section class="marquee-section">
 
             <div class="marquee-track">
 
-                <span>JAVA FULL STACK</span>
-                <i>✦</i>
+                <div class="marquee-content">
 
-                <span>PYTHON WITH DJANGO</span>
-                <i>✦</i>
+                    <span>
+                        Java Full Stack
+                    </span>
 
-                <span>DATA SCIENCE & ML</span>
-                <i>✦</i>
+                    <i>◆</i>
 
-                <span>WEB DEVELOPMENT</span>
-                <i>✦</i>
+                    <span>
+                        Python with Django
+                    </span>
 
-                <span>FINAL YEAR PROJECTS</span>
-                <i>✦</i>
+                    <i>◆</i>
 
-                <span>B.TECH / MCA TUITIONS</span>
-                <i>✦</i>
+                    <span>
+                        Data Science & ML
+                    </span>
 
-                <span>AI / ML PROJECTS</span>
-                <i>✦</i>
+                    <i>◆</i>
 
-                <span>INTERVIEW PREPARATION</span>
-                <i>✦</i>
+                    <span>
+                        Web Development
+                    </span>
 
+                    <i>◆</i>
 
-                <!-- Duplicate -->
+                    <span>
+                        Final Year Projects
+                    </span>
 
-                <span>JAVA FULL STACK</span>
-                <i>✦</i>
+                    <i>◆</i>
 
-                <span>PYTHON WITH DJANGO</span>
-                <i>✦</i>
+                    <span>
+                        B.Tech / MCA Tuitions
+                    </span>
 
-                <span>DATA SCIENCE & ML</span>
-                <i>✦</i>
+                    <i>◆</i>
 
-                <span>WEB DEVELOPMENT</span>
-                <i>✦</i>
+                    <span>
+                        AI / ML Projects
+                    </span>
 
-                <span>FINAL YEAR PROJECTS</span>
-                <i>✦</i>
+                    <i>◆</i>
 
-                <span>B.TECH / MCA TUITIONS</span>
-                <i>✦</i>
+                    <span>
+                        Interview Preparation
+                    </span>
 
-                <span>AI / ML PROJECTS</span>
-                <i>✦</i>
+                    <i>◆</i>
 
-                <span>INTERVIEW PREPARATION</span>
-                <i>✦</i>
+                    <span>
+                        Java Full Stack
+                    </span>
+
+                    <i>◆</i>
+
+                    <span>
+                        Python with Django
+                    </span>
+
+                    <i>◆</i>
+
+                    <span>
+                        Data Science & ML
+                    </span>
+
+                    <i>◆</i>
+
+                    <span>
+                        Web Development
+                    </span>
+
+                    <i>◆</i>
+
+                    <span>
+                        Final Year Projects
+                    </span>
+
+                    <i>◆</i>
+
+                    <span>
+                        B.Tech / MCA Tuitions
+                    </span>
+
+                    <i>◆</i>
+
+                    <span>
+                        AI / ML Projects
+                    </span>
+
+                    <i>◆</i>
+
+                    <span>
+                        Interview Preparation
+                    </span>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- =====================================================
-             STATS
-        ====================================================== -->
+        <!-- =================================================
+             COMPLETE STATS
+             ================================================= -->
 
         <section class="stats-section">
 
-            <div class="container">
-
-                <div class="stats-intro reveal">
-
-                    <span class="eyebrow">
-                        BY THE NUMBERS
-                    </span>
-
-                    <p>
-                        Practical learning measured by
-                        real activity, not empty promises.
-                    </p>
-
-                </div>
-
+            <div class="section-container">
 
                 <div class="stats-grid">
 
-                    <div class="big-stat reveal">
 
-                        <span class="stat-index">01</span>
+                    <div class="stat-block reveal">
+
+                        <span class="stat-index">
+                            01
+                        </span>
 
                         <strong>
-                            <span data-count="500" data-suffix="+">
-                                0
+
+                            <span
+                                class="counter"
+                                data-target="500"
+                                data-suffix="+"
+                            >
+                                500+
                             </span>
+
                         </strong>
 
-                        <span>STUDENTS TRAINED</span>
+                        <span>
+                            Students Trained
+                        </span>
 
                     </div>
 
 
-                    <div class="big-stat reveal">
+                    <div class="stat-block reveal">
 
-                        <span class="stat-index">02</span>
+                        <span class="stat-index">
+                            02
+                        </span>
 
                         <strong>
-                            <span data-count="15" data-suffix="+">
-                                0
+
+                            <span
+                                class="counter"
+                                data-target="15"
+                                data-suffix="+"
+                            >
+                                15+
                             </span>
+
                         </strong>
 
-                        <span>INDUSTRY COURSES</span>
+                        <span>
+                            Industry Courses
+                        </span>
 
                     </div>
 
 
-                    <div class="big-stat reveal">
+                    <div class="stat-block reveal">
 
-                        <span class="stat-index">03</span>
+                        <span class="stat-index">
+                            03
+                        </span>
 
                         <strong>
-                            <span data-count="100" data-suffix="+">
-                                0
+
+                            <span
+                                class="counter"
+                                data-target="100"
+                                data-suffix="+"
+                            >
+                                100+
                             </span>
+
                         </strong>
 
-                        <span>PROJECTS COMPLETED</span>
+                        <span>
+                            Projects Completed
+                        </span>
 
                     </div>
 
 
-                    <div class="big-stat reveal">
+                    <div class="stat-block reveal">
 
-                        <span class="stat-index">04</span>
+                        <span class="stat-index">
+                            04
+                        </span>
 
                         <strong>
-                            <span data-count="1000" data-suffix="+">
-                                0
+
+                            <span
+                                class="counter"
+                                data-target="1000"
+                                data-suffix="+"
+                            >
+                                1000+
                             </span>
+
                         </strong>
 
-                        <span>LEARNING HOURS</span>
+                        <span>
+                            Hours of Learning
+                        </span>
 
                     </div>
 
 
-                    <div class="big-stat reveal">
+                    <div class="stat-block reveal">
 
-                        <span class="stat-index">05</span>
+                        <span class="stat-index">
+                            05
+                        </span>
 
                         <strong>
-                            <span data-count="50" data-suffix="+">
-                                0
+
+                            <span
+                                class="counter"
+                                data-target="50"
+                                data-suffix="+"
+                            >
+                                50+
                             </span>
+
                         </strong>
 
-                        <span>PRACTICE ASSIGNMENTS</span>
+                        <span>
+                            Practice Assignments
+                        </span>
 
                     </div>
 
 
-                    <div class="big-stat reveal">
+                    <div class="stat-block reveal">
 
-                        <span class="stat-index">06</span>
+                        <span class="stat-index">
+                            06
+                        </span>
 
                         <strong>
-                            <span data-count="300" data-suffix="+">
-                                0
+
+                            <span
+                                class="counter"
+                                data-target="300"
+                                data-suffix="+"
+                            >
+                                300+
                             </span>
+
                         </strong>
 
-                        <span>CODING PROBLEMS</span>
+                        <span>
+                            Coding Problems
+                        </span>
 
                     </div>
+
 
                 </div>
 
@@ -847,45 +1106,33 @@
         </section>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              COURSES
-        ====================================================== -->
+             ================================================= -->
 
-        <section class="courses-section section-light" id="courses">
+        <section
+            class="section courses-section"
+            id="courses"
+        >
 
-            <div class="container">
+            <div class="section-container">
 
-                <div class="section-heading split-heading reveal">
+                <div class="section-heading reveal">
 
-                    <div>
+                    <span class="section-kicker">
+                        WHAT WE TEACH
+                    </span>
 
-                        <div class="eyebrow">
-                            <span>02</span>
-                            WHAT WE TEACH
-                        </div>
+                    <h2>
+                        Industry-Ready
+                        <span>Courses.</span>
+                    </h2>
 
-                        <h2>
-                            Learn skills
-                            <br>
-                            <em>that ship.</em>
-                        </h2>
-
-                    </div>
-
-                    <div class="heading-side">
-
-                        <p>
-                            Practical, project-based curriculum
-                            designed around the technologies
-                            developers actually use.
-                        </p>
-
-                        <a href="courses.html" class="text-link">
-                            View all courses
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </div>
+                    <p>
+                        Practical, project-based curriculum
+                        designed by professionals for
+                        real-world outcomes.
+                    </p>
 
                 </div>
 
@@ -893,166 +1140,186 @@
                 <div class="course-list">
 
 
-                    <!-- Course 01 -->
+                    <!-- JAVA -->
 
                     <article
                         class="course-row reveal"
-                        data-course="java"
                     >
 
                         <div class="course-number">
                             01
                         </div>
 
-                        <div class="course-icon">
-                            <i class="fa-brands fa-java"></i>
-                        </div>
 
                         <div class="course-main">
 
-                            <div class="course-meta">
-                                FULL STACK DEVELOPMENT
+                            <div class="course-icon">
+                                <i class="fa-solid fa-code"></i>
                             </div>
 
-                            <h3>
-                                Java Full Stack
-                            </h3>
+                            <div>
 
-                            <p>
-                                Build enterprise-grade web applications
-                                using Java, Spring Boot, REST APIs and
-                                modern front-end technologies.
-                            </p>
+                                <h3>
+                                    Java Full Stack
+                                </h3>
+
+                                <p>
+                                    Build enterprise-grade
+                                    web applications using Java,
+                                    Spring Boot, REST APIs,
+                                    and modern front-end frameworks.
+                                </p>
+
+                                <span class="course-duration">
+                                    <i class="fa-regular fa-clock"></i>
+                                    6 Months
+                                </span>
+
+                            </div>
 
                         </div>
 
-                        <div class="course-stack">
 
-                            <span>Java</span>
-                            <span>Spring Boot</span>
-                            <span>REST</span>
-                            <span>SQL</span>
-
+                        <div class="course-tag">
+                            JAVA
                         </div>
 
-                        <div class="course-duration">
-                            <span>06</span>
-                            MONTHS
-                        </div>
 
-                        <a href="courses.html" class="course-arrow">
+                        <a
+                            href="courses.html"
+                            class="course-arrow"
+                            aria-label="Learn Java Full Stack"
+                        >
                             <i class="fa-solid fa-arrow-up-right"></i>
                         </a>
 
                     </article>
 
 
-                    <!-- Course 02 -->
+                    <!-- PYTHON -->
 
                     <article
                         class="course-row reveal"
-                        data-course="python"
                     >
 
                         <div class="course-number">
                             02
                         </div>
 
-                        <div class="course-icon">
-                            <i class="fa-brands fa-python"></i>
-                        </div>
 
                         <div class="course-main">
 
-                            <div class="course-meta">
-                                FULL STACK DEVELOPMENT
+                            <div class="course-icon">
+                                <i class="fa-brands fa-python"></i>
                             </div>
 
-                            <h3>
-                                Python Full Stack
-                            </h3>
+                            <div>
 
-                            <p>
-                                Create scalable web applications with
-                                Python, Django, Flask and powerful
-                                data-driven backends.
-                            </p>
+                                <h3>
+                                    Python Full Stack
+                                </h3>
+
+                                <p>
+                                    Create scalable web applications
+                                    with Python, Django, Flask,
+                                    and integrate powerful
+                                    data pipelines.
+                                </p>
+
+                                <span class="course-duration">
+                                    <i class="fa-regular fa-clock"></i>
+                                    5 Months
+                                </span>
+
+                            </div>
 
                         </div>
 
-                        <div class="course-stack">
 
-                            <span>Python</span>
-                            <span>Django</span>
-                            <span>Flask</span>
-                            <span>SQL</span>
-
+                        <div class="course-tag">
+                            PYTHON
                         </div>
 
-                        <div class="course-duration">
-                            <span>05</span>
-                            MONTHS
-                        </div>
 
-                        <a href="courses.html" class="course-arrow">
+                        <a
+                            href="courses.html"
+                            class="course-arrow"
+                            aria-label="Learn Python Full Stack"
+                        >
                             <i class="fa-solid fa-arrow-up-right"></i>
                         </a>
 
                     </article>
 
 
-                    <!-- Course 03 -->
+                    <!-- DATA SCIENCE -->
 
                     <article
                         class="course-row reveal"
-                        data-course="data"
                     >
 
                         <div class="course-number">
                             03
                         </div>
 
-                        <div class="course-icon">
-                            <i class="fa-solid fa-chart-simple"></i>
-                        </div>
 
                         <div class="course-main">
 
-                            <div class="course-meta">
-                                DATA / ARTIFICIAL INTELLIGENCE
+                            <div class="course-icon">
+                                <i class="fa-solid fa-database"></i>
                             </div>
 
-                            <h3>
-                                Data Science
-                            </h3>
+                            <div>
 
-                            <p>
-                                Master data analysis, machine learning,
-                                NumPy, Pandas and real-world model
-                                development from scratch.
-                            </p>
+                                <h3>
+                                    Data Science
+                                </h3>
+
+                                <p>
+                                    Master machine learning,
+                                    data analytics, NumPy,
+                                    Pandas, and deploy real
+                                    ML models from scratch.
+                                </p>
+
+                                <span class="course-duration">
+                                    <i class="fa-regular fa-clock"></i>
+                                    4 Months
+                                </span>
+
+                            </div>
 
                         </div>
 
-                        <div class="course-stack">
 
-                            <span>Python</span>
-                            <span>Pandas</span>
-                            <span>ML</span>
-                            <span>Sklearn</span>
-
+                        <div class="course-tag">
+                            DATA + AI
                         </div>
 
-                        <div class="course-duration">
-                            <span>04</span>
-                            MONTHS
-                        </div>
 
-                        <a href="courses.html" class="course-arrow">
+                        <a
+                            href="courses.html"
+                            class="course-arrow"
+                            aria-label="Learn Data Science"
+                        >
                             <i class="fa-solid fa-arrow-up-right"></i>
                         </a>
 
                     </article>
+
+
+                </div>
+
+
+                <div class="section-action">
+
+                    <a
+                        href="courses.html"
+                        class="button button-ghost"
+                    >
+                        View All Courses
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
 
                 </div>
 
@@ -1061,30 +1328,31 @@
         </section>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              ROADMAP
-        ====================================================== -->
+             ================================================= -->
 
-        <section class="roadmap-section">
+        <section
+            class="section roadmap-section"
+            id="roadmap"
+        >
 
-            <div class="container">
+            <div class="section-container">
 
-                <div class="section-heading centered reveal">
+                <div class="section-heading center reveal">
 
-                    <div class="eyebrow">
-                        <span>03</span>
-                        THE PROCESS
-                    </div>
+                    <span class="section-kicker">
+                        YOUR PATH
+                    </span>
 
                     <h2>
-                        From zero
-                        <br>
-                        <em>to industry ready.</em>
+                        Learning
+                        <span>Roadmap.</span>
                     </h2>
 
                     <p>
-                        A structured learning system built around
-                        consistency, practice and real projects.
+                        A clear, structured journey from
+                        enrolment to becoming industry ready.
                     </p>
 
                 </div>
@@ -1092,139 +1360,177 @@
 
                 <div class="roadmap">
 
+
                     <div class="roadmap-line"></div>
 
 
+                    <!-- 01 -->
+
                     <div class="roadmap-item reveal">
 
-                        <div class="roadmap-top">
-                            01
-                        </div>
-
                         <div class="roadmap-marker">
-                            <i class="fa-solid fa-compass"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
 
-                        <h3>
-                            Choose Course
-                        </h3>
+                        <div class="roadmap-content">
 
-                        <p>
-                            Pick the program that matches
-                            your goals.
-                        </p>
+                            <span>
+                                01
+                            </span>
+
+                            <h3>
+                                Choose Course
+                            </h3>
+
+                            <p>
+                                Pick the program that
+                                matches your goals.
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="roadmap-item reveal">
+                    <!-- 02 -->
 
-                        <div class="roadmap-top">
-                            02
-                        </div>
+                    <div class="roadmap-item reveal">
 
                         <div class="roadmap-marker">
                             <i class="fa-solid fa-users"></i>
                         </div>
 
-                        <h3>
-                            Join Live Batch
-                        </h3>
+                        <div class="roadmap-content">
 
-                        <p>
-                            Learn alongside a focused
-                            cohort of peers.
-                        </p>
+                            <span>
+                                02
+                            </span>
+
+                            <h3>
+                                Join Live Batch
+                            </h3>
+
+                            <p>
+                                Start learning with
+                                a cohort of peers.
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="roadmap-item reveal">
+                    <!-- 03 -->
 
-                        <div class="roadmap-top">
-                            03
-                        </div>
+                    <div class="roadmap-item reveal">
 
                         <div class="roadmap-marker">
-                            <i class="fa-solid fa-code"></i>
+                            <i class="fa-solid fa-hammer"></i>
                         </div>
 
-                        <h3>
-                            Learn by Building
-                        </h3>
+                        <div class="roadmap-content">
 
-                        <p>
-                            Turn concepts into working
-                            applications.
-                        </p>
+                            <span>
+                                03
+                            </span>
+
+                            <h3>
+                                Learn by Building
+                            </h3>
+
+                            <p>
+                                Hands-on projects with
+                                real-world tools.
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="roadmap-item reveal">
+                    <!-- 04 -->
 
-                        <div class="roadmap-top">
-                            04
-                        </div>
+                    <div class="roadmap-item reveal">
 
                         <div class="roadmap-marker">
-                            <i class="fa-solid fa-terminal"></i>
+                            <i class="fa-solid fa-clipboard-check"></i>
                         </div>
 
-                        <h3>
-                            Practice & Assess
-                        </h3>
+                        <div class="roadmap-content">
 
-                        <p>
-                            Solve coding problems and
-                            complete assignments.
-                        </p>
+                            <span>
+                                04
+                            </span>
+
+                            <h3>
+                                Practice & Assess
+                            </h3>
+
+                            <p>
+                                Coding problems,
+                                assignments & reviews.
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="roadmap-item reveal">
+                    <!-- 05 -->
 
-                        <div class="roadmap-top">
-                            05
-                        </div>
+                    <div class="roadmap-item reveal">
 
                         <div class="roadmap-marker">
                             <i class="fa-solid fa-comments"></i>
                         </div>
 
-                        <h3>
-                            Interview Prep
-                        </h3>
+                        <div class="roadmap-content">
 
-                        <p>
-                            Practice interviews and
-                            improve your resume.
-                        </p>
+                            <span>
+                                05
+                            </span>
+
+                            <h3>
+                                Interview Prep
+                            </h3>
+
+                            <p>
+                                Mock interviews &
+                                resume guidance.
+                            </p>
+
+                        </div>
 
                     </div>
 
+
+                    <!-- 06 -->
 
                     <div class="roadmap-item reveal">
 
-                        <div class="roadmap-top">
-                            06
-                        </div>
-
-                        <div class="roadmap-marker final-marker">
+                        <div class="roadmap-marker">
                             <i class="fa-solid fa-rocket"></i>
                         </div>
 
-                        <h3>
-                            Industry Ready
-                        </h3>
+                        <div class="roadmap-content">
 
-                        <p>
-                            Graduate with skills,
-                            confidence and projects.
-                        </p>
+                            <span>
+                                06
+                            </span>
+
+                            <h3>
+                                Industry Ready
+                            </h3>
+
+                            <p>
+                                Confident, skilled &
+                                career-ready.
+                            </p>
+
+                        </div>
 
                     </div>
+
 
                 </div>
 
@@ -1233,45 +1539,33 @@
         </section>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              TUITIONS
-        ====================================================== -->
+             ================================================= -->
 
-        <section class="tuitions-section section-light" id="tuitions">
+        <section
+            class="section tuition-section"
+            id="tuitions"
+        >
 
-            <div class="container">
+            <div class="section-container">
 
-                <div class="section-heading split-heading reveal">
+                <div class="section-heading reveal">
 
-                    <div>
+                    <span class="section-kicker">
+                        EXPERT SUPPORT
+                    </span>
 
-                        <div class="eyebrow">
-                            <span>04</span>
-                            PERSONALIZED SUPPORT
-                        </div>
+                    <h2>
+                        Personalised
+                        <span>Tuitions.</span>
+                    </h2>
 
-                        <h2>
-                            Learn at
-                            <br>
-                            <em>your pace.</em>
-                        </h2>
-
-                    </div>
-
-                    <div class="heading-side">
-
-                        <p>
-                            Dedicated tutoring tailored to your
-                            degree curriculum, academic goals
-                            and learning pace.
-                        </p>
-
-                        <a href="tuitions.html" class="text-link">
-                            Explore tuitions
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </div>
+                    <p>
+                        Dedicated tutoring tailored to
+                        your degree curriculum and
+                        learning pace.
+                    </p>
 
                 </div>
 
@@ -1279,151 +1573,180 @@
                 <div class="tuition-grid">
 
 
-                    <article class="tuition-card reveal">
+                    <!-- BTECH -->
 
-                        <div class="tuition-top">
+                    <article
+                        class="tuition-card reveal"
+                    >
 
-                            <span class="tuition-index">
-                                01
-                            </span>
+                        <div class="tuition-icon">
 
                             <i class="fa-solid fa-graduation-cap"></i>
 
                         </div>
 
-                        <h3>
-                            B.Tech / M.Tech
-                        </h3>
 
-                        <p>
-                            Comprehensive computer science
-                            tutoring covering major subjects,
-                            labs and project work.
-                        </p>
+                        <div>
 
-                        <ul>
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                One-on-one sessions
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Exam preparation
-                            </li>
-
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Project assistance
-                            </li>
-
-                        </ul>
-
-                        <a href="tuitions.html">
-                            Learn more
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="tuition-card tuition-featured reveal">
-
-                        <div class="tuition-top">
-
-                            <span class="tuition-index">
-                                02
+                            <span class="tuition-number">
+                                01
                             </span>
 
-                            <i class="fa-solid fa-laptop-code"></i>
+                            <h3>
+                                B.Tech / M.Tech
+                            </h3>
+
+                            <p>
+                                Comprehensive computer
+                                science tutoring covering
+                                all major subjects and lab work.
+                            </p>
+
+
+                            <ul>
+
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    One-on-one sessions
+                                </li>
+
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    Exam preparation
+                                </li>
+
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    Project assistance
+                                </li>
+
+                            </ul>
 
                         </div>
 
-                        <h3>
-                            BCA / MCA
-                        </h3>
+                    </article>
 
-                        <p>
-                            Programming fundamentals,
-                            application development and
-                            database management guidance.
-                        </p>
 
-                        <ul>
+                    <!-- BCA -->
 
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Practical examples
-                            </li>
+                    <article
+                        class="tuition-card reveal"
+                    >
 
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Lab work support
-                            </li>
+                        <div class="tuition-icon">
 
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Assignment help
-                            </li>
+                            <i class="fa-solid fa-laptop"></i>
 
-                        </ul>
+                        </div>
 
-                        <a href="tuitions.html">
-                            Learn more
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+
+                        <div>
+
+                            <span class="tuition-number">
+                                02
+                            </span>
+
+                            <h3>
+                                BCA / MCA
+                            </h3>
+
+                            <p>
+                                Programming fundamentals,
+                                application development,
+                                and database management guidance.
+                            </p>
+
+
+                            <ul>
+
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    Practical examples
+                                </li>
+
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    Lab work support
+                                </li>
+
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    Assignment help
+                                </li>
+
+                            </ul>
+
+                        </div>
 
                     </article>
 
 
-                    <article class="tuition-card reveal">
+                    <!-- BSC -->
 
-                        <div class="tuition-top">
+                    <article
+                        class="tuition-card reveal"
+                    >
 
-                            <span class="tuition-index">
-                                03
-                            </span>
+                        <div class="tuition-icon">
 
                             <i class="fa-solid fa-flask"></i>
 
                         </div>
 
-                        <h3>
-                            B.Sc / M.Sc
-                        </h3>
 
-                        <p>
-                            Conceptual clarity, practical
-                            learning and focused exam
-                            preparation strategies.
-                        </p>
+                        <div>
 
-                        <ul>
+                            <span class="tuition-number">
+                                03
+                            </span>
 
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Concept clarity
-                            </li>
+                            <h3>
+                                B.Sc / M.Sc
+                            </h3>
 
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Study materials
-                            </li>
+                            <p>
+                                Conceptual clarity, practical
+                                learning, and rigorous exam
+                                preparation strategies.
+                            </p>
 
-                            <li>
-                                <i class="fa-solid fa-check"></i>
-                                Doubt clearing
-                            </li>
 
-                        </ul>
+                            <ul>
 
-                        <a href="tuitions.html">
-                            Learn more
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    Concept clarity
+                                </li>
+
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    Study materials
+                                </li>
+
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    Doubt clearing
+                                </li>
+
+                            </ul>
+
+                        </div>
 
                     </article>
+
+
+                </div>
+
+
+                <div class="section-action">
+
+                    <a
+                        href="tuitions.html"
+                        class="button button-ghost"
+                    >
+                        View All Tuitions
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
 
                 </div>
 
@@ -1432,47 +1755,33 @@
         </section>
 
 
-        <!-- =====================================================
-             PROJECTS
-        ====================================================== -->
+        <!-- =================================================
+             FINAL YEAR PROJECTS
+             ================================================= -->
 
-        <section class="projects-section" id="projects">
+        <section
+            class="section projects-section"
+            id="projects"
+        >
 
-            <div class="projects-background"></div>
+            <div class="section-container">
 
-            <div class="container">
+                <div class="section-heading reveal">
 
-                <div class="section-heading split-heading reveal">
+                    <span class="section-kicker">
+                        GRADUATE STRONG
+                    </span>
 
-                    <div>
+                    <h2>
+                        Final Year
+                        <span>Projects.</span>
+                    </h2>
 
-                        <div class="eyebrow light-eyebrow">
-                            <span>05</span>
-                            BUILD SOMETHING REAL
-                        </div>
-
-                        <h2>
-                            Projects
-                            <br>
-                            <em>over theory.</em>
-                        </h2>
-
-                    </div>
-
-                    <div class="heading-side">
-
-                        <p>
-                            Build projects that demonstrate what
-                            you can actually do — not just what
-                            you studied.
-                        </p>
-
-                        <a href="projects.html" class="text-link light-link">
-                            View project tracks
-                            <i class="fa-solid fa-arrow-up-right"></i>
-                        </a>
-
-                    </div>
+                    <p>
+                        Industry-grade projects that
+                        demonstrate real skills and
+                        solve real problems.
+                    </p>
 
                 </div>
 
@@ -1480,79 +1789,65 @@
                 <div class="project-grid">
 
 
-                    <article class="project-card project-large reveal">
+                    <!-- WEB -->
 
-                        <div class="project-number">
-                            01
+                    <article
+                        class="project-card reveal"
+                        style="--proj-color:#00FFD1;"
+                    >
+
+                        <div class="project-top">
+
+                            <span>
+                                01 / WEB
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right"></i>
+
                         </div>
+
 
                         <div class="project-visual">
 
-                            <div class="browser-window">
+                            <div class="project-icon-large">
 
-                                <div class="browser-bar">
-
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-
-                                    <div>
-                                        syntaxcircuit.app
-                                    </div>
-
-                                </div>
-
-                                <div class="browser-content">
-
-                                    <div class="browser-sidebar"></div>
-
-                                    <div class="browser-main">
-
-                                        <div class="fake-heading"></div>
-
-                                        <div class="fake-row">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-
-                                        <div class="fake-row">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-
-                                        <div class="fake-chart"></div>
-
-                                    </div>
-
-                                </div>
+                                <i class="fa-solid fa-globe"></i>
 
                             </div>
 
                         </div>
 
-                        <div class="project-content">
+
+                        <div class="project-info">
 
                             <span>
                                 WEB DEVELOPMENT
                             </span>
 
                             <h3>
-                                Full-Stack Applications
+                                Web Development
                             </h3>
 
                             <p>
-                                Build real-world websites,
-                                dashboards and full-stack platforms
-                                using modern development practices.
+                                Build real-world full-stack
+                                websites and platforms using
+                                modern technologies and
+                                best practices.
                             </p>
 
-                            <div class="project-tags">
+                            <div class="project-chips">
 
-                                <span>React</span>
-                                <span>Node</span>
-                                <span>MongoDB</span>
+                                <i>
+                                    React
+                                </i>
+
+                                <i>
+                                    Node
+                                </i>
+
+                                <i>
+                                    MongoDB
+                                </i>
 
                             </div>
 
@@ -1561,51 +1856,65 @@
                     </article>
 
 
-                    <article class="project-card reveal">
+                    <!-- DATA -->
 
-                        <div class="project-number">
-                            02
+                    <article
+                        class="project-card reveal"
+                        style="--proj-color:#FFD166;"
+                    >
+
+                        <div class="project-top">
+
+                            <span>
+                                02 / DATA
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right"></i>
+
                         </div>
 
-                        <div class="data-visual">
 
-                            <div class="data-bars">
+                        <div class="project-visual">
 
-                                <span style="height:42%"></span>
-                                <span style="height:64%"></span>
-                                <span style="height:52%"></span>
-                                <span style="height:80%"></span>
-                                <span style="height:68%"></span>
-                                <span style="height:94%"></span>
-                                <span style="height:76%"></span>
+                            <div class="project-icon-large">
+
+                                <i class="fa-solid fa-chart-line"></i>
 
                             </div>
 
-                            <div class="data-line"></div>
-
                         </div>
 
-                        <div class="project-content">
+
+                        <div class="project-info">
 
                             <span>
                                 DATA SCIENCE
                             </span>
 
                             <h3>
-                                Data Intelligence
+                                Data Science
                             </h3>
 
                             <p>
-                                Work with real datasets,
-                                analytics pipelines and
-                                machine learning models.
+                                Machine learning models
+                                and data analysis projects
+                                with real datasets and
+                                visualisations.
                             </p>
 
-                            <div class="project-tags">
+                            <div class="project-chips">
 
-                                <span>Python</span>
-                                <span>Pandas</span>
-                                <span>Sklearn</span>
+                                <i>
+                                    Python
+                                </i>
+
+                                <i>
+                                    Pandas
+                                </i>
+
+                                <i>
+                                    Sklearn
+                                </i>
 
                             </div>
 
@@ -1614,63 +1923,85 @@
                     </article>
 
 
-                    <article class="project-card reveal">
+                    <!-- AI ML -->
 
-                        <div class="project-number">
-                            03
-                        </div>
+                    <article
+                        class="project-card reveal"
+                        style="--proj-color:#FF2D78;"
+                    >
 
-                        <div class="ai-visual">
-
-                            <div class="ai-node node-center">
-                                AI
-                            </div>
-
-                            <div class="ai-node node-one">
-                                NLP
-                            </div>
-
-                            <div class="ai-node node-two">
-                                CV
-                            </div>
-
-                            <div class="ai-node node-three">
-                                ML
-                            </div>
-
-                            <div class="ai-line line-one"></div>
-                            <div class="ai-line line-two"></div>
-                            <div class="ai-line line-three"></div>
-
-                        </div>
-
-                        <div class="project-content">
+                        <div class="project-top">
 
                             <span>
-                                ARTIFICIAL INTELLIGENCE
+                                03 / AI
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right"></i>
+
+                        </div>
+
+
+                        <div class="project-visual">
+
+                            <div class="project-icon-large">
+
+                                <i class="fa-solid fa-robot"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <span>
+                                AI / MACHINE LEARNING
                             </span>
 
                             <h3>
-                                AI / ML Systems
+                                AI / ML
                             </h3>
 
                             <p>
-                                Explore NLP, computer vision,
-                                neural networks and intelligent
-                                applications.
+                                Innovative artificial
+                                intelligence projects —
+                                NLP, computer vision,
+                                neural networks, and beyond.
                             </p>
 
-                            <div class="project-tags">
+                            <div class="project-chips">
 
-                                <span>TensorFlow</span>
-                                <span>PyTorch</span>
-                                <span>OpenCV</span>
+                                <i>
+                                    TensorFlow
+                                </i>
+
+                                <i>
+                                    PyTorch
+                                </i>
+
+                                <i>
+                                    OpenCV
+                                </i>
 
                             </div>
 
                         </div>
 
                     </article>
+
+
+                </div>
+
+
+                <div class="section-action">
+
+                    <a
+                        href="projects.html"
+                        class="button button-primary"
+                    >
+                        View Projects
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
 
                 </div>
 
@@ -1679,26 +2010,32 @@
         </section>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              TESTIMONIALS
-        ====================================================== -->
+             ================================================= -->
 
-        <section class="testimonials-section section-light" id="testimonials">
+        <section
+            class="section testimonials-section"
+            id="testimonials"
+        >
 
-            <div class="container">
+            <div class="section-container">
 
-                <div class="section-heading centered reveal">
+                <div class="section-heading center reveal">
 
-                    <div class="eyebrow">
-                        <span>06</span>
+                    <span class="section-kicker">
                         STUDENT STORIES
-                    </div>
+                    </span>
 
                     <h2>
-                        Built with us.
-                        <br>
-                        <em>Remembered by them.</em>
+                        What our
+                        <span>students say.</span>
                     </h2>
+
+                    <p>
+                        Real feedback from students who
+                        built real skills with Syntax Circuit.
+                    </p>
 
                 </div>
 
@@ -1706,32 +2043,45 @@
                 <div class="testimonial-grid">
 
 
-                    <article class="testimonial reveal">
+                    <!-- RAHUL -->
 
-                        <div class="testimonial-top">
+                    <article
+                        class="testimonial-card reveal"
+                    >
 
-                            <span class="quote-mark">
-                                “
-                            </span>
+                        <div class="testimonial-stars">
 
-                            <div class="stars">
-                                ★★★★★
-                            </div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
 
                         </div>
 
-                        <p>
-                            The Java Full Stack course completely
-                            changed my career trajectory. I went
-                            from struggling with basics to building
-                            enterprise applications in just 6 months.
+
+                        <div class="testimonial-quote">
+                            "
+                        </div>
+
+
+                        <p class="testimonial-text">
+
+                            The Java Full Stack course
+                            completely changed my career
+                            trajectory. I went from struggling
+                            with basics to building enterprise
+                            applications in just 6 months.
+
                         </p>
 
-                        <div class="testimonial-person">
+
+                        <div class="testimonial-author">
 
                             <img
                                 src="https://picsum.photos/seed/sc-student1/100/100.jpg"
                                 alt="Rahul Kumar"
+                                class="testimonial-avatar"
                                 loading="lazy"
                             >
 
@@ -1752,32 +2102,45 @@
                     </article>
 
 
-                    <article class="testimonial testimonial-featured reveal">
+                    <!-- PRIYA -->
 
-                        <div class="testimonial-top">
+                    <article
+                        class="testimonial-card reveal"
+                    >
 
-                            <span class="quote-mark">
-                                “
-                            </span>
+                        <div class="testimonial-stars">
 
-                            <div class="stars">
-                                ★★★★★
-                            </div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
 
                         </div>
 
-                        <p>
-                            The project guidance was exceptional.
-                            My final year AI project not only helped
-                            me graduate with distinction but also
-                            landed me a research position.
+
+                        <div class="testimonial-quote">
+                            "
+                        </div>
+
+
+                        <p class="testimonial-text">
+
+                            The project guidance was
+                            exceptional. My final year AI
+                            project not only helped me graduate
+                            with distinction but also landed
+                            me a research position.
+
                         </p>
 
-                        <div class="testimonial-person">
+
+                        <div class="testimonial-author">
 
                             <img
                                 src="https://picsum.photos/seed/sc-student2/100/100.jpg"
                                 alt="Priya Sharma"
+                                class="testimonial-avatar"
                                 loading="lazy"
                             >
 
@@ -1798,32 +2161,45 @@
                     </article>
 
 
-                    <article class="testimonial reveal">
+                    <!-- AMIT -->
 
-                        <div class="testimonial-top">
+                    <article
+                        class="testimonial-card reveal"
+                    >
 
-                            <span class="quote-mark">
-                                “
-                            </span>
+                        <div class="testimonial-stars">
 
-                            <div class="stars">
-                                ★★★★★
-                            </div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
 
                         </div>
 
-                        <p>
+
+                        <div class="testimonial-quote">
+                            "
+                        </div>
+
+
+                        <p class="testimonial-text">
+
                             The personalised tuition sessions
-                            helped me clear my backlogs and improve
-                            my GPA significantly. Complex concepts
-                            were explained in a simple way.
+                            helped me clear my backlogs and
+                            improve my GPA significantly.
+                            The tutors explain complex concepts
+                            in a simple way.
+
                         </p>
 
-                        <div class="testimonial-person">
+
+                        <div class="testimonial-author">
 
                             <img
                                 src="https://picsum.photos/seed/sc-student3/100/100.jpg"
                                 alt="Amit Patel"
+                                class="testimonial-avatar"
                                 loading="lazy"
                             >
 
@@ -1843,6 +2219,7 @@
 
                     </article>
 
+
                 </div>
 
             </div>
@@ -1850,40 +2227,84 @@
         </section>
 
 
-        <!-- =====================================================
-             WHY SYNTAX CIRCUIT
-        ====================================================== -->
+        <!-- =================================================
+             CTA
+             ================================================= -->
 
-        <section class="why-section">
+        <section class="cta-section">
 
-            <div class="container">
+            <div class="cta-container reveal">
 
-                <div class="section-heading split-heading reveal">
+                <div class="cta-index">
+                    06 / 07
+                </div>
 
-                    <div>
 
-                        <div class="eyebrow">
-                            <span>07</span>
-                            THE DIFFERENCE
-                        </div>
+                <div class="cta-content">
 
-                        <h2>
-                            Why
-                            <br>
-                            <em>Syntax Circuit?</em>
-                        </h2>
+                    <span class="section-kicker">
+                        READY TO START?
+                    </span>
 
-                    </div>
+                    <h2>
+                        Build Real Skills.
+                        <br>
+                        Start Your
+                        <span>Tech Journey.</span>
+                    </h2>
 
-                    <div class="heading-side">
+                    <p>
+                        Join hundreds of students who
+                        levelled up with Syntax Circuit.
+                    </p>
 
-                        <p>
-                            Everything is designed around one
-                            outcome: helping you become capable
-                            of doing real technical work.
-                        </p>
 
-                    </div>
+                    <a
+                        href="courses.html"
+                        class="button button-primary"
+                    >
+                        Get Started Today
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="cta-mark">
+                    &lt;SC/&gt;
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WHY SYNTAX CIRCUIT — ALL 8 ITEMS
+             ================================================= -->
+
+        <section
+            class="section why-section"
+            id="whyus"
+        >
+
+            <div class="section-container">
+
+                <div class="section-heading center reveal">
+
+                    <span class="section-kicker">
+                        WHY CHOOSE US
+                    </span>
+
+                    <h2>
+                        Why Syntax
+                        <span>Circuit.</span>
+                    </h2>
+
+                    <p>
+                        Everything we do is focused on
+                        one outcome — making you industry ready.
+                    </p>
 
                 </div>
 
@@ -1891,83 +2312,133 @@
                 <div class="why-grid">
 
 
-                    <article class="why-item reveal">
+                    <!-- 01 -->
 
-                        <span>01</span>
+                    <article
+                        class="why-card reveal"
+                    >
 
-                        <i class="fa-solid fa-diagram-project"></i>
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-diagram-project"></i>
+
+                        </div>
+
+                        <span class="why-number">
+                            01
+                        </span>
 
                         <h3>
                             Project-Based Learning
                         </h3>
 
                         <p>
-                            Every course is built around real
-                            projects, not just theory.
+                            Every course is built around
+                            real projects, not just theory.
                         </p>
 
                     </article>
 
 
-                    <article class="why-item reveal">
+                    <!-- 02 -->
 
-                        <span>02</span>
+                    <article
+                        class="why-card reveal"
+                    >
 
-                        <i class="fa-solid fa-industry"></i>
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-industry"></i>
+
+                        </div>
+
+                        <span class="why-number">
+                            02
+                        </span>
 
                         <h3>
                             Industry Curriculum
                         </h3>
 
                         <p>
-                            Content designed around the skills
-                            companies actually need.
+                            Content designed to match
+                            what companies actually need.
                         </p>
 
                     </article>
 
 
-                    <article class="why-item reveal">
+                    <!-- 03 -->
 
-                        <span>03</span>
+                    <article
+                        class="why-card reveal"
+                    >
 
-                        <i class="fa-solid fa-code"></i>
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-code"></i>
+
+                        </div>
+
+                        <span class="why-number">
+                            03
+                        </span>
 
                         <h3>
                             Real-World Coding
                         </h3>
 
                         <p>
-                            Write practical, production-oriented
-                            code from the beginning.
+                            Write production-level code
+                            from day one of your course.
                         </p>
 
                     </article>
 
 
-                    <article class="why-item reveal">
+                    <!-- 04 -->
 
-                        <span>04</span>
+                    <article
+                        class="why-card reveal"
+                    >
 
-                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-chalkboard-user"></i>
+
+                        </div>
+
+                        <span class="why-number">
+                            04
+                        </span>
 
                         <h3>
                             Expert Mentorship
                         </h3>
 
                         <p>
-                            Learn through practical guidance,
-                            reviews and project support.
+                            Learn directly from instructors
+                            with industry experience.
                         </p>
 
                     </article>
 
 
-                    <article class="why-item reveal">
+                    <!-- 05 -->
 
-                        <span>05</span>
+                    <article
+                        class="why-card reveal"
+                    >
 
-                        <i class="fa-solid fa-user-tie"></i>
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-user-tie"></i>
+
+                        </div>
+
+                        <span class="why-number">
+                            05
+                        </span>
 
                         <h3>
                             Interview Preparation
@@ -1975,64 +2446,95 @@
 
                         <p>
                             Mock interviews, DSA practice,
-                            resume guidance and project discussion.
+                            and resume guidance included.
                         </p>
 
                     </article>
 
 
-                    <article class="why-item reveal">
+                    <!-- 06 -->
 
-                        <span>06</span>
+                    <article
+                        class="why-card reveal"
+                    >
 
-                        <i class="fa-solid fa-certificate"></i>
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-certificate"></i>
+
+                        </div>
+
+                        <span class="why-number">
+                            06
+                        </span>
 
                         <h3>
                             Certificate of Completion
                         </h3>
 
                         <p>
-                            Earn a verifiable certificate after
-                            successfully completing your course.
+                            Earn a verifiable certificate
+                            for every course you finish.
                         </p>
 
                     </article>
 
 
-                    <article class="why-item reveal">
+                    <!-- 07 -->
 
-                        <span>07</span>
+                    <article
+                        class="why-card reveal"
+                    >
 
-                        <i class="fa-solid fa-infinity"></i>
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-infinity"></i>
+
+                        </div>
+
+                        <span class="why-number">
+                            07
+                        </span>
 
                         <h3>
                             Lifetime Resources
                         </h3>
 
                         <p>
-                            Continue accessing course materials,
-                            recordings and resources.
+                            Access course materials and
+                            recordings even after completion.
                         </p>
 
                     </article>
 
 
-                    <article class="why-item reveal">
+                    <!-- 08 -->
 
-                        <span>08</span>
+                    <article
+                        class="why-card reveal"
+                    >
 
-                        <i class="fa-solid fa-headset"></i>
+                        <div class="why-icon">
+
+                            <i class="fa-solid fa-headset"></i>
+
+                        </div>
+
+                        <span class="why-number">
+                            08
+                        </span>
 
                         <h3>
                             Doubt Support
                         </h3>
 
                         <p>
-                            Get questions resolved through
-                            dedicated learning support.
+                            Get your questions resolved
+                            quickly with dedicated support.
                         </p>
 
                     </article>
+
 
                 </div>
 
@@ -2041,37 +2543,40 @@
         </section>
 
 
-        <!-- =====================================================
-             FAQ
-        ====================================================== -->
+        <!-- =================================================
+             FAQ — ALL 7 QUESTIONS
+             ================================================= -->
 
-        <section class="faq-section section-light" id="faq">
+        <section
+            class="section faq-section"
+            id="faq"
+        >
 
-            <div class="container">
+            <div class="section-container">
 
                 <div class="faq-layout">
 
+
                     <div class="faq-intro reveal">
 
-                        <div class="eyebrow">
-                            <span>08</span>
-                            FAQ
-                        </div>
+                        <span class="section-kicker">
+                            COMMON QUESTIONS
+                        </span>
 
                         <h2>
-                            Questions
-                            <br>
-                            <em>answered.</em>
+                            Frequently
+                            <span>Asked Questions.</span>
                         </h2>
 
                         <p>
-                            Can't find what you're looking for?
-                            Reach out directly.
+                            Can't find what you're looking
+                            for? Reach out to us directly.
                         </p>
+
 
                         <a
                             href="contact.html"
-                            class="button button-primary"
+                            class="button button-ghost"
                         >
                             Contact Us
                             <i class="fa-solid fa-arrow-right"></i>
@@ -2080,213 +2585,269 @@
                     </div>
 
 
-                    <div class="faq-list reveal">
+                    <div class="faq-list">
 
 
-                        <div class="faq-item">
+                        <!-- FAQ 01 -->
+
+                        <div class="faq-item reveal">
 
                             <button
                                 class="faq-question"
                                 type="button"
+                                aria-expanded="false"
                             >
 
                                 <span>
                                     What courses does Syntax Circuit offer?
                                 </span>
 
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
 
                             </button>
 
+
                             <div class="faq-answer">
 
-                                <p>
-                                    We offer industry-focused courses
-                                    in Java Full Stack, Python Full Stack,
-                                    Data Science, AI/ML, Web Development
-                                    and more. Each course is designed
-                                    around hands-on projects and
-                                    practical training.
-                                </p>
+                                <div class="faq-answer-inner">
+
+                                    We offer industry-focused
+                                    courses in Java Full Stack,
+                                    Python Full Stack,
+                                    Data Science, AI/ML,
+                                    Web Development, and more.
+                                    Each course is designed with
+                                    hands-on projects and practical
+                                    training at its core.
+
+                                </div>
 
                             </div>
 
                         </div>
 
 
-                        <div class="faq-item">
+                        <!-- FAQ 02 -->
+
+                        <div class="faq-item reveal">
 
                             <button
                                 class="faq-question"
                                 type="button"
+                                aria-expanded="false"
                             >
 
                                 <span>
                                     Who are the instructors?
                                 </span>
 
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
 
                             </button>
 
+
                             <div class="faq-answer">
 
-                                <p>
-                                    Our instructors bring practical
+                                <div class="faq-answer-inner">
+
+                                    Our instructors are experienced
+                                    professionals with real industry
+                                    background. They bring practical
                                     knowledge and project experience
-                                    into every session, helping students
-                                    focus on skills that matter in
-                                    real technical environments.
-                                </p>
+                                    into every session, ensuring you
+                                    learn what actually matters
+                                    in the field.
+
+                                </div>
 
                             </div>
 
                         </div>
 
 
-                        <div class="faq-item">
+                        <!-- FAQ 03 -->
+
+                        <div class="faq-item reveal">
 
                             <button
                                 class="faq-question"
                                 type="button"
+                                aria-expanded="false"
                             >
 
                                 <span>
                                     Do you help with final year projects?
                                 </span>
 
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
 
                             </button>
 
+
                             <div class="faq-answer">
 
-                                <p>
-                                    Yes. We provide final year project
-                                    guidance across Web Development,
-                                    Data Science, AI/ML and related
-                                    domains, from ideation through
-                                    implementation.
-                                </p>
+                                <div class="faq-answer-inner">
+
+                                    Yes, we provide comprehensive
+                                    final year project guidance
+                                    across Web Development,
+                                    Data Science, AI/ML, and more.
+                                    We help you from ideation to
+                                    implementation, ensuring your
+                                    project demonstrates real skills.
+
+                                </div>
 
                             </div>
 
                         </div>
 
 
-                        <div class="faq-item">
+                        <!-- FAQ 04 -->
+
+                        <div class="faq-item reveal">
 
                             <button
                                 class="faq-question"
                                 type="button"
+                                aria-expanded="false"
                             >
 
                                 <span>
                                     What is the batch size for courses?
                                 </span>
 
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
 
                             </button>
 
+
                             <div class="faq-answer">
 
-                                <p>
-                                    We keep batches small to encourage
-                                    personalised attention, doubt
-                                    resolution and meaningful code
-                                    reviews.
-                                </p>
+                                <div class="faq-answer-inner">
+
+                                    We keep our batches small to
+                                    ensure personalised attention.
+                                    This allows every student to get
+                                    their doubts resolved and receive
+                                    meaningful code reviews from
+                                    instructors.
+
+                                </div>
 
                             </div>
 
                         </div>
 
 
-                        <div class="faq-item">
+                        <!-- FAQ 05 -->
+
+                        <div class="faq-item reveal">
 
                             <button
                                 class="faq-question"
                                 type="button"
+                                aria-expanded="false"
                             >
 
                                 <span>
                                     Will I get a certificate after completing a course?
                                 </span>
 
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
 
                             </button>
 
+
                             <div class="faq-answer">
 
-                                <p>
-                                    Yes. Students who successfully
-                                    complete a course receive a
+                                <div class="faq-answer-inner">
+
+                                    Yes, every student who successfully
+                                    completes a course receives a
                                     verifiable Certificate of Completion.
-                                </p>
+                                    You can add this to your resume and
+                                    LinkedIn profile to showcase your skills.
+
+                                </div>
 
                             </div>
 
                         </div>
 
 
-                        <div class="faq-item">
+                        <!-- FAQ 06 -->
+
+                        <div class="faq-item reveal">
 
                             <button
                                 class="faq-question"
                                 type="button"
+                                aria-expanded="false"
                             >
 
                                 <span>
                                     Do you offer interview preparation?
                                 </span>
 
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
 
                             </button>
 
+
                             <div class="faq-answer">
 
-                                <p>
-                                    Yes. Courses include interview
-                                    preparation, DSA practice,
-                                    resume guidance, mock interviews
-                                    and project presentation guidance.
-                                </p>
+                                <div class="faq-answer-inner">
+
+                                    Absolutely. Our courses include
+                                    mock interviews, DSA practice
+                                    sessions, resume building guidance,
+                                    and tips on how to present your
+                                    projects effectively — all designed
+                                    to make you interview-confident.
+
+                                </div>
 
                             </div>
 
                         </div>
 
 
-                        <div class="faq-item">
+                        <!-- FAQ 07 -->
+
+                        <div class="faq-item reveal">
 
                             <button
                                 class="faq-question"
                                 type="button"
+                                aria-expanded="false"
                             >
 
                                 <span>
                                     Can I access course materials after completion?
                                 </span>
 
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa-solid fa-chevron-down"></i>
 
                             </button>
 
+
                             <div class="faq-answer">
 
-                                <p>
-                                    Yes. Enrolled students receive
-                                    access to course materials,
-                                    recordings and learning resources
-                                    after course completion.
-                                </p>
+                                <div class="faq-answer-inner">
+
+                                    Yes, all enrolled students get
+                                    lifetime access to course materials,
+                                    recordings, and resources. You can
+                                    revisit and revise anytime, even
+                                    long after the course ends.
+
+                                </div>
 
                             </div>
 
                         </div>
+
 
                     </div>
 
@@ -2297,65 +2858,78 @@
         </section>
 
 
-        <!-- =====================================================
-             ABOUT / TEAM
-        ====================================================== -->
+        <!-- =================================================
+             ABOUT
+             ================================================= -->
 
-        <section class="about-section" id="about">
+        <section
+            class="section about-section"
+            id="about"
+        >
 
-            <div class="container">
+            <div class="section-container">
 
                 <div class="about-grid">
 
 
                     <div class="about-copy reveal">
 
-                        <div class="eyebrow">
-                            <span>09</span>
+                        <span class="section-kicker">
                             WHO WE ARE
-                        </div>
+                        </span>
 
                         <h2>
-                            Built by
-                            <br>
-                            <em>educators.</em>
-                            <br>
-                            For builders.
+                            Built by educators,
+                            <span>for builders.</span>
                         </h2>
 
-                        <p>
-                            Syntax Circuit empowers computer science
+
+                        <p class="about-text">
+
+                            Syntax Circuit empowers CS
                             students through industry-focused,
-                            hands-on learning.
-                        </p>
+                            hands-on learning. We bridge the gap
+                            between academia and the real world —
+                            no shortcuts, just real skill building.
 
-                        <p>
-                            We bridge the gap between academia and
-                            the real world — no shortcuts, just
-                            consistent skill building.
                         </p>
 
 
-                        <div class="about-values">
+                        <div class="about-pills">
 
-                            <span>
-                                <i class="fa-solid fa-check"></i>
+                            <span class="about-pill">
+
+                                <i class="fa-solid fa-check-circle"></i>
+
                                 Mentorship-first
+
                             </span>
 
-                            <span>
-                                <i class="fa-solid fa-check"></i>
+
+                            <span class="about-pill">
+
+                                <i class="fa-solid fa-check-circle"></i>
+
                                 Project-based
+
                             </span>
 
-                            <span>
-                                <i class="fa-solid fa-check"></i>
+
+                            <span class="about-pill">
+
+                                <i class="fa-solid fa-check-circle"></i>
+
                                 Industry-aligned
+
                             </span>
 
-                            <span>
-                                <i class="fa-solid fa-check"></i>
-                                Career readiness
+
+                            <span class="about-pill">
+
+                                <i class="fa-solid fa-check-circle"></i>
+
+                                Career Readiness
+
                             </span>
 
                         </div>
@@ -2363,25 +2937,31 @@
                     </div>
 
 
-                    <div class="team-area reveal">
+                    <!-- TEAM -->
+
+                    <div class="team-area">
 
 
-                        <article class="team-member">
+                        <!-- AKHIL -->
 
-                            <div class="team-image-wrap">
+                        <article
+                            class="team-member reveal"
+                        >
+
+                            <div class="team-image">
 
                                 <img
                                     src="mypic.png"
                                     alt="Akhil Jampala"
-                                    class="team-image"
                                     loading="lazy"
                                 >
 
-                                <span class="team-status">
-                                    <i class="fa-solid fa-star"></i>
+                                <span class="team-index">
+                                    01
                                 </span>
 
                             </div>
+
 
                             <div class="team-info">
 
@@ -2397,27 +2977,28 @@
                                     Lead Instructor
                                 </p>
 
+
                                 <div class="team-social">
 
                                     <a
                                         href="#"
                                         aria-label="LinkedIn"
                                     >
-                                        <i class="fa-brands fa-linkedin-in"></i>
+                                        <i class="fab fa-linkedin-in"></i>
                                     </a>
 
                                     <a
                                         href="#"
                                         aria-label="GitHub"
                                     >
-                                        <i class="fa-brands fa-github"></i>
+                                        <i class="fab fa-github"></i>
                                     </a>
 
                                     <a
                                         href="#"
                                         aria-label="Twitter"
                                     >
-                                        <i class="fa-brands fa-x-twitter"></i>
+                                        <i class="fab fa-twitter"></i>
                                     </a>
 
                                 </div>
@@ -2427,22 +3008,26 @@
                         </article>
 
 
-                        <article class="team-member team-member-offset">
+                        <!-- SURESH -->
 
-                            <div class="team-image-wrap">
+                        <article
+                            class="team-member reveal"
+                        >
+
+                            <div class="team-image">
 
                                 <img
                                     src="Suresh-pic.jpg"
                                     alt="Suresh Myathari"
-                                    class="team-image"
                                     loading="lazy"
                                 >
 
-                                <span class="team-status">
-                                    <i class="fa-solid fa-lightbulb"></i>
+                                <span class="team-index">
+                                    02
                                 </span>
 
                             </div>
+
 
                             <div class="team-info">
 
@@ -2458,27 +3043,28 @@
                                     Project Guide
                                 </p>
 
+
                                 <div class="team-social">
 
                                     <a
                                         href="#"
                                         aria-label="LinkedIn"
                                     >
-                                        <i class="fa-brands fa-linkedin-in"></i>
+                                        <i class="fab fa-linkedin-in"></i>
                                     </a>
 
                                     <a
                                         href="#"
                                         aria-label="GitHub"
                                     >
-                                        <i class="fa-brands fa-github"></i>
+                                        <i class="fab fa-github"></i>
                                     </a>
 
                                     <a
                                         href="#"
                                         aria-label="Twitter"
                                     >
-                                        <i class="fa-brands fa-x-twitter"></i>
+                                        <i class="fab fa-twitter"></i>
                                     </a>
 
                                 </div>
@@ -2497,82 +3083,26 @@
         </section>
 
 
-        <!-- =====================================================
-             CTA
-        ====================================================== -->
-
-        <section class="cta-section">
-
-            <div class="cta-grid"></div>
-
-            <div class="cta-glow"></div>
-
-            <div class="container">
-
-                <div class="cta-content reveal">
-
-                    <div class="eyebrow cta-eyebrow">
-                        READY TO START?
-                    </div>
-
-                    <h2>
-                        Build real skills.
-                        <br>
-                        <em>Start your tech journey.</em>
-                    </h2>
-
-                    <p>
-                        Join hundreds of students building
-                        stronger technical careers with
-                        Syntax Circuit.
-                    </p>
-
-                    <div class="cta-actions">
-
-                        <a
-                            href="courses.html"
-                            class="button button-white"
-                        >
-                            Get Started Today
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                        <a
-                            href="contact.html"
-                            class="cta-text-link"
-                        >
-                            Talk to an instructor
-                            <i class="fa-solid fa-arrow-up-right"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+        <!-- =================================================
              CONTACT
-        ====================================================== -->
+             ================================================= -->
 
-        <section class="contact-section section-light" id="contact">
+        <section
+            class="section contact-section"
+            id="contact"
+        >
 
-            <div class="container">
+            <div class="section-container">
 
-                <div class="section-heading centered reveal">
+                <div class="section-heading center reveal">
 
-                    <div class="eyebrow">
-                        <span>10</span>
+                    <span class="section-kicker">
                         GET IN TOUCH
-                    </div>
+                    </span>
 
                     <h2>
                         Let's talk about
-                        <br>
-                        <em>your goals.</em>
+                        <span>your goals.</span>
                     </h2>
 
                 </div>
@@ -2581,132 +3111,134 @@
                 <div class="contact-layout">
 
 
-                    <!-- Contact information -->
+                    <!-- SIDEBAR -->
 
-                    <div class="contact-info-panel reveal">
+                    <aside
+                        class="contact-sidebar reveal"
+                    >
 
-                        <div class="contact-panel-top">
+                        <div>
 
-                            <span>
-                                CONTACT / 01
-                            </span>
+                            <h3>
+                                We'd love to
+                                hear from you.
+                            </h3>
 
-                            <div class="contact-pulse">
-                                <span></span>
-                                AVAILABLE
-                            </div>
-
-                        </div>
-
-
-                        <h3>
-                            Have a question?
-                            <br>
-                            Let's build a path.
-                        </h3>
-
-                        <p>
-                            Reach out for course enquiries,
-                            project guidance, tuitions or
-                            anything related to computer science.
-                        </p>
+                            <p>
+                                Reach out for course enquiries,
+                                project guidance, or anything CS.
+                            </p>
 
 
-                        <div class="contact-details">
+                            <div class="contact-info-item">
 
-                            <a
-                                href="mailto:info@syntaxcircuit.in"
-                                class="contact-detail"
-                            >
+                                <div class="contact-detail-icon">
 
-                                <span class="detail-icon">
                                     <i class="fa-solid fa-envelope"></i>
-                                </span>
 
-                                <span>
+                                </div>
 
-                                    <small>
+                                <div>
+
+                                    <span>
                                         EMAIL
-                                    </small>
+                                    </span>
 
-                                    <strong>
+                                    <a
+                                        href="mailto:info@syntaxcircuit.in"
+                                    >
                                         info@syntaxcircuit.in
-                                    </strong>
+                                    </a>
 
-                                </span>
+                                </div>
 
-                            </a>
+                            </div>
 
 
-                            <a
-                                href="https://wa.me/916302204738"
-                                class="contact-detail"
-                                target="_blank"
-                                rel="noopener"
-                            >
+                            <div class="contact-info-item">
 
-                                <span class="detail-icon">
+                                <div class="contact-detail-icon">
+
                                     <i class="fa-brands fa-whatsapp"></i>
-                                </span>
 
-                                <span>
+                                </div>
 
-                                    <small>
+                                <div>
+
+                                    <span>
                                         WHATSAPP
-                                    </small>
+                                    </span>
 
-                                    <strong>
+                                    <a
+                                        href="https://wa.me/916302204738"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         +91 63022 04738
-                                    </strong>
+                                    </a>
 
-                                </span>
+                                </div>
 
-                            </a>
+                            </div>
 
                         </div>
 
 
-                        <div class="contact-panel-bottom">
+                        <div>
 
-                            <span>
-                                FOLLOW THE CIRCUIT
-                            </span>
+                            <p class="contact-follow">
+                                FOLLOW US
+                            </p>
 
-                            <div class="social-links">
 
-                                <a href="#" aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook-f"></i>
+                            <div class="contact-social">
+
+                                <a
+                                    href="#"
+                                    class="cs-btn"
+                                    aria-label="Facebook"
+                                >
+                                    <i class="fab fa-facebook-f"></i>
                                 </a>
 
-                                <a href="#" aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
+                                <a
+                                    href="#"
+                                    class="cs-btn"
+                                    aria-label="Instagram"
+                                >
+                                    <i class="fab fa-instagram"></i>
                                 </a>
 
-                                <a href="#" aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
+                                <a
+                                    href="#"
+                                    class="cs-btn"
+                                    aria-label="LinkedIn"
+                                >
+                                    <i class="fab fa-linkedin-in"></i>
                                 </a>
 
                             </div>
 
                         </div>
 
-                    </div>
+                    </aside>
 
 
-                    <!-- Contact form -->
+                    <!-- FORM -->
 
-                    <div class="contact-form-panel reveal">
+                    <div
+                        class="contact-form-panel reveal"
+                    >
 
                         <div class="form-heading">
 
                             <span>
-                                MESSAGE / 02
+                                SEND US A MESSAGE
                             </span>
 
-                            <h3>
-                                Tell us what
-                                you're working on.
-                            </h3>
+                            <span>
+                                SC / FORM
+                            </span>
 
                         </div>
 
@@ -2718,124 +3250,142 @@
 
                             <div class="form-row">
 
-                                <div class="form-field">
 
-                                    <label for="name">
-                                        YOUR NAME
+                                <div class="form-group">
+
+                                    <label
+                                        class="form-label"
+                                        for="name"
+                                    >
+                                        Your Name
                                     </label>
 
                                     <input
                                         type="text"
                                         id="name"
                                         name="name"
+                                        class="form-control"
                                         placeholder="Enter your name"
                                         autocomplete="name"
                                         required
                                     >
 
-                                    <span
-                                        class="field-error"
+                                    <div
+                                        class="form-error"
                                         id="nameError"
                                     >
-                                        Please enter your name.
-                                    </span>
+                                        Please enter your name
+                                    </div>
 
                                 </div>
 
 
-                                <div class="form-field">
+                                <div class="form-group">
 
-                                    <label for="phone">
-                                        WHATSAPP NUMBER
+                                    <label
+                                        class="form-label"
+                                        for="phone"
+                                    >
+                                        WhatsApp Number
                                     </label>
 
                                     <input
                                         type="tel"
                                         id="phone"
                                         name="phone"
-                                        placeholder="10-digit number"
-                                        inputmode="numeric"
+                                        class="form-control"
+                                        placeholder="Enter your number"
                                         autocomplete="tel"
-                                        maxlength="10"
+                                        pattern="[0-9]{10}"
                                         required
                                     >
 
-                                    <span
-                                        class="field-error"
+                                    <div
+                                        class="form-error"
                                         id="phoneError"
                                     >
-                                        Please enter a valid 10-digit number.
-                                    </span>
+                                        Please enter a valid
+                                        10-digit number
+                                    </div>
 
                                 </div>
 
                             </div>
 
 
-                            <div class="form-field">
+                            <div class="form-group">
 
-                                <label for="email">
-                                    EMAIL ADDRESS
+                                <label
+                                    class="form-label"
+                                    for="email"
+                                >
+                                    Email Address
                                 </label>
 
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
-                                    placeholder="you@example.com"
+                                    class="form-control"
+                                    placeholder="Enter your email"
                                     autocomplete="email"
                                     required
                                 >
 
-                                <span
-                                    class="field-error"
+                                <div
+                                    class="form-error"
                                     id="emailError"
                                 >
-                                    Please enter a valid email address.
-                                </span>
+                                    Please enter a valid
+                                    email address
+                                </div>
 
                             </div>
 
 
-                            <div class="form-field">
+                            <div class="form-group">
 
-                                <label for="message">
-                                    MESSAGE
+                                <label
+                                    class="form-label"
+                                    for="message"
+                                >
+                                    Message
                                 </label>
 
                                 <textarea
                                     id="message"
                                     name="message"
+                                    class="form-control"
                                     rows="5"
                                     placeholder="What would you like to learn?"
                                     required
                                 ></textarea>
 
-                                <span
-                                    class="field-error"
+                                <div
+                                    class="form-error"
                                     id="messageError"
                                 >
-                                    Please enter your message.
-                                </span>
+                                    Please enter your message
+                                </div>
 
                             </div>
 
 
                             <button
                                 type="submit"
-                                class="submit-button"
+                                class="button button-primary form-submit"
                                 id="submitBtn"
                             >
 
-                                <span class="submit-text">
+                                <span class="btn-text">
+
+                                    <i class="fa-solid fa-paper-plane"></i>
+
                                     Send Message
-                                    <i class="fa-solid fa-arrow-right"></i>
+
                                 </span>
 
-                                <span class="submit-loading">
-                                    <i class="fa-solid fa-circle-notch fa-spin"></i>
-                                    Processing...
-                                </span>
+                                <span class="spinner"></span>
 
                             </button>
 
@@ -2847,9 +3397,8 @@
 
                                 <i class="fa-solid fa-circle-check"></i>
 
-                                <span>
-                                    Opening your email application...
-                                </span>
+                                Opening your email app
+                                to send the message...
 
                             </div>
 
@@ -2866,170 +3415,198 @@
     </main>
 
 
-    <!-- =========================================================
+    <!-- =====================================================
          FOOTER
-    ========================================================== -->
+         ===================================================== -->
 
     <footer class="site-footer">
 
-        <div class="footer-top">
-
-            <div class="container">
-
-                <div class="footer-grid">
+        <div class="footer-container">
 
 
-                    <!-- Brand -->
-
-                    <div class="footer-brand-column">
-
-                        <a
-                            href="index.html"
-                            class="footer-brand"
-                        >
-
-                            <div class="brand-symbol">
-                                <span>&lt;</span>
-                                <span>/</span>
-                                <span>&gt;</span>
-                            </div>
-
-                            <div class="brand-name">
-                                <strong>SYNTAX</strong>
-                                <span>CIRCUIT</span>
-                            </div>
-
-                        </a>
+            <div class="footer-main">
 
 
-                        <p>
-                            Empowering computer science students
-                            through industry-focused learning,
-                            expert mentorship and real-world projects.
-                        </p>
+                <div class="footer-brand">
+
+                    <a
+                        href="index.html"
+                        class="brand"
+                    >
+
+                        <span class="brand-symbol">
+                            &lt;/&gt;
+                        </span>
+
+                        <span class="brand-name">
+                            SYNTAX<span>CIRCUIT</span>
+                        </span>
+
+                    </a>
 
 
-                        <div class="footer-status">
+                    <p class="footer-desc">
 
-                            <span></span>
+                        Empowering CS students through
+                        industry-focused learning,
+                        expert mentorship, and
+                        real-world projects.
 
-                            SYSTEM ONLINE
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Learn -->
-
-                    <div class="footer-column">
-
-                        <h4>
-                            LEARN
-                        </h4>
-
-                        <a href="courses.html">
-                            Courses
-                        </a>
-
-                        <a href="tuitions.html">
-                            Tuitions
-                        </a>
-
-                        <a href="notes.html">
-                            Notes
-                        </a>
-
-                        <a href="syllabus.html">
-                            Syllabus
-                        </a>
-
-                    </div>
-
-
-                    <!-- Explore -->
-
-                    <div class="footer-column">
-
-                        <h4>
-                            EXPLORE
-                        </h4>
-
-                        <a href="projects.html">
-                            Projects
-                        </a>
-
-                        <a href="about.html">
-                            About
-                        </a>
-
-                        <a href="verify.html">
-                            Verify
-                        </a>
-
-                        <a href="contact.html">
-                            Contact
-                        </a>
-
-                    </div>
-
-
-                    <!-- Contact -->
-
-                    <div class="footer-column footer-contact">
-
-                        <h4>
-                            CONNECT
-                        </h4>
-
-                        <a href="mailto:info@syntaxcircuit.in">
-                            info@syntaxcircuit.in
-                        </a>
-
-                        <a href="https://wa.me/916302204738">
-                            +91 63022 04738
-                        </a>
-
-                        <div class="footer-social">
-
-                            <a href="#" aria-label="Facebook">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-
-                            <a href="#" aria-label="Instagram">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-
-                            <a href="#" aria-label="LinkedIn">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
+                    </p>
 
                 </div>
 
+
+                <!-- LEARN -->
+
+                <div class="footer-column">
+
+                    <span>
+                        LEARN
+                    </span>
+
+                    <a href="courses.html">
+                        Courses
+                    </a>
+
+                    <a href="tuitions.html">
+                        Tuitions
+                    </a>
+
+                    <a href="notes.html">
+                        Notes
+                    </a>
+
+                    <a href="syllabus.html">
+                        Syllabus
+                    </a>
+
+                </div>
+
+
+                <!-- EXPLORE -->
+
+                <div class="footer-column">
+
+                    <span>
+                        EXPLORE
+                    </span>
+
+                    <a href="projects.html">
+                        Projects
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                    <a href="verify.html">
+                        Verify
+                    </a>
+
+                </div>
+
+
+                <!-- CONNECT -->
+
+                <div class="footer-column">
+
+                    <span>
+                        CONNECT
+                    </span>
+
+                    <a href="mailto:info@syntaxcircuit.in">
+                        Email Us
+                    </a>
+
+                    <a
+                        href="https://wa.me/916302204738"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        WhatsApp
+                    </a>
+
+                    <a href="netdec">
+                        UGC-NET(CS)
+                    </a>
+
+                </div>
+
+
+                <!-- STAY IN LOOP -->
+
+                <div class="footer-column footer-news">
+
+                    <span>
+                        STAY IN THE LOOP
+                    </span>
+
+                    <p>
+                        Get updates on new courses,
+                        batches, and learning resources.
+                    </p>
+
+                    <a
+                        href="mailto:info@syntaxcircuit.in"
+                        class="button button-primary"
+                    >
+                        <i class="fa-solid fa-envelope"></i>
+                        Email Us
+                    </a>
+
+                </div>
+
+
             </div>
 
-        </div>
+
+            <div class="footer-divider"></div>
 
 
-        <div class="footer-bottom">
-
-            <div class="container footer-bottom-inner">
+            <div class="footer-bottom">
 
                 <span>
-                    © 2026 Syntax Circuit. All Rights Reserved.
+                    © 2026 Syntax Circuit.
+                    All Rights Reserved.
                 </span>
 
-                <span class="footer-code">
-                    BUILT WITH &lt;CODE&gt; + CURIOSITY
-                </span>
 
-                <a href="#home">
-                    BACK TO TOP
-                    <i class="fa-solid fa-arrow-up"></i>
+                <div class="footer-socials">
+
+                    <a
+                        href="#"
+                        aria-label="Facebook"
+                    >
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                    >
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        aria-label="LinkedIn"
+                    >
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+
+
+                <a
+                    href="#home"
+                    class="footer-top-link"
+                >
+                    BACK TO TOP ↑
                 </a>
 
             </div>
@@ -3039,30 +3616,35 @@
     </footer>
 
 
-    <!-- =========================================================
-         FLOATING ACTIONS
-    ========================================================== -->
+    <!-- =====================================================
+         WHATSAPP FLOAT
+         ===================================================== -->
 
     <a
         href="https://wa.me/916302204738"
         class="whatsapp-button"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
+        title="Chat on WhatsApp"
         aria-label="Chat on WhatsApp"
     >
 
         <i class="fa-brands fa-whatsapp"></i>
 
         <span>
-            CHAT
+            WhatsApp
         </span>
 
     </a>
 
 
+    <!-- =====================================================
+         BACK TO TOP
+         ===================================================== -->
+
     <button
         class="back-top"
-        id="backTop"
+        id="backToTop"
         type="button"
         aria-label="Back to top"
     >
@@ -3072,9 +3654,9 @@
     </button>
 
 
-    <!-- =========================================================
+    <!-- =====================================================
          JAVASCRIPT
-    ========================================================== -->
+         ===================================================== -->
 
     <script src="script.js"></script>
 
